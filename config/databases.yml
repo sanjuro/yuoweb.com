@@ -5,22 +5,22 @@ prod:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=127.0.0.1;dbname=spark1
-      username: spark1
+      dsn:      mysql:host=127.0.0.1;dbname=yuoweb
+      username: yuoweb
       password: 1qa2ws3ed4rf
 
 dev:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=127.0.0.1;dbname=spark1
-      username: spark1
+      dsn:      mysql:host=127.0.0.1;dbname=yuoweb
+      username: yuoweb
       password: 1qa2ws3ed4rf
  
 test:   
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=127.0.0.1;dbname=sparktest
-      username: sparktest
+      dsn:      mysql:host=127.0.0.1;dbname=yuowebtest
+      username: yuowebtest
       password: 1qa2ws3ed4rf
