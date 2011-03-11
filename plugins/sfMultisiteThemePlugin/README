@@ -1,0 +1,93 @@
+# sfMultisiteTheme plugin (for symfony 1.2) #
+
+sfMultisiteThemePlugin allows a site owner to have one or more domains pointing to one Symfony project, but allows them to set up different layouts(themes) for each URL.  Allowing the same content on each site.  
+
+In addition a future release will allow themes to be tied to a user's profile so users can change the theme to one of many predefined themes.  This plugin does not, and will not allow users to create their own themes, and upload them.
+
+This plugin is designed to allow you to change the base layout file and adds additional css file to manipulate that layout.  It does not remove the main.css  Which should be used for common css among all themes.  It is recommended that in your web/css folder you create a default.css and add that to your apps/myapp/config/view.yml and use that for css required by apps/myapp/templates.layout.php
+
+This plugin will not be incorporating any outside theme engine such as smarty, but does nothing to prohibit their use.
+
+## Installation ##
+
+Install the plugin.
+
+    symfony plugin:install sfMultisiteThemePlugin --release=0.0.3
+
+Rebuild your database
+
+    symfony doctrine:build-all
+    
+In the sf_web_dir create a "themes" directory.  This is where the themes are stored.
+ 
+    web/themes
+
+Create your first theme directory, inside it create the layout.php and layout.css files
+
+    web/themes/my_site_theme/layout.php
+    web/themes/my_site_theme/layout.css
+
+The layout.php file is no different than the layout file in apps/myapp/templates/layout.php.  It follows the same rules, and it is recommended that you copy over the original layout.php file created when you created your app to use as a starting point for creating your theme.
+        
+Enable the admin pages so you can tell the system about the theme in your settings.yml file
+
+    enabled_modules: [default, sf_multisite_theme_profile, sf_multisite_theme_profile_host, sf_multisite_theme_theme_info ]
+        
+Because I have not yet wrapped my head around programmatically enabling the routes, you'll have to do it manually. Add these 3 routes to the routing.yml file of the application you have added the 3 moules too.
+
+    sf_multisite_theme_theme_info:
+      class: sfDoctrineRouteCollection
+      options:
+        model:               sfMultisiteThemeThemeInfo
+        module:              sf_multisite_theme_theme_info
+        prefix_path:         sf_multisite_theme_theme_info
+        column:              id
+        with_wildcard_routes: true
+
+    sf_multisite_theme_profile_host:
+      class: sfDoctrineRouteCollection
+      options:
+        model:               sfMultisiteThemeProfileHost
+        module:              sf_multisite_theme_profile_host
+        prefix_path:         sf_multisite_theme_profile_host
+        column:              id
+        with_wildcard_routes: true
+
+    sf_multisite_theme_profile:
+      class: sfDoctrineRouteCollection
+      options:
+        model:               sfMultisiteThemeProfile
+        module:              sf_multisite_theme_profile
+        prefix_path:         sf_multisite_theme_profile
+        column:              id
+        with_wildcard_routes: true
+
+These next 2 items are very important what they do is allow us to 1.  Figure out what site profile we are using, and 2 take control of the view and change the decorator directory
+
+In your application config directory edit the filters.yml where we will add a filter below the line that says. "# insert your own filters here".
+
+    sfMultisiteTheme:
+        class: sfMultisiteThemeFilter
+
+In your application config directory add a module.yml file if it does not already exist.  It's contents should look like this.  This defines the default view class, as the sfMultisiteTheme which inherits sfPHPView.
+
+    all:
+      view_class: sfMultisiteTheme    
+
+Clear the cache.
+    
+    symfony cc
+    
+Now using the admin screens notifiy the system of your theme, and site profile, it should be done in this order due to table dependancies.
+
+The theme name should match the directory for that theme  "my_site_theme" in this example.  Make sure it's enabled (though that functionality is not enabled, so it really doesn't matter yet, but you should get into the habit).
+
+    yoursite.com/sf_multisite_theme_theme_info
+    
+Now you need a site profile.  The site name can be anything you want.  It's just a human readable identifier for your convenience.  Tie your profile to the them.
+    
+    yoursite.com/sf_multisite_theme_profile
+    
+We put the host uri in a seperate table so you have have more than one URL pointing to the same profile (and therefore the same theme).
+        
+    yoursite.com/sf_multisite_theme_profile_host

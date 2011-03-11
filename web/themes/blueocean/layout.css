@@ -1,0 +1,127 @@
+/* Main Styles */
+
+body {
+	font-family: HelveticaNeue,Helvetica,Arial,serif;
+	margin: 0;
+	width: 100%;
+}
+
+h1 {
+    border-bottom: 1px solid #000;
+    color: #000;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+h3 {
+    background-color: #6699CC;
+    color: white;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+}
+fieldset {
+	border: none;
+	}
+p {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+a {
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+#main {
+	padding: 5px;
+	width: 99%;
+}
+
+#main h3 a {
+	color: #FFF;
+}
+#navigation {
+  padding: 0px 3px;
+}
+
+#footer {
+	background: #CCC;
+	height: 300px;
+	padding: 5px 3px;
+}
+#footer a {
+	color: #FFF;
+	font-size: 0.9em;
+	padding: 5px;
+}
+
+.navigationright {
+	float: right;
+}
+
+ul#topmenunavigation li {
+	display: inline;
+}
+ul#topmenunavigation li a, .navigationright a {
+	color: black;
+}
+
+ul#topmenunavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#topmenunavigation li, .navigationright a {
+	display: inline;
+	font-size: 0.9em;
+}
+ul#footernavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#footernavigation li {
+	display: inline;
+	font-size: 1em;
+}
+
+
+.datatable tr{
+}
+
+
+/* Form Styles */
+
+form {
+    font-size: 12px;
+}
+
+label {
+	font-size: 1em;
+    font-weight: bold;
+    padding-right: 10px;
+    width: 10%;
+}
+
+fieldset.formContainer {
+	border: none;
+}
+
+input.validated {
+
+}
+
+.formContainer h4 {
+    color: #999999;
+    font-family: Georgia,Times New Roman,serif;
+    font-style: oblique;
+    margin: 0 0 20px 180px;
+}
+.signinRow {
+    display: block;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,13 @@
+NetworkCategory:
+  networkcategory_music:
+    title: Music
+  networkcategory_dating:
+    title: Dating
+  networkcategory_places:
+    title: Places
+  networkcategory_sport:
+    title: Sport
+  networkcategory_onlinestore:
+    title: Online Store
+  networkcategory_groupbuying:
+    title: Group Buying

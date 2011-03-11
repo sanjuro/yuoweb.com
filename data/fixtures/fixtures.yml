@@ -1,0 +1,59 @@
+# # Populate this file with data to be loaded by your ORM's *:data-load task.
+# # You can create multiple files in this directory (i.e. 010_users.yml,
+# # 020_articles.yml, etc) which will be loaded in alphabetical order.
+# # 
+# # See documentation for your ORM's *:data-load task for more information.
+# 
+sfGuardUser:
+   user_sanjuro:
+     username: sanjuro
+     first_name: shadley
+     last_name: wentzel
+     password: rad6hia
+     is_super_admin: true 
+     email_address:   shad6ster@gmail.com
+     
+   user_faizel:
+     username: faizel
+     first_name: faizel
+     last_name: farat
+     password: rad6hia
+     is_super_admin: true 
+     email_address:   faizel@gmail.com
+     
+   user_raymond:
+     username: raymond
+     first_name: raymond
+     last_name: ackerman
+     password: rad6hia
+     email_address:   raymond@gmail.com
+     
+   user_salie:
+     username: salie
+     first_name: salie
+     last_name: moosa
+     password: rad6hia
+     email_address:   salie@gmail.com
+     
+   user_durrie:
+     username: durrie
+     first_name: durrie
+     last_name: moosa
+     password: rad6hia
+     email_address:   durrie@gmail.com
+     
+sfGuardGroup:
+  group_admin:
+     name:           admin
+     description:    The main admin group for Spark
+  group_client:
+     name:           client
+     description:    The main client group for Spark    
+     
+sfGuardUserGroup:
+  usergroup_sanjuro:
+      user_id:            1
+      group_id:           1
+  usergroup_raymond:
+      user_id:            2
+      group_id:           2

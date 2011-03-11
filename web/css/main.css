@@ -1,0 +1,40 @@
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+fieldset {
+	border: none;
+	}
+p {
+	font-size: 0.9em;
+	padding: 5px;
+	margin: 2px;
+}
+a {
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+ul#topmenunavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#topmenunavigation li {
+	display: inline;
+	font-size: 14px;
+}
+ul#footernavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#footernavigation li {
+	display: inline;
+	font-size: 14px;
+}
+#main {
+	padding: 5px;
+	width: 100%;
+}

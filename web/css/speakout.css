@@ -1,0 +1,23 @@
+ul#speakoutnavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#speakoutnavigation li, .speakoutnavigation {
+	display: inline;
+	font-size: 14px;
+}
+
+li.topiclist {
+	list-style: none;
+}
+.categorydescription {
+	font-size: 0.8em;
+}
+li.topiclist{
+	font-size: 0.75em;
+}
+.replylistitem {
+	background-color: #F0F0F0;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}

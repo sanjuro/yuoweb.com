@@ -1,0 +1,5 @@
+<?php use_stylesheet('message.css') ?>
+<?php slot( 'title', $network->getTitle().' - Friends' )?>
+<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Friends</h1>' )?>
+	<h3>Friends: Showing <?php echo $friend->getsfGuardUser()->getFullname() ?></h3>  	<p>		Name: <?php echo $user->getFullname() ?>		<br>		Username: <?php echo $user->getUsername() ?>		<br>		Telephone: <?php echo $user->getUsername() ?>		<br>		Email: <?php echo $user->getEmailAddress() ?>	</p>	<p>		<?php echo $userprofile[0]['description'] ?>	</p>	<p>	Profile Pic		<br>		<img src="http://<?php echo $_SERVER['SERVER_NAME'] ?><?php echo $sf_request->getRelativeUrlRoot() ?>/uploads/profilepics/270x270/<?php echo $userprofile[0]->profile_pic ?>">	</p>	
+	<h3>Friends:Photos</h3>  	<p>		<?php include_partial('photo/photos', array( 'photos' => $photos, 'network' => $network ))?>	</p>

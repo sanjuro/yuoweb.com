@@ -1,0 +1,27 @@
+sfMultisiteThemeProfile:
+    actAs: [Timestampable]
+    columns:
+        site_name:                              { type: string(255), notnull: true, unique: true }
+        sf_multisite_theme_theme_info_id:       { type: integer, notnull: true, default: 0 }
+    relations:
+        sfMultisiteThemeThemeInfo:
+            local:                              sf_multisite_theme_theme_info_id
+            foreign:                            id
+            foreignAlias:                       sfMultisiteThemeThemeInfos
+
+sfMultisiteThemeProfileHost:
+    actAs: [Timestampable]
+    columns:
+        sf_multisite_theme_profile_id:          { type: integer, notnull: true }   
+        host_uri:                               { type: string(255), notnull: true: unique: true }
+    relations:
+        sfMultisiteThemeProfile:
+            local:                              sf_multisite_theme_profile_id
+            foreign:                            id
+            foreignAlias:                       sfMultisiteThemeProfileHosts
+            
+sfMultisiteThemeThemeInfo:
+    actAs: [Timestampable]
+    columns:
+        theme_name:                             { type: string(255), notnull: true: unique: true }
+        theme_enabled:                          { type: boolean, default: false }    

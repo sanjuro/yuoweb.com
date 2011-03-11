@@ -1,0 +1,51 @@
+form {
+    font-size: 12px;
+}
+
+label {
+	font-size: 0.8em;
+    font-weight: bold;
+    line-height: 30px;
+    padding-right: 10px;
+    width: 160px;
+}
+table.signin label{
+    color: #888888;
+    clear:both;
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+    padding-bottom: 6px;
+    text-align: left;
+}
+fieldset.formContainer {
+	border: none;
+	padding: 20px;
+}
+input#signinbutton  {
+	background: url("/images/signin_button.png") no-repeat;
+	border: none;	
+	padding: 55px 125px;
+}
+
+table.signin input {
+    border: 1px solid #B2B2B2;
+    border-left: 5px solid #CCCCCC;
+	font-size: 0.8em;
+    height: 20px;
+    padding: 3px;
+}
+input.validated {
+
+}
+
+.formContainer h4 {
+    color: #999999;
+    font-family: Georgia,Times New Roman,serif;
+    font-style: oblique;
+    margin: 0 0 20px 180px;
+}
+ .signinRow {
+    display: block;
+    margin-bottom: 15px;
+}

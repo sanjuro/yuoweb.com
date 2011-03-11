@@ -1,0 +1,26 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        yUoweb - you are the network
+    description:  Mobile Social Network platform
+    keywords:     yUoweb, mobile, social network
+    language:     en
+    robots:       index, follow
+
+  stylesheets:    []
+
+  javascripts:    []
+
+  has_layout:     true
+  layout:         layout
+  
+  components:
+    navigation:  [navigation, default]
+    advert1:     [advert, default]
+    advert2:     [advert, default]
+    footer:      [footer, default]

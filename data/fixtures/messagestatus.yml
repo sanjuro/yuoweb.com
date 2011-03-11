@@ -1,0 +1,5 @@
+MessageStatus:
+  messagestatus_unread:
+    title:  unread
+  messagestatus_read:
+    title:  read

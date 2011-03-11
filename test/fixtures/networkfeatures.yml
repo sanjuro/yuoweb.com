@@ -1,0 +1,35 @@
+NetworkFeature:
+  friends_picnpay:
+    id:           1
+    Feature:      friends_feature
+    Network:      picnpay_network
+    active:       1
+    position:     10
+    
+  photos_picnpay:
+    id:           2
+    Feature:      photss_feature
+    Network:      picnpay_network
+    active:       1
+    position:     20
+    
+  messages_picnpay:
+    id:           3
+    Feature:      messages_feature
+    Network:      picnpay_network
+    active:       1
+    position:     30
+    
+  photos_picnpay:
+    id:           4
+    Feature:      photos_feature
+    Network:      picnpay_network
+    active:       2
+    position:     40
+    
+  speakout_picnpay:
+    id:           5
+    Feature:      speakout_feature
+    Network:      picnpay_network
+    active:       2
+    position:     50

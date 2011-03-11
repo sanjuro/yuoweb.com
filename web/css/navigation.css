@@ -1,0 +1,44 @@
+ul#backendnavigation li {
+    color: #FFF;
+    float: left;
+    list-style: none;
+}
+ul#backendnavigation li a{
+    color: #FFF
+    font-weight: bold;
+    font: 0px "Lucida Grande","Lucida Sans Unicode",sans-serif;
+    
+}
+li a.dashboard {
+	background: url("/images/backend/dashboardlink_bg.png") no-repeat scroll 0 0 transparent;
+	padding: 16px 118px;
+    cursor: pointer;
+}
+li a.dashboard:hover {
+	background: url("/images/backend/dashboardlink_bg.png") no-repeat scroll 0 -32px transparent;
+}
+
+li a.network {
+	background: url("/images/backend/networklink_bg.png") no-repeat scroll 0 0 transparent;
+	padding: 16px 98px;
+    cursor: pointer;
+}
+li a.network:hover {
+	background: url("/images/backend/networklink_bg.png") no-repeat scroll 0 -32px transparent;
+}
+li a.users {
+	background: url("/images/backend/userlink_bg.png") no-repeat scroll 0 0 transparent;
+	padding: 16px 53px;
+    cursor: pointer;
+}
+li a.users:hover {
+	background: url("/images/backend/userlink_bg.png") no-repeat scroll 0 -32px transparent;
+}
+li a.logout {
+	background: url("/images/backend/logoutlink_bg.png") no-repeat scroll 0 0 transparent;
+	padding: 16px 75px;
+    cursor: pointer;
+}
+li a.logout:hover  {
+	background: url("/images/backend/logoutlink_bg.png") no-repeat scroll 0 -32px transparent;
+}

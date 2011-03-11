@@ -1,0 +1,29 @@
+Network:
+  picnpay_network:
+    Client:       picnpay_client
+    NetworkType:  networktype_free
+    NetworkCategory: networkcategory_groupbuying
+    subdomain:    picnpay
+    title:        Pic N Pay Group Buying
+    description:  This is the Pic N Pay Group buying network used to send deals to all is users
+    feature_count: 4
+    user_count:    2
+    is_public:    true
+    is_activated: true
+    slug:         picnpay_network
+    expires_at:   '2012-09-10'
+    created_at:   '2010-09-10'
+  ninemiles_network:
+    Client:          ninemiles_client
+    NetworkType:     networktype_free
+    NetworkCategory: networkcategory_sport
+    subdomain:       ninemiles
+    title:           Nine Miles Surf
+    description:     This the Nine miles surfing community
+    feature_count:   0
+    user_count:      1
+    is_public:    true
+    is_activated: true
+    slug:         ninemiles_network
+    expires_at:   '2012-09-10'
+    created_at:   '2010-09-10'

@@ -1,0 +1,122 @@
+body {
+	background: none repeat scroll 0 0 #EEF2E4;
+    color: #212121;
+    font-family: Arial,Verdana,Tahoma;
+    font-size: 13px;
+	margin: 0;
+	padding: 0;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:visited {
+	color: #000;
+}
+h1 {
+    color: #FFFFFF;
+    float: left;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: normal;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    position: relative;
+    text-shadow: 1px 1px 1px #af6618;
+    z-index: 10001;
+}
+h1.login {
+    margin-bottom: 20px;
+}
+
+#banner h1 {
+	font-weight: bold;
+    line-height: 49px;
+    margin-top: 3px;
+}
+h3 {
+	margin: 10px 0px !important;
+}
+
+#header-wrap {
+ 	background: url("/images/backend/header_bg.png") repeat-x #EFEFEF;
+    color: #000;
+    font-size: 16px;
+    font-style: itallic;
+    height: 54px;
+}
+#banner-wrap {
+    background: url("/images/backend/banner_bg.png") repeat-x #E68318;
+    border-bottom: 1px solid #d27715;
+    border-top: 1px solid #f38b1b;
+    height: 50px;
+    padding: 10px;
+}
+#banner-wrap.login {
+    padding: 0px 0 60px;
+}
+
+#content-wrap {
+    clear: both;
+    margin-bottom: 50px ;
+	padding-bototm: 20px;
+    width: 100%;
+}
+#content-wrap.login {
+    margin-top: -60px;
+}
+#header {
+    margin: 0 auto;
+
+}
+
+#content {
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid transparent;
+	padding: 30px 30px;
+}
+
+#left {
+	width: 45%;
+}
+#right {
+	width: 45%;
+}
+div#footer {
+    background:  #F0F0F0;
+    border: 1px solid #D5D5D5;
+    color: #666666;
+    font-size: 11.5px;
+    height: 100px;
+    margin-top:20px;
+}
+.wrapper {
+    display: block;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+
+#network_context {
+	float: left;
+	font-size: 14px;
+}
+
+.clearer {
+	clear: both;
+}
+.column {
+	float: left;
+}
+
+.flash_notice {
+	background: #c3f1be url("/images/backend/success.png") no-repeat;
+	border: 1px solid lime;
+	padding: 3px 2px 3px 20px;
+}
+

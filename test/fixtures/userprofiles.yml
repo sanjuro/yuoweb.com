@@ -1,0 +1,17 @@
+UserProfile:
+ userprofile_raymond:
+     mobile_no:   0833098314
+     description: Loves small bunnies
+     profile_pic: salie.png
+     gender_id:   1
+     city:        Cape Town
+     country:     South Africa
+     sfGuardUser: user_raymond
+ userprofile_salie:
+     mobile_no:   0833098314
+     description: Loves small bunnies
+     profile_pic: salie.png
+     gender_id:   1
+     city:        Cape Town
+     country:     South Africa 
+     sfGuardUser: user_salie

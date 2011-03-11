@@ -1,0 +1,223 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:        /
+  class:      acNetworkObjectRoute
+  options:
+    model:    Network
+    type:     object
+  params:
+    module:   network
+    action:   index
+    
+# generic rules
+# please, remove them by adding more specific rules
+
+sf_multisite_theme_theme_info:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               sfMultisiteThemeThemeInfo
+    module:              sf_multisite_theme_theme_info
+    prefix_path:         sf_multisite_theme_theme_info
+    column:              id
+    with_wildcard_routes: true
+
+sf_multisite_theme_profile_host:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               sfMultisiteThemeProfileHost
+    module:              sf_multisite_theme_profile_host
+    prefix_path:         sf_multisite_theme_profile_host
+    column:              id
+    with_wildcard_routes: true
+
+sf_multisite_theme_profile:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               sfMultisiteThemeProfile
+    module:              sf_multisite_theme_profile
+    prefix_path:         sf_multisite_theme_profile
+    column:              id
+    with_wildcard_routes: true
+  
+#network  
+network_signin: 
+  url:   /Sign-In/
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param:   { module: sfGuardAuth, action: signin }
+  requirements:
+     sf_method: [get, post]
+     
+     
+network_home:
+  url:        /:slug
+  class:      acNetworkObjectRoute
+  options:
+    model:    Network
+    type:     object
+  params:
+    module:   network
+    action:   index
+        
+#user
+user_viewprofile:
+  url:   /View-Profile/:username
+  class:   acNetworkObjectRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: user, action: viewprofile }
+  requirements:
+     sf_method: [get, post]
+     
+user_viewprofile_redirect:
+  url:   /View-Profile-Success/:username
+  param: { module: user, action: viewprofileredirect }
+     
+user_showallusers:
+  url:   /Show-All-Users/:slug
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param:   { module: user, action: showallusers }
+  requirements:
+     sf_method: [get, post]
+     
+user_join:
+  url:        /Join/:slug
+  class:      acNetworkObjectRoute
+  options:    { model: Network, type: object }
+  params:     { module: user, action: join}    
+  requirements:
+     sf_method: [get, post]
+     
+#friends
+networkuser_index:
+  url:   /Friends/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param:   { module: friend, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+friend_showallfriends:
+  url:   /Show-All-Friends/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param:   { module: friend, action: showallfriends }
+  requirements:
+     sf_method: [get, post]
+     
+friend_showfriend:
+  url:   /Show-Friend/
+  param:   { module: friend, action: showfriend }
+     
+friend_addfriendrequest:
+  url:   /Friend-Request/
+  param:   { module: friend, action: addfriendrequest }
+  
+friend_blockfriend:
+  url:   /Friend-Block/
+  param:   { module: friend, action: blockfriend }
+     
+friend_searchfriend:
+  url:   /Search-For-Friends/:slug
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param:   { module: friend, action: searchfriend }
+  requirements:
+     sf_method: [get, post]
+     
+#messages
+message_index:
+  url:   /Messages/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: message, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+message_showinbox:
+  url:   /Show-Inbox/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: message, action: showinbox }
+  requirements:
+     sf_method: [get, post]
+     
+message_showmessage:
+  url:   /Show-Message/:message_id
+  class:   acNetworkObjectRoute
+  options: { model: MessageReciever, type: object }
+  param: { module: message, action: showmessage }
+  requirements:
+     sf_method: [get, post]
+     
+message_addmessage:
+  url:   /New-Message/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: message, action: addmessage }
+  requirements:
+     sf_method: [get, post]
+     
+message_replymessage:
+  url:   /Reply-To-Message/:message_id
+  class:   sfDoctrineRoute
+  options: { model: MessageReciever, type: object }
+  param: { module: message, action: replymessage }
+  requirements:
+     sf_method: [get, post]
+     
+#photo:
+photo_index:
+  url:   /Photos/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: photo, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+photo_showphoto:
+  url:   /Show-Photo/
+  param:   { module: photo, action: showphoto }
+  requirements:
+     sf_method: [get, post]
+     
+photo_addphoto:
+  url:   /Upload-Photo/
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: photo, action: addphoto }
+  requirements:
+     sf_method: [get, post]
+     
+     
+speakout:
+speakout_index:
+  url:   /Speakout/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: speakout, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+speakout_addtopic:
+  url:   /Add-Topic/
+  param:   { module: speakout, action: addtopic }
+  requirements:
+     sf_method: [get, post]
+     
+speakout_showtopic:
+  url:   /Show-Topic/:topic
+  param: { module: speakout, action: showtopic }
+  requirements:
+     sf_method: [get, post]
+     
+speakout_addreply:
+  url:   /Reply-To-/:title
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: speakout, action: addreply }
+  requirements:
+     sf_method: [get, post]

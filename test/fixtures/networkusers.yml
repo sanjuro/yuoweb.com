@@ -1,0 +1,16 @@
+Networkuser:
+  networkuser_raymond:
+    sfGuardUser: user_raymond
+    Network:     picnpay_network
+    is_private:  false
+    
+  networkuser_salie:
+    sfGuardUser: user_salie
+    Network:     picnpay_network
+    is_private:  false
+    
+  networkuser_durrie:
+    sfGuardUser: user_durrie
+    Network:     ninemiles_network
+    is_private:  false
+    

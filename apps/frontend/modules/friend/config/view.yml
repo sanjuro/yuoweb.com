@@ -1,0 +1,6 @@
+default: 
+  components:
+    navigation:  [navigation, friends]
+    advert1:     [advert, default]
+    advert2:     [advert, default]
+    footer:      [footer, default]

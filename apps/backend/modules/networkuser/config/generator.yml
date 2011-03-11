@@ -1,0 +1,25 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           NetworkUser
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          network_user
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:         '<h2>Users on your Networks</h2>'
+        display:       [Network, sfGuardUser, is_private]        
+      filter:  
+        class: false
+      form:    ~
+      edit: 
+        title: '<h3>Editing User</h3>'
+      new:     ~

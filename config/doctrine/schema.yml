@@ -1,0 +1,289 @@
+Advert:
+  actAs: 
+    Timestampable: ~ 
+    Searchable:
+       fields: [title, description]  
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    title:                  { type: string(200) }
+    description:            { type: string(200) }
+    url:                    { type: string(200) }
+    image_path:             { type: string(200) }
+
+AdvertNetwork:
+  actAs: 
+    Timestampable: ~ 
+  columns:
+    id:               { type: integer, primary: true, autoincrement: true }
+    advert_id:        { type: integer }
+    network_id:       { type: integer }
+    click_count:      { type: integer, notnull: true, default: 2 }
+    position:         { type: integer }
+    is_active:        { type: boolean, notnull: true, default: 0 }
+  relations:
+    Network:  { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
+    Advert:   { class: Advert, onDelete: CASCADE, local: advert_id, foreign: id }
+    
+Client:
+  actAs: { Timestampable: ~ }
+  columns:
+    user_id:       { type: integer, notnull: true }
+    fullname:      { type: string(255), notnull: true }
+    logo:          { type: string(255) }
+    url:           { type: string(255) }
+    email:         { type: string(255) } 
+    description:   { type: string(255), notnull: true }
+    token:         { type: string(255), notnull: true, unique: true }
+    is_activated:  { type: boolean, notnull: true, default: 0 }
+  relations:
+    sfGuardUser:   { local: user_id, foreign: id }
+    
+Connection:
+  columns:
+    id:               { type: integer, primary: true, autoincrement: true }
+    owner_id:         { type: integer }
+    reciever_id:      { type: integer }
+    type_id:          { type: integer }
+    state_id:         { type: integer }
+  relations:
+    ConnectionType:    { class: ConnectionType, local: type_id, foreign: id }
+    ConnectionState:   { class: ConnectionState, local: state_id, foreign: id }
+    Owner:             { class: NetworkUser, onDelete: CASCADE, local: owner_id, foreign: id }
+    Reciever:          { class: NetworkUser, onDelete: CASCADE, local: reciever_id, foreign: id }
+    
+ConnectionType: 
+  columns:
+    title:       { type: string(255), notnull: true }
+    
+ConnectionState: 
+  columns:
+    title:       { type: string(255), notnull: true }  
+    
+Feature:
+  actAs: { Timestampable: ~ }
+  columns:
+    title:         { type: string(255), notnull: true }
+    description:   { type: string(400), notnull: true }
+    url:           { type: string(100), notnull: true }
+    
+Network:
+  actAs: 
+    Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [title]
+      canUpdate: true
+    CountCache:
+      relations:
+        Client:
+          columnName: network_count
+          foreignAlias: Networks
+  columns:
+    client_id:           { type: integer, notnull: true }
+    networktype_id:      { type: integer, notnull: true }
+    networkcategory_id:  { type: integer, notnull: true }
+    subdomain:           { type: string(255), notnull: true }
+    title:               { type: string(255), notnull: true }
+    description:         { type: string(4000), notnull: true }
+    feature_count:       { type: integer, default: 3 } 
+    user_count:          { type: integer, default: 0 } 
+    logo:                { type: string(255) }
+    accesskey:           { type: string(255), default: 0 }
+    is_public:           { type: boolean, notnull: true, default: 1 }
+    is_activated:        { type: boolean, notnull: true, default: 0 }
+    expires_at:          { type: timestamp, notnull: true }
+  relations:
+    Client:          { class: Client, local: client_id, foreign: id, onDelete: CASCADE, foreignAlias: Networks } 
+    NetworkType:     { class: NetworkType, local: networktype_id, foreign: id }
+    NetworkCategory: { class: NetworkCategory, local: networkcategory_id, foreign: id }
+  indexes:
+    subdomain_index:
+      fields:   [subdomain]
+      type:     unique
+    slug_index:
+      fields:   [slug, id]
+      type:     unique
+      
+NetworkCategory:
+  columns:
+    title:       { type: string(255), notnull: true }
+    
+NetworkType:
+  columns:
+    title:       { type: string(255), notnull: true }
+    
+NetworkFeature:
+  columns:
+    id:          { type: integer, primary: true, autoincrement: true }
+    network_id:  { type: integer }
+    feature_id:  { type: integer }
+    active:      { type: integer, notnull: true, default: 2 }
+    position:    { type: integer, notnull: true }
+  relations:
+    Network:  { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
+    Feature:  { class: Feature, onDelete: CASCADE, local: feature_id, foreign: id }
+    
+NetworkUser:
+  columns:
+    id:           { type: integer, primary: true, autoincrement: true }
+    network_id:   { type: integer }
+    user_id:      { type: integer }
+    is_private:   { type: boolean, notnull: true, default: 1 }
+  relations:
+    Network:     { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
+    sfGuardUser: { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id }
+    
+UserProfile:
+  actAs:
+    Searchable:
+       fields: [sfuser_id, mobile_no]
+  columns:
+    id:               { type: integer, primary: true, autoincrement: true }
+    sfuser_id:        { type: integer }
+    mobile_no:        { type: string(255) }
+    description:      { type: string(255) }
+    profile_pic:      { type: string(255) }
+    gender_id:        { type: integer }
+    city:             { type: string(255) }
+    country:          { type: string(255) }
+    birthday:         { type: timestamp, notnull: true }
+  relations:
+    sfGuardUser:      { class: sfGuardUser, onDelete: CASCADE, local: sfuser_id, foreign: id }
+    Gender:           { class: Gender, local: gender_id, foreign: id }
+    
+Gender:
+  columns:
+    title:            { type: string(255), notnull: true }
+    
+    
+    
+Message:
+  actAs: { Timestampable: ~ }
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    subject:                { type: string(100) }
+    body:                   { type: string(255) }
+    htmlbody:               { type: string(255) }  
+    networkuser_id:         { type: integer }
+    network_id:             { type: integer }
+  relations:
+    NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }
+    Network:             { class: Network, local: network_id, foreign: id }
+    
+MessageReciever:
+  actAs: { Timestampable: ~ }
+  columns:
+    id:           { type: integer, primary: true, autoincrement: true }
+    message_id:   { type: integer }
+    networkuser_id:      { type: integer } 
+    messagestatus_id:    { type: integer }
+  relations:
+    NetworkUser:      { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
+    Message:          { class: Message, onDelete: CASCADE, local: message_id, foreign: id }
+    MessageStatus:    { class: MessageStatus, local: messagestatus_id, foreign: id } 
+  options:
+    type: MyISAM
+    
+MessageStatus:
+  columns:
+    title:         { type: string(255), notnull: true }
+    
+    
+Photo:
+  actAs: 
+   Timestampable: ~ 
+   Commentable: ~
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    url:                    { type: string(100) }
+    networkuser_id:         { type: integer }
+  relations:
+    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
+    
+#PhotoComment:
+# actAs: { Timestampable: ~ }
+# columns:
+#    id:                     { type: integer, primary: true, autoincrement: true }
+#    body:                   { type: string(255) }
+#    htmlbody:               { type: string(255) }  
+#    networkuser_id:         { type: integer }
+#    photolink_id:           { type: integer }
+# relations:
+#    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
+#    PhotoLink:              { class: PhotoLink, local: photolink_id, foreign: id  }
+    
+PhotoLink:
+ columns:
+    id:                  { type: integer, primary: true, autoincrement: true }
+    photo_id:            { type: integer }
+    gallery_id:          { type: integer }
+ relations:
+    Photo:               { class: Photo, local: photo_id, foreign: id  }
+    PhotoGallery:        { class: PhotoGallery, local: gallery_id, foreign: id  }
+
+PhotoGallery:
+  actAs: { Timestampable: ~ }
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    title:                  { type: string(200) }
+    networkuser_id:         { type: integer }
+    photo_count:            { type: integer, default: 0 } 
+  relations:
+    NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }
+    
+PhotoView:
+  columns:
+    id:          { type: integer, primary: true, autoincrement: true }
+    network_id:  { type: integer }
+    photo_id:    { type: integer }
+    has_viewed:      { type: integer, notnull: true, default: 2 }
+  relations:
+    Network:  { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
+    Photo:    { class: Feature, onDelete: CASCADE, local: photo_id, foreign: id }
+       
+    
+    
+SpeakoutCategory:
+  actAs: 
+    Timestampable: ~ 
+    Searchable:
+       fields: [title, description]
+    SoftDelete: ~
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    title:                  { type: string(200) }
+    description:            { type: string(200) }
+    network_id:             { type: integer }
+    topic_count:            { type: integer, default: 0 } 
+  relations:
+    Network:  { class: Network, local: network_id, foreign: id }
+    
+SpeakoutReply:
+  actAs: 
+    Timestampable: ~ 
+    SoftDelete: ~
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    body:                   { type: string(255) }
+    htmlbody:               { type: string(255) }  
+    topic_id:               { type: integer }
+    networkuser_id:         { type: integer }
+  relations:
+    SpeakoutTopic:  { class: SpeakoutTopic, onDelete: CASCADE, local: topic_id, foreign: id }
+    NetworkUser:   { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
+    
+SpeakoutTopic:
+  actAs: 
+    Timestampable: ~ 
+    Searchable:
+       fields: [title, description]
+    SoftDelete: ~
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    title:                  { type: string(200) }
+    description:            { type: string(200) }
+    category_id:            { type: integer }
+    networkuser_id:         { type: integer }
+  relations:
+    SpeakoutCategory:  { class: SpeakoutCategory, onDelete: CASCADE, local: category_id, foreign: id }
+    NetworkUser:       { class: NetworkUser, local: networkuser_id, foreign: id }

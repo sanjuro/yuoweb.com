@@ -1,0 +1,200 @@
+#adverts
+advert:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Advert
+    module:               advert
+    prefix_path:          /advert
+    column:               id
+    with_wildcard_routes: true
+
+#netowrkusers
+network_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                NetworkUser
+    module:               networkuser
+    prefix_path:          /networkuser
+    column:               id
+    with_wildcard_routes: true
+
+#message
+message_index: 
+  url:   /Messages/
+  param: { module: message, action: index }
+  
+message:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Message
+    module:               message
+    prefix_path:          /message
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+  
+#network
+networks:
+  url:   /Show-Networks/
+  param: { module: dashboard, action: index }
+
+network:
+  class:   sfDoctrineRouteCollection
+  options: { model: Network }
+  
+network_add:
+  url:     /Add-Network/
+  class:   sfDoctrineRoute
+  options: { model: Client, type: object }
+  param:   { module: network, action: add }
+  requirements:
+    sf_method: [post, get]
+    
+network_show:
+  url:     /Show-Network/:title
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param:   { module: network, action: show }
+  requirements:
+    sf_method: [post,get]
+    
+network_show_users:
+  url:     /Show-Users-For/title/:title
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param:   { module: user, action: show }
+  requirements:
+    sf_method: [get]
+      
+network_change:
+  url:     /Change-Network/
+  param:   { module: network, action: change}
+  requirements:
+    sf_method: [post]
+    
+#report:
+reports: 
+  url:   /Reports/
+  param: { module: report, action: index }
+   
+#feature
+feature_layout:
+  url:     /Show-Features-For/title/:title
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param:   { module: feature, action: layout }
+  requirements:
+    sf_method: [get]
+    
+feature_additem: 
+  url:   /Add-Feature-To-Networks/
+  param: { module: feature, action: additem }
+  
+feature_reorder: 
+  url:   /Reorder-Feature/
+  param: { module: feature, action: reorder }
+  
+feature_show:
+  url:     /Show-Feature/title/:title
+  class:   sfDoctrineRoute
+  options: { model: Feature, type: object }
+  param:   { module: feature, action: show }
+  requirements:
+    sf_method: [get]
+   
+#networkusers
+networkuser_index:
+  url:     /Show-Network-Users/
+  param: { module: networkuser, action: index }  
+  requirements:
+    sf_method: [get]
+    
+#photo
+Photos: 
+  url:   /Photos/
+  param: { module: photo, action: index }
+  
+photo_index: 
+  url:   /Show-Photos/
+  param: { module: photo, action: index }
+  
+photo_edit:
+  url:     /Show-Photo/id/:id
+  class:   sfDoctrineRoute
+  options: { model: Photo, type: object }
+  param:   { module: photo, action: edit }
+  requirements:
+    sf_method: [post,get]
+    
+photo_delete:
+  url:     /Delete-Photo/id/:id
+  class:   sfDoctrineRoute
+  options: { model: Photo, type: object }
+  param:   { module: photo, action: delete }
+  requirements:
+    sf_method: [get]
+  
+# default rules
+homepage:
+  url:   /
+  param: { module: dashboard, action: index }
+    
+#speakout
+speakout_index:
+  url:   /Speakout/
+  param: { module: speakout, action: index }
+  
+speakout_addcategory:
+  url:   /Speakout/Add-Category/
+  param:   { module: speakout, action: addcategory }
+  requirements:
+    sf_method: [get, post]
+  
+speakout_editcategory:
+  url:   /Speakout/Edit-Category/:id
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutCategory, type: object }
+  param:   { module: speakout, action: editcategory }
+  requirements:
+    sf_method: [get, post]
+    
+speakout_addtopic:
+  url:   /Speakout/Add-Topic/
+  param:   { module: speakout, action: addtopic }
+  requirements:
+    sf_method: [get, post]
+  
+speakout_edittopic:
+  url:   /Speakout/Edit-Topic/:id
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: speakout, action: edittopic }
+  requirements:
+    sf_method: [get, post]
+    
+speakout_showtopic:
+  url:   /Speakout/Show-Topic/:title
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: speakout, action: showtopic }
+  requirements:
+    sf_method: [get, post]
+    
+speakout_addreply:
+  url:   /Speakout/Reply-To/:title
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: speakout, action: addreply }
+  requirements:
+    sf_method: [get, post]
+    
+     
+speakout_deletereply:
+  url:   /Delete-/:id
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: speakout, action: deletereply }
+  requirements:
+     sf_method: [get, post]

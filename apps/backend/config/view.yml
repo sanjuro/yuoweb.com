@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Spark
+    description:  Mobile social network platform
+    keywords:     spark, symfony, mobile, socal
+    language:     en
+    robots:       index, follow
+
+  stylesheets:    [ backend.css, admin.css, backendform.css, backendnavigation.css, backendtable.css, jquery-ui-1.8.10.custom.css ]
+
+  javascripts:    []
+
+  has_layout:     true
+  layout:         layout

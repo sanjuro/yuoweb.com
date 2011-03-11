@@ -1,0 +1,27 @@
+ul#backendnavigation li {
+    color: #FFF;
+    float: left;
+    list-style: none;
+}
+ul#backendnavigation li a{
+    color: #FFF
+    font-weight: bold;
+    font: 14px "Lucida Grande","Lucida Sans Unicode",sans-serif;
+    padding-left: 30px;
+    
+}
+
+ul#featurenavigation {
+	margin: 0px;
+	}
+
+ul#featurenavigation li {
+    float: left;
+    list-style: none;
+}
+ul#featurenavigation li a{
+    font-weight: bold;
+    font: 12px "Lucida Grande","Lucida Sans Unicode",sans-serif;
+    padding-left: 30px;
+    
+}

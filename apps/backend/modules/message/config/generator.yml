@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Message
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          message
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+       sort:  [ created_at, desc ]
+       title: '<h2>Messages on your Networks</h2>'
+       display: [ =subject, body, NetworkUser, Network, created_at ]
+       max_per_page: 10
+      filter:  
+        class: false
+      form:
+        class:     BackendMessageForm
+        display:  
+          Content: [ =subject, body ]
+          Admin:   [ networkuser_id, network_id, created_at, updated_at ]
+      edit: 
+        title: '<h3>Editing Message "%%subject%%"</h3>'
+      new:     ~

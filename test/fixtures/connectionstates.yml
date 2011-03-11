@@ -1,0 +1,7 @@
+ConnectionState:
+  conectionstate_accepted:
+   title:    accepted
+  conectionstate_pending:
+   title:    pending
+  conectionstate_rejected:
+   title:    rejected

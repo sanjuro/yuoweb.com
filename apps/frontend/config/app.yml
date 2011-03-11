@@ -1,0 +1,24 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+ images:
+   profilepics_dir:         \uploads\profilepics\   
+   pictures_dir:            pictures
+   
+ sfImageTransformPlugin:
+   mime_type:
+     auto_detect: true
+     library: gd_mime_type #  gd_mime_type (GD), Fileinfo (PECL), MIME_Type (PEAR)
+      
+ error_management:
+   record_exception_to_db:     true
+   record_php_error:           true
+   send_mail_on_error:         true           # To send an email when the error occurs
+   #error_404_module:           idlErrorManagementTools          # To be called when a 404 error is raised
+   #error_404_action:           convert404ToApplicationError     # Or when the requested URL doesn't match any route 
+   send_mail_on_error:         false           # To send an email when the error occurs
+   send_mail_on_user_comment:  false           # To send an email when a user comment an error
+   email_to:                   shad6ster@gmail.com
+   email_from:                 error@spark.com

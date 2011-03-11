@@ -1,0 +1,5 @@
+NetworkType:
+  networktype_enterprise:
+    title: Enterprise
+  networktype_free:
+    title: Free

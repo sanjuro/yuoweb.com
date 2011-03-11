@@ -1,0 +1,9 @@
+SpeakoutCategory:
+ speakoutcategory_events:
+   title:              Events
+   description:        Events that are coming up
+   network_id:         1
+ speakoutcategory_incidents:
+   title:              Incidents
+   description:        Incidents that are have happened
+   network_id:         1

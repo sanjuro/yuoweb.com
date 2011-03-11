@@ -1,0 +1,40 @@
+table {
+	white-space: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-size: medium;
+	font-variant: normal;
+	font-style: normal;
+	color: -webkit-text;
+	text-align: -webkit-auto;
+	width: 100%;
+}
+th{  
+  background-attachment:initial;
+  background-clip:initial;
+  background-image:url("/images/backend/gradhead.png");
+  background-origin:initial;
+  background-position:initial initial;
+  background-repeat:repeat no-repeat;
+  border-bottom-color:#FFFFFF;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-top-color:#cecece;
+  border-top-style:solid;
+  border-top-width:2px;
+  color:#000;
+  font-size:13px;
+  font-weight:normal;
+  padding: 8px;
+}
+
+tr {
+
+}
+td {
+	font-size: 13px;
+	margin: 0px;
+  	line-height: 20px;
+	padding: 0px;
+	text-align: center;
+}
