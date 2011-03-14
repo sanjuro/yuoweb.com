@@ -1,0 +1,25 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfMultisiteThemeProfile
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_multisite_theme_profile
+    with_doctrine_route:     1
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+       sort:                 [ created_at, desc ]
+       title:                '<h2>Themes for Networks</h2>'
+      filter:  
+        class: false
+      form:
+        class:               BackendsfMultisiteThemeProfileForm
+      edit:    
+       title:                '<h2>Editting Profile</h2>'
+      new:     ~

@@ -63,11 +63,11 @@ class Network extends BaseNetwork
  * @return string Slugified title
  */ 
   public function getCurrentTheme()
-  {
+  { 
 	  $q = Doctrine_Query::create()
        ->from('sfMultisiteThemeProfileHost smtph')
-       ->where('smtph.host_uri = ?', $this->getSubdomain().'.spark1.localhost');
-     
+       ->where('smtph.host_uri = ?', $this->getSubdomain().'.'.$_SERVER['SERVER_NAME']);
+    
       return Doctrine_Core::getTable('sfMultisiteThemeProfileHost')->getThemeProfileWithTheme($q);
   }
   

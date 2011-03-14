@@ -20,7 +20,7 @@ class featureActions extends sfActions
   	$this->network =  $this->getRoute()->getObject();
   	
   	$this->theme = $this->network->getCurrentTheme()->fetchArray();
-
+   
   	$networksfeatures =  $this->network->getFeatures(); 
   	
   	$this->features = array();

@@ -1,5 +1,5 @@
 <?php use_stylesheet('network.css') ?>
-<?php use_helper('Text') ?><?php use_javascript('jquery-ui-1.8.10.custom.min.js') ?>
+<?php use_helper('Text') ?>
 <?php slot( 'pagetitle', 'Spark - Showing Network: '.$network->getTitle()  )?>
 <div id="network"> <h3><?php echo __('Details') ?></h3>
   <?php if ($network->getLogo()): ?>    <div class="logo">      <a href="<?php echo $network->getUrl() ?>">        <img src="/uploads/networks/<?php echo $job->getLogo() ?>"          alt="<?php echo $network->getClient() ?> logo" />      </a>    </div>  <?php endif; ?>   <div class="description">    <?php echo simple_format_text($network->getDescription()) ?>  </div>

@@ -26,7 +26,7 @@ class sfMultisiteThemeProfileHostTable extends PluginsfMultisiteThemeProfileHost
 	  }
 	 
 	  $q->leftJoin('smtph.sfMultisiteThemeProfile smtp');
-     
+       
       return Doctrine_Core::getTable('sfMultisiteThemeProfile')->getWithTheme($q);
 	}
 }

@@ -16,4 +16,5 @@ class sfMultisiteThemeThemeInfoTable extends PluginsfMultisiteThemeThemeInfoTabl
     {
         return Doctrine_Core::getTable('sfMultisiteThemeThemeInfo');
     }
+
 }

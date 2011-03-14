@@ -12,5 +12,5 @@
  */
 class Message extends BaseMessage
 {
-	
+
 }

@@ -12,6 +12,18 @@
  */
 class NetworkUser extends BaseNetworkUser
 {
+  /**
+   * Returns the string representation of the object: "Full Name (username)"
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    $sfGuardUser  = $this->getsfGuardUser();
+
+    return (string) $sfGuardUser[0]['username'];
+  }	
+ 
   public function getNewMessages(Doctrine_Query $q = null)
   {
 	  $q = Doctrine_Query::create()
@@ -56,6 +68,15 @@ class NetworkUser extends BaseNetworkUser
 	      ->where('p.networkuser_id = ?',  $this->getId()); 
 
 	   return $q->fetchArray();		  	     
-	}
+  }
+  
+  public function getsfGuardUser(Doctrine_Query $q = null)
+  {
+       $q = Doctrine_Query::create()
+	      ->from('sfGuardUser sgu')
+	      ->where('sgu.id = ?',  $this->getUserId()); 
+
+	   return $q->fetchArray();		  	     
+  }
 
 }    

@@ -28,6 +28,18 @@ class MessageTable extends Doctrine_Table
 	  return $q->execute(); 
 	}
 	
+	public function getNetworkUsers(Doctrine_Query $q = null)
+	{
+	    $rootAlias = $q->getRootAlias();
+	 
+	    $q->leftJoin($rootAlias . '.NetworkUser nu')
+	    ->leftJoin('nu.sfGuardUser sgu');
+	 
+	    return $q;
+		 
+	  //echo '<pre>';print_r($q->fetchArray());exit;
+	}
+	
 	public function getBackendMessagesWithNetworkUser(Doctrine_Query $q = null)
 	{
 	    $rootAlias = $q->getRootAlias();

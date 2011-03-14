@@ -22,11 +22,12 @@ class sfMultisiteThemeProfileTable extends PluginsfMultisiteThemeProfileTable
 	  if (is_null($q))
 	  {
 	   $q = Doctrine_Query::create()
-      	    ->from('sfMultisiteThemeProfile smtp');      	  
+      	    ->from('sfMultisiteThemeProfileHostTable smtph');      	  
 	  }
-	  
+	 
 	  $q->leftJoin('smtp.sfMultisiteThemeThemeInfo smti'); 
 	  
 	  return $q;	
 	}
+
 }

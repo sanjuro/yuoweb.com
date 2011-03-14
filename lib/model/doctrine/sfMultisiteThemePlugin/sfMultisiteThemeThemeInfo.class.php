@@ -12,5 +12,13 @@
  */
 class sfMultisiteThemeThemeInfo extends PluginsfMultisiteThemeThemeInfo
 {
-
+  /**
+   * Returns the string representation of the object: "Theme Name"
+   *
+   * @return string
+   */
+  public function __toString()
+  {
+    return (string) $this->getThemeName();
+  }	
 }
