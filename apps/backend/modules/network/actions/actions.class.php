@@ -94,4 +94,21 @@ class networkActions extends sfActions
  	
  	return sfView::NONE;
   }
+  
+  public function executeChangetheme(sfWebRequest $request)
+  {
+   	$themeid = $request->getParameter('theme');
+    
+    $theme = Doctrine_Core::getTable('sfMultisiteThemeThemeInfo')->findOneById($themeid);
+ 
+	$network = Doctrine_Core::getTable('Network')->findOneBySlug($this->getUser()->getNetworkSlug());
+	  
+	$themeprofile = Doctrine_Core::getTable('sfMultisiteThemeProfile')->findOneBySiteName($network->getSlug());
+	
+	$themeprofile->setsfMultisiteThemeThemeInfoId($theme->getId());
+	$themeprofile->save();
+	
+	$this->theme = $network->getCurrentTheme()->fetchArray();	
+	
+  }
 }

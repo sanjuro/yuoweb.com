@@ -38,7 +38,7 @@ class sfMultisiteThemeView extends sfPHPView
         //     $controlMethod = sfConfig::get('app_sfMultisiteProfilePlugin_profile_theme_field_name');
         //      $userThemeId = call_user_func_array(array($controlClass, $controlMethod), array($_SERVER['HTTP_HOST']));        
         // }
-
+       
         // If the themeDir layout file is readable then use the layout.
         if(is_readable(sfConfig::get('sf_web_dir').'/themes/'.$themeDir.'/layout.php'))
         {

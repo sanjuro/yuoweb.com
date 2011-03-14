@@ -20,6 +20,8 @@ class featureActions extends sfActions
   	$this->network =  $this->getRoute()->getObject();
   	
   	$this->theme = $this->network->getCurrentTheme()->fetchArray();
+  	
+  	$this->availiblethemes = Doctrine_Core::getTable('sfMultisiteThemeThemeInfo')->getActiveThemes()->fetchArray();
    
   	$networksfeatures =  $this->network->getFeatures(); 
   	

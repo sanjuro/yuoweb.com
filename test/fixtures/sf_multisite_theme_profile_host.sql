@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `spark`
+-- Database: `yuoweb`
 --
 
 --
@@ -24,7 +24,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 INSERT INTO `sf_multisite_theme_profile_host` (`id`, `sf_multisite_theme_profile_id`, `host_uri`, `created_at`, `updated_at`) VALUES
-(1, 1, 'picnpay.spark1.localhost', '2011-02-09 13:12:06', '2011-02-09 13:12:06');
+(1, 1, 'picnpay.yuoweb.localhost', '2011-02-09 13:12:06', '2011-02-09 13:12:06');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

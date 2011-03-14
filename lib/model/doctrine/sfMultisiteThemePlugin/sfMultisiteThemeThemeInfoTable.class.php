@@ -16,5 +16,19 @@ class sfMultisiteThemeThemeInfoTable extends PluginsfMultisiteThemeThemeInfoTabl
     {
         return Doctrine_Core::getTable('sfMultisiteThemeThemeInfo');
     }
+    
+    /**
+     * Returns all active themes on the system
+     *
+     * @return Doctrine Query Object that fetches all the active themes on the system
+     */
+    public function getActiveThemes()
+    {
+	   $q = Doctrine_Query::create()
+      	    ->from('sfMultisiteThemeThemeInfo smtti') 	  
+	        ->where('smtti.theme_enabled = ?', 1); 
+	 
+	  return $q;
+    }
 
 }

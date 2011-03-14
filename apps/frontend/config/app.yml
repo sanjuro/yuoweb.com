@@ -21,4 +21,4 @@ all:
    send_mail_on_error:         false           # To send an email when the error occurs
    send_mail_on_user_comment:  false           # To send an email when a user comment an error
    email_to:                   shad6ster@gmail.com
-   email_from:                 error@spark.com
+   email_from:                 error@yuoweb.com

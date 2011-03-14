@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `spark`
+-- Database: `yuoweb`
 --
 
 --
@@ -31,7 +31,7 @@ INSERT INTO `sf_multisite_theme_profile` (`id`, `site_name`, `sf_multisite_theme
 --
 
 INSERT INTO `sf_multisite_theme_profile_host` (`id`, `sf_multisite_theme_profile_id`, `host_uri`, `created_at`, `updated_at`) VALUES
-(1, 1, 'picnpay.spark1.localhost', '2011-02-08 23:22:00', '2011-02-08 23:22:00');
+(1, 1, 'picnpay.yuoweb.localhost', '2011-02-08 23:22:00', '2011-02-08 23:22:00');
 
 --
 -- Dumping data for table `sf_multisite_theme_theme_info`

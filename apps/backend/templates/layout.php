@@ -8,7 +8,6 @@
 	</title>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php use_javascript('jquery-1.4.2.min.js ') ?>
@@ -18,11 +17,9 @@
   <body>
 	<div id="header-wrap">
 		<div id="header" class="wrapper">
-			<h3 style="margin-top:0px;padding:10px;">
 				<?php if (!include_slot('heading')): ?>
 		    		<img src="/images/backend/logo.png">
 		 		<?php endif; ?>
-			</h3>
 		</div>
 	</div>
 	

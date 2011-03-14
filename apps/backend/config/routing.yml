@@ -70,7 +70,13 @@ network_show_users:
       
 network_change:
   url:     /Change-Network/
-  param:   { module: network, action: change}
+  param:   { module: network, action: change }
+  requirements:
+    sf_method: [post]
+    
+network_changetheme:
+  url:     /Change-Theme/
+  param:   { module: network, action: changetheme }
   requirements:
     sf_method: [post]
     

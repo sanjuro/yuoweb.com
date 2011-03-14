@@ -47,7 +47,7 @@ h3 {
     color: #000;
     font-size: 16px;
     font-style: itallic;
-    height: 54px;
+    height: 94px;
 }
 #banner-wrap {
     background: url("/images/backend/banner_bg.png") repeat-x #E68318;
@@ -71,7 +71,7 @@ h3 {
 }
 #header {
     margin: 0 auto;
-
+    padding-top: 10px;
 }
 
 #content {
@@ -119,4 +119,14 @@ div#footer {
 	border: 1px solid lime;
 	padding: 3px 2px 3px 20px;
 }
+ul#availiblethemes {
+	float: right;
+	padding: 10px;
+	margin-right: 20px;
+}
 
+ul#availiblethemes li {
+	cursor: pointer;
+	display: inline;
+	padding: 10px;
+}

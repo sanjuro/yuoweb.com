@@ -6,9 +6,9 @@ default:
     content-type: text/html
 
   metas:
-    title:        Spark
+    title:        yUo Web
     description:  Mobile social network platform
-    keywords:     spark, symfony, mobile, socal
+    keywords:     yuoweb, symfony, mobile, socal
     language:     en
     robots:       index, follow
 

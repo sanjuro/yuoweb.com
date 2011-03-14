@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `spark1`
+-- Database: `yuoweb1`
 --
 
 -- --------------------------------------------------------
@@ -125,19 +125,6 @@ CREATE TABLE IF NOT EXISTS `application_error` (
 --
 -- Dumping data for table `application_error`
 --
-
-INSERT INTO `application_error` (`id`, `message`, `type`, `file`, `line`, `trace`, `code`, `module`, `action`, `uri`, `user`, `comment`, `severity`, `user_agent`, `created_at`, `updated_at`) VALUES
-(1, 'Call to a member function getUsername() on a non-object', 'PHP error', 'C:xampphtdocsspark1pluginssfDoctrineGuardPluginlibusersfGuardSecurityUser.class.php', 233, NULL, 1, NULL, NULL, '/frontend_dev.php/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.14) Gecko/20110218 Firefox/3.6.14', '2011-03-04 21:46:02', '0000-00-00 00:00:00'),
-(2, 'Call to a member function getUsername() on a non-object', 'PHP error', 'C:xampphtdocsspark1pluginssfDoctrineGuardPluginlibusersfGuardSecurityUser.class.php', 233, NULL, 1, NULL, NULL, '/frontend_dev.php/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.14) Gecko/20110218 Firefox/3.6.14', '2011-03-04 21:48:19', '0000-00-00 00:00:00'),
-(3, 'Call to a member function getUsername() on a non-object', 'PHP error', 'C:xampphtdocsspark1pluginssfDoctrineGuardPluginlibusersfGuardSecurityUser.class.php', 233, NULL, 1, NULL, NULL, '/frontend_dev.php/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.14) Gecko/20110218 Firefox/3.6.14', '2011-03-05 00:48:59', '0000-00-00 00:00:00'),
-(4, 'Call to a member function getUsername() on a non-object', 'PHP error', 'C:xampphtdocsspark1pluginssfDoctrineGuardPluginlibusersfGuardSecurityUser.class.php', 233, NULL, 1, NULL, NULL, '/frontend_dev.php/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-07 19:58:02', '0000-00-00 00:00:00'),
-(5, 'Call to a member function getUsername() on a non-object', 'PHP error', 'C:xampphtdocsspark1pluginssfDoctrineGuardPluginlibusersfGuardSecurityUser.class.php', 233, NULL, 1, NULL, NULL, '/frontend_dev.php/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-07 20:09:37', '0000-00-00 00:00:00'),
-(6, 'Call to a member function getUsername() on a non-object', 'PHP error', 'C:xampphtdocsspark1pluginssfDoctrineGuardPluginlibusersfGuardSecurityUser.class.php', 233, NULL, 1, NULL, NULL, '/frontend_dev.php/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-07 20:10:02', '0000-00-00 00:00:00'),
-(7, 'Call to a member function getObject() on a non-object', 'PHP error', 'C:xampphtdocsspark1appsfrontendmodulessfGuardAuthactionsactions.class.php', 26, NULL, 1, NULL, NULL, '/favicon.ico', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-08 22:17:40', '0000-00-00 00:00:00'),
-(8, 'Call to a member function getObject() on a non-object', 'PHP error', 'C:xampphtdocsspark1appsfrontendmodulessfGuardAuthactionsactions.class.php', 26, NULL, 1, NULL, NULL, '/favicon.ico', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-08 22:17:43', '0000-00-00 00:00:00'),
-(9, 'Call to a member function getObject() on a non-object', 'PHP error', 'C:xampphtdocsspark1appsfrontendmodulessfGuardAuthactionsactions.class.php', 26, NULL, 1, NULL, NULL, '/favicon.ico', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-09 19:48:49', '0000-00-00 00:00:00'),
-(10, 'Call to a member function getObject() on a non-object', 'PHP error', 'C:xampphtdocsspark1appsfrontendmodulessfGuardAuthactionsactions.class.php', 26, NULL, 1, NULL, NULL, '/favicon.ico', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-09 19:49:02', '0000-00-00 00:00:00'),
-(11, 'Call to a member function getUser() on a non-object', 'PHP error', 'C:xampphtdocsspark1appsfrontendmodulesfriendactionsactions.class.php', 17, NULL, 1, NULL, NULL, '/frontend_dev.php/Friends/picnpay_network', NULL, NULL, 'medium', 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15', '2011-03-09 22:14:21', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -891,12 +878,12 @@ CREATE TABLE IF NOT EXISTS `sf_multisite_theme_profile_host` (
 --
 
 INSERT INTO `sf_multisite_theme_profile_host` (`id`, `sf_multisite_theme_profile_id`, `host_uri`, `created_at`, `updated_at`) VALUES
-(1, 1, 'picnpay.spark1.localhost', '2011-01-31 11:57:19', '2011-01-31 11:57:19'),
+(1, 1, 'picnpay.yuoweb.localhost', '2011-01-31 11:57:19', '2011-01-31 11:57:19'),
 (2, 1, '10.32.1.235', '2011-01-31 13:17:29', '2011-01-31 13:17:29'),
-(3, 1, 'picnpay.spark1.com', '2011-01-31 13:17:29', '2011-01-31 13:17:29'),
-(4, 2, 'ninemiles.spark1.localhost', '2011-01-31 11:57:19', '2011-01-31 11:57:19'),
+(3, 1, 'picnpay.yuoweb.com', '2011-01-31 13:17:29', '2011-01-31 13:17:29'),
+(4, 2, 'ninemiles.yuoweb.localhost', '2011-01-31 11:57:19', '2011-01-31 11:57:19'),
 (5, 2, '10.32.1.235', '2011-01-31 13:17:29', '2011-01-31 13:17:29'),
-(6, 2, 'ninemiles.spark1.com', '2011-01-31 13:17:29', '2011-01-31 13:17:29');
+(6, 2, 'ninemiles.yuoweb.com', '2011-01-31 13:17:29', '2011-01-31 13:17:29');
 
 -- --------------------------------------------------------
 
