@@ -35,7 +35,7 @@ all:
     # Enable the database manager
     use_database:           true
     
-    enabled_modules: [default, sfGuardAuth, sfGuardUser, sf_multisite_theme_profile, sf_multisite_theme_profile_host, sf_multisite_theme_theme_info, comment, idlApplicationErrorAdmin]  
+    enabled_modules: [default, sfGuardAuth, sfGuardUser, comment, idlApplicationErrorAdmin]  
 
   .actions:
     login_module:    sfGuardAuth

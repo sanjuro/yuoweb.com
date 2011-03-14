@@ -78,7 +78,35 @@ network_change:
 reports: 
   url:   /Reports/
   param: { module: report, action: index }
-   
+
+#themes
+sf_multisite_theme_theme_info:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               sfMultisiteThemeThemeInfo
+    module:              sf_multisite_theme_theme_info
+    prefix_path:         sf_multisite_theme_theme_info
+    column:              id
+    with_wildcard_routes: true
+
+sf_multisite_theme_profile_host:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               sfMultisiteThemeProfileHost
+    module:              sf_multisite_theme_profile_host
+    prefix_path:         sf_multisite_theme_profile_host
+    column:              id
+    with_wildcard_routes: true
+
+sf_multisite_theme_profile:
+  class: sfDoctrineRouteCollection
+  options:
+    model:               sfMultisiteThemeProfile
+    module:              sf_multisite_theme_profile
+    prefix_path:         sf_multisite_theme_profile
+    column:              id
+    with_wildcard_routes: true   
+
 #feature
 feature_layout:
   url:     /Show-Features-For/title/:title
