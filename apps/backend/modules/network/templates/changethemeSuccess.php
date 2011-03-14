@@ -1,0 +1,1 @@
+<img src="<?php echo "http://".$_SERVER['SERVER_NAME'].$sf_request->getRelativeUrlRoot()."/themes/".$theme[0]['sfMultisiteThemeProfile']['sfMultisiteThemeThemeInfo']['theme_name']."/template.png" ?>">  
