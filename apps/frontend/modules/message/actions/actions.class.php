@@ -79,8 +79,8 @@ class messageActions extends sfActions
 		  );
 	      	 
 	      if ($this->form->isValid())
-	      {	 echo '<pre>';print_r('asd');exit;	
-	      	$message = $this->form->save();
+	      {	 
+	      	$signup = $this->form->save();
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent.'));
 	      	

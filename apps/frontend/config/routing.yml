@@ -2,8 +2,8 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
-homepage:
-  url:        /
+homepage_network:
+  url:        /:slug
   class:      acNetworkObjectRoute
   options:
     model:    Network
@@ -15,7 +15,10 @@ homepage:
 # generic rules
 # please, remove them by adding more specific rules
 
-  
+homepage:
+  url:     /Homepage/
+  param:   { module: frontpage, action: homepage }
+
 #network  
 network_signin: 
   url:   /Sign-In/

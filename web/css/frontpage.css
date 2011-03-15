@@ -1,0 +1,43 @@
+body {
+    background-color: #FFF;
+    color: #4C4C4B;
+    font-family: "Lucida Sans Unicode",arial;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+#wrapper {
+    background: url("/images/frontpage/wrapper_bg.png") no-repeat;
+    height: 500px;
+ 	margin: 0 auto;
+ 	padding: 10px 20px;
+ 	width: 960px;
+}
+#header, #content, #sub-content {
+
+}
+#content {
+    background: url("/images/frontpage/orange_tab.png") no-repeat;
+    height: 500px;
+    margin-top: 20px;
+}
+
+#sub-content {
+
+    clear: both;
+    color: #476FBE;
+}
+#footer {
+
+    clear: both;
+    color: #476FBE;
+    padding: 5px 0;
+    text-align: center;
+}
+#blockquote {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 5px 10px;
+    margin-left: 50px;
+}
