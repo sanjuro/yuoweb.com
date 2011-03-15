@@ -18,7 +18,7 @@
 			<div id="header">
 				<img src="/images/frontpage/logo.png" alt="yUoweb">
 				<span id="blockquote">
-					own your mobile social network, in 3 clicks
+					create your very own mobile social network
 				</span>
 			</div>
 		    <div id="content">

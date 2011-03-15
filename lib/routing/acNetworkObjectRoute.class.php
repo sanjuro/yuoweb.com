@@ -23,7 +23,7 @@ class acNetworkObjectRoute extends sfDoctrineRoute
 	    {
 	      return false;
 	    }
-	    /*
+	    
 	    // return false if the baseHost isn't found
 	    if (strpos($context['host'], $this->baseHost) === false)
 	    {
@@ -33,8 +33,8 @@ class acNetworkObjectRoute extends sfDoctrineRoute
 	    $subdomain = str_replace($this->baseHost, '', $context['host']);
 	    
 	    $subdomain = str_replace('.', '', $subdomain);
-	    */
-	 	$subdomain = 'picnpay';
+	    
+	 	//$subdomain = 'picnpay';
 	 
 	    $network = Doctrine_Core::getTable('Network')
 	      ->findOneBySubdomain($subdomain);

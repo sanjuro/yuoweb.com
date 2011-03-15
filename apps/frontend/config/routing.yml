@@ -3,7 +3,7 @@
 
 # default rules
 homepage_network:
-  url:        /:slug
+  url:        /
   class:      acNetworkObjectRoute
   options:
     model:    Network
@@ -18,6 +18,10 @@ homepage_network:
 homepage:
   url:     /Homepage/
   param:   { module: frontpage, action: homepage }
+  
+frontpage_signup:
+  url:     /Sign-Up/
+  param:   { module: frontpage, action: signup }
 
 #network  
 network_signin: 
