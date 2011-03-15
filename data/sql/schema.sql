@@ -9,6 +9,7 @@ CREATE TABLE connection (id BIGINT AUTO_INCREMENT, owner_id BIGINT, reciever_id 
 CREATE TABLE connection_state (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE connection_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE feature (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, description TEXT NOT NULL, url VARCHAR(100) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE feed (id BIGINT AUTO_INCREMENT, networkuser_id BIGINT, body VARCHAR(160), htmlbody VARCHAR(255), created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE gender (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE message (id BIGINT AUTO_INCREMENT, subject VARCHAR(100), body VARCHAR(255), htmlbody VARCHAR(255), networkuser_id BIGINT, network_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), INDEX network_id_idx (network_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE message_reciever (id BIGINT AUTO_INCREMENT, message_id BIGINT, networkuser_id BIGINT, messagestatus_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), INDEX message_id_idx (message_id), INDEX messagestatus_id_idx (messagestatus_id), PRIMARY KEY(id)) ENGINE = MyISAM;
@@ -51,6 +52,7 @@ ALTER TABLE connection ADD CONSTRAINT connection_type_id_connection_type_id FORE
 ALTER TABLE connection ADD CONSTRAINT connection_state_id_connection_state_id FOREIGN KEY (state_id) REFERENCES connection_state(id);
 ALTER TABLE connection ADD CONSTRAINT connection_reciever_id_network_user_id FOREIGN KEY (reciever_id) REFERENCES network_user(id) ON DELETE CASCADE;
 ALTER TABLE connection ADD CONSTRAINT connection_owner_id_network_user_id FOREIGN KEY (owner_id) REFERENCES network_user(id) ON DELETE CASCADE;
+ALTER TABLE feed ADD CONSTRAINT feed_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
 ALTER TABLE message ADD CONSTRAINT message_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
 ALTER TABLE message ADD CONSTRAINT message_network_id_network_id FOREIGN KEY (network_id) REFERENCES network(id);
 ALTER TABLE message_reciever ADD CONSTRAINT message_reciever_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id) ON DELETE CASCADE;

@@ -50,8 +50,26 @@ class NetworkUser extends BaseNetworkUser
  
       return Doctrine_Core::getTable('Connection')->getFriends($q);
   }  
+  
+  public function getFeedsForFriends()
+  {
+	  $q = Doctrine_Query::create()
+       ->from('Connection c')
+       ->where('c.owner_id = ?', $this->getId());
+
+      return  Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
+  }
+  
+  public function getFeeds()
+  {
+       $q = Doctrine_Query::create()
+	      ->from('Feed f')
+	      ->where('f.networkuser_id = ?',  $this->getId()); 
+
+	   return $q->fetchArray();	
+  }  
     
-  public function getNewFriendRequests(Doctrine_Query $q = null)
+  public function getNewFriendRequests()
   {
 	  $q = Doctrine_Query::create()
        ->from('Connection c')
@@ -59,9 +77,9 @@ class NetworkUser extends BaseNetworkUser
        ->andWhere('state_id = ?', 2);
 
       return Doctrine_Core::getTable('Connection')->getOwners($q);
-  }  
-  
-  public function getPhotos(Doctrine_Query $q = null)
+  }
+    
+  public function getPhotos()
   {
        $q = Doctrine_Query::create()
 	      ->from('Photo p')
@@ -70,7 +88,7 @@ class NetworkUser extends BaseNetworkUser
 	   return $q->fetchArray();		  	     
   }
   
-  public function getsfGuardUser(Doctrine_Query $q = null)
+  public function getsfGuardUser()
   {
        $q = Doctrine_Query::create()
 	      ->from('sfGuardUser sgu')

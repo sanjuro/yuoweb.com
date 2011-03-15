@@ -5,7 +5,7 @@ NetworkFeature:
     Network:      picnpay_network
     active:       1
     position:     10
-    
+        
   photos_picnpay:
     id:           2
     Feature:      photss_feature
@@ -33,3 +33,10 @@ NetworkFeature:
     Network:      picnpay_network
     active:       2
     position:     50
+    
+  feeds_picnpay:
+    id:           6
+    Feature:      feeds_feature
+    Network:      picnpay_network
+    active:       2
+    position:     60

@@ -17,7 +17,7 @@ class ConnectionTable extends Doctrine_Table
         return Doctrine_Core::getTable('Connection');
     }
     
-    public function getFriends(Doctrine_Query $q = null)
+   public function getFriends(Doctrine_Query $q = null)
    {
 	  if (is_null($q))
 	  {
@@ -38,7 +38,23 @@ class ConnectionTable extends Doctrine_Table
 	   return $Recievers;
     }
     
-    public function getOwners(Doctrine_Query $q = null)
+   public function getFriendsWithFeeds (Doctrine_Query $q = null)
+   {
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+         ->from('Connection c');
+	  }	   
+	  
+	  $q->leftJoin('c.Reciever r')
+	    ->leftJoin('r.Feed f')
+	  	->andWhere('c.type_id = ?', 1);
+	  //echo '<pre>';print_r($q->fetchArray());exit;
+     return $q;
+   }    
+
+    
+   public function getOwners(Doctrine_Query $q = null)
    {
 	  if (is_null($q))
 	  {

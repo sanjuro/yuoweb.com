@@ -156,6 +156,16 @@ Gender:
     title:            { type: string(255), notnull: true }
     
     
+Feed:
+  actAs: 
+   Timestampable: ~ 
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    networkuser_id:         { type: integer }
+    body:                   { type: string(160) }
+    htmlbody:               { type: string(255) }  
+  relations:
+    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
     
 Message:
   actAs: { Timestampable: ~ }

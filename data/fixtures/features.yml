@@ -23,3 +23,8 @@ Feature:
     title:        Videos
     description:  This allows the user to upload and view videos shared on the network
     url:          video_index
+    
+  feeds_feature:
+    title:        Feeds
+    description:  This allows the user to get live status updates of their friends
+    url:          feed_index

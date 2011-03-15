@@ -12,6 +12,7 @@
  * @property Network $Network
  * @property sfGuardUser $sfGuardUser
  * @property Doctrine_Collection $Connection
+ * @property Doctrine_Collection $Feed
  * @property Doctrine_Collection $Message
  * @property Doctrine_Collection $MessageReciever
  * @property Doctrine_Collection $Photo
@@ -26,6 +27,7 @@
  * @method Network             getNetwork()         Returns the current record's "Network" value
  * @method sfGuardUser         getSfGuardUser()     Returns the current record's "sfGuardUser" value
  * @method Doctrine_Collection getConnection()      Returns the current record's "Connection" collection
+ * @method Doctrine_Collection getFeed()            Returns the current record's "Feed" collection
  * @method Doctrine_Collection getMessage()         Returns the current record's "Message" collection
  * @method Doctrine_Collection getMessageReciever() Returns the current record's "MessageReciever" collection
  * @method Doctrine_Collection getPhoto()           Returns the current record's "Photo" collection
@@ -39,6 +41,7 @@
  * @method NetworkUser         setNetwork()         Sets the current record's "Network" value
  * @method NetworkUser         setSfGuardUser()     Sets the current record's "sfGuardUser" value
  * @method NetworkUser         setConnection()      Sets the current record's "Connection" collection
+ * @method NetworkUser         setFeed()            Sets the current record's "Feed" collection
  * @method NetworkUser         setMessage()         Sets the current record's "Message" collection
  * @method NetworkUser         setMessageReciever() Sets the current record's "MessageReciever" collection
  * @method NetworkUser         setPhoto()           Sets the current record's "Photo" collection
@@ -90,6 +93,10 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
         $this->hasMany('Connection', array(
              'local' => 'id',
              'foreign' => 'owner_id'));
+
+        $this->hasMany('Feed', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
 
         $this->hasMany('Message', array(
              'local' => 'id',

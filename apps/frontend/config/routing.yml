@@ -165,7 +165,15 @@ photo_addphoto:
   param: { module: photo, action: addphoto }
   requirements:
      sf_method: [get, post]
-     
+ 
+#feed: 
+feed_index:   
+  url:   /Feeds/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: feed, action: index }
+  requirements:
+     sf_method: [get, post]
      
 speakout:
 speakout_index:

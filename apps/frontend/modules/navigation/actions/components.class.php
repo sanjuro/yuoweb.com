@@ -45,6 +45,14 @@ class navigationComponents extends sfComponents
  	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
   }
   
+  public function executeFeeds()
+  {
+ 	$this->network = Doctrine_Core::getTable('Network')
+	           		->findOneBySlug($this->getUser()->getNetworkId()); 
+ 	
+ 	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
+  }
+  
   public function executeSpeakout()
   {
  	$this->network = Doctrine_Core::getTable('Network')
