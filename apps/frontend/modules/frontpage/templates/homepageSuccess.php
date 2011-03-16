@@ -1,7 +1,13 @@
-<div id="signup">
-	<form action="<?php echo url_for('frontpage_signup')?>" method="post">
-		
-	</form>
+<div id="content_signup">
+	
+	<img id="content_iphone" src="/images/frontpage/iphone.png" >
+
+    <p>
+    	I want my very own network right now
+    </p>
+    
+	<input id="content_signup_button" value="I WANT" type="button">
+	
 </div>
 
 <div id="blurbs">
@@ -29,7 +35,7 @@
 	<span class="blubitems">
 		<h2>be compatible</h2>
         yUoweb is design to work on standard feature phones
-        and it also has a smartphone layout for
+        and the latest smartphones like
         the iphone, andriod and blackberry users
 	</span>
 	<span class="blubitems">
@@ -39,7 +45,7 @@
 		into their network data
 	</span>
 	<span class="blubitems">
-		<h2>be social</h2>
+		<h2>be fast</h2>
 		with a few easy clicks you
 		can have a fully featured
 		social network up and running

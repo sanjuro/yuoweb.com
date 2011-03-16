@@ -7,6 +7,10 @@ body {
     padding: 0px;
     text-align: left;
 }
+a, img {
+	border: none;
+	text-decortaion: none;
+}
 #wrapper {
     background: url("/images/frontpage/wrapper_bg.png") no-repeat;
     height: 500px;
@@ -18,9 +22,9 @@ body {
 
 }
 #content {
-    background: url("/images/frontpage/orange_tab.png") no-repeat;
+    background: url("/images/frontpage/content_bg.png") no-repeat;
     height: 500px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #sub-content {
@@ -39,7 +43,7 @@ body {
     font-size: 24px;
     line-height: 28px;
     padding: 5px 10px;
-    margin-left: 50px;
+    margin-left: 90px;
 }
 #signup {
 	height: 370px;
@@ -48,4 +52,36 @@ body {
 	float: left;
 	padding: 10px;
 	width: 280px;
+}
+#content_signup {
+	clear: both;
+	color: #FFF;
+	font-size: 23px;
+	height: 340px;
+	padding: 20px 0px;
+	text-align: center;
+}
+#content_iphone {
+	float:left;
+	padding-left: 10px;
+	margin-top: -40px;
+}
+input#content_signup_button {
+	background: url("/images/frontpage/signup_button.png") no-repeat;
+	border: none;
+	color: #FFF;
+	cursor: pointer;
+    font-family: "Droid Sans",Helvetica;
+	font-size: 48px;	
+	height: 138px;
+	padding: 0 60px;
+	margin-top: 20px;
+	margin-left: 190px;
+}
+input#content_signup_button:hover {
+	background: url("/images/frontpage/signup_button.png") 0 -137px no-repeat;
+	height: 138px;
+}
+#blurbs [
+	clear: both;
 }
