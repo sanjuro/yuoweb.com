@@ -27,7 +27,7 @@ class frontpageActions extends sfActions
   
   public function executeSignup(sfWebRequest $request)
   {
-    $this->form = new FrontendSignupForm( );
+    $this->form = new FrontendSignupForm();
     
   	if ($this->request->isMethod('post'))
 	{
@@ -40,13 +40,11 @@ class frontpageActions extends sfActions
 	      {	 echo '<pre>';print_r('asd');exit;	
 	      	$signup = $this->form->save();
 	      	     
-	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent.'));
-	      	
-	      	$this->redirect($this->generateUrl('message_index', $this->network));
-	      
+	     		      
 	      }else {
 	      	      	
 	      }
 	}
+	
   }
 }

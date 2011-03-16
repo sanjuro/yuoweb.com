@@ -22,6 +22,8 @@ homepage:
 frontpage_signup:
   url:     /Sign-Up/
   param:   { module: frontpage, action: signup }
+  requirements:
+     sf_method: [get, post]
 
 #network  
 network_signin: 

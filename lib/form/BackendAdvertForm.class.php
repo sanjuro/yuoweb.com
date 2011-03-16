@@ -33,7 +33,7 @@ class BackendAdvertForm extends BaseAdvertForm {
 	}else{
 		$advertNetworkObjs = array();
 	}
-	//echo '<pre>';print_r($advertNetworkObjs);exit;
+	
 	if (count($advertNetworkObjs) < 1){
 	      $advertNetworkObj = new Advert();   
 	      $advertNetworkObjs[] = $advertNetworkObj;

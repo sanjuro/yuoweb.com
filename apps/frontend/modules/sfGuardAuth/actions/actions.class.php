@@ -38,7 +38,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
     }
 
     //$class = sfConfig::get('app_sf_guard_plugin_signin_form', 'sfGuardFormSignin'); 
-    $this->form = new FrontendFormSignin( null, array( "network" => $this->network ) );
+    $this->form = new FrontendSigninForm( null, array( "network" => $this->network ) );
 
     if ($request->isMethod('post'))
     { 

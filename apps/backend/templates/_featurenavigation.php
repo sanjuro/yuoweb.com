@@ -1,4 +1,3 @@
-
 <?php include_component('network', 'getnetworkdropdown', array( 'clientid' => $sf_user->getClientId() ) ) ?> 
 
 <?php if ($sf_user->isAuthenticated()): ?>
