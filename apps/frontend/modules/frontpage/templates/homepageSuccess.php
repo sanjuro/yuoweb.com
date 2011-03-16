@@ -3,10 +3,10 @@
 	<img id="content_iphone" src="/images/frontpage/iphone.png" >
 
     <p>
-    	I want my very own network right now
+    	would you like your own network right now ?
     </p>
     
-	<input id="content_signup_button" value="I WANT" type="button">
+	<input id="content_signup_button" value="Sign Up" type="button">
 	
 </div>
 
