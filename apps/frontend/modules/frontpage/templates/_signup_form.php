@@ -12,11 +12,9 @@
  
  <?php echo $form['email_address']->renderLabel() ?></th>
  <?php echo $form['email_address'] ?>	
- <?php echo $form['email_address']->renderError() ?>
  
  <?php echo $form['username']->renderLabel() ?></th>
  <?php echo $form['username'] ?>	
- <?php echo $form['username']->renderError() ?>
 </fieldset>
  
  
@@ -32,11 +30,9 @@
  
  <?php echo $form['frontendnetwork']['subdomain']->renderLabel() ?></th>
  <?php echo $form['frontendnetwork']['subdomain'] ?>	
- <?php echo $form['frontendnetwork']['subdomain']->renderError() ?>
  
  <?php echo $form['frontendnetwork']['networkcategory_id']->renderLabel() ?></th>
  <?php echo $form['frontendnetwork']['networkcategory_id'] ?>	
- <?php echo $form['frontendnetwork']['networkcategory_id']->renderError() ?>
 </fieldset>
 
 <fieldset class="horizontalform">

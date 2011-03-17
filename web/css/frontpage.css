@@ -16,19 +16,17 @@ a, img {
     height: 500px;
  	margin: 0 auto;
  	padding: 10px 20px;
- 	width: 960px;
+ 	width: 920px;
 }
 #header, #content, #sub-content {
 
 }
 #content {
-    background: url("/images/frontpage/content_bg.png") no-repeat;
     height: 500px;
     margin-top: 30px;
 }
 
 #sub-content {
-
     clear: both;
     color: #476FBE;
 }
@@ -54,6 +52,7 @@ a, img {
 	width: 280px;
 }
 #content_signup {
+    background: url("/images/frontpage/content_bg.png") top no-repeat;
 	clear: both;
 	color: #FFF;
 	font-size: 23px;
@@ -61,6 +60,7 @@ a, img {
 	padding: 20px 0px;
 	text-align: center;
 }
+
 #content_iphone {
 	float:left;
 	padding-left: 10px;

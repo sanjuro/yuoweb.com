@@ -35,14 +35,33 @@ class frontpageActions extends sfActions
 		    $request->getParameter($this->form->getName()),
 		    $request->getFiles($this->form->getName())
 		  );
-	      	 
+	      	
 	      if ($this->form->isValid())
-	      {	 echo '<pre>';print_r('asd');exit;	
+	      {	
 	      	$signup = $this->form->save();
+	      	
+    $message = $this->getMailer()->compose(
+      array('headhancho@yuoweb.com' => 'yUo Web'),
+      $affiliate->getEmail(),
+      'yUo Web SignUp',
+      <<<EOF
+Your have signed up to yUo Web, here are your login and network details
+ 
+Your username is {$affiliate->getToken()}.
+
+To reach your first network goto {$affiliate->getToken()}.
+ 
+The yUo Web Team.
+EOF
+    );
+ 
+    $this->getMailer()->send($message);
+
 	      	     
-	     		      
+	     	return 'Complete';	
+	     	       
 	      }else {
-	      	      	
+	      	 return 'Error';	     	
 	      }
 	}
 	
