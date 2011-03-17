@@ -1,7 +1,5 @@
 <?php use_helper('I18N') ?>
-<?php foreach ($form->getErrorSchema() as $sField => $sError) : ?>
-<?php echo $sField.': '.$sError.'<br />' ?>
-<?php endforeach; ?>
+
 <fieldset class="formContainer">  
  
  <?php echo $form['_csrf_token'] ?>

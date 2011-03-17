@@ -12,9 +12,9 @@ all:
     language:     en
     robots:       index, follow
 
-  stylesheets:    [ frontpage.css ]
+  stylesheets:    [ frontpage.css, horizontal_form.css ]
 
-  javascripts:    []
+  javascripts:    [ jquery-1.4.2.min.js ]
 
   has_layout:     true
   layout:         layout_frontpage

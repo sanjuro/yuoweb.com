@@ -62,9 +62,9 @@ $(document).ready(function()
 		  url: '<?php echo url_for('frontpage_signup') ?>',
 		  success: function(data) {
 		    $('#content_signup').html(data);
-		    alert('Load was performed.');
-		  }
-		});
+		  },
+		async: false,
+	    }).responseText;
 	});
 	
 });

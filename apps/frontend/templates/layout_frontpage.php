@@ -7,7 +7,6 @@
 		    yUoweb - yUo are the network
 		  <?php endif; ?>
 		</title>
-	    <?php use_javascript('jquery-1.4.2.min.js') ?>
 	    <?php include_javascripts() ?>
 	    <?php include_stylesheets() ?>
 		<!-- meta tags -->
