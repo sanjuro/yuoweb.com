@@ -58,8 +58,8 @@ fieldset.horizontalform error {
 }
 
 .formnotification_error {
-	background-color: #E8DDCF;
-	border: 1px solid red;
+	background-color: #FFE3E1;
+	border: 2px solid #FFC6AD;
 	padding: 10px 20px;
 	margin-bottom: 20px;
 }
