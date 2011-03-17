@@ -14,9 +14,8 @@ class NetworkForm extends BaseNetworkForm
   {
     unset(
       $this['client_id'], $this['networktype_id'],
-      $this['is_activated'], $this['slug'], 
-      $this['expires_at'], $this['created_at'],
-      $this['updated_at']
+      $this['slug'], $this['expires_at'],
+      $this['created_at'], $this['updated_at']
     );
 
 	$this->widgetSchema['subdomain'] = new sfWidgetFormInputText( array('label' => 'Network Name') );
@@ -45,5 +44,28 @@ class NetworkForm extends BaseNetworkForm
 	$this->widgetSchema['accesskey'] = new sfWidgetFormInputText( array('label' => 'Access Key: use this if you only want your close friends to access your network') );
 
 	$this->validatorSchema['accesskey'] = new sfValidatorString(array('max_length' => 8, 'required' => false));
+  }
+  
+  protected function doSave($con = null)
+  { 
+    if (is_null($con))
+    {
+      $con = $this->getConnection();
+    }
+      
+    $this->updateObject();
+	
+    $this->object->save($con);    
+    
+  	if($this->isNew())
+	{ 
+		$ThemeProfile = new sfMultisiteThemeProfile();
+		$ThemeProfile->setSiteName($this->object->getSlug());
+		$ThemeProfile->setsfMultisiteThemeThemeInfoId(1);
+		$ThemeProfile->save();
+	}
+
+    // embedded forms
+    parent::saveEmbeddedForms($con); 
   }
 }

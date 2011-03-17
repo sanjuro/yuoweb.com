@@ -88,8 +88,7 @@ class MessageForm extends BaseMessageForm
     // embedded forms
     parent::saveEmbeddedForms($con); 
   }
-  
-  
+    
   private function getAllFriendsForNetworkUser($NetworkUserID)
   {
 	  $NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($NetworkUserID);

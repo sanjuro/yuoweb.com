@@ -25,7 +25,8 @@ class FrontendSignupForm extends BasesfGuardUserForm
 
   }
   
-	public function bind(array $taintedValues = null, array $taintedFiles = null) {
+	public function bind(array $taintedValues = null, array $taintedFiles = null) 
+	{
 	 
 	    // remove the embedded new form if the name field was not provided
 	    if (is_null($taintedValues['frontendnetwork']['subdomain']) || strlen($taintedValues['frontendnetwork']['subdomain']) === 0 ) {
@@ -46,7 +47,5 @@ class FrontendSignupForm extends BasesfGuardUserForm
 	    parent::bind($taintedValues, $taintedFiles);
 	 
 	}
-  
-
 }
 ?>
