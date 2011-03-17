@@ -1,3 +1,7 @@
+<?php foreach ($form->getErrorSchema() as $sField => $sError) : ?>
+<?php echo $sField.': '.$sError.'<br />' ?>
+<?php endforeach; ?>
+
  <?php echo $form['_csrf_token'] ?>
 
 <fieldset class="horizontalform">

@@ -40,6 +40,7 @@ class frontpageActions extends sfActions
 	      {	
 	      	$signup = $this->form->save();
 	      	
+	 /**     	
     $message = $this->getMailer()->compose(
       array('headhancho@yuoweb.com' => 'yUo Web'),
       $affiliate->getEmail(),
@@ -54,9 +55,9 @@ To reach your first network goto {$affiliate->getToken()}.
 The yUo Web Team.
 EOF
     );
- 
-    $this->getMailer()->send($message);
 
+    $this->getMailer()->send($message);
+ **/
 	      	     
 	     	return 'Complete';	
 	     	       

@@ -50,20 +50,3 @@
 	</span>
 
 </div>
-<script type="text/javascript">
-$(document).ready(function() 
-  {
-
-	$('#content_signup_button').click(function() {
-		$.ajax({
-		  type: 'GET',
-		  url: '<?php echo url_for('frontpage_signup') ?>',
-		  success: function(data) {
-		    $('#content_signup').html(data);
-		  },
-		async: false,
-	    }).responseText;
-	});
-	
-});
-</script>

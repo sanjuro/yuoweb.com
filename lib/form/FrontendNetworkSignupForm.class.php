@@ -6,6 +6,7 @@ class FrontendNetworkSignupForm extends BaseNetworkForm
   {
     unset(
       $this['client_id'], $this['networktype_id'],
+       $this['title'], $this['description'],
       $this['is_activated'], $this['slug'], 
       $this['expires_at'], $this['created_at'],
       $this['updated_at'], $this['logo']
@@ -23,7 +24,7 @@ class FrontendNetworkSignupForm extends BaseNetworkForm
     {
       $con = $this->getConnection();
     }
-      
+    echo '<pre>';print_r('asd');exit;
     $this->updateObject();
 	
     $this->object->save($con);    
