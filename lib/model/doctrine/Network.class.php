@@ -25,17 +25,17 @@ class Network extends BaseNetwork
   public function save(Doctrine_Connection $conn = null)
   {
 	  $Client = $this->getClient();
-       
+
       if ($Client->getAllNetworks()->count() >= sfConfig::get('app_client_networkcount_max') ){
        	return false;
       }
-	  
+
 	  if ($this->isNew() && !$this->getExpiresAt())
 	  {
 	    $now = $this->getCreatedAt() ? $this->getDateTimeObject('created_at')->format('U') : time();
 	    $this->setExpiresAt(date('Y-m-d H:i:s', $now + 86400 * sfConfig::get('app_active_days')));
 	  }	 
-	  
+
 	  return parent::save($conn);
   }
     
@@ -50,7 +50,7 @@ class Network extends BaseNetwork
  */ 
   public function getTitleSlug()
   {
-	  return Spark::slugify($this->getTitle());
+	  return Yuoweb::slugify($this->getTitle());
   }
   
 /**

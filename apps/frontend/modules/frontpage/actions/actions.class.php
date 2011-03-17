@@ -28,40 +28,64 @@ class frontpageActions extends sfActions
   public function executeSignup(sfWebRequest $request)
   {
     $this->form = new FrontendSignupForm();
-    
+   
   	if ($this->request->isMethod('post'))
 	{
 		  $this->form->bind(
 		    $request->getParameter($this->form->getName()),
 		    $request->getFiles($this->form->getName())
 		  );
-	      	
+	       
 	      if ($this->form->isValid())
-	      {	
-	      	$signup = $this->form->save();
+	      { 	
+	      	$values = $this->form->getValues();
 	      	
-	 /**     	
-    $message = $this->getMailer()->compose(
+	      	$this->subdomain = $values['frontendnetwork']['subdomain'];
+	      	
+	      	$sfGuardUser = $this->form->save();
+	      
+	
+      $message = $this->getMailer()->compose(
       array('headhancho@yuoweb.com' => 'yUo Web'),
-      $affiliate->getEmail(),
+      $sfGuardUser->getEmailAddress(),
       'yUo Web SignUp',
       <<<EOF
 Your have signed up to yUo Web, here are your login and network details
  
-Your username is {$affiliate->getToken()}.
+The backend link is www.youweb.com/backend.php
+ 
+Your username is {$sfGuardUser->getUsername()}.
+Your password is {$sfGuardUser->getEmailAddress()}(change this its very un-secure).
 
-To reach your first network goto {$affiliate->getToken()}.
+To reach your first network goto {$this->subdomain}.yuoweb.com/index.php(customize this)
  
 The yUo Web Team.
 EOF
     );
 
     $this->getMailer()->send($message);
- **/
-	      	     
+    
+      $message = $this->getMailer()->compose(
+      array('headhancho@yuoweb.com' => 'yUo Web'),
+      sfConfig::get('app_email_admin'),
+      'yUo Web Network Activation',
+      <<<EOF
+There is a network that needs to be activated.
+
+{$this->subdomain}.yuoweb.com/index.php
+ 
+ 
+Client Email: {$sfGuardUser->getUsername()}.
+ 
+The yUo Web Team.
+EOF
+    );
+
+    $this->getMailer()->send($message);
+	      	    
 	     	return 'Complete';	
 	     	       
-	      }else {
+	      }else { 	
 	      	 return 'Error';	     	
 	      }
 	}

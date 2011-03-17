@@ -1,5 +1,5 @@
 <?php
-class Spark
+class Yuoweb
 {
   static public function slugify($text)
   {

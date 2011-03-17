@@ -5,11 +5,14 @@ class FrontendNetworkSignupForm extends BaseNetworkForm
   public function configure()
   {
     unset(
+      $this['id'], $this['feature_count'],
+      $this['user_count'], $this['accesskey'],
       $this['client_id'], $this['networktype_id'],
-       $this['title'], $this['description'],
+      $this['title'], $this['description'],
       $this['is_activated'], $this['slug'], 
       $this['expires_at'], $this['created_at'],
-      $this['updated_at'], $this['logo']
+      $this['updated_at'], $this['logo'],
+      $this['is_public']
     );
 
 	$this->widgetSchema['subdomain'] = new sfWidgetFormInputText( array('label' => 'Network Name') );
@@ -24,7 +27,7 @@ class FrontendNetworkSignupForm extends BaseNetworkForm
     {
       $con = $this->getConnection();
     }
-    echo '<pre>';print_r('asd');exit;
+   
     $this->updateObject();
 	
     $this->object->save($con);    

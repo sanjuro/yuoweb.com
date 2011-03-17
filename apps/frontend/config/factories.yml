@@ -13,20 +13,20 @@ prod:
             level: err
             file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
             
-mailer:
-  class: sfMailer
-  param:
-    logging:           %SF_LOGGING_ENABLED%
-    charset:           %SF_CHARSET%
-    delivery_strategy: realtime
-    transport:
-      class: Swift_SmtpTransport
-      param:
-        host:       localhost
-        port:       25
-        encryption: ~
-        username:   ~
-        password:   ~
+  mailer:
+    class: sfMailer
+    param:
+      logging:           %SF_LOGGING_ENABLED%
+      charset:           %SF_CHARSET%
+      delivery_strategy: realtime
+      transport:
+        class: Swift_SmtpTransport
+        param:
+          host:       smtp.gmail.com
+          port:       465
+          encryption: ssl
+          username:   shad6ster
+          password:   R@d6hi@..
 
 test:
   storage:
@@ -44,20 +44,20 @@ test:
       delivery_strategy: none
 
 dev:
-mailer:
-  class: sfMailer
-  param:
-    logging:           %SF_LOGGING_ENABLED%
-    charset:           %SF_CHARSET%
-    delivery_strategy: realtime
-    transport:
-      class: Swift_SmtpTransport
-      param:
-        host:       localhost
-        port:       25
-        encryption: ~
-        username:   ~
-        password:   ~
+  mailer:
+    class: sfMailer
+    param:
+      logging:           %SF_LOGGING_ENABLED%
+      charset:           %SF_CHARSET%
+      delivery_strategy: realtime
+      transport:
+        class: Swift_SmtpTransport
+        param:
+          host:       smtp.gmail.com
+          port:       465
+          encryption: ssl
+          username:   shad6ster
+          password:   R@d6hi@..
 
 all:
   routing:

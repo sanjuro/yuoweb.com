@@ -6,7 +6,7 @@ $t = new lime_test(11);
 
 $network = Doctrine_Core::getTable('Network')->findOneById(1);
 
-$t->is($network->getTitleSlug() == Spark::slugify($network->getTitle()), true, 'getTitleSlug: Check getTitleSlug');
+$t->is($network->getTitleSlug() == Yuoweb::slugify($network->getTitle()), true, 'getTitleSlug: Check getTitleSlug '.$network->getTitleSlug());
 
 $theme = $network->getCurrentTheme()->fetchArray();
 $t->is(count($theme),  1, 'getCurrentTheme: Check getCurrentTheme');

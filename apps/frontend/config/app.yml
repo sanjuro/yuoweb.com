@@ -3,6 +3,12 @@
 
 # default values
 all:
+ client:
+   networkcount_max: 5
+
+ email:
+   admin: headhancho@yuoweb.com
+   
  images:
    profilepics_dir:         \uploads\profilepics\   
    pictures_dir:            pictures

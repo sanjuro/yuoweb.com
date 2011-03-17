@@ -1,13 +1,10 @@
 <?php
 class FrontendSignupForm extends BasesfGuardUserForm
  {
-  public $Client;
   
   public function configure()
   {
     parent::configure();
-    
-    $this->Client = '';
     
     unset(
       $this['id'], $this['first_name'],
@@ -38,7 +35,7 @@ class FrontendSignupForm extends BasesfGuardUserForm
     }
     
     $values['username'] = $values['email_address'];
-		
+	
 	$values = $this->processValues($values);
 		 
 	$this->object->fromArray($values);
@@ -58,11 +55,11 @@ class FrontendSignupForm extends BasesfGuardUserForm
     $this->updateObject();
 
     $this->object->save($con);
-    
+    	 
     $this->object->setPassword($this->object->getEmailAddress());
     
     $this->object->save($con);
-    
+     
   	if($this->isNew())
 	{ 
 		$Client = new Client();
@@ -76,22 +73,21 @@ class FrontendSignupForm extends BasesfGuardUserForm
 		$Network = new Network();
 		$Network->setClientId($Client->getId());
 		$Network->setNetworktypeId(2);
+		$Network->setNetworkcategoryId($this->values['frontendnetwork']['networkcategory_id']);
 		$Network->setSubdomain($this->values['frontendnetwork']['subdomain']);
-		$Network->setTitle($this->object->getUsername().' Network');
+		$Network->setTitle($this->values['frontendnetwork']['subdomain'].' Network');
+		$Network->setDescription($this->values['frontendnetwork']['subdomain'].' Network');
 		$Network->setFeatureCount(4);
-		$Network->setUserCount(0);
-		$Network->setIsPublic(1);
-		$Network->setIsActivated(0);
 		$Network->save();
-		
+
 		$ThemeProfile = new sfMultisiteThemeProfile();
-		$ThemeProfile->setSiteName($Network->getSlug());
+		$ThemeProfile->setSiteName($this->values['frontendnetwork']['subdomain'].'-network');
 		$ThemeProfile->setsfMultisiteThemeThemeInfoId(1);
 		$ThemeProfile->save();
 	}
-
+  
     // embedded forms
-    parent::saveEmbeddedForms($con); 
+   // parent::saveEmbeddedForms($con); 
   }
 }
 ?>

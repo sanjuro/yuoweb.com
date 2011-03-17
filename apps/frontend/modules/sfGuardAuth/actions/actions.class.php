@@ -21,8 +21,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
 {
   
   public function executeSignin($request)
-  {  
-    	
+  {   	
     $this->network = $this->getRoute()->getObject();
 	/*
     $networkid = $request->getParameter('network_id');
@@ -31,7 +30,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
 	           ->findOneById($networkid);
     */
     $user = $this->getUser();
-   
+   	
     if (isset($user) && $user->isAuthenticated())
     {
       return $this->redirect('@homepage');
