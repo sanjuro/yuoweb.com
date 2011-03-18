@@ -9,7 +9,7 @@ body {
 }
 a, img {
 	border: none;
-	text-decortaion: none;
+	text-decoration: none;
 }
 #wrapper {
     background: url("/images/frontpage/wrapper_bg.png") no-repeat;
@@ -82,6 +82,21 @@ input#content_signup_button:hover {
 	background: url("/images/frontpage/signup_button.png") 0 -137px no-repeat;
 	height: 138px;
 }
-#blurbs [
+#blurbs {
 	clear: both;
+}
+.success_backend, .success_network {
+	background-image:url(../images/accepted_48.png);
+	background-position:15px 12px;
+	background-repeat:no-repeat;
+	background-color:#D9FFB2;
+	border:2px solid #88C331;
+	font-size: 16px;
+	padding:10px 20px 0px 85px;
+	margin-bottom: 10px;
+}
+#backendlink, #networklink {	
+	color: green;
+	font-size: 18px;
+	font-weight: bold;
 }

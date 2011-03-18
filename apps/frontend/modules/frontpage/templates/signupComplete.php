@@ -1,17 +1,19 @@
-<div id="content_signup">
+<div class="success_backend">
 	
     <p>
     	well done !! your first network has been created you may
     	enter your personal yUoweb admin space by clicking the link below
     	<br><br>
-		<a href="http://<?php echo 'www.yuoweb.com/backend.php' ?>" >www.yuoweb.com/backend.php</a>  
+		<a id="backendlink" href="http://<?php echo 'www.yuoweb.com/backend.php' ?>" >www.yuoweb.com/backend.php</a>  
     </p>
     
+</div>
+<div class="success_network">  
     <p>
     	your network is on its way, please wait 24hours for it to be ready. 
     	you will be able to find it	at
     	<br><br>
-    	<a href="http://<?php echo $subdomain.'.yuoweb.com/index.php' ?>" ><?php echo $subdomain.'.yuoweb.com/index.php' ?></a>  
+    	<a id="networklink" href="http://<?php echo $subdomain.'.yuoweb.com/index.php' ?>" ><?php echo $subdomain.'.yuoweb.com/index.php' ?></a>  
     </p>
     
 	
