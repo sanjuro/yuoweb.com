@@ -19,7 +19,12 @@ class networkActions extends sfActions
   {
   	$Client = Doctrine_Core::getTable('Client')->retrieveByPk($this->getUser()->getClientId());
   	
-  	$this->networks = Doctrine_Core::getTable('Client')->getAllNetworks()->execute();  
+  	if($this->getUser()->isSuperAdmin()){
+  		$this->networks = Doctrine_Core::getTable('Client')->getAllNetworks()->execute();  
+  	}else {
+  		$this->networks = Doctrine_Core::getTable('Client')->getNetworksForClient()->execute();  
+  	}
+  	
   }
   
   public function executeAdd(sfWebRequest $request)

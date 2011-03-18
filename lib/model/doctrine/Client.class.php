@@ -25,6 +25,14 @@ class Client extends BaseClient
 	public function getAllNetworks(Doctrine_Query $q = null)
 	{
 	  $q = Doctrine_Query::create()
+       ->from('Network n');
+       
+       return $q;
+	}
+	
+	public function getNetworksForClient(Doctrine_Query $q = null)
+	{
+	  $q = Doctrine_Query::create()
        ->from('Network n')
        ->where('n.client_id = ?', $this->getId());
        

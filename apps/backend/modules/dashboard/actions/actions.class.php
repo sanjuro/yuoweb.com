@@ -19,7 +19,14 @@ class dashboardActions extends sfActions
 	    'NetworkUser',
 	    10
 	);
-	$this->networkpager->setQuery($this->client[0]->getAllNetworks());	 
+	
+  	if($this->getUser()->isSuperAdmin()){
+  		$this->networkpager->setQuery($this->client[0]->getAllNetworks());	
+  	}else {
+		$this->networkpager->setQuery($this->client[0]->getNetworksForClient());	
+  	}
+	
+	 
 	$this->networkpager->setPage($request->getParameter('page', 1));	 
 	$this->networkpager->init();
   	
