@@ -18,39 +18,42 @@
 	<div id="header-wrap">
 		<div id="header" class="wrapper">
 				<?php if (!include_slot('heading')): ?>
-		    		<img src="/images/backend/logo.png">
+		    		<img src="/images/backend/logo_small.png">
 		 		<?php endif; ?>
+				<?php include('_navigation.php'); ?>
 		</div>
 	</div>
 	
 	<div id="banner-wrap">
 		<div class="wrapper">
-			<div id="navigation"> 
-				<?php include('_navigation.php'); ?>
-			</div>
+
 		</div>
 	</div>
 	
 	<div id="content-wrap">
 		<div class="wrapper">
 			<div id="content">
-		        
-		 		<?php include('_featurenavigation.php'); ?>
-		 		
-		        <?php if ($sf_user->hasFlash('notice')): ?>
-		          <div class="flash_notice">
-		            <?php echo $sf_user->getFlash('notice') ?>
-		          </div>
-		        <?php endif; ?>
-		 
-		        <?php if ($sf_user->hasFlash('error')): ?>
-		          <div class="flash_error">
-		            <?php echo $sf_user->getFlash('error') ?>
-		          </div>
-		        <?php endif; ?>
-		        
-				<br></br>
-				<?php echo $sf_content ?>				
+		        <div id="sidecolumn" class="column">
+					<?php include('_featurenavigation.php'); ?>
+					<div class="clearer"></div>	
+				</div>
+				<div id="centercolumn" class="column">
+			        <?php if ($sf_user->hasFlash('notice')): ?>
+			          <div class="flash_notice">
+			            <?php echo $sf_user->getFlash('notice') ?>
+			          </div>
+			        <?php endif; ?>
+			 
+			        <?php if ($sf_user->hasFlash('error')): ?>
+			          <div class="flash_error">
+			            <?php echo $sf_user->getFlash('error') ?>
+			          </div>
+			        <?php endif; ?>
+					
+					<?php echo $sf_content ?>	
+					
+				</div>	
+				<div class="clearer"></div>		
 			</div>
 		</div>
 		

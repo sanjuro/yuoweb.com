@@ -16,9 +16,13 @@
   margin: 0;
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #fff;
 }
-
+tr {
+	padding: 8px 0px;
+}
+tr.odd, sf_admin_row odd {
+    background-color: #F2F2F2 !important;
+}
 #sf_admin_container p
 {
   margin-bottom: 5px;
@@ -229,10 +233,29 @@ ul.sf_admin_actions {
   cursor: hand;
   cursor: pointer;
 }
+#speakout_admin_container ul.sf_admin_td_actions li a {
 
+}
+    
+#speakout_admin_container ul li.sf_admin_action_create a {
+    background: url("../images/new.png") no-repeat scroll 0 0 transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+    
+#speakout_admin_container ul li.sf_admin_action_edit a {
+    background: url("../images/edit.png") no-repeat scroll 0 0 transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#speakout_admin_container ul li.sf_admin_action_edit a {
+    background: url("../images/edit.png") no-repeat scroll 0 0 transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 #sf_admin_container .sf_admin_action_create, .sf_admin_action_create
 {
-  background: url(/images/backend/add.png) no-repeat 3px 0px;
+
 }
 
 #sf_admin_container .sf_admin_action_save, .sf_admin_action_save
@@ -242,7 +265,7 @@ ul.sf_admin_actions {
 }
 
 #sf_admin_container .sf_admin_action_edit, .sf_admin_action_edit {
-  background: url(/images/backend/edit.png) no-repeat 3px 0px;
+
 }
 .sf_admin_action_edit {
 	padding-left: 20px;
@@ -310,10 +333,15 @@ ul.sf_admin_actions {
 #sf_admin_container .sf_admin_list td
 {
   padding: 3px;
-  border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd;
 }
 
+#sf_admin_container tr {
+    background-color: #FFFFFF;
+    border: none;
+}
+#sf_admin_container td, #sf_admin_container th {
+    border: none;
+}
 #sf_admin_container .sf_admin_filters li
 {
   list-style-type: none;

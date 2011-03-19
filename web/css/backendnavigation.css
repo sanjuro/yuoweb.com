@@ -1,7 +1,11 @@
+ul#backendnavigation{
+	margin-top:0px;
+}
 ul#backendnavigation li {
     color: #FFF;
     float: left;
     list-style: none;
+	line-height: 19px;
 }
 ul#backendnavigation li a{
     color: #FFF
@@ -13,10 +17,11 @@ ul#backendnavigation li a{
 
 ul#featurenavigation {
 	margin: 0px;
+	padding: 0px;
 	}
 
 ul#featurenavigation li {
-    float: left;
+    display: block;
     list-style: none;
 }
 ul#featurenavigation li a{

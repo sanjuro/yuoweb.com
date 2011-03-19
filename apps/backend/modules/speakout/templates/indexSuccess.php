@@ -8,6 +8,7 @@
 <h2><?php echo __('Your Speakout Feature')?></h2>
  
 <h3><?php echo __('Categories')?> - <?php echo link_to( __('Add Category'), url_for( 'speakout_addcategory' ) ) ?></h3>
+<div id="speakout_admin_container">
 <?php foreach ( $categorys as $category ) : ?>
 	<h4><?php echo $category['title'].' ('.count($category['SpeakoutTopic']).') - '.$category['description']?>
 	  	<ul class="sf_admin_actions" style="display:inline;">
@@ -30,3 +31,4 @@
 	  </ul>
 	<br><br>
 <?php endforeach; ?>
+</div>

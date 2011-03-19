@@ -15,7 +15,7 @@ generator:
       fields:  ~
       list:
         title:          '<h2>Application error</h2>'
-        display:        [created_at, type,  _description, user, comment, severity]
+        display:        [created_at, type,  _description, user, severity]
         object_actions: {}
         sort:           [created_at, desc]
       filter:
