@@ -5,7 +5,7 @@
     <?php include_metas() ?>
     <title>
 	  <?php if (!include_slot('title')): ?>
-	    Spark - ignite your network
+	    yUoweb - you are the network
 	  <?php endif; ?>
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -17,7 +17,7 @@
     <div id="header">
     	<div id="logo">
 		  <?php if (!include_slot('pagetitle')): ?>
-		    Spark - ignite your network
+		    yUoweb - you are the network
 		  <?php endif; ?>
     	</div>
     	<div id="navigation">

@@ -5,7 +5,7 @@
     <?php include_metas() ?>
     <title>
 	  <?php if (!include_slot('title')): ?>
-	    yUoweb - you are the network
+	    Kustom Cruisers - LOUD,REAL,FAST
 	  <?php endif; ?>
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -17,7 +17,7 @@
     <div id="header">
     	<div id="logo">
 		  <?php if (!include_slot('pagetitle')): ?>
-	    	yUoweb - you are the network
+		     Kustom Cruisers - LOUD,REAL,FAST
 		  <?php endif; ?>
     	</div>
     	<div id="navigation">
