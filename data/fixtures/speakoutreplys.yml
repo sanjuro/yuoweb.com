@@ -8,7 +8,7 @@ SpeakoutReply:
   body:              This is a test reply2
   htmlbody:          This is a test reply2
   SpeakoutTopic:     topic_agm
-  NetworkUser:       networkuser_salie
+  NetworkUser:       networkuser_craigd
  reply_testreply3: 
   body:              This is a test reply3
   htmlbody:          This is a test reply3
@@ -18,4 +18,4 @@ SpeakoutReply:
   body:              This is a test reply4
   htmlbody:          This is a test reply4
   SpeakoutTopic:     topic_trainaccident
-  NetworkUser:       networkuser_salie
+  NetworkUser:       networkuser_craigd

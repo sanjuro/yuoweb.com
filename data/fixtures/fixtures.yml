@@ -28,12 +28,12 @@ sfGuardUser:
      password: rad6hia
      email_address:   raymond@gmail.com
      
-   user_salie:
-     username: salie
-     first_name: salie
-     last_name: moosa
+   user_craigd:
+     username: craigd
+     first_name: craig
+     last_name: damons
      password: rad6hia
-     email_address:   salie@gmail.com
+     email_address:   craigd@gmail.com
      
    user_durrie:
      username: durrie

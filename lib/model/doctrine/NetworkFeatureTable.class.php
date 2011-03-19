@@ -17,13 +17,27 @@ class NetworkFeatureTable extends Doctrine_Table
         return Doctrine_Core::getTable('NetworkFeature');
     }
     
+/**
+ * Function to retrieve all NetworkFeature objects with Feature Objects
+ * 
+ * This function will return all Feature objects for a NetworkFeature
+ * 
+ * @param Doctrine_Connection $conn 
+ * 
+ * @return query Base Query to find photos on a network
+ */  
 	public function getWithFeatures(Doctrine_Query $q = null)
 	{
-	  $q = $this->createQuery('nf')
-      	->leftJoin('nf.Feature f')
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+	      ->from('NetworkFeature nf');      	  
+	  }
+	  
+	  $q->leftJoin('nf.Feature f')
       	->addOrderBy('nf.position ASC');
-	 
-	   return $q->fetchArray();	
+
+	   return $q;	
 	  	     
 	}
 		

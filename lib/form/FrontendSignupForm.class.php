@@ -79,7 +79,17 @@ class FrontendSignupForm extends BasesfGuardUserForm
 		$Network->setDescription($this->values['frontendnetwork']['subdomain'].' Network');
 		$Network->setFeatureCount(4);
 		$Network->save();
-
+			  	
+	  	foreach (Network::getDefaultFeatures() as $feature) 
+	  	{
+		  	$NetworkFeature = new NetworkFeature();	 
+		  	$NetworkFeature->setNetworkId($Network->getId()); 		
+		  	$NetworkFeature->setFeatureId($feature); 	
+		  	$NetworkFeature->setActive(1); 
+		  	$NetworkFeature->setPosition(10 * $feature); 
+		  	$NetworkFeature->save(); 
+	  	}
+	  	
 		$ThemeProfile = new sfMultisiteThemeProfile();
 		$ThemeProfile->setSiteName($this->values['frontendnetwork']['subdomain'].'-network');
 		$ThemeProfile->setsfMultisiteThemeThemeInfoId(1);

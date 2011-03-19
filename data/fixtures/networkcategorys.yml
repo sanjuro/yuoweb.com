@@ -11,3 +11,6 @@ NetworkCategory:
     title: Online Store
   networkcategory_groupbuying:
     title: Group Buying
+  networkcategory_social:
+    title: Social   
+    

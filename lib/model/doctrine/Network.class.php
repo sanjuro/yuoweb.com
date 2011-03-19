@@ -13,10 +13,13 @@
 class Network extends BaseNetwork
 {
   
+ private static $DefaultFeatures = array( 1, 2, 3, 6);
+  
 /**
  * Function to extend the base Save function
  * 
- * This function extends the base save function and sets the expiry of a network
+ * This function extends the base save function and sets the expiry of a network.
+ * This function also builds the four default feature when a new Network is created
  * 
  * @param $Doctrine_Connection $conn
  * 
@@ -28,15 +31,31 @@ class Network extends BaseNetwork
 
       if ($Client->getAllNetworks()->count() >= sfConfig::get('app_client_networkcount_max') ){
        	return false;
-      }
-
+      }    
+      
 	  if ($this->isNew() && !$this->getExpiresAt())
 	  {
 	    $now = $this->getCreatedAt() ? $this->getDateTimeObject('created_at')->format('U') : time();
 	    $this->setExpiresAt(date('Y-m-d H:i:s', $now + 86400 * sfConfig::get('app_active_days')));
 	  }	 
+	  
+	  $parentsave = parent::save($conn);
+	  
+	  if ($this->isNew() && $this->getId()){
+	  	
+	  	foreach (Network::getDefaultFeatures() as $feature) 
+	  	{
+		  	$NetworkFeature = new NetworkFeature();	 
+		  	$NetworkFeature->setNetworkId($this->getId()); 		
+		  	$NetworkFeature->setFeatureId($feature); 	
+		  	$NetworkFeature->setActive(1); 
+		  	$NetworkFeature->setPosition(10 * $feature); 
+		  	$NetworkFeature->save(); 
+	  	}
+	  	
+	  }
 
-	  return parent::save($conn);
+	  return $parentsave;
   }
     
 /**
@@ -86,8 +105,8 @@ class Network extends BaseNetwork
        ->from('NetworkFeature nf')
        ->where('nf.network_id = ?', $this->getId())
        ->orderBy('nf.position');
-
-     $features = Doctrine_Core::getTable('NetworkFeature')->getWithFeatures($q);
+		
+     $features = Doctrine_Core::getTable('NetworkFeature')->getWithFeatures($q)->fetchArray();
      
      return (!empty($features)?$features:false);
   }  
@@ -319,6 +338,18 @@ class Network extends BaseNetwork
      $q->where('an.network_id = ?', $this->getId());
 
      return Doctrine_Core::getTable('AdvertNetwork')->getWithAdverts($q);
+  }
+  
+/**
+ * Static Function to return the default features set for the Network Class
+ * 
+ * @param void
+ * 
+ * @return array All default features a network shoult have
+ */
+  public static function getDefaultFeatures() 
+  {
+  	 return self::$DefaultFeatures;
   } 
   
 }

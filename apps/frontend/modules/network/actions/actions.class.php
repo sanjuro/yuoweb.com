@@ -29,7 +29,7 @@ class networkActions extends sfActions
  	{
  		$this->getUser()->signOut();
  		
- 		 $this->redirect('sf_guard_signin');
+ 		$this->redirect('sf_guard_signin');
  	}
   
   	$this->features = $this->network->getFeatures();

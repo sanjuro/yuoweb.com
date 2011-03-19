@@ -1,19 +1,21 @@
 Network:
-  picnpay_network:
-    Client:       picnpay_client
+  kustomcruisers_network:
+    id:           1
+    Client:       kustomcruisers_client
     NetworkType:  networktype_free
-    NetworkCategory: networkcategory_groupbuying
-    subdomain:    picnpay
-    title:        Pic N Pay Group Buying
-    description:  This is the Pic N Pay Group buying network used to send deals to all is users
+    NetworkCategory: networkcategory_social
+    subdomain:    kcruise
+    title:        Kustom Cruisers Car Club
+    description:  This is Kustom Cruisers Classic Car Club
     feature_count: 4
     user_count:    2
     is_public:    true
     is_activated: true
-    slug:         picnpay-network
+    slug:         kustomcruisers-network
     expires_at:   '2012-09-10'
     created_at:   '2010-09-10'
   ninemiles_network:
+    id:              2
     Client:          ninemiles_client
     NetworkType:     networktype_free
     NetworkCategory: networkcategory_sport

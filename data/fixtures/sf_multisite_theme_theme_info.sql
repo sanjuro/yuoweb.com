@@ -25,7 +25,9 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 INSERT INTO `sf_multisite_theme_theme_info` (`id`, `theme_name`, `theme_enabled`, `created_at`, `updated_at`) VALUES
 (1, 'blueocean', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12'),
-(2, 'redsea', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12');
+(2, 'redsea', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12'),
+(3, 'blackandwhite', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12'),
+(4, 'greendragon', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

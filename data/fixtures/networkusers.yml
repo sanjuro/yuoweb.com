@@ -1,12 +1,12 @@
 Networkuser:
   networkuser_raymond:
     sfGuardUser: user_raymond
-    Network:     picnpay_network
+    Network:     kustomcruisers_network
     is_private:  false
     
-  networkuser_salie:
-    sfGuardUser: user_salie
-    Network:     picnpay_network
+  networkuser_craigd:
+    sfGuardUser: user_craigd
+    Network:     kustomcruisers_network
     is_private:  false
     
   networkuser_durrie:

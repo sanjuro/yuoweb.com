@@ -1,6 +1,6 @@
 Feed:    
   feed_first:
-    NetworkUser:        networkuser_raymond
+    NetworkUser:        networkuser_craigd
     FeedType:           status_feedtype
     body:               This is my first feed
     htmlbody:           This is my first feed
@@ -12,7 +12,7 @@ Feed:
     htmlbody:           This is my second feed
     
   feed_third:
-    NetworkUser:        networkuser_salie
+    NetworkUser:        networkuser_craigd
     FeedType:           status_feedtype
     body:               This is my third feed
     htmlbody:           This is my third feed

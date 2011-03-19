@@ -7,11 +7,11 @@ UserProfile:
      city:        Cape Town
      country:     South Africa
      sfGuardUser: user_raymond
- userprofile_salie:
+ userprofile_craigd:
      mobile_no:   0833098314
-     description: Loves small bunnies
+     description: Loves Pontiacs and any Large American V8
      profile_pic: salie.png
      gender_id:   1
      city:        Cape Town
      country:     South Africa 
-     sfGuardUser: user_salie
+     sfGuardUser: user_craigd

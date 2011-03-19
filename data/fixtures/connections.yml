@@ -1,11 +1,11 @@
 Connection:
- connection_raymond_salie:
+ connection_raymond_craigd:
     Owner:     networkuser_raymond
-    Reciever:  networkuser_salie
+    Reciever:  networkuser_craigd
     ConnectionType: conectiontype_friend
     ConnectionState: conectionstate_accepted
- connection_salie_raymond:
-    Owner:     networkuser_salie
+ connection_craigd_raymond:
+    Owner:     networkuser_craigd
     Reciever:  networkuser_raymond
     ConnectionType: conectiontype_friend
     ConnectionState: conectionstate_accepted

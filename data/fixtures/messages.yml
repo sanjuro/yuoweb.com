@@ -3,12 +3,12 @@ Message:
     subject:          hello
     body:             hello
     htmlbody:         hello
-    NetworkUser:      networkuser_raymond
-    Network:          picnpay_network
+    NetworkUser:      networkuser_craigd
+    Network:          kustomcruisers_network
     
   message_where:
     subject:          where are you
     body:             where are you
     htmlbody:         where are you
-    NetworkUser:      networkuser_raymond
-    Network:          picnpay_network
+    NetworkUser:      networkuser_craigd
+    Network:          kustomcruisers_network

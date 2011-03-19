@@ -24,7 +24,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 INSERT INTO `sf_multisite_theme_profile` (`id`, `site_name`, `sf_multisite_theme_theme_info_id`, `created_at`, `updated_at`) VALUES
-(1, 'picnpay-network', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12');
+(1, 'kustomcruisers-network', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12'),
+(2, 'ninemiles-network', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
