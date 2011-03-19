@@ -1,0 +1,14 @@
+# breadcrumbs.yml example config file
+#
+sf_orm_breadcrumbs:
+  dashboard:
+   homepage:
+     - : { name: Home, route: homepage }
+   
+  network:
+   network_index:
+    - : { name: Home, route: homepage }
+   
+  report:
+   report_index:
+    - : { name: Reports, route: reports }
