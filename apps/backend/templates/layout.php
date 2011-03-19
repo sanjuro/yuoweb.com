@@ -26,7 +26,7 @@
 	
 	<div id="banner-wrap">
 		<div class="wrapper">
-
+			<?php include_component('sfDoctrineBreadcrumbs', 'breadcrumbs'); ?>
 		</div>
 	</div>
 	

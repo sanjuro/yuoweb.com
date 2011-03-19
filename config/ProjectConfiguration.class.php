@@ -13,6 +13,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 	$this->enablePlugins('sfMultisiteThemePlugin');
     $this->enablePlugins('sfImageTransformPlugin');
     $this->enablePlugins('idlErrorManagementPlugin');
+    $this->enablePlugins('sfOrmBreadcrumbsPlugin');
     
     $this->dispatcher->connect('request.filter_parameters', array($this, 'filterRequestParameters'));
     

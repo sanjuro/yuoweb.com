@@ -48,7 +48,7 @@ class networkActions extends sfActions
 	      {	
 	      	$network = $this->form->save();
 	      	     
-	     	$this->getUser()->setFlash('notice', sprintf('Your Network has been added but it needs to be approved by the spark admins'));
+	     	$this->getUser()->setFlash('notice', sprintf('Your Network has been added but it needs to be approved by the headhancho'));
 	      	
 	      	$this->redirect($this->generateUrl('networks'));
 	      

@@ -14,7 +14,6 @@
 class acNetworkObjectRoute extends sfDoctrineRoute
 {
     //protected $baseHost = '10.32.1.235';
-    //protected $baseHost = '.spark1.com';
     protected $baseHost = '.yuoweb.localhost';
  
     public function matchesUrl($url, $context = array())

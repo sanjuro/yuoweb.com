@@ -2,8 +2,6 @@
 
 <?php slot( 'title', 'Login' )?>
 
-<?php slot( 'heading', 'Login' )?>
-
 <div id="left">
 
 <form class="login" action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
