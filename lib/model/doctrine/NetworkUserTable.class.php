@@ -45,6 +45,31 @@ class NetworkUserTable extends Doctrine_Table
 	}
 	
 /**
+ * Function to retrieve all feed items for a NetworkUser
+ * 
+ * This function will retrieve all the feed items for a networkuser
+ * orderd by the created_at attribute. 
+ * 
+ * @param  void
+ * 
+ * @return query Base Query to find feeds on a networkuser
+ */
+	public function getFeedsForUser(Doctrine_Query $q = null)
+	{
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+	      ->from('NetworkUser nu');
+      	  
+	  } 
+	  
+	  $q->leftJoin('nu.Feed f')
+      	->addOrderBy('f.created_at DESC');
+	 
+	  return Doctrine_Core::getTable('Feed')->getFeedsForUser($q); 	
+	}
+	
+/**
  * Function to find a single networkuser on the network
  * 
  * This function will find a single network user object on

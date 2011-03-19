@@ -164,7 +164,25 @@ class Network extends BaseNetwork
   }
   
 /**
- * Function to find a all Categories for the Speakout feature on a network
+ * Function to find all User Feeds on the network
+ * 
+ * This function retrieves all the feeds for each user for a Network object
+ * 
+ * @param  void
+ * 
+ * @return query Base Query to find feeds on a network
+ */
+  public function getFeeds()
+  {
+	  $q = Doctrine_Query::create()
+       ->from('NetworkUser nu')
+       ->where('nu.network_id = ?', $this->getId());
+	
+     return Doctrine_Core::getTable('NetworkUser')->getFeedsForUser($q)->execute();
+  }
+  
+/**
+ * Function to find all Categories for the Speakout feature on a network
  * 
  * This function find categories associated for the Speakout Feature on a network
  * with their related topics.

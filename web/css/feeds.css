@@ -1,6 +1,15 @@
-ul.feedslist {
+ul.feed_list {
 
 }
-ul.feedslist li {
-
+ul.feed_list li {
+    border-bottom: 1px solid #E9E9E9;
+    list-style: none;
+    padding: 10px 0px;
+}
+.feed_body {
+	font-weight: bold;
+	padding: 5px 0px; 
+}
+.feed_posted { 
+	color: #999999;	
 }

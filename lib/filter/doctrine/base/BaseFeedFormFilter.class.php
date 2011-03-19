@@ -14,6 +14,7 @@ abstract class BaseFeedFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'networkuser_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'add_empty' => true)),
+      'feedtype_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FeedType'), 'add_empty' => true)),
       'body'           => new sfWidgetFormFilterInput(),
       'htmlbody'       => new sfWidgetFormFilterInput(),
       'created_at'     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
@@ -22,6 +23,7 @@ abstract class BaseFeedFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'networkuser_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('NetworkUser'), 'column' => 'id')),
+      'feedtype_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('FeedType'), 'column' => 'id')),
       'body'           => new sfValidatorPass(array('required' => false)),
       'htmlbody'       => new sfValidatorPass(array('required' => false)),
       'created_at'     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
@@ -47,6 +49,7 @@ abstract class BaseFeedFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'             => 'Number',
       'networkuser_id' => 'ForeignKey',
+      'feedtype_id'    => 'ForeignKey',
       'body'           => 'Text',
       'htmlbody'       => 'Text',
       'created_at'     => 'Date',

@@ -17,6 +17,7 @@ abstract class BaseFeedForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
       'networkuser_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'add_empty' => true)),
+      'feedtype_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FeedType'), 'add_empty' => true)),
       'body'           => new sfWidgetFormInputText(),
       'htmlbody'       => new sfWidgetFormInputText(),
       'created_at'     => new sfWidgetFormDateTime(),
@@ -26,6 +27,7 @@ abstract class BaseFeedForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'networkuser_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'required' => false)),
+      'feedtype_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('FeedType'), 'required' => false)),
       'body'           => new sfValidatorString(array('max_length' => 160, 'required' => false)),
       'htmlbody'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'created_at'     => new sfValidatorDateTime(),

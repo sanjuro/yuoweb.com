@@ -26,7 +26,7 @@ class NetworkFeatureTable extends Doctrine_Table
 	   return $q->fetchArray();	
 	  	     
 	}
-	
+		
 	public static function doSort($order)
 	{ 	 
 	  $con = Doctrine_Manager::connection();

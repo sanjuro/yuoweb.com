@@ -16,4 +16,25 @@ class FeedTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Feed');
     }
+    
+/**
+ * Function to retrieve all feed items with the Feed Types
+ * 
+ * 
+ * @param  void
+ * 
+ * @return query Base Query to find feeds on a networkuser
+ */
+	public function getFeedsForUser(Doctrine_Query $q = null)
+	{
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+	      ->from('Feed f');
+	  } 
+	  
+	  $q->leftJoin('f.FeedType ft');
+	 
+	  return $q; 	
+	}
 }

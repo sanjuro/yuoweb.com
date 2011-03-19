@@ -35,7 +35,7 @@ class featureActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
 	$feature = $this->getRoute()->getObject();
-  	
+ 
   	$this->redirect($feature->getUrl());
   }
   

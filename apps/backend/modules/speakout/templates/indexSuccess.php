@@ -3,7 +3,7 @@
 
 <?php use_helper('jQuery') ?>
 
-<?php slot( 'title', 'Spark - Speakout'  )?>
+<?php slot( 'title', 'yUoweb - Speakout'  )?>
 
 <h2><?php echo __('Your Speakout Feature')?></h2>
  

@@ -59,6 +59,7 @@ h3 {
     border-bottom: 1px solid #d27715;
     border-top: 1px solid #f38b1b;
     height: 20px;
+    text-align: right;
 }
 #banner-wrap.login {
     padding: 0px 0 60px;
@@ -81,14 +82,17 @@ h3 {
     -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid transparent;
-	padding: 30px 10px;
+	padding: 0px 10px;
 }
 #centercolumn {
- padding-left: 10px;
- width: 80%
+     border-left: 1px solid #B3B3B3;
+	 padding: 10px 10px 10px 15px;
+	 width: 80%
 }
 #sidecolumn {
- width: 16%
+	 font-size: 11px;
+	 padding: 10px 10px 10px 0px;
+	 width: 16%
 }
 #left {
 	width: 45%;

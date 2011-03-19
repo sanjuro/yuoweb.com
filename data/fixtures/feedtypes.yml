@@ -1,0 +1,9 @@
+FeedType:
+ status_feedtype:
+   title:       Status
+ friend_feedtype:
+   title:       Friend
+ join_feedtype:
+   title:       Network Join
+ photo_feedtype:
+   title:       Photo

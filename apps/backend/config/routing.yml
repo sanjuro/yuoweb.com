@@ -1,7 +1,13 @@
+
 # default rules
 homepage:
   url:   /
   param: { module: dashboard, action: index }
+  
+#feeds
+feed_index: 
+  url:   /Feeds/
+  param: { module: feed, action: index }
   
 #adverts
 advert:

@@ -7,20 +7,26 @@
  * 
  * @property integer $id
  * @property integer $networkuser_id
+ * @property integer $feedtype_id
  * @property string $body
  * @property string $htmlbody
  * @property NetworkUser $NetworkUser
+ * @property FeedType $FeedType
  * 
  * @method integer     getId()             Returns the current record's "id" value
  * @method integer     getNetworkuserId()  Returns the current record's "networkuser_id" value
+ * @method integer     getFeedtypeId()     Returns the current record's "feedtype_id" value
  * @method string      getBody()           Returns the current record's "body" value
  * @method string      getHtmlbody()       Returns the current record's "htmlbody" value
  * @method NetworkUser getNetworkUser()    Returns the current record's "NetworkUser" value
+ * @method FeedType    getFeedType()       Returns the current record's "FeedType" value
  * @method Feed        setId()             Sets the current record's "id" value
  * @method Feed        setNetworkuserId()  Sets the current record's "networkuser_id" value
+ * @method Feed        setFeedtypeId()     Sets the current record's "feedtype_id" value
  * @method Feed        setBody()           Sets the current record's "body" value
  * @method Feed        setHtmlbody()       Sets the current record's "htmlbody" value
  * @method Feed        setNetworkUser()    Sets the current record's "NetworkUser" value
+ * @method Feed        setFeedType()       Sets the current record's "FeedType" value
  * 
  * @package    Spark
  * @subpackage model
@@ -40,6 +46,9 @@ abstract class BaseFeed extends sfDoctrineRecord
         $this->hasColumn('networkuser_id', 'integer', null, array(
              'type' => 'integer',
              ));
+        $this->hasColumn('feedtype_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
         $this->hasColumn('body', 'string', 160, array(
              'type' => 'string',
              'length' => 160,
@@ -55,6 +64,10 @@ abstract class BaseFeed extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('NetworkUser', array(
              'local' => 'networkuser_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('FeedType', array(
+             'local' => 'feedtype_id',
              'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();

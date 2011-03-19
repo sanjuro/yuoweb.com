@@ -162,10 +162,19 @@ Feed:
   columns:
     id:                     { type: integer, primary: true, autoincrement: true }
     networkuser_id:         { type: integer }
+    feedtype_id:            { type: integer }
     body:                   { type: string(160) }
     htmlbody:               { type: string(255) }  
   relations:
     NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
+    FeedType:               { class: FeedType, local: feedtype_id, foreign: id }
+    
+FeedType:
+  actAs: 
+   Timestampable: ~ 
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    title:                  { type: string(160) }
     
 Message:
   actAs: { Timestampable: ~ }
