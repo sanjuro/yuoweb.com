@@ -5,19 +5,19 @@
     <?php include_metas() ?>
     <title>
 	  <?php if (!include_slot('title')): ?>
-	    Kustom Cruisers - LOUD,REAL,FAST
+	    yUoweb - you are the network
 	  <?php endif; ?>
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/blueocean/message.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/message.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>
     <div id="header">
     	<div id="logo">
 		  <?php if (!include_slot('pagetitle')): ?>
-		     Kustom Cruisers - LOUD,REAL,FAST
+		    yUoweb - you are the network
 		  <?php endif; ?>
     	</div>
     	<div id="navigation">
@@ -47,6 +47,7 @@
 
     	
     	<?php include_component_slot('footer') ?>
+
     </div> 
   </body>
 </html>
