@@ -21,6 +21,23 @@ class FrontendSigninForm extends sfGuardFormSignin
 		throw new InvalidArgumentException("You must pass a network object as an option to this form!");	
 	}
   	
+    $this->setWidgets(array(
+      'username' => new sfWidgetFormInputText( array(),array( 'size' => '25')),
+      'password' => new sfWidgetFormInputPassword(array('type' => 'password'),array( 'size' => '25')),
+      'remember' => new sfWidgetFormInputCheckbox(),
+    ));
+
+    $this->setValidators(array(
+      'username' => new sfValidatorString(),
+      'password' => new sfValidatorString(),
+      'remember' => new sfValidatorBoolean( array( 'required' => false ) ),
+    ));	
+    
+    if (sfConfig::get('app_sf_guard_plugin_allow_login_with_email', true))
+    {
+      $this->widgetSchema['username']->setLabel('Username or E-Mail');
+    }
+  	
   	//echo '<pre>';print_r($currentNetwork->getTitle());exit;	
   	if ( $currentNetwork->getIsPublic() != 1 ){
 
@@ -37,6 +54,10 @@ class FrontendSigninForm extends sfGuardFormSignin
   		$this->validatorSchema['accesskey'] = new sfValidatorString(array('max_length' => 8, 'required' => false));
 
   	}	
+  	
+    $this->validatorSchema->setPostValidator(new sfGuardValidatorUser());
+
+    $this->widgetSchema->setNameFormat('signin[%s]');
 
   	
   }

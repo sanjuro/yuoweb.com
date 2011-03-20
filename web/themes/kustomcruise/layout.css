@@ -1,10 +1,9 @@
 /* Main Styles */
 
 body {
-    background: url("/themes/kustomcruise/images/logo.png") no-repeat;
+    background: url("/themes/kustomcruise/images/body_bg.png") repeat-x;
 	font-family: HelveticaNeue,Helvetica,Arial,serif;
 	margin: 0;
-	padding-top: 50px;
 }
 h1 {
     border-bottom: 1px solid #164ace;
@@ -40,6 +39,10 @@ a img {
 }
 #header {
 
+}
+#logo {
+    background: url("/themes/kustomcruise/images/logo.png") no-repeat;
+    height: 50px;
 }
 #main {
 }

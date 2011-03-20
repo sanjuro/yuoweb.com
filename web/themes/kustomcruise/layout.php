@@ -16,9 +16,6 @@
   <body>
     <div id="header">
     	<div id="logo">
-		  <?php if (!include_slot('pagetitle')): ?>
-		    yUoweb - you are the network
-		  <?php endif; ?>
     	</div>
     	<div id="navigation">
 			  <?php include_component_slot('navigation') ?>

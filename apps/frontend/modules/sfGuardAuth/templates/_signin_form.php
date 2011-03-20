@@ -18,9 +18,9 @@
  <br>
  <?php echo $form['password'] ?>	
  <br>
- <?php echo $form['password']->renderError() ?>
- 
+ <?php echo $form['password']->renderError() ?> 
  <br></br>
+ 
  <?php echo $form['accesskey']->renderLabel() ?>
  <br>
  <?php echo $form['accesskey'] ?>	
