@@ -65,24 +65,27 @@ a img {
 	padding: 5px 0px;
 }
 
+
+
+ul#topmenunavigation li, .navigationright a {
+	display: inline;
+	font-size: 0.9em;
+}
 .navigationright {
 	float: right;
 }
-
-ul#topmenunavigation li {
-	display: inline;
-}
-ul#topmenunavigation li a, .navigationright a {
-	color: black;
-}
-
 ul#topmenunavigation {
 	padding-left: 0px;
 	margin: 10px 0px;
 }
-ul#topmenunavigation li, .navigationright a {
-	display: inline;
-	font-size: 0.9em;
+
+
+ul#topmenunavigation li a, .navigationright a {
+   color: #2e6ac4;
+}
+ul#topmenunavigation li a, ul#messagenavigation li a {
+	background: url("/themes/kustomcruise/images/listicon.png")left no-repeat;
+	padding-left: 17px;
 }
 ul#footernavigation {
 	padding-left: 0px;
@@ -91,6 +94,20 @@ ul#footernavigation {
 ul#footernavigation li {
 	display: inline;
 	font-size: 1em;
+}
+
+ul.feedslist  {
+	font-size: 0.8em;
+}
+
+ul.feedslist  li{
+	background-color: #ccc;
+	list-style-image: url("/themes/kustomcruise/images/listicon.png");
+	padding: 5px;
+	margin-bottom: 5px;
+}
+.feedlist_body {
+	font-weight: bold;
 }
 
 

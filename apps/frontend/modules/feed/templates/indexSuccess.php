@@ -10,7 +10,7 @@
 		<ul class="feedslist">
 		<?php foreach ( $feedsForUser as $feed ) : ?>
 			<li>
-				<?php echo $feed['body'] ?>	
+				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
 				<br>
 				<?php echo 'Posted at '.$feed['created_at'] ?>	
 			</li>	
@@ -28,7 +28,7 @@
 		  <ul class="feedslist">
 		  <?php foreach ( $friend['Reciever']['Feed'] as $feed ) : ?>
 			<li>
-				<?php echo $feed['body'] ?>	
+				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
 				<br>
 				<?php echo 'Posted at '.$feed['created_at'] ?>	
 			</li>		
