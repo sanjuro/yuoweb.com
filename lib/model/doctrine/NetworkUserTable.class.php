@@ -37,11 +37,11 @@ class NetworkUserTable extends Doctrine_Table
 	
 	public function getNetworkUserWithUser($NetworkID, $UserID)
 	{ 
-	    $q = Doctrine_Query::create()
-	      ->from('NetworkUser nu')
-	      ->leftJoin('nu.sfGuardUser su');
+	  $q = Doctrine_Query::create()
+		  ->leftJoin('nu.sfGuardUser su')
+	      ->from('NetworkUser nu');	  
 	  
-	   return $this->fetchNetworkUserWithUser($q, $NetworkID, $UserID);     
+	  return $this->fetchNetworkUserWithUser($q, $NetworkID, $UserID);     
 	}
 	
 /**
@@ -86,19 +86,19 @@ class NetworkUserTable extends Doctrine_Table
 	  if (is_null($q))
 	  {
 	    $q = Doctrine_Query::create()
-	      ->from('NetworkUser nu');
-      	  
+	      ->from('NetworkUser nu');    	  
 	  }
-	      $q->where('nu.network_id = ?', $NetworkID)
-    	  ->andWhere('nu.user_id = ?', $UserID); 
 	  
-	   $NetworkUser = '';
-	   
-	   foreach ($q->execute() as $value) {
-	   	$NetworkUser = $value;
-	   }
-		
-	   return $NetworkUser;	 
+	  $q->where('nu.network_id = ?', $NetworkID)
+        ->andWhere('nu.user_id = ?', $UserID); 
+	  
+	  //$NetworkUser = $q->fetchOne() ;
+	  
+	   //foreach ($q->fetchOne() as $value) {
+	   ///$NetworkUser = $value;
+	   //}
+
+	   return $q->fetchOne();	 
 	}
 	
 	public function getBackendNetworkUsersForClient(Doctrine_Query $q = null)

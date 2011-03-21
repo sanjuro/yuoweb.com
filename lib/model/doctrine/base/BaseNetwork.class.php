@@ -26,6 +26,7 @@
  * @property Doctrine_Collection $NetworkUser
  * @property Doctrine_Collection $Message
  * @property Doctrine_Collection $PhotoView
+ * @property Doctrine_Collection $Event
  * @property Doctrine_Collection $SpeakoutCategory
  * 
  * @method integer             getClientId()           Returns the current record's "client_id" value
@@ -49,6 +50,7 @@
  * @method Doctrine_Collection getNetworkUser()        Returns the current record's "NetworkUser" collection
  * @method Doctrine_Collection getMessage()            Returns the current record's "Message" collection
  * @method Doctrine_Collection getPhotoView()          Returns the current record's "PhotoView" collection
+ * @method Doctrine_Collection getEvent()              Returns the current record's "Event" collection
  * @method Doctrine_Collection getSpeakoutCategory()   Returns the current record's "SpeakoutCategory" collection
  * @method Network             setClientId()           Sets the current record's "client_id" value
  * @method Network             setNetworktypeId()      Sets the current record's "networktype_id" value
@@ -71,6 +73,7 @@
  * @method Network             setNetworkUser()        Sets the current record's "NetworkUser" collection
  * @method Network             setMessage()            Sets the current record's "Message" collection
  * @method Network             setPhotoView()          Sets the current record's "PhotoView" collection
+ * @method Network             setEvent()              Sets the current record's "Event" collection
  * @method Network             setSpeakoutCategory()   Sets the current record's "SpeakoutCategory" collection
  * 
  * @package    Spark
@@ -193,6 +196,10 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'network_id'));
 
         $this->hasMany('PhotoView', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('Event', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 

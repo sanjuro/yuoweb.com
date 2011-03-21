@@ -92,7 +92,14 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
     }
   }
   
+  public function executeSignout($request)
+  {
+    $this->getUser()->signOut();
 
+    //$signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
+
+    $this->redirect( $this->generateUrl('network_signin'));
+  }
   
 }
 

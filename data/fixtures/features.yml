@@ -3,28 +3,23 @@ Feature:
     title:        Messages
     description:  The messaging system for the network
     url:          message_index
-    
-  photos_feature:
-    title:        Photos
-    description:  This allows the user to upload and view photos shared on the network
-    url:          photo_index
-    
+   
   friends_feature:
     title:        Friends
     description:  This allows the user to manage ther friends
     url:          networkuser_index
     
-  speakout_feature:
-    title:        Speakout
-    description:  This allows the user to speak about topics and categoires
-    url:          speakout_index
-    
-  videos_feature:
-    title:        Videos
-    description:  This allows the user to upload and view videos shared on the network
-    url:          video_index
-    
   feeds_feature:
     title:        Feeds
     description:  This allows the user to get live status updates of their friends
     url:          feed_index
+    
+  photos_feature:
+    title:        Photos
+    description:  This allows the user to upload and view photos shared on the network
+    url:          photo_index   
+    
+  speakout_feature:
+    title:        Speakout
+    description:  This allows the user to speak about topics and categoires
+    url:          speakout_index

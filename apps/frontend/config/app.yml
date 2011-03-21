@@ -3,6 +3,9 @@
 
 # default values
 all:
+ sf_guard_plugin:
+   success_signout_url:      network_logout
+   
  client:
    networkcount_max: 5
 

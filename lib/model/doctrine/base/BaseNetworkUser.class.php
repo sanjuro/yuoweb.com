@@ -17,6 +17,8 @@
  * @property Doctrine_Collection $MessageReciever
  * @property Doctrine_Collection $Photo
  * @property Doctrine_Collection $PhotoGallery
+ * @property Doctrine_Collection $Event
+ * @property Doctrine_Collection $EventInvite
  * @property Doctrine_Collection $SpeakoutReply
  * @property Doctrine_Collection $SpeakoutTopic
  * 
@@ -32,6 +34,8 @@
  * @method Doctrine_Collection getMessageReciever() Returns the current record's "MessageReciever" collection
  * @method Doctrine_Collection getPhoto()           Returns the current record's "Photo" collection
  * @method Doctrine_Collection getPhotoGallery()    Returns the current record's "PhotoGallery" collection
+ * @method Doctrine_Collection getEvent()           Returns the current record's "Event" collection
+ * @method Doctrine_Collection getEventInvite()     Returns the current record's "EventInvite" collection
  * @method Doctrine_Collection getSpeakoutReply()   Returns the current record's "SpeakoutReply" collection
  * @method Doctrine_Collection getSpeakoutTopic()   Returns the current record's "SpeakoutTopic" collection
  * @method NetworkUser         setId()              Sets the current record's "id" value
@@ -46,6 +50,8 @@
  * @method NetworkUser         setMessageReciever() Sets the current record's "MessageReciever" collection
  * @method NetworkUser         setPhoto()           Sets the current record's "Photo" collection
  * @method NetworkUser         setPhotoGallery()    Sets the current record's "PhotoGallery" collection
+ * @method NetworkUser         setEvent()           Sets the current record's "Event" collection
+ * @method NetworkUser         setEventInvite()     Sets the current record's "EventInvite" collection
  * @method NetworkUser         setSpeakoutReply()   Sets the current record's "SpeakoutReply" collection
  * @method NetworkUser         setSpeakoutTopic()   Sets the current record's "SpeakoutTopic" collection
  * 
@@ -111,6 +117,14 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'foreign' => 'networkuser_id'));
 
         $this->hasMany('PhotoGallery', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
+
+        $this->hasMany('Event', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
+
+        $this->hasMany('EventInvite', array(
              'local' => 'id',
              'foreign' => 'networkuser_id'));
 

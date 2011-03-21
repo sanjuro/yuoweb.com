@@ -267,7 +267,52 @@ PhotoView:
     Network:  { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
     Photo:    { class: Feature, onDelete: CASCADE, local: photo_id, foreign: id }
        
+
+Event:
+  actAs: 
+    Timestampable: ~
+    Searchable:
+       fields: [title, description]
+    SoftDelete: ~
+    Sluggable:
+      unique: true
+      fields: [title]
+      canUpdate: true
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    networkuser_id:         { type: integer }
+    network_id:             { type: integer } 
+    eventtype_id:           { type: integer }
+    title:                  { type: string(100) }
+    description:            { type: string(200) }
+    accept_count:           { type: integer } 
+    accept_limit:           { type: integer }
+    address:                { type: string(200) }
+    g_lat:                  { type: integer }
+    g_long:                 { type: integer }
+    contact_no:             { type: string(200) }
+    start_at:               { type: timestamp }
+    end_at:                 { type: timestamp }
+  relations:
+    Network:             { class: Network, local: network_id, foreign: id  }
+    NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }
+    EventType:           { class: EvenetType, local: eventtype_id, foreign: id  }
+  
+EventType:
+  columns:
+    title:         { type: string(255), notnull: true }
     
+EventInvite:
+  actAs: 
+    Timestampable: ~
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    event_id:               { type: integer }
+    networkuser_id:         { type: integer }
+  relations:
+    Event:                  { class: Event, local: event_id, foreign: id  }
+    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
+
     
 SpeakoutCategory:
   actAs: 

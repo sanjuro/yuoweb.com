@@ -8,6 +8,10 @@ CREATE TABLE comment_report (id BIGINT AUTO_INCREMENT, reason LONGTEXT NOT NULL,
 CREATE TABLE connection (id BIGINT AUTO_INCREMENT, owner_id BIGINT, reciever_id BIGINT, type_id BIGINT, state_id BIGINT, INDEX type_id_idx (type_id), INDEX state_id_idx (state_id), INDEX owner_id_idx (owner_id), INDEX reciever_id_idx (reciever_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE connection_state (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE connection_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE event_index (keyword VARCHAR(200), field VARCHAR(50), position BIGINT, id BIGINT, PRIMARY KEY(keyword, field, position, id)) ENGINE = INNODB;
+CREATE TABLE event (id BIGINT AUTO_INCREMENT, networkuser_id BIGINT, network_id BIGINT, eventtype_id BIGINT, title VARCHAR(100), description VARCHAR(200), accept_count BIGINT, accept_limit BIGINT, address VARCHAR(200), g_lat BIGINT, g_long BIGINT, contact_no VARCHAR(200), start_at DATETIME, end_at DATETIME, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, deleted_at DATETIME, slug VARCHAR(255), UNIQUE INDEX event_sluggable_idx (slug), INDEX network_id_idx (network_id), INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE event_invite (id BIGINT AUTO_INCREMENT, event_id BIGINT, networkuser_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX event_id_idx (event_id), INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE event_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE feature (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, description TEXT NOT NULL, url VARCHAR(100) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE feed (id BIGINT AUTO_INCREMENT, networkuser_id BIGINT, feedtype_id BIGINT, body VARCHAR(160), htmlbody VARCHAR(255), created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), INDEX feedtype_id_idx (feedtype_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE feed_type (id BIGINT AUTO_INCREMENT, title VARCHAR(160), created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
@@ -53,6 +57,11 @@ ALTER TABLE connection ADD CONSTRAINT connection_type_id_connection_type_id FORE
 ALTER TABLE connection ADD CONSTRAINT connection_state_id_connection_state_id FOREIGN KEY (state_id) REFERENCES connection_state(id);
 ALTER TABLE connection ADD CONSTRAINT connection_reciever_id_network_user_id FOREIGN KEY (reciever_id) REFERENCES network_user(id) ON DELETE CASCADE;
 ALTER TABLE connection ADD CONSTRAINT connection_owner_id_network_user_id FOREIGN KEY (owner_id) REFERENCES network_user(id) ON DELETE CASCADE;
+ALTER TABLE event_index ADD CONSTRAINT event_index_id_event_id FOREIGN KEY (id) REFERENCES event(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE event ADD CONSTRAINT event_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
+ALTER TABLE event ADD CONSTRAINT event_network_id_network_id FOREIGN KEY (network_id) REFERENCES network(id);
+ALTER TABLE event_invite ADD CONSTRAINT event_invite_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
+ALTER TABLE event_invite ADD CONSTRAINT event_invite_event_id_event_id FOREIGN KEY (event_id) REFERENCES event(id);
 ALTER TABLE feed ADD CONSTRAINT feed_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
 ALTER TABLE feed ADD CONSTRAINT feed_feedtype_id_feed_type_id FOREIGN KEY (feedtype_id) REFERENCES feed_type(id);
 ALTER TABLE message ADD CONSTRAINT message_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);

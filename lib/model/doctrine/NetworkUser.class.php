@@ -96,5 +96,14 @@ class NetworkUser extends BaseNetworkUser
 
 	   return $q->fetchArray();		  	     
   }
+  
+  public function getsfGuardUserObject()
+  {
+       $q = Doctrine_Query::create()
+	      ->from('sfGuardUser sgu')
+	      ->where('sgu.id = ?',  $this->getUserId()); 
+
+	   return $q->fetchOne();		  	     
+  }
 
 }    

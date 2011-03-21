@@ -34,6 +34,14 @@ network_signin:
   requirements:
      sf_method: [get, post]
      
+network_logout: 
+  url:   /Logout/
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param:   { module: sfGuardAuth, action: signout }
+  requirements:
+     sf_method: [get, post]
+     
      
 network_home:
   url:        /:slug

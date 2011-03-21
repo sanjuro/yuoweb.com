@@ -55,8 +55,8 @@ a img {
 }
 
 #footer {
-	background: #000;
-	height: 300px;
+    background: url("/themes/kustomcruise/images/footer_bg.png") repeat-x;
+	height: 200px;
 	padding: 5px 5px 500px 5px;
 }
 #footer a {
