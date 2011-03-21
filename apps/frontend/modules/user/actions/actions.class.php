@@ -96,9 +96,9 @@ class userActions extends sfActions
 	      {	
 	      	$user = $this->form->save();
 	      	
-	      	$this->getUser()->signin($user->getUsername(), false);
-	      		      	
-	      	return $this->redirect('@homepage');
+	      	$this->getUser()->signin($user, false);
+	      	    	
+	      	return $this->redirect('@homepage_network');
 	      	
 	      }else {
 	      	      	

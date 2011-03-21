@@ -53,7 +53,6 @@ abstract class BaseClient extends sfDoctrineRecord
              ));
         $this->hasColumn('fullname', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => 255,
              ));
         $this->hasColumn('logo', 'string', 255, array(
@@ -70,7 +69,6 @@ abstract class BaseClient extends sfDoctrineRecord
              ));
         $this->hasColumn('description', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => 255,
              ));
         $this->hasColumn('token', 'string', 255, array(
@@ -82,7 +80,7 @@ abstract class BaseClient extends sfDoctrineRecord
         $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
-             'default' => 0,
+             'default' => 1,
              ));
     }
 

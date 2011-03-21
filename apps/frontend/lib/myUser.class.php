@@ -13,7 +13,7 @@ class myUser extends sfGuardSecurityUser
  * This Function singsn the user in it currently extends the Symfony Guard User sessoin
  * class
  *
- * @param    user $user User object of the user being signed in
+ * @param sfGuardUser $user The sfGuardUser id
  * @param 	 boolean $remember Flag to remember the user and set into cookie
  * @param    Doctrine Connection $con the current connection
  * @return    

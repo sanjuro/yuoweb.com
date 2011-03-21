@@ -32,11 +32,11 @@ abstract class BaseClientForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'user_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'))),
-      'fullname'      => new sfValidatorString(array('max_length' => 255)),
+      'fullname'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'logo'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'url'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'description'   => new sfValidatorString(array('max_length' => 255)),
+      'description'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'token'         => new sfValidatorString(array('max_length' => 255)),
       'is_activated'  => new sfValidatorBoolean(array('required' => false)),
       'created_at'    => new sfValidatorDateTime(),

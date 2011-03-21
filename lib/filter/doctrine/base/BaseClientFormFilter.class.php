@@ -14,11 +14,11 @@ abstract class BaseClientFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'user_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'add_empty' => true)),
-      'fullname'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'fullname'      => new sfWidgetFormFilterInput(),
       'logo'          => new sfWidgetFormFilterInput(),
       'url'           => new sfWidgetFormFilterInput(),
       'email'         => new sfWidgetFormFilterInput(),
-      'description'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'description'   => new sfWidgetFormFilterInput(),
       'token'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'is_activated'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'created_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),

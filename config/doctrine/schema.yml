@@ -28,13 +28,13 @@ Client:
   actAs: { Timestampable: ~ }
   columns:
     user_id:       { type: integer, notnull: true }
-    fullname:      { type: string(255), notnull: true }
+    fullname:      { type: string(255) }
     logo:          { type: string(255) }
     url:           { type: string(255) }
     email:         { type: string(255) } 
-    description:   { type: string(255), notnull: true }
+    description:   { type: string(255) }
     token:         { type: string(255), notnull: true, unique: true }
-    is_activated:  { type: boolean, notnull: true, default: 0 }
+    is_activated:  { type: boolean, notnull: true, default: 1 }
   relations:
     sfGuardUser:   { local: user_id, foreign: id }
     
@@ -60,7 +60,8 @@ ConnectionState:
     title:       { type: string(255), notnull: true }  
     
 Feature:
-  actAs: { Timestampable: ~ }
+  actAs: 
+    Timestampable: ~
   columns:
     title:         { type: string(255), notnull: true }
     description:   { type: string(400), notnull: true }
@@ -124,6 +125,12 @@ NetworkFeature:
     Feature:  { class: Feature, onDelete: CASCADE, local: feature_id, foreign: id }
     
 NetworkUser:
+  actAs: 
+    CountCache:
+      relations:
+        Network:
+          columnName: user_count
+          foreignAlias: NetworkUser
   columns:
     id:           { type: integer, primary: true, autoincrement: true }
     network_id:   { type: integer }

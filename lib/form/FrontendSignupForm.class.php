@@ -59,15 +59,16 @@ class FrontendSignupForm extends BasesfGuardUserForm
     $this->object->setPassword($this->object->getEmailAddress());
     
     $this->object->save($con);
+    
+    $tempFullname = explode( '@', $this->object->getEmailAddress());
      
   	if($this->isNew())
 	{ 
 		$Client = new Client();
 		$Client->setUserId($this->object->getId());
-		$Client->setFullname(ucwords($this->object->getUsername()));
+		$Client->setFullname($tempFullname[0]);
 		$Client->setEmail($this->object->getEmailAddress());
-		$Client->setIsActivated(0);
-		$Client->setNetworkCount(1);
+		$Client->setIsActivated(1);
 		$Client->save();
 		
 		$Network = new Network();

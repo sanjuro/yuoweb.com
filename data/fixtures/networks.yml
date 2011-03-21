@@ -8,7 +8,6 @@ Network:
     title:        Kustom Cruisers Car Club
     description:  This is Kustom Cruisers Classic Car Club
     feature_count: 4
-    user_count:    2
     is_public:    true
     is_activated: true
     slug:         kustomcruisers-network
@@ -23,7 +22,6 @@ Network:
     title:           Nine Miles Surf
     description:     This the Nine miles surfing community
     feature_count:   0
-    user_count:      1
     is_public:    true
     is_activated: true
     slug:         ninemiles-network

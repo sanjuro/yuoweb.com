@@ -121,5 +121,17 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
         $this->hasMany('SpeakoutTopic', array(
              'local' => 'id',
              'foreign' => 'networkuser_id'));
+
+        $countcache0 = new CountCache(array(
+             'relations' => 
+             array(
+              'Network' => 
+              array(
+              'columnName' => 'user_count',
+              'foreignAlias' => 'NetworkUser',
+              ),
+             ),
+             ));
+        $this->actAs($countcache0);
     }
 }
