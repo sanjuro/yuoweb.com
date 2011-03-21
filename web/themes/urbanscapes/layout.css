@@ -1,0 +1,163 @@
+/* Main Styles */
+
+body {
+    background: url("/themes/urbanscapes/images/body_bg.png") repeat-y;
+	font-family: "DINSchrift",sans-serif;
+	margin: 0;
+}
+h1 {
+    border-bottom: 1px solid #164ace;
+    color: #bc2727;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+h3 {
+    background: url("/themes/urbanscapes/images/h3_bg.png") repeat-x;
+    color: white;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+fieldset {
+	border: none;
+	}
+p {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+a {
+  color: #bc2727;
+  text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+#header {
+
+}
+#logo {
+    background: url("/themes/urbanscapes/images/logo_bg.png") repeat-x;
+    height: 46px;
+}
+
+#main {
+
+}
+
+#main h3 a {
+	color: #FFF;
+}
+#navigation {
+  padding: 0px 3px;
+}
+
+#footer {
+    background: url("/themes/urbanscapes/images/footer_bg.png") repeat-x;
+	height: 200px;
+	padding: 5px 5px 500px 5px;
+}
+#footer a {
+	color: #FFF;
+	font-size: 0.9em;
+	padding: 5px 0px;
+}
+
+
+
+ul#topmenunavigation li, .navigationright a {
+	display: inline;
+	font-size: 0.9em;
+}
+.navigationright {
+	float: right;
+}
+ul#topmenunavigation {
+	padding-left: 0px;
+	margin: 10px 0px;
+}
+
+
+ul#topmenunavigation li a, .navigationright a {
+   color: #bc2727;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+ul#topmenunavigation li a, ul#messagenavigation li a {
+	padding-left: 5px;
+}
+ul#featurenavigation {
+	font-size: 0.8em;
+	margin: 5px 0px;
+
+}
+ul#featurenavigation li{ 
+	list-style-image: url("/themes/urbanscapes/images/link.png");
+}
+ul#footernavigation {
+	padding-left: 0px;
+	margin: 10px 0px;
+}
+ul#footernavigation li {
+	display: inline;
+	font-size: 1em;
+}
+
+ul.feedslist  {
+	font-size: 0.8em;
+}
+
+ul.feedslist  li{
+	background-color: #ccc;
+	list-style-image: url("/themes/urbanscapes/images/listicon.png");
+	padding: 5px;
+	margin-bottom: 5px;
+}
+.feedlist_body {
+	font-weight: bold;
+}
+
+
+.datatable tr{
+}
+
+
+/* Form Styles */
+
+form {
+    font-size: 12px;
+}
+
+label {
+	font-size: 1em;
+    font-weight: bold;
+    padding-right: 10px;
+    width: 10%;
+}
+
+fieldset.formContainer {
+	border: none;
+}
+
+input.validated {
+
+}
+
+.formContainer h4 {
+    color: #999999;
+    font-family: Georgia,Times New Roman,serif;
+    font-style: oblique;
+    margin: 0 0 20px 180px;
+}
+.signinRow {
+    display: block;
+    margin-bottom: 15px;
+}
+
+label {
+	font-weight: bold;
+}

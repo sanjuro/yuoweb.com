@@ -6,11 +6,11 @@ class FrontendUserProfileForm extends BaseUserProfileForm
   {
     unset(
       $this['id'], $this['sfuser_id'],
+      $this['country'], $this['birthday'],
       $this['mobile_no'], $this['description'],
       $this['profile_pic']
     );
     
-     $this->validatorSchema['birthday'] = new sfValidatorDateTime(array('required' => false));
   }
 }
 ?>

@@ -19,10 +19,19 @@ require_once(dirname(__FILE__).'/../lib/BasesfGuardAuthActions.class.php');
  */
 class sfGuardAuthActions extends BasesfGuardAuthActions
 {
+  public function preExecute()
+  {
+ 	$this->network = Doctrine_Core::getTable('Network')
+	           		->findOneById($this->request->getParameter('network_id')); 
+ 	
+ 	if($this->getUser()->isAuthenticated()){
+ 		$this->networkuser = $this->network->getUser($this->getUser()->getUserid()); 
+ 	}
+  }
   
   public function executeSignin($request)
-  {   	
-    $this->network = $this->getRoute()->getObject();
+  {   		
+    //$this->network = $this->getRoute()->getObject();
 	/*
     $networkid = $request->getParameter('network_id');
 
@@ -30,7 +39,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
 	           ->findOneById($networkid);
     */
     $user = $this->getUser();
-   	
+   	 
     if (isset($user) && $user->isAuthenticated())
     {
       return $this->redirect('@homepage');
@@ -52,7 +61,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         // or to the referer
         // or to the homepage
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
-
+	
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
       }
     }

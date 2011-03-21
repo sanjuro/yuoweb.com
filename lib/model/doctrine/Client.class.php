@@ -12,6 +12,25 @@
  */
 class Client extends BaseClient
 {
+/**
+ * Function to extend the base Save function
+ * 
+ * This function extends the base save function and sets the token of a client
+ * 
+ * @param $Doctrine_Connection $conn
+ * 
+ * @return void
+ */
+  public function save(Doctrine_Connection $conn = null)
+  {      
+	  if ($this->isNew())
+	  {
+	    $this->setToken(Yuoweb::slugify($this->getFullname()).'-client');
+	  }	 
+	  
+	  return parent::save($conn);
+  }
+	
 	public function getActiveNetworks($max = 10)
 	{
 	  $q = Doctrine_Query::create()

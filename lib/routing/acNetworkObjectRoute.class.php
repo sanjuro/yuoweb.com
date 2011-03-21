@@ -34,10 +34,10 @@ class acNetworkObjectRoute extends sfDoctrineRoute
 	    $subdomain = str_replace('.', '', $subdomain);
 	    
 	 	//$subdomain = 'picnpay';
-	 
+	   
 	    $network = Doctrine_Core::getTable('Network')
 	      ->findOneBySubdomain($subdomain);
-	  
+	    //echo '<pre>';print_r($network->getId());exit;
 	    if (!$network)
 	    {
 	      return false;

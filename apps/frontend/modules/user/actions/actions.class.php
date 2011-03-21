@@ -82,9 +82,9 @@ class userActions extends sfActions
   public function executeJoin(sfWebRequest $request)
   {
     $this->network = $this->getRoute()->getObject();
-
+     
     $this->form = new FrontendNetworkJoinForm( null, array( 'network' => $this->network ));
-
+  
 	if ($this->request->isMethod('post'))
 	{			
 		  $this->form->bind(
