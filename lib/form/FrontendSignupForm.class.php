@@ -75,7 +75,7 @@ class FrontendSignupForm extends BasesfGuardUserForm
 		$Network->setClientId($Client->getId());
 		$Network->setNetworktypeId(2);
 		$Network->setNetworkcategoryId($this->values['frontendnetwork']['networkcategory_id']);
-		$Network->setSubdomain($this->values['frontendnetwork']['subdomain']);
+		$Network->setSubdomain(Yuoweb::clean($this->values['frontendnetwork']['subdomain']));
 		$Network->setTitle($this->values['frontendnetwork']['subdomain'].' Network');
 		$Network->setDescription($this->values['frontendnetwork']['subdomain'].' Network');
 		$Network->setFeatureCount(4);
