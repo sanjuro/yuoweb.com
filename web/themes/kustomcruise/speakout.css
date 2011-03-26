@@ -21,3 +21,8 @@ li.topiclist{
 	padding: 10px 20px;
 	margin-bottom: 20px;
 }
+.reply {
+	background-color: #CCCCCC;
+	padding: 5px 13px;
+	margin: 0px 10px;
+}

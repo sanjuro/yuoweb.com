@@ -10,7 +10,8 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/blueocean/message.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/message.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/speakout.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>
