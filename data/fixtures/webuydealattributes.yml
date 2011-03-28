@@ -1,0 +1,5 @@
+WebuyDealAttribute:
+ webuydealattribute_dealattribute1:
+   WebuyDeal:                 webuydeal_deal1
+   attribute_name:            descriptipn
+   attribute_value:           First Deal

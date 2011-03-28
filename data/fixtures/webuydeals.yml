@@ -1,0 +1,10 @@
+WebuyDeal:
+  webuydeal_deal1:
+    WebuyProduct:     webuyproduct_product1
+    full_price:       200.00
+    deal_price:       100.00
+    discount_percent: 50.00
+    buyer_count:      0
+    tipping_count:    100
+    status:           1
+    slug:             webuydeal_deal1

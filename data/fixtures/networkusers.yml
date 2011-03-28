@@ -11,6 +11,5 @@ Networkuser:
     
   networkuser_durrie:
     sfGuardUser: user_durrie
-    Network:     ninemiles_network
-    is_private:  false
-    
+    Network:     fbsurf_network
+    is_private:  false    

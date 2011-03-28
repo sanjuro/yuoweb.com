@@ -9,13 +9,23 @@ Client:
     token:        kustomcruisers_client
     is_activated: true  
     created_at:   '2010-09-10'
-  ninemiles_client:
+  fbsurf_client:
     sfGuardUser:  user_faizel
-    fullname:     Nine Miles Surf
+    fullname:     False Bay Surf
     url:          www.ninemiles.com
     email:        faizel@ninemiles.com
-    description:  Nine Miles Client
+    description:  False Bay Client
     network_count: 0
-    token:        ninemiles_client
+    token:        fbsurf_client
+    is_activated: true  
+    created_at:   '2010-09-10'
+  groupbuying_client:
+    sfGuardUser:  user_faizel
+    fullname:     Raymond Client
+    url:          www.groupbuying.com
+    email:        faizel@ninemiles.com
+    description:  Group Buying Client
+    network_count: 0
+    token:        groupbuying_client
     is_activated: true  
     created_at:   '2010-09-10'

@@ -1,0 +1,6 @@
+WebuyProduct:
+ webuyproduct_product1:
+   WebuyCategory:             webuycategory_food
+   WebuySupplier:             webuysupplier_supplier1
+   title:                     Product One
+   description:               The first Product One

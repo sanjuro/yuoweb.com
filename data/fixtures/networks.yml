@@ -1,29 +1,43 @@
 Network:
   kustomcruisers_network:
-    id:           1
-    Client:       kustomcruisers_client
-    NetworkType:  networktype_free
+    id:              1
+    Client:          kustomcruisers_client
+    NetworkType:     networktype_free
     NetworkCategory: networkcategory_social
-    subdomain:    kcruise
-    title:        Kustom Cruisers Car Club
-    description:  This is Kustom Cruisers Classic Car Club
-    feature_count: 4
-    is_public:    true
-    is_activated: true
-    slug:         kustomcruisers-network
-    expires_at:   '2012-09-10'
-    created_at:   '2010-09-10'
-  ninemiles_network:
+    subdomain:       kcruise
+    title:           Kustom Cruisers Car Club
+    description:     This is Kustom Cruisers Classic Car Club
+    feature_count:   6
+    is_public:       true
+    is_activated:    true
+    slug:            kustomcruisers-network
+    expires_at:      '2012-09-10'
+    created_at:      '2010-09-10'
+  fbsurf_network:
     id:              2
-    Client:          ninemiles_client
+    Client:          fbsurf_client
     NetworkType:     networktype_free
     NetworkCategory: networkcategory_sport
-    subdomain:       ninemiles
-    title:           Nine Miles Surf
-    description:     This the Nine miles surfing community
+    subdomain:       fbsurf
+    title:           False Bay Surf
+    description:     This the False Bay Surfing Community
     feature_count:   0
-    is_public:    true
-    is_activated: true
-    slug:         ninemiles-network
-    expires_at:   '2012-09-10'
-    created_at:   '2010-09-10'
+    is_public:       true
+    is_activated:    true
+    slug:            fbsurf-network
+    expires_at:      '2012-09-10'
+    created_at:      '2010-09-10'
+  groupbuying_network:
+    id:              3
+    Client:          groupbuying_client
+    NetworkType:     networktype_free
+    NetworkCategory: networkcategory_sport
+    subdomain:       groupbuying
+    title:           Group Buying Network
+    description:     This a Group Buying Network
+    feature_count:   0
+    is_public:       true
+    is_activated:    true
+    slug:            groupbuying-network
+    expires_at:      '2012-09-10'
+    created_at:      '2010-09-10'

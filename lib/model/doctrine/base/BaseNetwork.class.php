@@ -28,6 +28,7 @@
  * @property Doctrine_Collection $PhotoView
  * @property Doctrine_Collection $Event
  * @property Doctrine_Collection $SpeakoutCategory
+ * @property Doctrine_Collection $WebuyDeal
  * 
  * @method integer             getClientId()           Returns the current record's "client_id" value
  * @method integer             getNetworktypeId()      Returns the current record's "networktype_id" value
@@ -52,6 +53,7 @@
  * @method Doctrine_Collection getPhotoView()          Returns the current record's "PhotoView" collection
  * @method Doctrine_Collection getEvent()              Returns the current record's "Event" collection
  * @method Doctrine_Collection getSpeakoutCategory()   Returns the current record's "SpeakoutCategory" collection
+ * @method Doctrine_Collection getWebuyDeal()          Returns the current record's "WebuyDeal" collection
  * @method Network             setClientId()           Sets the current record's "client_id" value
  * @method Network             setNetworktypeId()      Sets the current record's "networktype_id" value
  * @method Network             setNetworkcategoryId()  Sets the current record's "networkcategory_id" value
@@ -75,6 +77,7 @@
  * @method Network             setPhotoView()          Sets the current record's "PhotoView" collection
  * @method Network             setEvent()              Sets the current record's "Event" collection
  * @method Network             setSpeakoutCategory()   Sets the current record's "SpeakoutCategory" collection
+ * @method Network             setWebuyDeal()          Sets the current record's "WebuyDeal" collection
  * 
  * @package    Spark
  * @subpackage model
@@ -204,6 +207,10 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'network_id'));
 
         $this->hasMany('SpeakoutCategory', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('WebuyDeal', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 
