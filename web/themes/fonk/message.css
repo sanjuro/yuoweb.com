@@ -1,0 +1,17 @@
+p {
+	font-size: 0.8em;
+}
+ul#messagenavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#messagenavigation li {
+	display: inline;
+	font-size: 14px;
+}
+.messageline {
+	padding: 3px 5px;
+}
+.newmessage {
+	background-color: #CCC;
+}
