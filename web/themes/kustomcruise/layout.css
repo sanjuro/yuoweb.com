@@ -19,6 +19,12 @@ h3 {
     margin: 0;
     padding: 5px;
 }
+h5 {
+    background-color: #CCC;
+    color: #000;
+    margin: 0px;
+    padding: 3px 0px;
+}
 fieldset {
 	border: none;
 	}
@@ -78,14 +84,19 @@ ul#topmenunavigation {
 	padding-left: 0px;
 	margin: 10px 0px;
 }
-
+ul#featurenavigation {
+	padding-left: 10px;
+}
 
 ul#topmenunavigation li a, .navigationright a {
    color: #2e6ac4;
 }
-ul#topmenunavigation li a, ul#messagenavigation li a {
+ul#topmenunavigation li a, ul#messagenavigation li a, ul#featurenavigation li a {
 	background: url("/themes/kustomcruise/images/listicon.png")left no-repeat;
 	padding-left: 17px;
+}
+ul#featurenavigation li {
+	list-style-type: none;
 }
 ul#footernavigation {
 	padding-left: 0px;

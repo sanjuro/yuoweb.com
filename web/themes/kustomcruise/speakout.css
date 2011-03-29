@@ -6,7 +6,6 @@ ul#speakoutnavigation li, .speakoutnavigation {
 	display: inline;
 	font-size: 14px;
 }
-
 li.topiclist {
 	list-style: none;
 }
@@ -22,7 +21,10 @@ li.topiclist{
 	margin-bottom: 20px;
 }
 .reply {
-	background-color: #CCCCCC;
+	background-color: #E9E9E9;
 	padding: 5px 13px;
 	margin: 0px 10px;
+}
+p.category {
+	padding: 5px;
 }

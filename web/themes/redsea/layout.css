@@ -31,6 +31,12 @@ h3 {
     margin: 0;
     padding: 5px;
 }
+h5 {
+    background-color: #CCC;
+    color: #000;
+    margin: 0px;
+    padding: 3px 0px;
+}
 #main {
 	padding: 5px;
 }
@@ -64,7 +70,9 @@ ul#topmenunavigation li {
 .navigationright {
 	float: right;
 }
-
+ul#featurenavigation li{
+	list-style-image: url("/themes/redsea/images/listicon.png");
+}
 ul#footernavigation {
 	padding-left: 0px;
 	margin: 10px 0px;

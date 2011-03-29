@@ -2,8 +2,8 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
-homepage_network:
-  url:        /
+homepage:
+  url:        /Dashboard/
   class:      acNetworkObjectRoute
   options:
     model:    Network
@@ -15,7 +15,7 @@ homepage_network:
 # generic rules
 # please, remove them by adding more specific rules
 
-homepage:
+frontpage_homepage:
   url:     /Homepage/
   param:   { module: frontpage, action: homepage }
   

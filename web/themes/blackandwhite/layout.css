@@ -2,7 +2,7 @@
 
 body {
 	background-color: #000;
-	 color: #FFF;
+	color: #FFF;
 	font-family: HelveticaNeue,Helvetica,Arial,serif;
 	margin: 0;
 }
@@ -20,6 +20,11 @@ h3 {
 	font-size: 0.9em;
     margin: 0;
     padding: 5px;
+}
+h5 {
+    color: #FFF;
+    margin: 0px;
+    padding: 3px 0px;
 }
 fieldset {
 	border: none;
@@ -78,6 +83,10 @@ ul#topmenunavigation {
 ul#topmenunavigation li, .navigationright a {
 	display: inline;
 	font-size: 0.9em;
+}
+
+ul#featurenavigation li{
+	list-style-image: url("/themes/blackandwhite/images/listicon.png");
 }
 ul#footernavigation {
 	padding-left: 0px;

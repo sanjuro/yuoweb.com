@@ -19,6 +19,12 @@ h3 {
     margin: 0;
     padding: 5px;
 }
+h5 {
+    background-color: #CCC;
+    color: #000;
+    margin: 0px;
+    padding: 3px 0px;
+}
 fieldset {
 	border: none;
 	}
@@ -77,6 +83,9 @@ ul#topmenunavigation {
 ul#topmenunavigation li, .navigationright a {
 	display: inline;
 	font-size: 0.9em;
+}
+ul#featurenavigation li{
+	list-style-image: url("/themes/greendragon/images/listicon.png");
 }
 ul#footernavigation {
 	padding-left: 0px;

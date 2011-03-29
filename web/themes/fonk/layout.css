@@ -20,6 +20,12 @@ h3 {
     margin: 0;
     padding: 5px;
 }
+h5 {
+    background-color: #CCC;
+    color: #000;
+    margin: 0px;
+    padding: 3px 0px;
+}
 fieldset {
 	border: none;
 	}
@@ -72,7 +78,8 @@ ul#topmenunavigation li {
 	display: inline;
 }
 ul#topmenunavigation li a, .navigationright a {
-	color: black;
+	color: green;
+	font-weight: bold;
 }
 
 ul#topmenunavigation {
@@ -82,6 +89,9 @@ ul#topmenunavigation {
 ul#topmenunavigation li, .navigationright a {
 	display: inline;
 	font-size: 0.9em;
+}
+ul#featurenavigation li{
+	list-style-image: url("/themes/fonk/images/listicon.png");
 }
 ul#footernavigation {
 	padding-left: 0px;

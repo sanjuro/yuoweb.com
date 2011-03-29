@@ -3,7 +3,6 @@
 <?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Speakout</h1>' )?>
 
 	<h3><?php echo 'Speakout - Replys for '.$topic->getTitle() ?></h3>
-	
 	<h5><?php echo $topic->getDescription()?></h5>
 	
 	<?php if ($pager->haveToPaginate()): ?>
