@@ -1,11 +1,11 @@
-INSERT INTO `sf_multisite_theme_theme_info` (`id`, `theme_name`, `theme_enabled`, `created_at`, `updated_at`) VALUES
-(1, 'blueocean', 1, '2011-01-26 21:29:43', '2011-01-26 21:29:43'),
-(2, 'redsea', 1, '2011-01-26 21:29:43', '2011-01-26 21:29:43'),
-(3, 'blackandwhite', 1, '2011-03-04 17:34:41', '2011-03-04 17:34:41'),
-(4, 'greendragon', 1, '2011-03-13 17:01:47', '2011-03-13 17:01:47'),
-(5, 'kustomcruise', 1, '2011-03-19 20:11:32', '2011-03-19 20:11:32'),
-(6, 'urbanscapes', 1, '2011-03-21 12:34:55', '2011-03-21 12:34:55'),
-(7, 'fonk', 1, '2011-03-21 12:34:55', '2011-03-21 12:34:55');
+INSERT INTO `sf_multisite_theme_theme_info` (`id`, `theme_name`, `theme_enabled`, `is_private`, `created_at`, `updated_at`) VALUES
+(1, 'blueocean', 1, 0, '2011-01-26 21:29:43', '2011-01-26 21:29:43'),
+(2, 'redsea', 1, 0, '2011-01-26 21:29:43', '2011-01-26 21:29:43'),
+(3, 'blackandwhite', 1, 0, '2011-03-04 17:34:41', '2011-03-04 17:34:41'),
+(4, 'greendragon', 1, 0, '2011-03-13 17:01:47', '2011-03-13 17:01:47'),
+(5, 'kustomcruise', 1, 1,'2011-03-19 20:11:32', '2011-03-19 20:11:32'),
+(6, 'urbanscapes', 1, 1,'2011-03-21 12:34:55', '2011-03-21 12:34:55'),
+(7, 'fonk', 1, 1, '2011-03-21 12:34:55', '2011-03-21 12:34:55');
 
 INSERT INTO `sf_multisite_theme_profile` (`id`, `site_name`, `sf_multisite_theme_theme_info_id`, `created_at`, `updated_at`) VALUES
 (1, 'kustomcruisers-network', 5, '2011-01-26 21:29:00', '2011-03-19 18:35:01'),

@@ -7,13 +7,16 @@
  * 
  * @property string $theme_name
  * @property boolean $theme_enabled
+ * @property boolean $is_private
  * @property Doctrine_Collection $sfMultisiteThemeThemeInfos
  * 
  * @method string                    getThemeName()                  Returns the current record's "theme_name" value
  * @method boolean                   getThemeEnabled()               Returns the current record's "theme_enabled" value
+ * @method boolean                   getIsPrivate()                  Returns the current record's "is_private" value
  * @method Doctrine_Collection       getSfMultisiteThemeThemeInfos() Returns the current record's "sfMultisiteThemeThemeInfos" collection
  * @method sfMultisiteThemeThemeInfo setThemeName()                  Sets the current record's "theme_name" value
  * @method sfMultisiteThemeThemeInfo setThemeEnabled()               Sets the current record's "theme_enabled" value
+ * @method sfMultisiteThemeThemeInfo setIsPrivate()                  Sets the current record's "is_private" value
  * @method sfMultisiteThemeThemeInfo setSfMultisiteThemeThemeInfos() Sets the current record's "sfMultisiteThemeThemeInfos" collection
  * 
  * @package    Spark
@@ -32,6 +35,10 @@ abstract class BasesfMultisiteThemeThemeInfo extends sfDoctrineRecord
              'length' => 255,
              ));
         $this->hasColumn('theme_enabled', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
+        $this->hasColumn('is_private', 'boolean', null, array(
              'type' => 'boolean',
              'default' => false,
              ));

@@ -24,8 +24,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 INSERT INTO `sf_multisite_theme_profile` (`id`, `site_name`, `sf_multisite_theme_theme_info_id`, `created_at`, `updated_at`) VALUES
-(1, 'kustomcruisers-network', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12'),
-(2, 'ninemiles-network', 1, '2011-02-09 13:11:12', '2011-02-09 13:11:12');
+(1, 'kustomcruisers-network', 5, '2011-01-26 21:29:00', '2011-03-19 18:35:01'),
+(2, 'fbsurf-network', 1, '2011-01-26 21:29:43', '2011-01-26 21:29:43'),
+(3, 'groupbuying-network', 2, '2011-03-19 19:10:51', '2011-03-19 19:10:51'),
+(4, 'fonk-network', 7, '2011-03-19 19:10:51', '2011-03-19 19:10:51');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -25,3 +25,4 @@ sfMultisiteThemeThemeInfo:
     columns:
         theme_name:                             { type: string(255), notnull: true: unique: true }
         theme_enabled:                          { type: boolean, default: false }    
+        is_private:                             { type: boolean, default: false }
