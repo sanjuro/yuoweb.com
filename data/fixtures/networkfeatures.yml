@@ -1,42 +1,112 @@
 NetworkFeature:
-  friends_picnpay:
+  friends_kcruise:
     id:           1
     Feature:      friends_feature
     Network:      kustomcruisers_network
     active:       1
     position:     10
         
-  photos_picnpay:
+  photos_kcruise:
     id:           2
-    Feature:      photss_feature
+    Feature:      photos_feature
     Network:      kustomcruisers_network
     active:       1
     position:     20
     
-  messages_picnpay:
+  messages_kcruise:
     id:           3
     Feature:      messages_feature
     Network:      kustomcruisers_network
     active:       1
     position:     30
     
-  photos_picnpay:
+  photos_kcruise:
     id:           4
     Feature:      photos_feature
     Network:      kustomcruisers_network
     active:       2
     position:     40
     
-  speakout_picnpay:
+  speakout_kcruise:
     id:           5
     Feature:      speakout_feature
     Network:      kustomcruisers_network
     active:       2
     position:     50
     
-  feeds_picnpay:
+  feeds_kcruise:
     id:           6
     Feature:      feeds_feature
     Network:      kustomcruisers_network
     active:       2
     position:     60
+    
+  friends_fbsurf:
+    id:           7
+    Feature:      friends_feature
+    Network:      fbsurf_network
+    active:       1
+    position:     10
+        
+  photos_fbsurf:
+    id:           8
+    Feature:      photos_feature
+    Network:      fbsurf_network
+    active:       1
+    position:     20
+    
+  messages_fbsurf:
+    id:           9
+    Feature:      messages_feature
+    Network:      fbsurf_network
+    active:       1
+    position:     30
+    
+  photos_fbsurf:
+    id:           10
+    Feature:      photos_feature
+    Network:      fbsurf_network
+    active:       2
+    position:     40
+    
+  speakout_fbsurf:
+    id:           11
+    Feature:      speakout_feature
+    Network:      fbsurf_network
+    active:       2
+    position:     50
+    
+  friends_groupbuying:
+    id:           12
+    Feature:      friends_feature
+    Network:      groupbuying_network
+    active:       1
+    position:     10
+        
+  photos_groupbuying:
+    id:           13
+    Feature:      photos_feature
+    Network:      groupbuying_network
+    active:       1
+    position:     20
+    
+  messages_groupbuying:
+    id:           14
+    Feature:      messages_feature
+    Network:      groupbuying_network
+    active:       1
+    position:     30
+    
+  photos_groupbuying:
+    id:           15
+    Feature:      photos_feature
+    Network:      groupbuying_network
+    active:       2
+    position:     40
+    
+  webuy_groupbuying:
+    id:           16
+    Feature:      webuy_feature
+    Network:      groupbuying_network
+    active:       2
+    position:     50

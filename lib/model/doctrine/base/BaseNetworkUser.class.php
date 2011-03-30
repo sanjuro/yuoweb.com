@@ -11,6 +11,7 @@
  * @property boolean $is_private
  * @property Network $Network
  * @property sfGuardUser $sfGuardUser
+ * @property Doctrine_Collection $WebuyNetworkUser
  * @property Doctrine_Collection $Connection
  * @property Doctrine_Collection $Feed
  * @property Doctrine_Collection $Message
@@ -21,7 +22,6 @@
  * @property Doctrine_Collection $EventInvite
  * @property Doctrine_Collection $SpeakoutReply
  * @property Doctrine_Collection $SpeakoutTopic
- * @property Doctrine_Collection $WebuyNetworkUser
  * 
  * @method integer             getId()               Returns the current record's "id" value
  * @method integer             getNetworkId()        Returns the current record's "network_id" value
@@ -29,6 +29,7 @@
  * @method boolean             getIsPrivate()        Returns the current record's "is_private" value
  * @method Network             getNetwork()          Returns the current record's "Network" value
  * @method sfGuardUser         getSfGuardUser()      Returns the current record's "sfGuardUser" value
+ * @method Doctrine_Collection getWebuyNetworkUser() Returns the current record's "WebuyNetworkUser" collection
  * @method Doctrine_Collection getConnection()       Returns the current record's "Connection" collection
  * @method Doctrine_Collection getFeed()             Returns the current record's "Feed" collection
  * @method Doctrine_Collection getMessage()          Returns the current record's "Message" collection
@@ -39,13 +40,13 @@
  * @method Doctrine_Collection getEventInvite()      Returns the current record's "EventInvite" collection
  * @method Doctrine_Collection getSpeakoutReply()    Returns the current record's "SpeakoutReply" collection
  * @method Doctrine_Collection getSpeakoutTopic()    Returns the current record's "SpeakoutTopic" collection
- * @method Doctrine_Collection getWebuyNetworkUser() Returns the current record's "WebuyNetworkUser" collection
  * @method NetworkUser         setId()               Sets the current record's "id" value
  * @method NetworkUser         setNetworkId()        Sets the current record's "network_id" value
  * @method NetworkUser         setUserId()           Sets the current record's "user_id" value
  * @method NetworkUser         setIsPrivate()        Sets the current record's "is_private" value
  * @method NetworkUser         setNetwork()          Sets the current record's "Network" value
  * @method NetworkUser         setSfGuardUser()      Sets the current record's "sfGuardUser" value
+ * @method NetworkUser         setWebuyNetworkUser() Sets the current record's "WebuyNetworkUser" collection
  * @method NetworkUser         setConnection()       Sets the current record's "Connection" collection
  * @method NetworkUser         setFeed()             Sets the current record's "Feed" collection
  * @method NetworkUser         setMessage()          Sets the current record's "Message" collection
@@ -56,7 +57,6 @@
  * @method NetworkUser         setEventInvite()      Sets the current record's "EventInvite" collection
  * @method NetworkUser         setSpeakoutReply()    Sets the current record's "SpeakoutReply" collection
  * @method NetworkUser         setSpeakoutTopic()    Sets the current record's "SpeakoutTopic" collection
- * @method NetworkUser         setWebuyNetworkUser() Sets the current record's "WebuyNetworkUser" collection
  * 
  * @package    Spark
  * @subpackage model
@@ -99,6 +99,10 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
+        $this->hasMany('WebuyNetworkUser', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
+
         $this->hasMany('Connection', array(
              'local' => 'id',
              'foreign' => 'owner_id'));
@@ -136,10 +140,6 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'foreign' => 'networkuser_id'));
 
         $this->hasMany('SpeakoutTopic', array(
-             'local' => 'id',
-             'foreign' => 'networkuser_id'));
-
-        $this->hasMany('WebuyNetworkUser', array(
              'local' => 'id',
              'foreign' => 'networkuser_id'));
 

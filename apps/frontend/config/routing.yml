@@ -220,12 +220,3 @@ speakout_addreply:
   param:   { module: speakout, action: addreply }
   requirements:
      sf_method: [get, post]
-     
-#webuy
-webuy_index:
-  url:   /We-Buy/:slug
-  class:   acNetworkObjectRoute
-  options: { model: Network, type: object }
-  param: { module: webuy, action: index }
-  requirements:
-     sf_method: [get, post]

@@ -14,10 +14,11 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfImageTransformPlugin');
     $this->enablePlugins('idlErrorManagementPlugin');
     $this->enablePlugins('sfOrmBreadcrumbsPlugin');
-    
+       
     $this->dispatcher->connect('request.filter_parameters', array($this, 'filterRequestParameters'));
     
     $this->enablePlugins('vjCommentPlugin');
+    $this->enablePlugins('sfWeBuyPlugin');
   }
  
   public function filterRequestParameters(sfEvent $event, $parameters)

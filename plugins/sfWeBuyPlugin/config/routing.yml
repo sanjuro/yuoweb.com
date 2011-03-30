@@ -1,0 +1,8 @@
+#webuy
+webuy_index:
+  url:   /We-Buy/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: sfWeBuyDeal, action: index }
+  requirements:
+     sf_method: [get, post]
