@@ -23,3 +23,8 @@ Feature:
     title:        Speakout
     description:  This allows the user to speak about topics and categoires
     url:          speakout_index
+    
+  webuy_feature:
+    title:        Webuy
+    description:  This allows the user to add Group Buying to their networks
+    url:          webuy_index

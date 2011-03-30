@@ -25,8 +25,8 @@ class Network extends BaseNetwork
  * 
  * @return void
  */
-  public function save(Doctrine_Connection $conn = null)
-  {
+ public function save(Doctrine_Connection $conn = null)
+ {
 	  $Client = $this->getClient();
 
       if ($Client->getAllNetworks()->count() >= sfConfig::get('app_client_networkcount_max') ){
@@ -89,7 +89,7 @@ class Network extends BaseNetwork
     
       return Doctrine_Core::getTable('sfMultisiteThemeProfileHost')->getThemeProfileWithTheme($q);
   }
-  
+ 
 /**
  * Function to find all features associated to a network
  * 
@@ -294,6 +294,28 @@ class Network extends BaseNetwork
 	      
 	return $this->fetchAdvertsQuery($q);   
   }
+  
+/**
+ * Function to find all active deals associated to a network
+ * 
+ * This function return all active deals associated to a network
+ * 
+ * @param Doctrine_Connection $conn 
+ * 
+ * @return Doctrine_Collection All active deals found
+ */   
+  public function getActiveDeals(Doctrine_Query $q = null)
+  {
+	  $q = Doctrine_Query::create()
+       ->from('WebuyDeal wd')
+       ->where('wd.network_id = ?', $this->getId())
+       ->andWhere('wd.status = ?', 1)
+       ->orderBy('wd.created_at');
+		
+     $deals = Doctrine_Core::getTable('WebuyDeal')->getWithProducts($q)->fetchArray();
+     
+     return (!empty($deals)?$deals:false);
+  } 
   
 /**
  * Function to generate the initial fetch users query for a network

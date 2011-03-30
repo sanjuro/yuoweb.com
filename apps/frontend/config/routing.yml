@@ -160,7 +160,7 @@ message_replymessage:
   requirements:
      sf_method: [get, post]
      
-#photo:
+#photo
 photo_index:
   url:   /Photos/:slug
   class:   acNetworkObjectRoute
@@ -192,7 +192,7 @@ feed_index:
   requirements:
      sf_method: [get, post]
      
-speakout:
+#speakout
 speakout_index:
   url:   /Speakout/:slug
   class:   acNetworkObjectRoute
@@ -218,5 +218,14 @@ speakout_addreply:
   class:   sfDoctrineRoute
   options: { model: SpeakoutTopic, type: object }
   param:   { module: speakout, action: addreply }
+  requirements:
+     sf_method: [get, post]
+     
+#webuy
+webuy_index:
+  url:   /We-Buy/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: webuy, action: index }
   requirements:
      sf_method: [get, post]

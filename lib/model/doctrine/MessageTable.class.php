@@ -16,7 +16,14 @@ class MessageTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Message');
     }    
-        
+
+   /**
+	 * Function to find all messages
+	 *  
+	 * @param  void
+	 * 
+	 * @return query Base Query to find all messages
+	*/
 	public function getMessages(Doctrine_Query $q = null)
 	{
 	  if (is_null($q))
@@ -28,6 +35,13 @@ class MessageTable extends Doctrine_Table
 	  return $q->execute(); 
 	}
 	
+   /**
+	 * Function to find all networkusers
+	 * 
+	 * @param  void
+	 * 
+	 * @return query Base Query to find all network users with sfguard user profiles
+	*/
 	public function getNetworkUsers(Doctrine_Query $q = null)
 	{
 	    $rootAlias = $q->getRootAlias();
@@ -40,6 +54,13 @@ class MessageTable extends Doctrine_Table
 	  //echo '<pre>';print_r($q->fetchArray());exit;
 	}
 	
+   /**
+	 * Function to find all networkusers for backend application
+	 * 
+	 * @param  void
+	 * 
+	 * @return query Base Query to find all network users with sfguard user profiles
+	*/
 	public function getBackendMessagesWithNetworkUser(Doctrine_Query $q = null)
 	{
 	    $rootAlias = $q->getRootAlias();
