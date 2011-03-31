@@ -2,7 +2,7 @@
 
 <h1>Viewing Profile for: <?php echo $user->getUsername() ?></h1>
 <div id="main">
-	<h3>Profile: Detials</h3>	<p>
+	<h3>Profile: Details</h3>	<p>
 	<fieldset>
 		  <legend>Profile for: <?php echo $user->getUsername() ?></legend>
 		  <table class="formtable"> 

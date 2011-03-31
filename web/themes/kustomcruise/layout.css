@@ -107,21 +107,6 @@ ul#footernavigation li {
 	font-size: 1em;
 }
 
-ul.feedslist  {
-	font-size: 0.8em;
-}
-
-ul.feedslist  li{
-	background-color: #ccc;
-	list-style-image: url("/themes/kustomcruise/images/listicon.png");
-	padding: 5px;
-	margin-bottom: 5px;
-}
-.feedlist_body {
-	font-weight: bold;
-}
-
-
 .datatable tr{
 }
 

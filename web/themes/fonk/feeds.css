@@ -1,15 +1,15 @@
 ul.feed_list  {
 	font-size: 0.8em;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 ul.feed_list  li{
 	background-color: #ccc;
-	list-style-image: url("/themes/kustomcruise/images/listicon.png");
+	list-style-image: url("/themes/fonk/images/listicon.png");
 	padding: 5px;
 	margin-bottom: 5px;
 }
 
-.feed_body {
+.feedlist_body {
 	font-weight: bold;
 	padding: 5px 0px; 
 }

@@ -1,6 +1,6 @@
 ul.feed_list  {
 	font-size: 0.8em;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 ul.feed_list  li{
 	background-color: #ccc;
@@ -9,7 +9,7 @@ ul.feed_list  li{
 	margin-bottom: 5px;
 }
 
-.feed_body {
+.feedlist_body {
 	font-weight: bold;
 	padding: 5px 0px; 
 }

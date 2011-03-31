@@ -1,5 +1,3 @@
-<?php use_stylesheet('feeds.css') ?>
-
 <?php slot( 'title', $network->getTitle().' - Feeds' )?>
 
 <?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Feeds</h1>' )?>
@@ -10,7 +8,7 @@
 
 	<?php if (count($connectionsWithFeeds) > 0) :?>
 	<p>
-		<ul class="feedslist">
+		<ul class="feed_list">
 		<?php foreach ( $feedsForUser as $feed ) : ?>
 			<li>
 				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
@@ -28,7 +26,7 @@
 		<?php foreach ( $connectionsWithFeeds as $friend ) : ?>
 		  <h3><?php echo 'Feeds for '.$friend['Reciever']['sfGuardUser']['username'] ?></h3>
 		  <p>		  
-		  <ul class="feedslist">
+		  <ul class="feed_list">
 		  <?php foreach ( $friend['Reciever']['Feed'] as $feed ) : ?>
 			<li>
 				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
