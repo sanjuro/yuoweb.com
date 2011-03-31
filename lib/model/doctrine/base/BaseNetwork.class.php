@@ -21,6 +21,7 @@
  * @property Client $Client
  * @property NetworkType $NetworkType
  * @property NetworkCategory $NetworkCategory
+ * @property Doctrine_Collection $SpeakoutCategory
  * @property Doctrine_Collection $WebuyDeal
  * @property Doctrine_Collection $AdvertNetwork
  * @property Doctrine_Collection $NetworkFeature
@@ -28,7 +29,6 @@
  * @property Doctrine_Collection $Message
  * @property Doctrine_Collection $PhotoView
  * @property Doctrine_Collection $Event
- * @property Doctrine_Collection $SpeakoutCategory
  * 
  * @method integer             getClientId()           Returns the current record's "client_id" value
  * @method integer             getNetworktypeId()      Returns the current record's "networktype_id" value
@@ -46,6 +46,7 @@
  * @method Client              getClient()             Returns the current record's "Client" value
  * @method NetworkType         getNetworkType()        Returns the current record's "NetworkType" value
  * @method NetworkCategory     getNetworkCategory()    Returns the current record's "NetworkCategory" value
+ * @method Doctrine_Collection getSpeakoutCategory()   Returns the current record's "SpeakoutCategory" collection
  * @method Doctrine_Collection getWebuyDeal()          Returns the current record's "WebuyDeal" collection
  * @method Doctrine_Collection getAdvertNetwork()      Returns the current record's "AdvertNetwork" collection
  * @method Doctrine_Collection getNetworkFeature()     Returns the current record's "NetworkFeature" collection
@@ -53,7 +54,6 @@
  * @method Doctrine_Collection getMessage()            Returns the current record's "Message" collection
  * @method Doctrine_Collection getPhotoView()          Returns the current record's "PhotoView" collection
  * @method Doctrine_Collection getEvent()              Returns the current record's "Event" collection
- * @method Doctrine_Collection getSpeakoutCategory()   Returns the current record's "SpeakoutCategory" collection
  * @method Network             setClientId()           Sets the current record's "client_id" value
  * @method Network             setNetworktypeId()      Sets the current record's "networktype_id" value
  * @method Network             setNetworkcategoryId()  Sets the current record's "networkcategory_id" value
@@ -70,6 +70,7 @@
  * @method Network             setClient()             Sets the current record's "Client" value
  * @method Network             setNetworkType()        Sets the current record's "NetworkType" value
  * @method Network             setNetworkCategory()    Sets the current record's "NetworkCategory" value
+ * @method Network             setSpeakoutCategory()   Sets the current record's "SpeakoutCategory" collection
  * @method Network             setWebuyDeal()          Sets the current record's "WebuyDeal" collection
  * @method Network             setAdvertNetwork()      Sets the current record's "AdvertNetwork" collection
  * @method Network             setNetworkFeature()     Sets the current record's "NetworkFeature" collection
@@ -77,7 +78,6 @@
  * @method Network             setMessage()            Sets the current record's "Message" collection
  * @method Network             setPhotoView()          Sets the current record's "PhotoView" collection
  * @method Network             setEvent()              Sets the current record's "Event" collection
- * @method Network             setSpeakoutCategory()   Sets the current record's "SpeakoutCategory" collection
  * 
  * @package    Spark
  * @subpackage model
@@ -182,6 +182,10 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'local' => 'networkcategory_id',
              'foreign' => 'id'));
 
+        $this->hasMany('SpeakoutCategory', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
         $this->hasMany('WebuyDeal', array(
              'local' => 'id',
              'foreign' => 'network_id'));
@@ -207,10 +211,6 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'network_id'));
 
         $this->hasMany('Event', array(
-             'local' => 'id',
-             'foreign' => 'network_id'));
-
-        $this->hasMany('SpeakoutCategory', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 

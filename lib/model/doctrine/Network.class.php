@@ -306,7 +306,7 @@ class Network extends BaseNetwork
  */   
   public function getActiveDeals(Doctrine_Query $q = null)
   {
-	  $q = Doctrine_Query::create()
+	$q = Doctrine_Query::create()
        ->from('WebuyDeal wd')
        ->where('wd.network_id = ?', $this->getId())
        ->andWhere('wd.status = ?', 1)

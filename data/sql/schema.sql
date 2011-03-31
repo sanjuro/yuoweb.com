@@ -25,7 +25,6 @@ CREATE TABLE network_feature (id BIGINT AUTO_INCREMENT, network_id BIGINT, featu
 CREATE TABLE network_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE network_user (id BIGINT AUTO_INCREMENT, network_id BIGINT, user_id BIGINT, is_private TINYINT(1) DEFAULT '1' NOT NULL, INDEX network_id_idx (network_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo (id BIGINT AUTO_INCREMENT, url VARCHAR(100), networkuser_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE photo_comment (id BIGINT AUTO_INCREMENT, body VARCHAR(255), htmlbody VARCHAR(255), networkuser_id BIGINT, photolink_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), INDEX photolink_id_idx (photolink_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo_gallery (id BIGINT AUTO_INCREMENT, title VARCHAR(200), networkuser_id BIGINT, photo_count BIGINT DEFAULT 0, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo_link (id BIGINT AUTO_INCREMENT, photo_id BIGINT, gallery_id BIGINT, INDEX photo_id_idx (photo_id), INDEX gallery_id_idx (gallery_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo_view (id BIGINT AUTO_INCREMENT, network_id BIGINT, photo_id BIGINT, has_viewed BIGINT DEFAULT 2 NOT NULL, INDEX network_id_idx (network_id), INDEX photo_id_idx (photo_id), PRIMARY KEY(id)) ENGINE = INNODB;
@@ -85,8 +84,6 @@ ALTER TABLE network_feature ADD CONSTRAINT network_feature_feature_id_feature_id
 ALTER TABLE network_user ADD CONSTRAINT network_user_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE network_user ADD CONSTRAINT network_user_network_id_network_id FOREIGN KEY (network_id) REFERENCES network(id) ON DELETE CASCADE;
 ALTER TABLE photo ADD CONSTRAINT photo_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
-ALTER TABLE photo_comment ADD CONSTRAINT photo_comment_photolink_id_photo_link_id FOREIGN KEY (photolink_id) REFERENCES photo_link(id);
-ALTER TABLE photo_comment ADD CONSTRAINT photo_comment_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
 ALTER TABLE photo_gallery ADD CONSTRAINT photo_gallery_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
 ALTER TABLE photo_link ADD CONSTRAINT photo_link_photo_id_photo_id FOREIGN KEY (photo_id) REFERENCES photo(id);
 ALTER TABLE photo_link ADD CONSTRAINT photo_link_gallery_id_photo_gallery_id FOREIGN KEY (gallery_id) REFERENCES photo_gallery(id);

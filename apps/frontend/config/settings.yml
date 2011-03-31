@@ -35,7 +35,7 @@ all:
     # Enable the database manager
     use_database:           true
     
-    enabled_modules: [default, sfGuardAuth, sfGuardUser, comment, idlApplicationErrorAdmin, sfWeBuyDeal]  
+    enabled_modules: [default, sfGuardAuth, sfGuardUser, comment, idlApplicationErrorAdmin, sfSpeakoutFrontend, sfWeBuyFrontend]  
 
   .actions:
     login_module:    sfGuardAuth

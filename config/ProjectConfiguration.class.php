@@ -18,6 +18,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->dispatcher->connect('request.filter_parameters', array($this, 'filterRequestParameters'));
     
     $this->enablePlugins('vjCommentPlugin');
+    $this->enablePlugins('sfSpeakoutPlugin');
     $this->enablePlugins('sfWeBuyPlugin');
   }
  
