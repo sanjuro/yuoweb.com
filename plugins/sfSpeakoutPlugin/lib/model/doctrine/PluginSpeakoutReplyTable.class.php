@@ -16,4 +16,22 @@ class PluginSpeakoutReplyTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('PluginSpeakoutReply');
     }
+    
+    /**
+     * Returns a category with all Repies and their users
+     *
+     * @return 
+     */
+	public function getReplysWithUsers(Doctrine_Query $q = null)
+	{
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+	      ->from('NetworkUser nu');      	  
+	  }
+	
+	  return Doctrine_Core::getTable('NetworkUser')->getWithUsers($q);
+		 
+	  //echo '<pre>';print_r($q->fetchArray());exit;
+	}
 }

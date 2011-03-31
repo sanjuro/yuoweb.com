@@ -190,33 +190,12 @@ feed_index:
   options: { model: Network, type: object }
   param: { module: feed, action: index }
   requirements:
-     sf_method: [get, post]
+     sf_method: [get, post]   
      
-#speakout
-speakout_index:
-  url:   /Speakout/:slug
+feed_addfeed:   
+  url:   /Add-Feed/:slug
   class:   acNetworkObjectRoute
   options: { model: Network, type: object }
-  param: { module: speakout, action: index }
+  param: { module: feed, action: addfeed }
   requirements:
-     sf_method: [get, post]
-     
-speakout_addtopic:
-  url:   /Add-Topic/
-  param:   { module: speakout, action: addtopic }
-  requirements:
-     sf_method: [get, post]
-     
-speakout_showtopic:
-  url:   /Show-Topic/:topic
-  param: { module: speakout, action: showtopic }
-  requirements:
-     sf_method: [get, post]
-     
-speakout_addreply:
-  url:   /Reply-To-/:title
-  class:   sfDoctrineRoute
-  options: { model: SpeakoutTopic, type: object }
-  param:   { module: speakout, action: addreply }
-  requirements:
-     sf_method: [get, post]
+     sf_method: [get, post]   

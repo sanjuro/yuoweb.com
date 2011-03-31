@@ -13,3 +13,6 @@ ul.feed_list li {
 .feed_posted { 
 	color: #999999;	
 }
+form {
+	margin: 10px 40px;
+}

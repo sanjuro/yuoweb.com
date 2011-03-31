@@ -1,10 +1,25 @@
 WebuyDeal:
   webuydeal_deal1:
     WebuyProduct:     webuyproduct_product1
+    Network:          groupbuying_network
+    title:            First Deal
+    full_price:       200.00
+    deal_price:       100.00
+    discount_percent: 50.00
+    buyer_count:      0
+    tipping_count:    100
+    status:           0
+    slug:             webuydeal_deal1
+    expires_at:       '2010-10-10'
+  webuydeal_deal2:
+    WebuyProduct:     webuyproduct_product1
+    Network:          groupbuying_network
+    title:            Second Deal
     full_price:       200.00
     deal_price:       100.00
     discount_percent: 50.00
     buyer_count:      0
     tipping_count:    100
     status:           1
-    slug:             webuydeal_deal1
+    slug:             webuydeal_deal2
+    expires_at:       '2011-10-10'

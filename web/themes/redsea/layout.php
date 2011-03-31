@@ -12,6 +12,7 @@
     <?php include_stylesheets() ?>
     <link href="/themes/redsea/message.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/redsea/speakout.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/webuy.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>

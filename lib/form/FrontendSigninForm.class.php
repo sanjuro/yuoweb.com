@@ -1,7 +1,7 @@
 <?php
 
 /**
- * sfGuardFormSignin for sfGuardAuth signin action
+ * FrontendSigninForm for sfGuardAuth signin action
  *
  * @package    sfDoctrineGuardPlugin
  * @subpackage form

@@ -34,7 +34,7 @@
 	<?php endif; ?>
 	
 	<p>
-		<?php include_partial('speakout/replylist', array('replys' => $pager->getResults())) ?>
+		<?php include_partial('sfSpeakoutFrontend/replylist', array('replys' => $pager->getResults())) ?>
 	</p>
 	
 	<?php if ($pager->haveToPaginate()): ?>

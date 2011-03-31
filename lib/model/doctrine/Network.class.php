@@ -7,8 +7,8 @@
  * 
  * @package    Spark
  * @subpackage model
- * @author     Shadley Wentzel
- * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
+ * @author     Shadley Wentzel <shad6ster@gmail.com>
+ * @version    SVN: $Id: Network.class.php 1 2010-03-29 19:53:27Z Shadley Wentzel $
  */
 class Network extends BaseNetwork
 {

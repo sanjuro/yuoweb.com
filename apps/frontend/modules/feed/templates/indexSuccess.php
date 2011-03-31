@@ -5,6 +5,9 @@
 <?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Feeds</h1>' )?>
 
 	<h3> <?php echo 'Your Feed' ?></h3>
+
+	<?php include_partial( 'feed/feedform', array ( 'form' => $form, 'network' => $network ) )?>
+
 	<?php if (count($connectionsWithFeeds) > 0) :?>
 	<p>
 		<ul class="feedslist">
@@ -20,7 +23,7 @@
 	<?php else : ?>
 		<?php echo 'You have 0 feeds' ?>
 	<?php endif;?>
-		
+
 	<?php if (count($connectionsWithFeeds) > 0) :?>
 		<?php foreach ( $connectionsWithFeeds as $friend ) : ?>		 
 		  <h3> <?php echo 'Feeds for '.$friend['reciever_id'] ?></h3>

@@ -25,6 +25,7 @@ WebuyDeal:
     status:                 { type: integer, default: 0 }
     g_lat:                  { type: integer, default: 0 }
     g_long:                 { type: integer, default: 0 }
+    expires_at:             { type: timestamp, notnull: true }    
   relations:
     WebuyProduct:      { class: WebuyProduct, onDelete: CASCADE, local: product_id, foreign: id }
     Network:           { class: Network, local: network_id, foreign: id }

@@ -6,10 +6,15 @@
  * @package    Spark
  * @subpackage speakout
  * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @version    GIT: $Id: actions.class.php 1 2009-11-12 11:07:44Z Shadley.Wentzel $
  */
-class sfSpeakouFrontendtActions extends sfActions
+class sfSpeakoutFrontendActions extends sfActions
 {
+ /**
+  * Executes preExcute  action
+  *
+  * @param void
+  */
   public function preExecute()
   { 
  	$this->network = $this->getUser()->getNetworkFromSession($this->getUser()->getNetworkId()); 

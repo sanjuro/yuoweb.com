@@ -1,0 +1,28 @@
+#speakout
+speakout_index:
+  url:   /Speak-Out/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: sfSpeakoutFrontend, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+speakout_addtopic:
+  url:   /Add-Topic/
+  param:   { module: sfSpeakoutFrontend, action: addtopic }
+  requirements:
+     sf_method: [get, post]
+     
+speakout_showtopic:
+  url:   /Show-Topic/:topic
+  param: { module: sfSpeakoutFrontend, action: showtopic }
+  requirements:
+     sf_method: [get, post]
+     
+speakout_addreply:
+  url:   /Reply-To-/:title
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: sfSpeakoutFrontend, action: addreply }
+  requirements:
+     sf_method: [get, post]

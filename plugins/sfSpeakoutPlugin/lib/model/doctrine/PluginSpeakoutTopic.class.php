@@ -12,5 +12,18 @@
  */
 abstract class PluginSpeakoutTopic extends BaseSpeakoutTopic
 {
-
+    /**
+     * Returns all replies with uers
+     *
+     * @return 
+     */
+  public function getReplys()
+  {
+	  $q = Doctrine_Query::create()
+       ->from('SpeakoutReply sr')
+       ->leftJoin('sr.NetworkUser nu')
+       ->where('sr.topic_id = ?', $this->getId()); 
+	
+     return Doctrine_Core::getTable('NetworkUser')->getWithUsers($q);
+  }
 }

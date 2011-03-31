@@ -16,4 +16,27 @@ class PluginWebuyDealTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('PluginWebuyDeal');
     }
+    
+   /**
+	 * Function to find producs on a for a deal
+	 * 
+	 * This function will find all  products for deals
+	 * 
+	 * @param  void
+	 * 
+	 * @return query Base Query to find products for a deal
+	*/
+	public function getWithProducts(Doctrine_Query $q = null)
+	{
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+	      ->from('WebuyDeal wd');
+	  }
+	  
+	  $q->leftJoin('wd.WebuyProduct wbp');
+		
+	  return $q;	
+	}
+	
 }

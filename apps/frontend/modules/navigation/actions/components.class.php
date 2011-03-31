@@ -3,9 +3,9 @@
 /**
  * navigation Components
  *
- * @package    Spark
+ * @package    yUoweb
  * @subpackage navigation
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class navigationComponents extends sfComponents
@@ -54,6 +54,14 @@ class navigationComponents extends sfComponents
   }
   
   public function executeSpeakout()
+  {
+ 	$this->network = Doctrine_Core::getTable('Network')
+	           		->findOneBySlug($this->getUser()->getNetworkId()); 
+ 	
+ 	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
+  }
+  
+  public function executeWebuyDeal()
   {
  	$this->network = Doctrine_Core::getTable('Network')
 	           		->findOneBySlug($this->getUser()->getNetworkId()); 

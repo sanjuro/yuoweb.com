@@ -17,6 +17,7 @@
  * @property integer $status
  * @property integer $g_lat
  * @property integer $g_long
+ * @property timestamp $expires_at
  * @property WebuyProduct $WebuyProduct
  * @property Network $Network
  * @property Doctrine_Collection $WebuyDealAttribute
@@ -34,6 +35,7 @@
  * @method integer             getStatus()             Returns the current record's "status" value
  * @method integer             getGLat()               Returns the current record's "g_lat" value
  * @method integer             getGLong()              Returns the current record's "g_long" value
+ * @method timestamp           getExpiresAt()          Returns the current record's "expires_at" value
  * @method WebuyProduct        getWebuyProduct()       Returns the current record's "WebuyProduct" value
  * @method Network             getNetwork()            Returns the current record's "Network" value
  * @method Doctrine_Collection getWebuyDealAttribute() Returns the current record's "WebuyDealAttribute" collection
@@ -50,6 +52,7 @@
  * @method WebuyDeal           setStatus()             Sets the current record's "status" value
  * @method WebuyDeal           setGLat()               Sets the current record's "g_lat" value
  * @method WebuyDeal           setGLong()              Sets the current record's "g_long" value
+ * @method WebuyDeal           setExpiresAt()          Sets the current record's "expires_at" value
  * @method WebuyDeal           setWebuyProduct()       Sets the current record's "WebuyProduct" value
  * @method WebuyDeal           setNetwork()            Sets the current record's "Network" value
  * @method WebuyDeal           setWebuyDealAttribute() Sets the current record's "WebuyDealAttribute" collection
@@ -114,6 +117,10 @@ abstract class BaseWebuyDeal extends sfDoctrineRecord
         $this->hasColumn('g_long', 'integer', null, array(
              'type' => 'integer',
              'default' => 0,
+             ));
+        $this->hasColumn('expires_at', 'timestamp', null, array(
+             'type' => 'timestamp',
+             'notnull' => true,
              ));
     }
 
