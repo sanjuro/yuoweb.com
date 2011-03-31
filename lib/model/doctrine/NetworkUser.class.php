@@ -59,15 +59,15 @@ class NetworkUser extends BaseNetworkUser
 /**
  * Function to return all the Friends for a network user
  *  
- * @param q Doctrine_Query
+	 * @param Doctrine_Query $q Doctrine_Query
  * 
  * @return array All Friends
  */ 
   public function getAllFriendsForNetwork(Doctrine_Query $q = null)
   {
 	  $q = Doctrine_Query::create()
-       ->from('Connection c')
-       ->where('c.owner_id = ?', $this->getId());
+         ->from('Connection c')
+         ->where('c.owner_id = ?', $this->getId());
  
       return Doctrine_Core::getTable('Connection')->getFriends($q);
   }  
@@ -75,24 +75,24 @@ class NetworkUser extends BaseNetworkUser
 /**
  * Function to return all the feeds for all friends of a network user
  *  
- * @param q Doctrine_Query
+ * @param Doctrine_Query $q Doctrine_Query
  * 
  * @return array All feeds
  */ 
   public function getFeedsForFriends()
   {
 	  $q = Doctrine_Query::create()
-       ->from('Connection c')
-       ->where('c.owner_id = ?', $this->getId());
-
-      return  Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
+         ->from('Connection c')
+         ->where('c.owner_id = ?', $this->getId());
+		
+      return Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
   }
   
 /**
  * Function to return all the feeds for a network user order by 
  * created_at DESC - most recent first
  *  
- * @param q Doctrine_Query
+ * @param Doctrine_Query $q Doctrine_Query
  * 
  * @return array All feeds for network user
  */ 
@@ -109,7 +109,7 @@ class NetworkUser extends BaseNetworkUser
 /**
  * Function to return all new friend requests
  *  
- * @param q Doctrine_Query
+ * @param Doctrine_Query $q Doctrine_Query
  * 
  * @return array All new friend requests
  */ 
@@ -126,7 +126,7 @@ class NetworkUser extends BaseNetworkUser
 /**
  * Function to return all photos for a network user
  *  
- * @param q Doctrine_Query
+ * @param Doctrine_Query $q Doctrine_Query
  * 
  * @return array All photos
  */ 

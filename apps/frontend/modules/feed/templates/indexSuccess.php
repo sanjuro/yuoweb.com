@@ -25,9 +25,9 @@
 	<?php endif;?>
 
 	<?php if (count($connectionsWithFeeds) > 0) :?>
-		<?php foreach ( $connectionsWithFeeds as $friend ) : ?>		 
-		  <h3> <?php echo 'Feeds for '.$friend['reciever_id'] ?></h3>
-		  <p>
+		<?php foreach ( $connectionsWithFeeds as $friend ) : ?>
+		  <h3><?php echo 'Feeds for '.$friend['Reciever']['sfGuardUser']['username'] ?></h3>
+		  <p>		  
 		  <ul class="feedslist">
 		  <?php foreach ( $friend['Reciever']['Feed'] as $feed ) : ?>
 			<li>

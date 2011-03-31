@@ -9,17 +9,26 @@
 	      <li><?php echo link_to('Inbox', 'message_index', $network) ?></li>
 	      <li><?php echo link_to('New Message', 'message_addmessage', $network) ?></li>
 </ul>
-<p>
-		<b>Subject:</b><?php echo $message->getSubject() ?>
+<p class="message">
+		<b>From</b>
 		<br>
-		<b>Sender:</b><?php echo $message->getSubject() ?>
+		<?php $sfGuardUser = $message->getNetworkUser()->getsfGuardUser(); ?>
+		<?php echo $sfGuardUser[0]['username'] ?>
+		<span class="messageline">
+		<?php echo link_to('Reply Message', url_for('message_replymessage', $messagereciever) )?> 
+		</span>
 		<br><br>
 		<b>Message:</b>
 		<br>
+		<?php echo $message->getSubject() ?>
+		<br><br>
 		<?php echo $message->getBody() ?>
 		<br><br>
 		<b>Date Sent:</b>
 		<br>
 		<?php echo $message->getCreatedAt() ?>
+		<br>
+		<span class="messageline">
+		<?php echo link_to('Reply Message', url_for('message_replymessage', $messagereciever) )?> 
+		</span>
 </p>
-<?php echo link_to('Reply Message', url_for('message_replymessage', $messagereciever) )?> 

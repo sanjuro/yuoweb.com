@@ -17,6 +17,17 @@ class ConnectionTable extends Doctrine_Table
         return Doctrine_Core::getTable('Connection');
     }
     
+	/**
+	 * Function to return all connection revievers of friend conenctions
+	 * 
+	 * This function uses the connection to find all 
+	 * receivesr, if the connection is of type 1 then it
+	 * is a friend connection.
+	 *  
+	 * @param Doctrine_Query $q Doctrine_Query
+	 * 
+	 * @return array All Friends
+	 */ 
    public function getFriends(Doctrine_Query $q = null)
    {
 	  if (is_null($q))
@@ -38,6 +49,17 @@ class ConnectionTable extends Doctrine_Table
 	   return $Recievers;
     }
     
+	/**
+	 * Function to return all the connections with their activity feed
+	 * 
+	 * This function uses the connection to find all 
+	 * receivers, it then uses this to find all the feeds per reciever
+	 * if they are a friend
+	 *  
+	 * @param Doctrine_Query $q Doctrine_Query
+	 * 
+	 * @return array All Friends
+	 */ 
    public function getFriendsWithFeeds (Doctrine_Query $q = null)
    {
 	  if (is_null($q))
@@ -46,14 +68,67 @@ class ConnectionTable extends Doctrine_Table
          ->from('Connection c');
 	  }	   
 	  
+	  return $this->fetchFriendsWithFeeds($q);  
+   }    
+   
+	/**
+	 * Function to return all the connections with their activity feed
+	 * 
+	 * This function uses the connection to find all 
+	 * receivers, it then uses this to find all the feeds per reciever
+	 * if they are a friend
+	 *  
+	 * @param Doctrine_Query $q Doctrine_Query
+	 * @param integer $feed_limit Amount feed items to show.
+	 * 
+	 * @return array All Friends
+	 */ 
+   public function getFriendsWithFeedsWithLimit(Doctrine_Query $q = null, $feed_limit = 5)
+   { 
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+         ->from('Connection c');
+	  }	  
+
+     return $this->fetchFriendsWithFeeds($q)->limit($feed_limit); 
+   }  
+   
+	/**
+	 * Function to render the base query for fetching feeds with their user details
+	 *  
+	 * @param Doctrine_Query $q Doctrine_Query
+	 * 
+	 * @return Doctrine_Query base query for fetching feeds with users
+	 */ 
+	public function fetchFriendsWithFeeds(Doctrine_Query $q = null)
+	{
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+         ->from('Connection c');
+	  }	   
+	  
 	  $q->leftJoin('c.Reciever r')
 	    ->leftJoin('r.Feed f')
-	  	->andWhere('c.type_id = ?', 1);
-	  //echo '<pre>';print_r($q->fetchArray());exit;
-     return $q;
-   }    
+	    ->leftJoin('r.sfGuardUser sgu')
+	  	->andWhere('c.type_id = ?', 1)  	
+	    ->orderBy('f.created_at DESC');
+ 	    //echo '<pre>';print_r($q->fetchArray());exit;
+ 	   // echo '<pre>';print_r($q->getSqlQuery());exit;
+     return $q; 
+	}
 
-    
+	/**
+	 * Function to return all the owners of a connection
+	 * 
+	 * This function uses the connection to find all the 
+	 * owners. An owner is the user who initiated the connectin
+	 *  
+	 * @param Doctrine_Query $q Doctrine_Query
+	 * 
+	 * @return array All Friends
+	 */ 
    public function getOwners(Doctrine_Query $q = null)
    {
 	  if (is_null($q))
@@ -64,7 +139,7 @@ class ConnectionTable extends Doctrine_Table
 
       $q->leftJoin('c.Owner o')
 	  	->andWhere('c.type_id = ?', 1);
-	   //echo '<pre>';print_r($q->fetchArray());exit;
+
 	   $Owners = '';
 	 
 	   foreach ($q->fetchArray() as $value) { 

@@ -37,4 +37,5 @@ class FeedTable extends Doctrine_Table
 	 
 	  return $q; 	
 	}
+
 }

@@ -20,8 +20,21 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
       $this['created_at'], $this['updated_at'],
       $this['groups_list'], $this['permissions_list']
     );
+        
+    $this->validatorSchema['username'] = new sfValidatorString(array('max_length' => 128), array(
+     'required'   => 'Please choose a username',
+    ));
     
     $this->validatorSchema['email_address'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
+        
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'sfGuardUser', 'column' => array('email_address')),
+         array( 'invalid' => 'This email is already in use' )),
+        new sfValidatorDoctrineUnique(array('model' => 'sfGuardUser', 'column' => array('username')), 
+        array( 'invalid' => 'This username is already in use' )),
+      ))
+    );
 
 	/////////////////////////////////////////////////////////////////////
 	/// Embed UserProfile Form
