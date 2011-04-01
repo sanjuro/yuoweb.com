@@ -35,6 +35,7 @@ class FrontendCommentForm extends PluginCommentCommonForm
     $this->widgetSchema->setHelp('author_email', __('Your email will never be published', array(), 'vjComment'));
     $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
 
+    /**
     if( vjComment::isUserBoundAndAuthenticated($user) )
     {
         unset( $this['author_email'], $this['author_website'], $this['author_name'] );
@@ -47,6 +48,7 @@ class FrontendCommentForm extends PluginCommentCommonForm
     {
       $this->addCaptcha();
     }
+    **/
     $this->widgetSchema->setNameFormat($this->getOption('name').'[%s]');
   }
   
@@ -57,13 +59,7 @@ class FrontendCommentForm extends PluginCommentCommonForm
       $values = $this->values;
     }
     
-	$NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($this->currentUser->getNetworkUserId());
-	
-	$sfGuardUser = $NetworkUser->getsfGuardUserObject();
-	
-	//$values['author_email'] = $sfGuardUser->getEmailAddress();
-    
-    //$values['author_name'] = $sfGuardUser->getUsername();
+    $values['username'] = $values['email_address'];
 	
 	$values = $this->processValues($values);
 		 
@@ -71,9 +67,9 @@ class FrontendCommentForm extends PluginCommentCommonForm
 	   	 
 	$this->updateObjectEmbeddedForms($values);
 	   	 
-	return $this->object;	
+	parent::updateObject($values);	
   }
-
+  
   protected function addCaptcha()
   {
     $this->widgetSchema['captcha'] = new sfWidgetFormReCaptcha(array(

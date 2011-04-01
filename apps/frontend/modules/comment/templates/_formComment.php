@@ -5,7 +5,6 @@
 <div class="form-comment">
 <?php if( vjComment::checkAccessToForm($sf_user) ): ?>
   <form action="<?php echo url_for($sf_request->getUri()) ?>" method="post">
-    <legend><?php echo __('Add new comment', array(), 'vjComment') ?></legend>
     <?php include_partial("comment/form", array('form' => $form)) ?>
   </form>
 <?php else: ?>

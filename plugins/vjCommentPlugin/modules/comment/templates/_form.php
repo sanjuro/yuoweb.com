@@ -1,8 +1,5 @@
 <table summary="">
 <?php foreach($form as $id => $f): ?>
-  <?php if($id == "reply_author" && $f->getValue()!= ""): ?>
-    <?php use_stylesheet("/vjCommentPlugin/css/replyTo.min.css", "last") ?>
-  <?php endif ?>
   <?php if(!$f->isHidden()): ?>
     <?php if(!$f->hasError()): ?>
       <?php $attributes = array() ?>

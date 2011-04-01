@@ -1,4 +1,3 @@
-
     <tr>
       <td class="body">
         <?php if(!$obj->is_delete): ?>

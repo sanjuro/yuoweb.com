@@ -1,9 +1,8 @@
 table.list-comments{
-  width:500px;
+
 }
 
 table.list-comments td.author, table.list-comments td.report, table.list-comments td.infos{
-  border-top: 1px dashed #aaaaaa;
   padding-top: 5px;
 }
 

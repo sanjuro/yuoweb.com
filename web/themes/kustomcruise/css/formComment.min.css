@@ -1,4 +1,6 @@
 div.form-comment{
+	margin: 0 5px;
+	width: 100%;
 }
 
 div.form-comment input, div.form-comment textarea{
