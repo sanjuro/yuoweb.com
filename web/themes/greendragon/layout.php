@@ -9,11 +9,17 @@
 	  <?php endif; ?>
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
-    <?php include_stylesheets() ?>
-    <link href="/themes/greendragon/feeds.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/greendragon/message.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/greendragon/speakout.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/greendragon/webuy.css" media="screen" type="text/css" rel="stylesheet">
+    <?php include_stylesheets() ?>   
+    <link href="/themes/greendragon/css/comment/comment.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/comment/pagination.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/comment/replyTo.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/comment/form.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/comment/formComment.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/comment/reportComment.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/feeds.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/message.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/speakout.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/greendragon/css/webuy.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>

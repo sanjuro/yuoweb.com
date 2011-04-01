@@ -35,10 +35,11 @@ class FrontendCommentForm extends PluginCommentCommonForm
     $this->widgetSchema->setHelp('author_email', __('Your email will never be published', array(), 'vjComment'));
     $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
 
-    /**
+    
     if( vjComment::isUserBoundAndAuthenticated($user) )
     {
-        unset( $this['author_email'], $this['author_website'], $this['author_name'] );
+        //unset( $this['author_email'], $this['author_website'], $this['author_name'] );
+        unset( $this['author_website'] );
     }
     else
     {
@@ -48,7 +49,7 @@ class FrontendCommentForm extends PluginCommentCommonForm
     {
       $this->addCaptcha();
     }
-    **/
+    
     $this->widgetSchema->setNameFormat($this->getOption('name').'[%s]');
   }
   
@@ -59,8 +60,16 @@ class FrontendCommentForm extends PluginCommentCommonForm
       $values = $this->values;
     }
     
-    $values['username'] = $values['email_address'];
+	$NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($this->currentUser->getNetworkUserId());
 	
+	$sfGuardUser = $NetworkUser->getSfGuardUser();
+	
+    $values['user_name'] = $sfGuardUser[0]['username'];
+
+    $values['author_name'] = $sfGuardUser[0]['username'];
+    
+    $values['author_email'] = $sfGuardUser[0]['email_address'];
+    
 	$values = $this->processValues($values);
 		 
 	$this->object->fromArray($values);

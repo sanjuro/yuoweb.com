@@ -1,0 +1,17 @@
+#reportComment {
+
+	width: 200px;
+}
+
+div.form-comment{
+}
+div.form-comment fieldset {
+	border: none;
+	}
+div.form-comment input, div.form-comment textarea{
+  margin-top:10px;
+}
+
+div.form-comment textarea{
+  height:120px;
+}

@@ -1,0 +1,110 @@
+table.list-comments{
+ font-size: 0.8em;
+ width: 100%;
+}
+
+table.list-comments td.author, table.list-comments td.report, table.list-comments td.infos{
+  padding-top: 5px;
+}
+
+table.list-comments tr.first_line td{
+  border-top: none;
+}
+
+table.list-comments td.author span.author{
+  font-weight: bold;
+}
+
+table.list-comments td.author span.author a{
+  color:#000000;
+}
+
+table.list-comments td.author span.date{
+  font-size: smaller;
+}
+
+table.list-comments td.infos img{
+  border:0;
+}
+span.infos {
+float:right;
+	}
+table.list-comments td.infos{
+  width:70px;
+  text-align: right;
+  vertical-align: top;
+  margin-top:0;
+}
+
+table.list-comments td.infos a.ancre, table.list-comments tbody.deleted, table.list-comments tbody.deleted td.author span.author a{
+  color:#aaaaaa;
+}
+
+table.list-comments td.body, table.list-comments td.infos{
+  padding-bottom: 10px;
+}
+
+table.list-comments td.body span.msg-deleted, table.list-comments td.author span.date, table.list-comments td.author span.author, table.list-comments td.body blockquote{
+  font-style: italic;
+}
+
+table.list-comments td.body blockquote{
+  display:block;
+  margin:5px 0 0 20px;
+  border-left:3px solid #aaaaaa;
+  padding:0 0 5px 5px;
+}
+
+div.form-comment fieldset{
+  border:1px solid #000000;
+}
+
+div.form-comment legend{
+  font-weight:bold;
+  font-size:large;
+}
+
+div.form-comment label, div.form-comment span.help{
+  color:#444444;
+}
+
+
+div.form-comment input:hover, div.form-comment textarea:hover{
+
+}
+
+div.form-comment span.help{
+  font-style: italic;
+  font-size: smaller;
+}
+
+div.form-comment label.error, div.form-comment ul.error_list li{
+  color:#ff0000;
+}
+
+div.form-comment ul.error_list{
+  margin:20px 0 0 0;
+  list-style-image: url('../images/arrow-down.png');
+}
+
+div.form-comment input.error, div.form-comment textarea.error{
+  border-color: #ff0000;
+  background-color:#f6d1d1;
+}
+
+div.form-comment td.submit{
+  text-align:center;
+  margin:0 auto;
+}
+
+div.form-comment input.submit{
+  width:100px;
+}
+
+div.form-comment input.submit:hover{
+  background-color:#aaaaaa;
+  border-color: #000000;
+}
+tbody.comment {
+  border-top: #000 1px solid;	
+}

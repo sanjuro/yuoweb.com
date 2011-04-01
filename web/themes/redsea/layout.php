@@ -10,10 +10,16 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/redsea/feeds.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/redsea/message.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/redsea/speakout.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/redsea/webuy.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/comment/comment.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/comment/pagination.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/comment/replyTo.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/comment/form.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/comment/formComment.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/comment/reportComment.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/feeds.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/message.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/speakout.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/redsea/css/webuy.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>

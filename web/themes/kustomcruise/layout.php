@@ -10,11 +10,12 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/kustomcruise/css/comment.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/kustomcruise/css/pagination.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/kustomcruise/css/replyTo.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/kustomcruise/css/formComment.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/kustomcruise/css/reportComment.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/kustomcruise/css/comment/comment.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/kustomcruise/css/comment/pagination.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/kustomcruise/css/comment/replyTo.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/kustomcruise/css/comment/form.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/kustomcruise/css/comment/formComment.min.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/kustomcruise/css/comment/reportComment.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/kustomcruise/css/feeds.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/kustomcruise/css/message.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/kustomcruise/css/speakout.css" media="screen" type="text/css" rel="stylesheet">
