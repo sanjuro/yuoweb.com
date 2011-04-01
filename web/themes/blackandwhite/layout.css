@@ -84,7 +84,10 @@ ul#topmenunavigation li, .navigationright a {
 	display: inline;
 	font-size: 0.9em;
 }
-
+ul#featurenavigation {
+	padding-left: 25px;
+	margin: 8px 0px;
+}
 ul#featurenavigation li{
 	list-style-image: url("/themes/blackandwhite/images/listicon.png");
 }

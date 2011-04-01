@@ -10,6 +10,7 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
+    <link href="/themes/kustomcruise/comment.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/kustomcruise/feeds.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/kustomcruise/message.css" media="screen" type="text/css" rel="stylesheet">
     <link href="/themes/kustomcruise/speakout.css" media="screen" type="text/css" rel="stylesheet">

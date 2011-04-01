@@ -1,6 +1,6 @@
 <?php use_helper('I18N', 'JavascriptBase') ?>
-<?php use_stylesheet("/vjCommentPlugin/css/form.min.css") ?>
-<?php use_stylesheet("/vjCommentPlugin/css/formComment.min.css") ?>
+<?php //use_stylesheet("/vjCommentPlugin/css/form.min.css") ?>
+<?php //use_stylesheet("/vjCommentPlugin/css/formComment.min.css") ?>
 <a name="comments-<?php echo $crypt ?>"></a>
 <div class="form-comment">
 <?php if( vjComment::checkAccessToForm($sf_user) ): ?>

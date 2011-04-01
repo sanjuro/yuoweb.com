@@ -97,9 +97,8 @@ ul#topmenunavigation li a, ul#messagenavigation li a {
 	padding-left: 5px;
 }
 ul#featurenavigation {
-	font-size: 0.8em;
 	margin: 5px 0px;
-
+	padding-left: 25px;
 }
 ul#featurenavigation li{ 
 	list-style-image: url("/themes/urbanscapes/images/link.png");

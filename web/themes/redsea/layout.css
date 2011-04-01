@@ -70,6 +70,10 @@ ul#topmenunavigation li {
 .navigationright {
 	float: right;
 }
+ul#featurenavigation {
+	padding-left: 25px;
+	margin: 8px 0px;
+}
 ul#featurenavigation li{
 	list-style-image: url("/themes/redsea/images/listicon.png");
 }

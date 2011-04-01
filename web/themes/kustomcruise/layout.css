@@ -85,7 +85,8 @@ ul#topmenunavigation {
 	margin: 10px 0px;
 }
 ul#featurenavigation {
-	padding-left: 10px;
+	padding-left: 25px;
+	margin: 8px 0px;
 }
 
 ul#topmenunavigation li a, .navigationright a {
