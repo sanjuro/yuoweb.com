@@ -38,7 +38,15 @@ class featureActions extends sfActions
   {
 	$feature = $this->getRoute()->getObject();
  
-  	$this->redirect($feature->getUrl());
+	if ($feature->getId() == 5) {
+		$url = $feature->getUrl().'_admin';
+	}elseif ($feature->getId() == 6) {
+		$url = $feature->getUrl().'_admin';
+	}else {
+		$url = $feature->getUrl();
+	}
+	
+  	$this->redirect($url);
   }
   
   public function executeAdditem(sfWebRequest $request)

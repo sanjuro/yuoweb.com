@@ -26,3 +26,60 @@ speakout_addreply:
   param:   { module: sfSpeakoutFrontend, action: addreply }
   requirements:
      sf_method: [get, post]
+
+#speakoutadmin
+speakout_index_admin:
+  url:   /Speakout/
+  param: { module: sfSpeakoutAdmin, action: index }
+  
+speakout_addcategory_admin:
+  url:   /Speakout/Add-Category/
+  param:   { module: sfSpeakoutAdmin, action: addcategory }
+  requirements:
+    sf_method: [get, post]
+  
+speakout_editcategory_admin:
+  url:   /Speakout/Edit-Category/:id
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutCategory, type: object }
+  param:   { module: sfSpeakoutAdmin, action: editcategory }
+  requirements:
+    sf_method: [get, post]
+    
+speakout_addtopic_admin:
+  url:   /Speakout/Add-Topic/
+  param:   { module: sfSpeakoutAdmin, action: addtopic }
+  requirements:
+    sf_method: [get, post]
+  
+speakout_edittopic_admin:
+  url:   /Speakout/Edit-Topic/:id
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: sfSpeakoutAdmin, action: edittopic }
+  requirements:
+    sf_method: [get, post]
+    
+speakout_showtopic_admin:
+  url:   /Speakout/Show-Topic/:title
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: sfSpeakoutAdmin, action: showtopic }
+  requirements:
+    sf_method: [get, post]
+    
+speakout_addreply_admin:
+  url:   /Speakout/Reply-To/:title
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: sfSpeakoutAdmin, action: addreply }
+  requirements:
+    sf_method: [get, post]  
+     
+speakout_deletereply_admin:
+  url:   /Delete-/:id
+  class:   sfDoctrineRoute
+  options: { model: SpeakoutTopic, type: object }
+  param:   { module: sfSpeakoutAdmin, action: deletereply }
+  requirements:
+     sf_method: [get, post]

@@ -11,11 +11,11 @@
 	
 	<?php if ($pager->haveToPaginate()): ?>
 	  <div class="pagination">
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=1">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=1">
 	      <img src="/images/first.png" alt="First page" />
 	    </a>
 	 
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getPreviousPage() ?>">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getPreviousPage() ?>">
 	      <img src="/images/previous.png" alt="Previous page" title="Previous page" />
 	    </a>
 	 
@@ -23,15 +23,15 @@
 	      <?php if ($page == $pager->getPage()): ?>
 	        <?php echo $page ?>
 	      <?php else: ?>
-	        <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
+	        <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
 	      <?php endif; ?>
 	    <?php endforeach; ?>
 	 
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getNextPage() ?>">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getNextPage() ?>">
 	      <img src="/images/next.png" alt="Next page" title="Next page" />
 	    </a>
 	 
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getLastPage() ?>">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getLastPage() ?>">
 	      <img src="/images/last.png" alt="Last page" title="Last page" />
 	    </a>
 	  </div>
@@ -43,11 +43,11 @@
 	
 	<?php if ($pager->haveToPaginate()): ?>
 	  <div class="pagination">
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=1">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=1">
 	      <img src="/images/first.png" alt="First page" />
 	    </a>
 	 
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getPreviousPage() ?>">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getPreviousPage() ?>">
 	      <img src="/images/previous.png" alt="Previous page" title="Previous page" />
 	    </a>
 	 
@@ -55,15 +55,15 @@
 	      <?php if ($page == $pager->getPage()): ?>
 	        <?php echo $page ?>
 	      <?php else: ?>
-	        <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
+	        <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $page ?>"><?php echo $page ?></a>
 	      <?php endif; ?>
 	    <?php endforeach; ?>
 	 
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getNextPage() ?>">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getNextPage() ?>">
 	      <img src="/images/next.png" alt="Next page" title="Next page" />
 	    </a>
 	 
-	    <a href="<?php echo url_for( '@speakout_showtopic?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getLastPage() ?>">
+	    <a href="<?php echo url_for( '@speakout_showtopic_admin?topic='.$topic->getId() ) ?>?page=<?php echo $pager->getLastPage() ?>">
 	      <img src="/images/last.png" alt="Last page" title="Last page" />
 	    </a>
 	  </div>
@@ -78,7 +78,7 @@
 </div>	
 
 <ul class="sf_admin_actions">
-	<li class="sf_admin_action_list"><a href="<?php echo url_for( 'speakout_index' ) ?>">Back to Categories</a></li>  
+	<li class="sf_admin_action_list"><a href="<?php echo url_for( 'speakout_index_admin' ) ?>">Back to Categories</a></li>  
 	<li class="sf_admin_action_add"><?php echo link_to( 'Post a Reply', 'speakout_addreply', $topic ) ?></li>  
 </ul>
 

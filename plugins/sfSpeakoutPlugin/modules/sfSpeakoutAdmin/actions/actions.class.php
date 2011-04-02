@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class speakoutActions extends sfActions
+class sfSpeakoutAdminActions extends sfActions
 {
  /**
   * Executes index action
@@ -40,7 +40,7 @@ class speakoutActions extends sfActions
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Cateogry Added.'));
 	      	
-	      	$this->redirect($this->generateUrl('speakout_index'));
+	      	$this->redirect($this->generateUrl('speakout_index_admin'));
 	      
 	      }else {
 	      	      	
@@ -67,7 +67,7 @@ class speakoutActions extends sfActions
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Cateogry Editted.'));
 	      	
-	      	$this->redirect($this->generateUrl('speakout_index'));
+	      	$this->redirect($this->generateUrl('speakout_index_admin'));
 	      
 	      }else {
 	      	      	
@@ -92,7 +92,7 @@ class speakoutActions extends sfActions
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Topic Added.'));
 	      	
-	      	$this->redirect($this->generateUrl('speakout_index'));
+	      	$this->redirect($this->generateUrl('speakout_index_admin'));
 	      
 	      }else {
 	      	      	
@@ -119,7 +119,7 @@ class speakoutActions extends sfActions
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Topic Editted.'));
 	      	
-	      	$this->redirect($this->generateUrl('speakout_index'));
+	      	$this->redirect($this->generateUrl('speakout_index_admin'));
 	      
 	      }else {
 	      	      	
@@ -163,7 +163,7 @@ class speakoutActions extends sfActions
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your reply has been added.'));
 	      	
-	      	$this->redirect($this->generateUrl( 'speakout_showtopic', array( 'topic' => $this->topic->getId() ) ) );
+	      	$this->redirect($this->generateUrl( 'speakout_showtopic_admin', array( 'topic' => $this->topic->getId() ) ) );
 	      
 	      }else {
 	      	      	
@@ -177,6 +177,6 @@ class speakoutActions extends sfActions
   	
   	$this->reply->delete();
   	
-  	$this->redirect($this->generateUrl( 'speakout_showtopic', array( 'topic' => $this->reply->getTopicId() ) ) );
+  	$this->redirect($this->generateUrl( 'speakout_showtopic_admin', array( 'topic' => $this->reply->getTopicId() ) ) );
   }
 }

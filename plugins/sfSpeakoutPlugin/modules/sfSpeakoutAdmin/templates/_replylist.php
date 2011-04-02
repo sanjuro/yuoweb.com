@@ -4,7 +4,7 @@
 			<div class="replylistitem">
 			<span style="float:right;">
 				<ul class="sf_admin_actions">
-					<li class="sf_admin_action_delete"><?php echo link_to('Delete', url_for( 'speakout_deletereply', array( 'id' => $reply['id'] ) ) ) ?></li>  
+					<li class="sf_admin_action_delete"><?php echo link_to('Delete', url_for( 'speakout_deletereply_admin', array( 'id' => $reply['id'] ) ) ) ?></li>  
 				</ul>
 			</span>
 			<?php echo $reply['body']?>
