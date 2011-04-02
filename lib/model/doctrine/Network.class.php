@@ -112,6 +112,44 @@ class Network extends BaseNetwork
   }  
   
 /**
+ * Function to find all availible features for a network
+ * 
+ * This function return all features availible to a network,
+ * these are features that are not already on the network
+ * 
+ * @param Doctrine_Connection $conn 
+ * 
+ * @return array All features availible will be an array others will be 0
+ */   
+  public function getAvailibleFeatures(Doctrine_Query $q = null)
+  {  
+     $features = array(); 
+  	
+  	 $q = Doctrine_Query::create()
+       ->from('Feature f');
+       
+     $featuresAvaible = $q->fetchArray();
+     
+      
+     foreach ($featuresAvaible as $value) {
+     	$features[$value['id']] = $value;
+     }
+     
+  	  $q = Doctrine_Query::create()
+       ->from('NetworkFeature nf')
+       ->where('nf.network_id = ?', $this->getId())
+       ->orderBy('nf.position');
+		
+     $featuresOnNetwork = $q->fetchArray();
+    
+     foreach ($featuresOnNetwork as $value) {
+     	$features[$value['feature_id']] = 0;
+     }
+     //echo '<pre>';print_r($features);exit;
+     return (!empty($features)?$features:false);
+  }  
+  
+/**
  * Function to find all users associated to a network
  * 
  * This function return all users associated to a network

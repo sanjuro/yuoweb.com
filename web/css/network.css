@@ -96,6 +96,10 @@
   margin-right: 10px;
   font-size: 85%;
 }
+#network_layout  {
+    float:left;
+    width: 430px;	
+}
 #featurelist {
 	background-color: #EFEFEA;
 	border: 3px solid #C0C0C0;
@@ -107,8 +111,22 @@
 	padding: 5px 10px;
 	margin: 3px;
 }
-
-.sortable { 
+.featurelist_remove, .featurelist_add {
+	float: right;	
+}
+#availblefeaturelist {
+	float:left;
+	width: 200px;	
+}
+#availblefeaturelist  li{
+	background-color: #FFF;
+	border: 1px dashed #C0C0C0;
+	color:  #000;
+	cursor: move; 
+	list-style: none;
+	padding: 5px 10px;
+}
+.sortable, .draggable { 
 	background-color: #FFF;
 	border: 1px dashed #C0C0C0;
 	color:  #000;

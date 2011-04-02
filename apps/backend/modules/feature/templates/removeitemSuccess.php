@@ -1,0 +1,1 @@
+<?php include_partial('feature/tab1', array('features' => $features, 'availibleFeatures' => $availibleFeatures)) ?>

@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php use_javascript('jquery-1.4.2.min.js') ?>
-    <?php use_javascript('jquery-ui-1.8.10.custom.min.js') ?>
+    <?php use_javascript('jquery-ui-1.8.11.custom.min.js') ?>
     <?php include_javascripts() ?>
   </head>
   <body>

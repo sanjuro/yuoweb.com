@@ -137,6 +137,10 @@ feature_additem:
   url:   /Add-Feature-To-Networks/
   param: { module: feature, action: additem }
   
+feature_removeitem:
+  url:   /Remove-Feature-To-Networks/
+  param: { module: feature, action: removeitem }
+
 feature_reorder: 
   url:   /Reorder-Feature/
   param: { module: feature, action: reorder }

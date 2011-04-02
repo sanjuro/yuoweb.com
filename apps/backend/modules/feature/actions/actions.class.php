@@ -30,6 +30,8 @@ class featureActions extends sfActions
   	foreach ($networksfeatures as $key => $value) {
   		$this->features[$key] = $value; 
   	}
+  	
+  	$this->availibleFeatures = $this->network->getAvailibleFeatures();
   }
   
   public function executeShow(sfWebRequest $request)
@@ -40,10 +42,51 @@ class featureActions extends sfActions
   }
   
   public function executeAdditem(sfWebRequest $request)
-  {
-    $this->feature =  $this->getRoute()->getObject();
+  { 
+    $featureid = $request->getParameter('id');
+    
+    $networkid = $this->getUser()->getNetworkId();
+    
+  	$network = Doctrine_Core::getTable('Network')->findOneById($networkid);    
+    
+    $networkFeature = new NetworkFeature();
+    $networkFeature->setNetworkId($networkid);
+    $networkFeature->setFeatureId($featureid);
+    $networkFeature->Save();
   	
-  	$this->forward($this->feature->getTitle(), 'index');
+  	$networksfeatures =  $network->getFeatures(); 
+  	
+  	$this->features = array();
+  	
+  	foreach ($networksfeatures as $key => $value) {
+  		$this->features[$key] = $value; 
+  	}
+  	
+  	$this->availibleFeatures = $network->getAvailibleFeatures();
+  }
+  
+  public function executeRemoveitem(sfWebRequest $request)
+  { 
+    $networkfeatureid = $request->getParameter('id');
+    
+  	$networkFeature = Doctrine_Core::getTable('NetworkFeature')->findOneById($networkfeatureid);    
+  	
+    $networkFeature->Delete();
+    
+    $networkid = $this->getUser()->getNetworkId();
+    
+  	$network = Doctrine_Core::getTable('Network')->findOneById($networkid);   
+
+  	$networksfeatures =  $network->getFeatures(); 
+  	
+  	$this->features = array();
+  	
+  	foreach ($networksfeatures as $key => $value) {
+  		$this->features[$key] = $value; 
+  	}
+  	
+  	$this->availibleFeatures = $network->getAvailibleFeatures();  	
+  	//$this->redirect($this->generateUrl('feature_layout', $network));
   }
   
   public function executeReorder(sfWebRequest $request)

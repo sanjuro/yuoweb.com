@@ -1,0 +1,29 @@
+ul.dealist {
+	padding-lefT: 0px;	
+}
+.dealist li {
+	border-top: 1px solid #164ace;
+	border-left: 5px solid #164ace;
+	border-bottom: 1px solid #164ace;
+	border-right: 5px solid #164ace;
+	font-size: 0.8em;
+	list-style: none;
+	padding: 3px 0px 3px 25px;
+	margin: 0px 3px 0px 5px;
+}
+.active {
+	background: url('/themes/fonk/images/webuy_dealicon_active.png') no-repeat left center;
+}
+.inactive {
+	background: url('/themes/fonk/images/webuy_dealicon_inactive.png') no-repeat left center;
+}
+.dealist_title {
+	font-weight: bold;
+}
+.dealist_discount, .dealist_saving, .dealist_postedat {
+	font-size: 0.8em;		
+}
+.dealist_dealprice, .dealist_discount, .dealist_saving  {
+	padding-right: 10px;
+	width: 100px;
+}
