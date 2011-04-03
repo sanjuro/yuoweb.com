@@ -31,4 +31,15 @@ class sfWeBuyDealActions extends sfActions
   {
     $this->deals = $this->network->getActiveDeals(); 
   }
+  
+ /**
+  * Executes show action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeShow(sfWebRequest $request)
+  {
+    $this->deal = Doctrine_Core::getTable('WebuyDeal')
+	           ->findOneBySlug($request->getParameter('deal')); 
+  }
 }

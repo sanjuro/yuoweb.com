@@ -1,6 +1,6 @@
 <?php slot( 'title', $network->getTitle().' - We Buy' )?>
 
-<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - we Buy</h1>' )?>
+<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - We Buy</h1>' )?>
 
 	<h3> <?php echo 'Latest Deals' ?></h3>
 	<?php if (!empty($deals)) :?>

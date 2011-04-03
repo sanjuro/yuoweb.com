@@ -6,3 +6,9 @@ webuy_index:
   param: { module: sfWeBuyDeal, action: index }
   requirements:
      sf_method: [get, post]
+
+webuy_deal_show:
+  url:   /Showing-Deal/
+  param: { module: sfWeBuyDeal, action: show }
+  requirements:
+     sf_method: [get, post]

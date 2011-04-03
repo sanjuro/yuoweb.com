@@ -4,8 +4,10 @@
 			<li class="active">
 			<?php else :?>
 			<li class="inactive">
-			<?php endif;?>	
-				<span class="dealist_dealprice">R <?php echo number_format($deal['deal_price'], 2, '.', '') ?></span>		
+			<?php endif;?>	-
+				<a href="<?php echo url_for('@webuy_deal_show?deal='.$deal['slug']) ?>">
+					<span class="dealist_dealprice">R <?php echo number_format($deal['deal_price'], 2, '.', '') ?></span>		
+				</a>
 				<span class="dealist_title"><?php echo $deal['title'] ?></span>
 				<br>
 				<span class="dealist_discount"> Less <?php echo number_format($deal['discount_percent'], 2, '.', '') ?> %</span>
