@@ -1,7 +1,7 @@
 /* Main Styles */
 
 body {
-    background: url("/themes/urbanscapes/images/body_bg.png") repeat-y;
+    background: url("/themes/urbanscapes/images/body_bg.jpg") repeat-y;
 	font-family: "DINSchrift",sans-serif;
 	margin: 0;
 }
@@ -63,8 +63,7 @@ a img {
 }
 
 #footer {
-    background: url("/themes/urbanscapes/images/footer_bg.png") repeat-x;
-	height: 200px;
+    background: url("/themes/urbanscapes/images/footer_bg.jpg") repeat-x;
 	padding: 5px 5px 500px 5px;
 }
 #footer a {
