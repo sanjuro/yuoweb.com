@@ -23,7 +23,7 @@ class PhotoTable extends Doctrine_Table
  * This function will find aall the photots on a given
  * network using the networkusers on the network
  * 
- * @param integer $NetworkId
+ * @param integer $NetworkId Id of network to find photos for
  * 
  * @return query Base Query to find photos on a network
  */

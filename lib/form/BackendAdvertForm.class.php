@@ -24,9 +24,7 @@ class BackendAdvertForm extends BaseAdvertForm {
 	    'mime_types' => 'The file must be a supported type.'
 	));
 	
-	/////////////////////////////////////////////////////////////////////
-	/// Embed all Advert Network
-	/////////////////////////////////////////////////////////////////////  	 
+	// Embed all Advert Network
 	if(!$this->isNew()) 	
 	{
 		$advertNetworkObjs = $this->getObject()->getAdvertNetworks()->execute();

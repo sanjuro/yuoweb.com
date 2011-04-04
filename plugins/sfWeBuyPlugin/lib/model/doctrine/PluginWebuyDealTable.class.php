@@ -22,7 +22,7 @@ class PluginWebuyDealTable extends Doctrine_Table
 	 * 
 	 * This function will find all  products for deals
 	 * 
-	 * @param  void
+	 * @param Doctrine_Query $q Doctrine_Query
 	 * 
 	 * @return query Base Query to find products for a deal
 	*/
@@ -39,4 +39,20 @@ class PluginWebuyDealTable extends Doctrine_Table
 	  return $q;	
 	}
 	
+/**
+ * Function to find a all the deals for a network with their associated products
+ * 
+ * @param integer $NetworkId Id of network to find deals for
+ * 
+ * @return query Base Query to find deals with products
+ */
+	public function getDealsWithProducts($NetworkId)
+	{	  
+	  $rootAlias = $q->getRootAlias();
+	  
+	  $q->where($rootAlias.'.network_id = ?', $NetworkId)
+	    ->leftJoin($rootAlias . '.wd.WebuyProduct wbp');
+		
+	  return $q;	
+	}
 }

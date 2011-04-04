@@ -117,7 +117,7 @@ class Network extends BaseNetwork
  * This function return all features availible to a network,
  * these are features that are not already on the network
  * 
- * @param Doctrine_Connection $conn 
+ * @param Doctrine_Query $q Parent query 
  * 
  * @return array All features availible will be an array others will be 0
  */   

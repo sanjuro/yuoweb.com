@@ -20,3 +20,27 @@ webuy_deal_buy:
   param: { module: sfWeBuyDeal, action: buy }
   requirements:
      sf_method: [get, post]
+     
+#webuy admin
+webuy_index_admin:
+  url:   /Showing-Deals/
+  param: { module: sfWeBuyDealAdmin, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+webuy_deal_edit_admin:
+  url:   /Edit-Deal/:slug
+  class:   sfDoctrineRoute
+  options: { model: WeBuyDeal, type: object }
+  param: { module: sfWeBuyDealAdmin, action: edit }
+  requirements:
+     sf_method: [get, post]
+     
+webuy_deal_delete_admin:
+  url:   /Delete-Deal/:slug
+  class:   sfDoctrineRoute
+  options: { model: WeBuyDeal, type: object }
+  param: { module: sfWeBuyDealAdmin, action: delete }
+  requirements:
+     sf_method: [get, post]
+     

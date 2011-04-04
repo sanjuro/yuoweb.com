@@ -14,7 +14,7 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     
     unset(
       $this['id'], $this['algorithm'],
-      $this['first_name'], $this['lasst_name'],
+      $this['first_name'], $this['last_name'],
       $this['salt'], $this['is_active'],
       $this['is_super_admin'], $this['last_login'],
       $this['created_at'], $this['updated_at'],

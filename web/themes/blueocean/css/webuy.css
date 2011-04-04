@@ -8,24 +8,25 @@ ul.dealist {
 	border-right: 5px solid #6699CC;
 	font-size: 0.8em;
 	list-style: none;
-	padding: 3px 0px 3px 25px;
 	margin: 0px 3px 0px 5px;
 }
-.active {
-	background: url('/themes/blueocean/images/webuy_dealicon_active.png') no-repeat left center;
-}
-.inactive {
-	background: url('/themes/blueocean/images/webuy_dealicon_inactive.png') no-repeat left center;
-}
+
 .dealist_title {
 	font-weight: bold;
 }
 .dealist_discount, .dealist_saving, .dealist_postedat {
 	font-size: 0.8em;		
 }
-.dealist_dealprice, .dealist_discount, .dealist_saving  {
-	padding-right: 10px;
-	width: 100px;
+.dealist_discount, .dealist_saving  {
+	
+}
+.dealist_dealprice {
+    background-color:#6699CC;
+    color: #FFF;
+	font-weight: bold;
+    float: left;
+    padding: 15px 4px 18px 4px;
+    margin-right: 3px;
 }
 .dealist_expiresat {
 	font-weight: bold;
