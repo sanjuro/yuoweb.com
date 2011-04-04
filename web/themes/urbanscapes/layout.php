@@ -10,22 +10,13 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/urbanscapes/css/comment/comment.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/comment/pagination.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/comment/replyTo.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/comment/form.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/comment/formComment.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/comment/reportComment.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/feeds.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/message.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/speakout.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/urbanscapes/css/webuy.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/urbanscapes/css_compressed.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>
     <div id="header">
     	<div id="logo">
-    	  <img src="/themes/urbanscapes/images/logo.png">
+    	  <img src="/themes/urbanscapes/images/logo.gif">
     	</div>
     	<div id="navigation">
 			  <?php include_component_slot('navigation') ?>

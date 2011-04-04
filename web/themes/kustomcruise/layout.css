@@ -61,7 +61,7 @@ a img {
 }
 
 #footer {
-    background: url("/themes/kustomcruise/images/footer_bg.png") repeat-x;
+    background-color: #000;
 	height: 200px;
 	padding: 5px 5px 500px 5px;
 }
@@ -142,4 +142,14 @@ input.validated {
 .signinRow {
     display: block;
     margin-bottom: 15px;
+}
+.flash_notice, .flash_error{
+	font-size: 0.8em;
+	padding: 3px 0px
+	}
+.flash_notice {
+	color: green;
+}
+.flash_error {
+	color: red;
 }

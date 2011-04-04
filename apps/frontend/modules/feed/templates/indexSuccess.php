@@ -19,7 +19,9 @@
 		</ul>	
 	</p>
 	<?php else : ?>
+	<p>
 		<?php echo 'You have 0 feeds' ?>
+	</p>
 	<?php endif;?>
 
 	<?php if (count($connectionsWithFeeds) > 0) :?>
@@ -39,5 +41,7 @@
 		<?php endforeach; ?>
 	</p>
 	<?php else : ?>
+	<p>
 		<?php echo 'You have 0 Friend feeds' ?>
+	</p>
 	<?php endif;?>
