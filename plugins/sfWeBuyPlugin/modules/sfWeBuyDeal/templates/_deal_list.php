@@ -13,7 +13,7 @@
 				<span class="dealist_discount"> Less <?php echo number_format($deal['discount_percent'], 2, '.', '') ?> %</span>
 				<span class="dealist_saving">You Save R<?php echo number_format(($deal['full_price']-$deal['deal_price']), 2, '.', '') ?></span>
 				<br>
-				<span class="dealist_psotedat"><?php echo 'Posted at '.$deal['created_at'] ?>	</span>
+				<span class="dealist_expiresat"><?php echo 'Expires at '.$deal['expires_at'] ?>	</span>
 			</li>	
 		<?php endforeach; ?>
 		</ul>	

@@ -61,7 +61,7 @@ class navigationComponents extends sfComponents
  	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
   }
   
-  public function executeWebuyDeal()
+  public function executeWebuy()
   {
  	$this->network = Doctrine_Core::getTable('Network')
 	           		->findOneBySlug($this->getUser()->getNetworkId()); 

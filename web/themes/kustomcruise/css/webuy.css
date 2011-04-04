@@ -33,3 +33,11 @@ ul.dealist {
     padding: 15px 4px;
     margin-right: 3px;
 }
+.dealist_expiresat {
+	font-weight: bold;
+	font-size: 0.8em;
+}
+.deal_expiresat, .deal_buyercount, .deal_discount {
+	font-weight: bold;
+	font-size: 0.8em;
+}

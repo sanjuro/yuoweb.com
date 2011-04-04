@@ -1,6 +1,6 @@
 default: 
   components:
-    navigation:  [navigation, speakout]
+    navigation:  [navigation, webuy]
     advert1:     [advert, default]
     advert2:     [advert, default]
     footer:      [footer, default]

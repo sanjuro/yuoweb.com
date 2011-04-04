@@ -12,3 +12,11 @@ webuy_deal_show:
   param: { module: sfWeBuyDeal, action: show }
   requirements:
      sf_method: [get, post]
+
+webuy_deal_buy:
+  url:   /Buy/:slug
+  class:   sfDoctrineRoute
+  options: { model: Deal, type: object }
+  param: { module: sfWeBuyDeal, action: buy }
+  requirements:
+     sf_method: [get, post]

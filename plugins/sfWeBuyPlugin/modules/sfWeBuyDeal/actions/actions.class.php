@@ -41,5 +41,25 @@ class sfWeBuyDealActions extends sfActions
   {
     $this->deal = Doctrine_Core::getTable('WebuyDeal')
 	           ->findOneBySlug($request->getParameter('deal')); 
+	           
+	$this->product = Doctrine_Core::getTable('WebuyProduct')
+	           ->findOneById($this->deal->getProductId()); 
+  }
+  
+ /**
+  * Executes buy action, that will get the buy the discount
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeBuy(sfWebRequest $request)
+  {
+    $this->deal = $this->getRoute()->getObject();
+    
+    $networkuser = $this->network->getUser($this->getUser()->getUserid());
+    
+    $WebuyNetworkUser = new WebuyNetworkUser();
+    $WebuyNetworkUser->setDealId($this->deal->getId());
+    $WebuyNetworkUser->setNetworkUserId($networkuser->getId());
+    $WebuyNetworkUser->save();
   }
 }
