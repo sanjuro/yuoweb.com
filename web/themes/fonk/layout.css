@@ -142,3 +142,13 @@ input.validated {
     display: block;
     margin-bottom: 15px;
 }
+.flash_notice, .flash_error{
+	font-size: 0.8em;
+	padding: 3px 0px
+	}
+.flash_notice {
+	color: green;
+}
+.flash_error {
+	color: red;
+}

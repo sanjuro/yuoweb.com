@@ -59,7 +59,7 @@ class NetworkUser extends BaseNetworkUser
 /**
  * Function to return all the Friends for a network user
  *  
-	 * @param Doctrine_Query $q Doctrine_Query
+ * @param Doctrine_Query $q Doctrine_Query
  * 
  * @return array All Friends
  */ 
@@ -67,7 +67,8 @@ class NetworkUser extends BaseNetworkUser
   {
 	  $q = Doctrine_Query::create()
          ->from('Connection c')
-         ->where('c.owner_id = ?', $this->getId());
+         ->where('c.owner_id = ?', $this->getId())
+         ->andWhere('c.state_id = ?', 1);
  
       return Doctrine_Core::getTable('Connection')->getFriends($q);
   }  

@@ -71,7 +71,7 @@ class friendActions extends sfActions
        ->from('Connection c')
        ->where('owner_id = ?', $this->networkuser->getId())
        ->andWhere('reciever_id = ?', $user->getId());
- 
+
     $connection = $q->fetchOne();
 	$connection->setStateId(3);
 	$connection->save();
@@ -99,7 +99,7 @@ class friendActions extends sfActions
 	      	$values = $this->form->getValues();
 	      	
 	      	$this->users = $this->network->getPublicUsers($values['search']);
-	      	//echo '<pre>';print_r($this->users);exit;
+	      	
 	      	$this->friends = $this->networkuser->getAllFriendsForNetwork();  
 	      	//echo '<pre>';print_r($this->friends);exit;
 	     	$this->getUser()->setFlash('notice', sprintf('Search has completed.'));

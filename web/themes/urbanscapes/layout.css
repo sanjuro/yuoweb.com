@@ -33,6 +33,9 @@ p {
     margin: 0;
     padding: 5px;
 }
+.flash_notice {
+	color: green;
+}
 a {
   color: #bc2727;
   text-decoration: none;
@@ -164,4 +167,14 @@ input.validated {
 
 label {
 	font-weight: bold;
+}
+.flash_notice, .flash_error{
+	font-size: 0.8em;
+	padding: 3px 0px
+	}
+.flash_notice {
+	color: green;
+}
+.flash_error {
+	color: red;
 }

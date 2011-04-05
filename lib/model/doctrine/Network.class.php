@@ -344,15 +344,21 @@ class Network extends BaseNetwork
  */   
   public function getActiveDeals(Doctrine_Query $q = null)
   {
-	$q = Doctrine_Query::create()
-       ->from('WebuyDeal wd')
-       ->where('wd.network_id = ?', $this->getId())
-       ->andWhere('wd.status = ?', 1)
-       ->orderBy('wd.created_at');
-		
-     $deals = Doctrine_Core::getTable('WebuyDeal')->getWithProducts($q)->fetchArray();
-     
-     return (!empty($deals)?$deals:false);
+	return $this->fetchActiveDeals($q)->fetchArray();
+  } 
+  
+/**
+ * Function to count all active deals associated to a network
+ * 
+ * This function to count all active deals associated to a network
+ * 
+ * @param Doctrine_Connection $conn 
+ * 
+ * @return Doctrine_Collection All active deals found
+ */   
+  public function getCountActiveDeals(Doctrine_Query $q = null)
+  {
+	return $this->fetchActiveDeals($q)->count();
   } 
   
 /**
@@ -399,6 +405,27 @@ class Network extends BaseNetwork
 
      return Doctrine_Core::getTable('AdvertNetwork')->getWithAdverts($q);
   }
+  
+/**
+ * Function to generate the initial fetch deals query for a network
+ * 
+ * This function is the refactored query that gets all deals on a network
+ * joined with their associated Product
+ * 
+ * @param Doctrine_Query $q
+ * 
+ * @return query Base Query to find users on a network
+ */ 
+  public function fetchActiveDeals(Doctrine_Query $q = null)
+  {       
+	$q = Doctrine_Query::create()
+       ->from('WebuyDeal wd')
+       ->where('wd.network_id = ?', $this->getId())
+       ->andWhere('wd.status = ?', 1)
+       ->orderBy('wd.created_at');
+		
+     return Doctrine_Core::getTable('WebuyDeal')->getWithProducts($q);
+  } 
   
 /**
  * Static Function to return the default features set for the Network Class

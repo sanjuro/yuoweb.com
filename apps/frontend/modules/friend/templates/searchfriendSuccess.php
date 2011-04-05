@@ -12,10 +12,9 @@
 		<?php include_partial('friend/searchform', array( 'form' => $form, 'network' => $network )) ?>
 	</p>
 
-	<?php $users = $users->getRawValue(); ?>
-	 <?php if ($users): ?>
-    <h3>Search Results</h3>
-	<p>
+	<h3>Search Results</h3>
+	<p>	
+	   <?php if (is_object($users) && $users->count() > 0) :?>
 		<?php foreach ( $users as $user ):?>
 	 	<span><?php echo $user['sfGuardUser']['username'] ?></span>
 		 	<?php if(!empty($friends[$user['sfGuardUser']['id']])) :?>
@@ -25,7 +24,10 @@
 		 		</span>
 		 	<?php else :?>
 		 		<span><?php echo link_to('Add', url_for('@friend_addfriendrequest?user='.$user['id']))?></span>
+		 		<span><?php echo link_to('View', url_for('@friend_showfriend?user='.$user['sfGuardUser']['id'].'&network_id='.$network->getId()))?></span>
 	 	<?php endif; ?>
 	 <?php endforeach; ?>
+	<?php else :?>
+	no users found
+	<?php endif;?>
 	</p>
-	 <?php endif; ?>

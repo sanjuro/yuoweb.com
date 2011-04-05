@@ -37,6 +37,8 @@ class networkActions extends sfActions
   	$this->newmessages = $this->networkuser->getNewMessages();
   	
   	$this->friendrequests = $this->networkuser->getNewFriendRequests();
+  	
+  	$this->dealcount = $this->network->getCountActiveDeals();
     
   	$this->getUser()->setAttribute('network_slug', $this->network->getSlug(), 'sfGuardSecurityUser');
   	
