@@ -13,7 +13,7 @@
 class Network extends BaseNetwork
 {
   
- private static $DefaultFeatures = array( 1, 2, 3, 6);
+ private static $DefaultFeatures = array(1, 2, 3, 4);
   
 /**
  * Function to extend the base Save function

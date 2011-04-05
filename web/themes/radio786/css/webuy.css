@@ -1,0 +1,43 @@
+ul.dealist {
+	padding-left: 0px;	
+}
+.dealist li {
+	border-top: 1px solid #2e6ac4;
+	border-left: 5px solid #2e6ac4;
+	border-bottom: 1px solid #2e6ac4;
+	border-right: 5px solid #2e6ac4;
+	font-size: 0.8em;
+	list-style: none;
+	padding: 3px 0px 3px 0px;
+	margin: 0px 3px 0px 5px;
+}
+.active {
+	
+}
+.inactive {
+	
+}
+.dealist_title {
+	font-weight: bold;
+}
+.dealist_discount, .dealist_saving, .dealist_postedat {
+	font-size: 0.8em;		
+}
+.dealist_discount, .dealist_saving  {
+	
+}
+.dealist_dealprice {
+    background-color:#2e6ac4;
+    color: #FFF;
+    float: left;
+    padding: 15px 4px;
+    margin-right: 3px;
+}
+.dealist_expiresat {
+	font-weight: bold;
+	font-size: 0.8em;
+}
+.deal_expiresat, .deal_buyercount, .deal_discount {
+	font-weight: bold;
+	font-size: 0.8em;
+}
