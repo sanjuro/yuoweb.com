@@ -85,6 +85,42 @@ ul#footernavigation li {
 	display: inline;
 	font-size: 1em;
 }
+
+
+/* Form Styles */
+
+form {
+    font-size: 12px;
+}
+
+label {
+	font-size: 1em;
+    font-weight: bold;
+    padding-right: 10px;
+    width: 10%;
+}
+
+fieldset.formContainer {
+	border: none;
+}
+
+input.validated {
+
+}
+
+.formContainer h4 {
+    color: #999999;
+    font-family: Georgia,Times New Roman,serif;
+    font-style: oblique;
+    margin: 0 0 20px 180px;
+}
+.signinRow {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Flash Notices Styles */
+
 .flash_notice, .flash_error{
 	font-size: 0.8em;
 	padding: 3px 0px
