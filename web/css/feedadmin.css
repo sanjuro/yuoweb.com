@@ -1,0 +1,19 @@
+ul.feed_list  {
+    padding-left: 10px;
+}
+ul.feed_list  li{
+	background-color: #ccc;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+.feed_body {
+	font-weight: bold;
+	padding: 5px 0px; 
+}
+.feed_posted { 
+	color: #999999;	
+}
+form {
+	margin: 10px;
+}

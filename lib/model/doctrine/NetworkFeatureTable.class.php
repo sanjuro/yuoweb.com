@@ -51,7 +51,7 @@ class NetworkFeatureTable extends Doctrine_Table
 		
 	    foreach ($order as $rank => $id) 
 	    {
-	      $feature = Doctrine_Core::getTable('NetworkFeature')->findOneByFeatureId($id);   
+	      $feature = Doctrine_Core::getTable('NetworkFeature')->findOneById($id);   
 	        	
 	      if($feature->position != ( ($rank + 1) * 10 ) )
 	      {

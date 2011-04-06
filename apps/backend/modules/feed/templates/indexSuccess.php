@@ -1,5 +1,5 @@
 <?php use_stylesheet('network.css') ?>
-<?php use_stylesheet('feeds.css') ?>
+<?php use_stylesheet('feedadmin.css') ?>
 
 <?php use_helper('jQuery') ?>
 

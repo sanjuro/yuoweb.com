@@ -1,5 +1,6 @@
-<?php slot( 'title', 'yUoweb - We Buy' )?>
 
+<?php slot( 'title', 'yUoweb - We Buy' )?>
+<div id="sf_admin_container">
 <h2>We Buy - Showing all deals</h2>
 
 <?php include_partial( 'sfWeBuyDealAdmin/deal_list', array( 'deals' => $pager->getResults() ) )?>
@@ -38,4 +39,12 @@
   <?php if ($pager->haveToPaginate()): ?>
     - page <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
   <?php endif; ?>
+</div>
+
+<ul class="sf_admin_actions">
+	<li class="sf_admin_batch_actions_choice">
+	<li class="sf_admin_action_new">
+	<a href="<?php url_for('webuy_deal_add_admin', $network) ?>">New</a>
+	</li>
+</ul>
 </div>

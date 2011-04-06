@@ -16,7 +16,7 @@ webuy_deal_show:
 webuy_deal_buy:
   url:   /Buy/:slug
   class:   sfDoctrineRoute
-  options: { model: Deal, type: object }
+  options: { model: WeBuyDeal, type: object }
   param: { module: sfWeBuyDeal, action: buy }
   requirements:
      sf_method: [get, post]
@@ -25,6 +25,14 @@ webuy_deal_buy:
 webuy_index_admin:
   url:   /Showing-Deals/
   param: { module: sfWeBuyDealAdmin, action: index }
+  requirements:
+     sf_method: [get, post]
+     
+webuy_deal_add_admin:
+  url:   /Add-Deal/:slug
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param: { module: sfWeBuyDealAdmin, action: ad }
   requirements:
      sf_method: [get, post]
      

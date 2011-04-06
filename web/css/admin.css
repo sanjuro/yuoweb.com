@@ -6,6 +6,15 @@
   text-decoration: none;
 }
 
+#sf_admin_container ul li.sf_admin_action_new a {
+  background: url('/sfDoctrinePlugin/images/new.png') no-repeat;
+}
+
+#sf_admin_container a {
+  color:#464646;
+  text-decoration:none;
+}
+
 #sf_admin_container a:hover
 {
   text-decoration: underline;
@@ -395,3 +404,13 @@ ul.sf_admin_actions {
     margin: 15px 0 0;
     padding: 15px 15px 15px 15px;
 }
+
+.personality_item {
+	background: url('/images/personality_button.png');
+    border-style:none;
+	cursor: pointer;
+	height: 132px;
+	width: 150px;
+}
+.personality_item:hover {
+	background: url('/images/personality_button.png') 0 -132px;

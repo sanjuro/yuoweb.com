@@ -1,1 +1,1 @@
-<?php include_partial('feature/tab1', array('features' => $features, 'availibleFeatures' => $availibleFeatures)) ?>
+<?php include_partial('feature/tab2', array('features' => $features, 'availibleFeatures' => $availibleFeatures)) ?>

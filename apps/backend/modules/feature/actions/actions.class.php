@@ -24,7 +24,7 @@ class featureActions extends sfActions
   	$this->availiblethemes = Doctrine_Core::getTable('sfMultisiteThemeThemeInfo')->getActivePublicThemes()->fetchArray();
    
   	$networksfeatures =  $this->network->getFeatures(); 
-  	
+
   	$this->features = array();
   	
   	foreach ($networksfeatures as $key => $value) {
@@ -55,18 +55,29 @@ class featureActions extends sfActions
     
     $networkid = $this->getUser()->getNetworkId();
     
-  	$network = Doctrine_Core::getTable('Network')->findOneById($networkid);    
-    
+  	$network = Doctrine_Core::getTable('Network')->findOneById($networkid);  
+
+  	$networkfeatures =  $network->getFeatures(); 
+  
+  	$lastPostiion = 0;
+  	foreach ($networkfeatures as $networkfeature) {
+  		if($networkfeature['position'] > $lastPostiion ){
+  			$lastPostiion = $networkfeature['position'];
+  		}
+  	}
+   
     $networkFeature = new NetworkFeature();
     $networkFeature->setNetworkId($networkid);
     $networkFeature->setFeatureId($featureid);
+    $networkFeature->setPosition($lastPostiion + 10);
+    $networkFeature->setActive(1);
     $networkFeature->Save();
   	
-  	$networksfeatures =  $network->getFeatures(); 
+  	$networkfeatures =  $network->getFeatures(); 
   	
   	$this->features = array();
   	
-  	foreach ($networksfeatures as $key => $value) {
+  	foreach ($networkfeatures as $key => $value) {
   		$this->features[$key] = $value; 
   	}
   	
@@ -102,7 +113,7 @@ class featureActions extends sfActions
     $order =  explode(',', $this->getRequestParameter('featureOrder') );    
     
   	$flag = Doctrine_Core::getTable('NetworkFeature')->doSort($order);
-  
+
  	return $flag ? sfView::NONE : sfView::ERROR;
   }
 }
