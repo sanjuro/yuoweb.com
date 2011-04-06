@@ -42,7 +42,8 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
    	 
     if (isset($user) && $user->isAuthenticated())
     {
-      return $this->redirect('@network_dashboard');
+      $user->signOut();
+      //return $this->redirect('@network_dashboard');
     }
 
     //$class = sfConfig::get('app_sf_guard_plugin_signin_form', 'sfGuardFormSignin'); 
@@ -98,7 +99,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
 
     //$signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
 
-    $this->redirect( $this->generateUrl('network_signin'));
+    $this->redirect( $this->generateUrl('network_signin') );
   }
   
 }

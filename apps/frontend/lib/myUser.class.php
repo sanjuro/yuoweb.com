@@ -27,6 +27,14 @@ class myUser extends sfGuardSecurityUser
     $this->setAttribute('network_user', '', 'sfGuardSecurityUser');         
   }
   
+  public function signOut()
+  {
+    $this->getAttributeHolder()->removeNamespace('sfGuardSecurityUser');
+    $this->clearCredentials();
+    $this->setAuthenticated(false);
+    $this->user = null;
+  }
+  
   public function getUserId()
   {
 	  return $this->getAttribute('user_id', '', 'sfGuardSecurityUser');
