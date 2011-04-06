@@ -1,0 +1,137 @@
+body {
+	font-family: HelveticaNeue,Helvetica,Arial,serif;
+	margin: 0;
+}
+p {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+a {
+	color: #9F382C;
+	text-decoration: none;
+	}
+a:hover{
+	text-decoration: underline;
+}
+img  {
+	border: #FFF 2px solid;
+	}
+h1 {
+    border-bottom: 1px solid #9F382C;
+    color: #9F382C;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+h3 {
+    background-color: #AC0102;
+    color: white;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+h5 {
+    background-color: #CCC;
+    color: #000;
+    margin: 0px;
+    padding: 3px 0px;
+}
+#logo {
+    background: #000 url("/themes/ptalk/images/logo.gif") no-repeat;
+    height: 50px;
+}
+#main {
+	padding: 5px;
+}
+#main h3 a {
+	color: #FFF;
+	text-decoration: none;
+}
+#navigation {
+  padding: 0px 3px;
+}
+#footer {
+	background-color: #000;
+	color: #000;
+	font-size: 0.8em;
+	padding: 5px 5px 500px 5px;
+}
+
+#footer a{
+	color: #FFF;
+	font-size: 0.9em;
+}
+ul#topmenunavigation{
+	padding-left: 0px;
+	margin: 10px 0px;
+}
+ul#topmenunavigation li {
+	display: inline;
+	font-size: 0.8em;
+}
+
+.navigationright {
+	float: right;
+}
+ul#featurenavigation {
+	padding-left: 25px;
+	margin: 8px 0px;
+}
+ul#featurenavigation li{
+	list-style-image: url("/themes/ptalk/images/listicon.gif");
+}
+ul#footernavigation {
+	padding-left: 0px;
+	margin: 10px 0px;
+}
+ul#footernavigation li {
+	display: inline;
+	font-size: 1em;
+}
+
+
+/* Form Styles */
+
+form {
+    font-size: 12px;
+}
+
+label {
+	font-size: 1em;
+    font-weight: bold;
+    padding-right: 10px;
+    width: 10%;
+}
+
+fieldset.formContainer {
+	border: none;
+}
+
+input.validated {
+
+}
+
+.formContainer h4 {
+    color: #999999;
+    font-family: Georgia,Times New Roman,serif;
+    font-style: oblique;
+    margin: 0 0 20px 180px;
+}
+.signinRow {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Flash Notices Styles */
+
+.flash_notice, .flash_error{
+	font-size: 0.8em;
+	padding: 3px 0px
+	}
+.flash_notice {
+	color: green;
+}
+.flash_error {
+	color: red;
+}

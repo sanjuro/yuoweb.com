@@ -3,14 +3,12 @@
 
 # default rules
 homepage:
-  url:        /Dashboard/
-  class:      acNetworkObjectRoute
-  options:
-    model:    Network
-    type:     object
-  params:
-    module:   network
-    action:   index
+  url:   /
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param:   { module: sfGuardAuth, action: signin }
+  requirements:
+     sf_method: [get, post]
     
 # generic rules
 # please, remove them by adding more specific rules
@@ -25,7 +23,17 @@ frontpage_signup:
   requirements:
      sf_method: [get, post]
 
-#network  
+#network 
+network_dashboard: 
+  url:        /Dashboard/
+  class:      acNetworkObjectRoute
+  options:
+    model:    Network
+    type:     object
+  params:
+    module:   network
+    action:   index
+    
 network_signin: 
   url:   /Sign-In/
   class:   acNetworkObjectRoute
