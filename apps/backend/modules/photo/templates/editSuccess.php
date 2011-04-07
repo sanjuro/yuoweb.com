@@ -1,6 +1,6 @@
 <?php use_helper('jQuery') ?>
 
-<?php slot( 'title', 'Spark - Photos'  )?>
+<?php slot( 'title', 'yUoweb - Photos'  )?>
 
 <h2><?php echo __('Edit Photo')?></h2>
 

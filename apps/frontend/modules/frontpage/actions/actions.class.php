@@ -77,6 +77,11 @@ There is a network that needs to be activated.
  
 Client Email: {$sfGuardUser->getUsername()}.
  
+1. Add Host to sfMultisiteThemeProfileHost
+2. Add subdomain in Cpanel
+3. Change theme for record of sfMultisiteThemeProfile
+4. Make sure network table subdomain matches
+
 The yUo Web Team.
 EOF
     );

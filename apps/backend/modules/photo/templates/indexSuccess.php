@@ -1,4 +1,4 @@
-<?php slot( 'title', 'Spark - Showing your Photos' )?>
+<?php slot( 'title', 'yUoweb - Showing your Photos' )?>
 
 <h2><?php echo __('Photos')?></h2>
 

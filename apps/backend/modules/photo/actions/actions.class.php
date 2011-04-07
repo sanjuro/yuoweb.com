@@ -23,7 +23,7 @@ class photoActions extends sfActions
 	    'Photo',
 	    20
 	);
-	$this->pager->setQuery(Doctrine::getTable('PluginWebuyDeal')->getDealsWithProducts($networkid)); 
+	$this->pager->setQuery(Doctrine::getTable('Photo')->getPhotosForNetworkUsers($networkid)); 
 	$this->pager->setPage($request->getParameter('page', 1));	 
 	$this->pager->init();
   }

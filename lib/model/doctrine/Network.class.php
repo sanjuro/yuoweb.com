@@ -83,9 +83,11 @@ class Network extends BaseNetwork
  */ 
   public function getCurrentTheme()
   { 
-	  $q = Doctrine_Query::create()
+	$serverName = preg_replace('/www./', '', $_SERVER['SERVER_NAME'] );
+  
+  	$q = Doctrine_Query::create()
        ->from('sfMultisiteThemeProfileHost smtph')
-       ->where('smtph.host_uri = ?', $this->getSubdomain().'.'.$_SERVER['SERVER_NAME']);
+       ->where('smtph.host_uri = ?', $this->getSubdomain().'.'.$serverName);
     
       return Doctrine_Core::getTable('sfMultisiteThemeProfileHost')->getThemeProfileWithTheme($q);
   }
