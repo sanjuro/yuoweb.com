@@ -8,7 +8,6 @@ ul.dealist {
 	border-right: 5px solid #9F382C;
 	font-size: 0.8em;
 	list-style: none;
-
 	margin: 0px 3px 0px 5px;
 }
 .dealist_title {
@@ -25,7 +24,7 @@ ul.dealist {
     color: #FFF;
 	font-weight: bold;
     float: left;
-    padding: 15px 4px 18px 4px;
+    padding: 13px 4px;
     margin-right: 3px;
 }
 .dealist_expiresat {

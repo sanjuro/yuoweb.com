@@ -4,7 +4,7 @@ ul.feed_list  {
 }
 ul.feed_list  li{
 	background-color: #ccc;
-	list-style-image: url("/themes/fonk/images/listicon.png");
+	list-style-image: url("/themes/kustomcruise/images/listicon.png");
 	padding: 5px;
 	margin-bottom: 5px;
 }
@@ -71,23 +71,22 @@ p.category {
 	padding: 5px;
 }
 ul.dealist {
-	padding-lefT: 0px;	
+	padding-left: 0px;	
 }
 .dealist li {
-	border-top: 1px solid #164ace;
-	border-left: 5px solid #164ace;
-	border-bottom: 1px solid #164ace;
-	border-right: 5px solid #164ace;
+	border-top: 1px solid #2e6ac4;
+	border-left: 5px solid #2e6ac4;
+	border-bottom: 1px solid #2e6ac4;
+	border-right: 5px solid #2e6ac4;
 	font-size: 0.8em;
 	list-style: none;
-	padding: 3px 0px 3px 25px;
 	margin: 0px 3px 0px 5px;
 }
 .active {
-	background: url('/themes/fonk/images/webuy_dealicon_active.png') no-repeat left center;
+	
 }
 .inactive {
-	background: url('/themes/fonk/images/webuy_dealicon_inactive.png') no-repeat left center;
+	
 }
 .dealist_title {
 	font-weight: bold;
@@ -95,9 +94,15 @@ ul.dealist {
 .dealist_discount, .dealist_saving, .dealist_postedat {
 	font-size: 0.8em;		
 }
-.dealist_dealprice, .dealist_discount, .dealist_saving  {
-	padding-right: 10px;
-	width: 100px;
+.dealist_discount, .dealist_saving  {
+	
+}
+.dealist_dealprice {
+    background-color:#2e6ac4;
+    color: #FFF;
+    float: left;
+    padding: 13px 4px;
+    margin-right: 3px;
 }
 .dealist_expiresat {
 	font-weight: bold;
