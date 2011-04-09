@@ -40,9 +40,8 @@ class networkActions extends sfActions
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
   	
-  	$this->dealcount = $this->network->getCountActiveDeals();
-  	
-    
+  	$this->dealCount = $this->network->getCountActiveDeals();
+   
   	$this->getUser()->setAttribute('network_slug', $this->network->getSlug(), 'sfGuardSecurityUser');
   	
   	$this->getUser()->setAttribute('network_user', $this->networkuser->getId(), 'sfGuardSecurityUser');
@@ -60,9 +59,13 @@ class networkActions extends sfActions
   
   	$this->features = $this->network->getFeatures();
 	
-  	$this->newmessages = $this->networkuser->getNewMessages();
+  	$this->newMessages = $this->networkuser->getNewMessages();
   	
-  	$this->friendrequests = $this->networkuser->getNewFriendRequests();
+	$this->recentPhotos = $this->network->getRecentPhotos();
+  	
+  	$this->friendRequests = $this->networkuser->getNewFriendRequests();
+  	
+  	$this->dealCount = $this->network->getCountActiveDeals();
   	
   	$this->getUser()->setAttribute('network_slug', $this->network->getSlug(), 'sfGuardSecurityUser');
   	
