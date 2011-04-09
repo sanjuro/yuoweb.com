@@ -1,0 +1,154 @@
+/* Main Styles */
+
+body {
+    background: url("/themes/fbsurf/images/body_bg.png") repeat-x;
+	font-family: HelveticaNeue,Helvetica,Arial,serif;
+	margin: 0;
+}
+
+h1 {
+    border-bottom: 1px solid #000;
+    color: #000;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+h3 {
+    background-color: #6699CC;
+    color: white;
+	font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+h5 {
+    background-color: #CCC;
+    color: #000;
+    margin: 0px;
+    padding: 3px 0px;
+}
+fieldset {
+	border: none;
+	}
+p {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+a {
+	color: #6699CC;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+#header {
+
+}
+#logo {
+    background: url("/themes/fbsurf/images/logo.gif") no-repeat;
+    height: 50px;
+}
+a img {
+	border: none;
+}
+#main {
+	padding: 5px;
+}
+
+#main h3 a {
+	color: #FFF;
+}
+#navigation {
+  padding: 0px 3px;
+}
+
+#footer {
+	background: #6699CC;
+	padding: 5px 5px 500px 5px;
+}
+
+#footer a {
+	color: #FFF;
+	font-size: 0.9em;
+	padding: 5px 0px;
+}
+
+.navigationright {
+	float: right;
+}
+
+ul#topmenunavigation li {
+	display: inline;
+
+}
+
+ul#topmenunavigation {
+	padding-left: 0px;
+	margin: 10px 0px;
+}
+ul#topmenunavigation li, .navigationright a {
+	display: inline;
+	font-size: 0.9em;
+}
+ul#featurenavigation {
+	padding-left: 25px;
+	margin: 8px 0px;
+}
+ul#featurenavigation li{
+	list-style-image: url("/themes/fbsurf/images/listicon.gif");
+}
+ul#footernavigation {
+	padding-left: 0px;
+	margin: 10px 0px;
+}
+ul#footernavigation li {
+	display: inline;
+	font-size: 1em;
+}
+
+
+.datatable tr{
+}
+
+
+/* Form Styles */
+
+form {
+    font-size: 12px;
+}
+
+label {
+	font-size: 1em;
+    font-weight: bold;
+    padding-right: 10px;
+    width: 10%;
+}
+
+fieldset.formContainer {
+	border: none;
+}
+
+input.validated {
+
+}
+
+.formContainer h4 {
+    color: #999999;
+    font-family: Georgia,Times New Roman,serif;
+    font-style: oblique;
+    margin: 0 0 20px 180px;
+}
+.signinRow {
+    display: block;
+    margin-bottom: 15px;
+}
+.flash_notice, .flash_error{
+	font-size: 0.8em;
+	padding: 3px 0px
+	}
+.flash_notice {
+	color: green;
+}
+.flash_error {
+	color: red;
+}

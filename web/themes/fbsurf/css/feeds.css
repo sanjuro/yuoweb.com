@@ -1,0 +1,21 @@
+ul.feed_list  {
+	font-size: 0.8em;
+    padding-left: 30px;
+}
+ul.feed_list  li{
+	background-color: #ccc;
+	list-style-image: url("/themes/blueocean/images/listicon.png");
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+.feedlist_body {
+	font-weight: bold;
+	padding: 5px 0px; 
+}
+.feed_posted { 
+	color: #999999;	
+}
+form {
+	margin: 10px;
+}
