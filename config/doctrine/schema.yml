@@ -135,7 +135,7 @@ NetworkUser:
     id:           { type: integer, primary: true, autoincrement: true }
     network_id:   { type: integer }
     user_id:      { type: integer }
-    is_private:   { type: boolean, notnull: true, default: 1 }
+    is_private:   { type: boolean, notnull: true, default: 0 }
   relations:
     Network:     { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
     sfGuardUser: { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id }

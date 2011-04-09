@@ -82,7 +82,7 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
         $this->hasColumn('is_private', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
-             'default' => 1,
+             'default' => 0,
              ));
     }
 
