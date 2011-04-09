@@ -213,13 +213,34 @@ class Network extends BaseNetwork
  * This function find all photos on an network by getting all photos
  * for each user on the network
  * 
- * @param Doctrine_Query $q 
+ * @param void
  * 
  * @return query Base Query to find photos on a network
  */
-  public function getPhotos(Doctrine_Query $q = null)
+  public function getPhotos()
   {
 	  return Doctrine_Core::getTable('Photo')->getPhotosForNetworkUsers($this->getId());
+  }
+  
+/**
+ * Function to find a all photos on a network
+ * 
+ * This function find all photos on an network by getting all photos
+ * for each user on the network
+ * 
+ * @param void
+ * 
+ * @return query Base Query to find photos on a network
+ */
+  public function getRecentPhotos()
+  {
+	  $q = Doctrine_Query::create()
+       ->from('NetworkUser nu')
+       ->where('nu.network_id = ?', $this->getId());
+	  
+	  $photos =  Doctrine_Core::getTable('Photo')->getPhotosForNetworkUsersWithLimit($q)->fetchArray();
+	  
+	  return (!empty($photos)?$photos:false);
   }
   
 /**

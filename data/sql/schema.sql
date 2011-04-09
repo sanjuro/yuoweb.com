@@ -23,7 +23,7 @@ CREATE TABLE network (id BIGINT AUTO_INCREMENT, client_id BIGINT NOT NULL, netwo
 CREATE TABLE network_category (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE network_feature (id BIGINT AUTO_INCREMENT, network_id BIGINT, feature_id BIGINT, active BIGINT DEFAULT 2 NOT NULL, position BIGINT NOT NULL, INDEX network_id_idx (network_id), INDEX feature_id_idx (feature_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE network_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE network_user (id BIGINT AUTO_INCREMENT, network_id BIGINT, user_id BIGINT, is_private TINYINT(1) DEFAULT '1' NOT NULL, INDEX network_id_idx (network_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE network_user (id BIGINT AUTO_INCREMENT, network_id BIGINT, user_id BIGINT, is_private TINYINT(1) DEFAULT '0' NOT NULL, INDEX network_id_idx (network_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo (id BIGINT AUTO_INCREMENT, url VARCHAR(100), networkuser_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo_gallery (id BIGINT AUTO_INCREMENT, title VARCHAR(200), networkuser_id BIGINT, photo_count BIGINT DEFAULT 0, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE photo_link (id BIGINT AUTO_INCREMENT, photo_id BIGINT, gallery_id BIGINT, INDEX photo_id_idx (photo_id), INDEX gallery_id_idx (gallery_id), PRIMARY KEY(id)) ENGINE = INNODB;

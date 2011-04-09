@@ -58,14 +58,14 @@ class photoActions extends sfActions
 			$img50x50 = new sfImage($filename);	
 			$img50x50->thumbnail(50,50);
 			$img50x50->setQuality(80);
-			$img50x50->saveAs(sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'pictures'.DIRECTORY_SEPARATOR.'50x50'.DIRECTORY_SEPARATOR.$photoname );
+			$img50x50->saveAs(sfConfig::get('sf_upload_dir').'/pictures/50x50/'.$photoname );
 			
 			$img270x270 = new sfImage($filename);	
 			$img270x270->thumbnail(270,270);
 			$img270x270->setQuality(80);
-			$img270x270->saveAs(sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'pictures'.DIRECTORY_SEPARATOR.'270x270'.DIRECTORY_SEPARATOR.$photoname );
+			$img270x270->saveAs(sfConfig::get('sf_upload_dir').'/pictures/270x270/'.$photoname );
 			
-			unlink($filename);
+			//unlink($filename);
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your photo has been uploaded.'));
 	      	
