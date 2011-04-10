@@ -4,7 +4,7 @@
 		<?php echo $form['body']->renderLabel() ?>
 		<br>
 		<?php echo $form['body'] ?>
-		<input type="submit" value="Add" />
+		<input type="submit" value="Post" />
 		<br>
 		<?php echo $form['body']->renderError() ?>
 		
