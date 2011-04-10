@@ -26,7 +26,7 @@ class userActions extends sfActions
      
     $this->userprofile = $this->user->getSfGuardUserWithUserProfile();
   
-	$this->form = new FrontendUserForm( $this->userprofile );
+	$this->form = new FrontendUserForm( $this->userprofile, array ( 'sfGuardUser' => $this->user ) );
 
 	if ($this->request->isMethod('post'))
 	{
@@ -61,7 +61,6 @@ class userActions extends sfActions
 			
 			$this->getUser()->setFlash('notice', sprintf('Your profile has been updated.'));
 	      
-	        $this->redirect($this->generateUrl('user_viewprofile_redirect'));
 	      
 	      }else {
 	      	

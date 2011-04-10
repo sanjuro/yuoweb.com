@@ -1,10 +1,9 @@
 <?php slot( 'title', $network->getTitle() )?>
+<?php slot( 'pagetitle', '<h1>Viewing Profile for:'.$user->getUsername() .'</h1>' )?>
 
-<h1>Viewing Profile for: <?php echo $user->getUsername() ?></h1><?php foreach ($form->getErrorSchema() as $sField => $sError) : ?>
-<?php echo $sField.': '.$sError.'<br />' ?>
-<?php endforeach; ?>
 <div id="main">
-	<h3>Profile: <?php echo $user->getUsername() ?></h3>	<p>
+	<h3>Profile: <?php echo $user->getUsername() ?></h3>
+		<p>
 	<form action="<?php echo url_for('user_viewprofile', $user)?>" method="post" >
 	
 	<?php echo $form['_csrf_token']?>
@@ -57,9 +56,32 @@
 	</p>
 	<p>
 		<img src="http://<?php echo $_SERVER['SERVER_NAME'] ?><?php echo $sf_request->getRelativeUrlRoot() ?>/uploads/profilepics/270x270/<?php echo $userprofile->getProfilePic() ?>">	</p>	
-	<h3>Profile: Your Description</h3>	<p>
-		<?php echo $form['description']->renderLabel()   ?>		<br>
+	<h3>Profile: Your Description</h3>
+	<p>
+		<?php echo $form['gender_id']->renderLabel()   ?>
+		<br></br>
+		<?php echo $form['gender_id']  ?>
+		<br></br>
+		<?php echo $form['gender_id']->renderError() ?>
+	</p>
+	<p>
+		<?php echo $form['city']->renderLabel()   ?>
+		<br></br>
+		<?php echo $form['city']  ?>
+		<br></br>
+		<?php echo $form['city']->renderError() ?>
+	</p>
+	<p>
+		<?php echo $form['country']->renderLabel()   ?>
+		<br></br>
+		<?php echo $form['country']  ?>
+		<br></br>
+		<?php echo $form['country']->renderError() ?>
+	</p>	<p>
+		<?php echo $form['description']->renderLabel()   ?>		<br></br>
 		<?php echo $form['description']  ?>
+		<br></br>
+		<?php echo $form['description']->renderError() ?>
 	</p>
 	
 	<input type="submit" value="Save your changes" />

@@ -1,7 +1,7 @@
 <?php
 class FrontendSignupForm extends BasesfGuardUserForm
  {
-  
+   	
   public function configure()
   {
     parent::configure();

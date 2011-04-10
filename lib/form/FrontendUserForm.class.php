@@ -1,6 +1,9 @@
 <?php
 class FrontendUserForm extends BaseUserProfileForm
  {
+ 	
+  public $sfGuardUser; 	
+ 	
   public function configure()
   {
     parent::configure();
@@ -10,6 +13,11 @@ class FrontendUserForm extends BaseUserProfileForm
     unset(
       $this['birthday']
     );
+    
+    if ($this->getOption("sfGuardUser") instanceof sfGuardUser)
+	{
+	    $this->sfGuardUser = $this->getOption("sfGuardUser");
+	}
     
     $this->widgetSchema['description'] = new sfWidgetFormTextarea();
     
@@ -38,6 +46,18 @@ class FrontendUserForm extends BaseUserProfileForm
 	    'mime_types' => 'The file must be a supported type.'
 	));
 
+  }
+  
+  public function updateObject($values = null)
+  { 
+    if (is_null($values))
+    {
+      $values = $this->values;
+    }
+    	
+    $values['sfuser_id'] = $this->sfGuardUser->getId();
+    
+    parent::updateObject($values);
   }
 
 }

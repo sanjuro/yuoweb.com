@@ -70,10 +70,6 @@ user_viewprofile:
   requirements:
      sf_method: [get, post]
      
-user_viewprofile_redirect:
-  url:   /View-Profile-Success/:username
-  param: { module: user, action: viewprofileredirect }
-     
 user_showallusers:
   url:   /Show-All-Users/:slug
   class:   sfDoctrineRoute

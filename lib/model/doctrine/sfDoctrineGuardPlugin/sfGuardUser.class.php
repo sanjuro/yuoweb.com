@@ -39,7 +39,7 @@ class sfGuardUser extends PluginsfGuardUser
 	 $q = Doctrine_Query::create()
 	   ->from('UserProfile up')
 	   ->where('up.sfuser_id = ?', $this->getId());
-	     
+	  
 	return $q->fetchOne(); 	
  }
 }
