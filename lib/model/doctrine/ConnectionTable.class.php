@@ -145,6 +145,7 @@ class ConnectionTable extends Doctrine_Table
 	   foreach ($q->fetchArray() as $value) { 
 	   	$Owners[$value['Owner']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Owner']['user_id']);
 	   	$Owners[$value['Owner']['user_id']]['networkuser_id'] = $value['reciever_id'];
+	   	$Owners[$value['Owner']['user_id']]['connection_id'] = $value['id'];
 	   }
 		
 	   return $Owners;

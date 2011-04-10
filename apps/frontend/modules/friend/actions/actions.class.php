@@ -26,6 +26,8 @@ class friendActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
    $this->friends = $this->networkuser->getAllFriendsForNetwork();
+   
+   $this->friendRequests = $this->networkuser->getNewFriendRequests();
   }
     
   public function executeShowallfriends(sfWebRequest $request)
@@ -57,6 +59,17 @@ class friendActions extends sfActions
 	$connection->save();
 	
 	$this->getUser()->setFlash('notice', sprintf('Friend Request sent.'));
+	
+	$this->redirect($this->generateUrl('friend_searchfriend', $this->network));
+  }
+  
+  public function executeAcceptfriendrequest(sfWebRequest $request)
+  {
+  	$connection = Doctrine_Core::getTable('Connection')->findOneById($request->getParameter('connection'));
+	$connection->setStateId(1);
+	$connection->save();
+	
+	$this->getUser()->setFlash('notice', sprintf('Friend Request accepted.'));
 	
 	$this->redirect($this->generateUrl('friend_searchfriend', $this->network));
   }

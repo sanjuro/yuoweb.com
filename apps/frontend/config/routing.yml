@@ -110,6 +110,10 @@ friend_showfriend:
 friend_addfriendrequest:
   url:   /Friend-Request/
   param:   { module: friend, action: addfriendrequest }
+
+friend_acceptfriendrequest:
+  url:   /Accept-Friend-Request/
+  param:   { module: friend, action: acceptfriendrequest }
   
 friend_blockfriend:
   url:   /Friend-Block/
