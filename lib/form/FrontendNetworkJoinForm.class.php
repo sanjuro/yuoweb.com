@@ -2,6 +2,7 @@
 class FrontendNetworkJoinForm extends BasesfGuardUserForm
 {
   public $network;
+  public $sfGuardUser;
   
   public function configure()
   {
@@ -26,16 +27,12 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     ));
     
     $this->validatorSchema['email_address'] = new sfValidatorString(array('max_length' => 255, 'required' => false));
-        
+    
     $this->validatorSchema->setPostValidator(
-      new sfValidatorAnd(array(
-        new sfValidatorDoctrineUnique(array('model' => 'sfGuardUser', 'column' => array('email_address')),
-         array( 'invalid' => 'This email is already in use' )),
-        new sfValidatorDoctrineUnique(array('model' => 'sfGuardUser', 'column' => array('username')), 
-        array( 'invalid' => 'This username is already in use' )),
-      ))
-    );
-
+  		new sfValidatorCallback(array
+    		('callback' => array($this, 'sfGuardUser_callback'))));
+     
+	
 	/////////////////////////////////////////////////////////////////////
 	/// Embed UserProfile Form
 	///////////////////////////////////////////////////////////////////// 
@@ -70,8 +67,11 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     
   }
   
-  public function bind(array $taintedValues = null, array $taintedFiles = null){
+  public function bind(array $taintedValues = null, array $taintedFiles = null)
+  {
 
+	if ($this->sfGuardUser)
+	{
     $userProfilesForm = new sfForm();
   
     foreach($taintedValues['userProfiles'] as $key => $new_occurrence)
@@ -84,7 +84,8 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     }
 	
     $this->embedForm('userProfiles', $userProfilesForm);
-
+	}
+	
     parent::bind($taintedValues, $taintedFiles);
   }
   
@@ -94,21 +95,60 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     {
       $con = $this->getConnection();
     }
-      
-    $this->updateObject();
+     echo '<pre>';print_r($this->sfGuardUser->getId());
+    if ($this->sfGuardUser->getId())  
+    {	   
+	    $NetworkUser = new NetworkUser();
+	    $NetworkUser->setUserId($this->sfGuardUser->getId());
+	    $NetworkUser->setNetworkId($this->network->getId());
+	    $NetworkUser->save();
+
+    }else {
+   	 	$this->updateObject();
 	
-    $this->object->save($con);    
-    
-  	if($this->isNew())
-	{ 
+    	$this->object->save($con);      
+
 	    $NetworkUser = new NetworkUser();
 	    $NetworkUser->setUserId($this->object->getId());
 	    $NetworkUser->setNetworkId($this->network->getId());
 	    $NetworkUser->save();
-	}
+	    
+    	// embedded forms
+   	 	parent::saveEmbeddedForms($con); 
+    }
 
-    // embedded forms
-    parent::saveEmbeddedForms($con); 
+
+  }
+  
+  public function sfGuardUser_callback($validator, $values)
+  {    
+
+	$sfGuardUserFromUsername = Doctrine_Core::getTable('sfGuardUser')
+	           		->findOneByUsername($values['username']); 
+	           		
+	$sfGuardUserFromUsernameFromEmail = Doctrine_Core::getTable('sfGuardUser')
+	           		->findOneByEmailAddress($values['email_address']); 
+ 
+   if ($sfGuardUserFromUsername)
+   {
+     if($sfGuardUserFromUsername->getEmailAddress() == $values['email_address']){
+     	$this->sfGuardUser = $sfGuardUserFromUsername;
+     }else {
+     	throw new sfValidatorError($validator, 'This username is in use');
+     	
+     }
+   }
+   
+   if ($sfGuardUserFromUsernameFromEmail)
+   {
+     if($sfGuardUserFromUsernameFromEmail->getUsername() == $values['username']){
+     	$this->sfGuardUser = $sfGuardUserFromUsernameFromEmail;
+     }else {
+     	throw new sfValidatorError($validator, 'This email is in use');     	
+     }
+   }
+   
+   return $values;
   }
 }
 ?>

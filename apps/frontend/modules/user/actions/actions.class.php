@@ -86,12 +86,12 @@ class userActions extends sfActions
     $this->form = new FrontendNetworkJoinForm( null, array( 'network' => $this->network ));
   
 	if ($this->request->isMethod('post'))
-	{			
+	{				   
 		  $this->form->bind(
 		    $request->getParameter($this->form->getName()),
 		    $request->getFiles($this->form->getName())
 		  );
-		  
+
 	      if ($this->form->isValid())
 	      {	
 	      	$user = $this->form->save();
