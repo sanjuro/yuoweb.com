@@ -40,7 +40,7 @@ class friendActions extends sfActions
      
  	$this->user = $this->friend->getsfGuardUserObject();
 
- 	$this->userprofile = $this->user->getSfGuardUserWithUserProfile()->fetchArray();
+ 	$this->userprofile = $this->user->getSfGuardUserWithUserProfile();
  		
  	$this->photos = $this->friend->getPhotos();   
   }
