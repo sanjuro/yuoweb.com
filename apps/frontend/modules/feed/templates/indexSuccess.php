@@ -6,7 +6,7 @@
 
 	<?php include_partial( 'feed/feedform', array ( 'form' => $form, 'network' => $network ) )?>
 
-	<?php if (count($connectionsWithFeeds) > 0) :?>
+	<?php if (count($feedsForUser) > 0) :?>
 	<p>
 		<ul class="feed_list">
 		<?php foreach ( $feedsForUser as $feed ) : ?>

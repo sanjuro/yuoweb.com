@@ -65,7 +65,7 @@ class NetworkUserTable extends Doctrine_Table
 	  
 	  $q->leftJoin('nu.Feed f')
       	->addOrderBy('f.created_at DESC');
-	 
+	
 	  return Doctrine_Core::getTable('Feed')->getFeedsForUser($q); 	
 	}
 	

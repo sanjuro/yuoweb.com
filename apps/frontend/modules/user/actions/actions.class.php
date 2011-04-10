@@ -23,9 +23,9 @@ class userActions extends sfActions
   public function executeViewprofile(sfWebRequest $request)
   {
     $this->user = $this->getRoute()->getObject(); 
-    
-    $this->userprofile = Doctrine_Core::getTable('sfGuardUser')->getUserWithProfile( $this->user->getId() );
-    
+     
+    $this->userprofile = $this->user->getSfGuardUserWithUserProfile();
+  
 	$this->form = new FrontendUserForm( $this->userprofile );
 
 	if ($this->request->isMethod('post'))
@@ -34,15 +34,16 @@ class userActions extends sfActions
 		    $request->getParameter($this->form->getName()),
 		    $request->getFiles($this->form->getName())
 		  );
-	      
+	    
 	      if ($this->form->isValid())
 	      {
 	        $UserProfile = $this->form->save();	
-	      
+	        
 	      	$photoname = $UserProfile->getProfilePic();
 	      	
 	      	$photo = $this->form->getValue('url');
 	      	
+	      	if($photo) {
      		$filename = $photo->getSavedName();
      		
 			$img50x50 = new sfImage($filename);	
@@ -55,7 +56,10 @@ class userActions extends sfActions
 			$img270x270->setQuality(80);
 			$img270x270->saveAs(sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'profilepics'.DIRECTORY_SEPARATOR.'270x270'.DIRECTORY_SEPARATOR.$photoname );
 			
-			unlink($filename);
+			//unlink($filename);
+	      	}
+			
+			$this->getUser()->setFlash('notice', sprintf('Your profile has been updated.'));
 	      
 	        $this->redirect($this->generateUrl('user_viewprofile_redirect'));
 	      

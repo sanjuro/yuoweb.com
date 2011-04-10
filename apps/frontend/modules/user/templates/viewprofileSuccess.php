@@ -1,8 +1,17 @@
 <?php slot( 'title', $network->getTitle() )?>
 
-<h1>Viewing Profile for: <?php echo $user->getUsername() ?></h1>
+<h1>Viewing Profile for: <?php echo $user->getUsername() ?></h1><?php foreach ($form->getErrorSchema() as $sField => $sError) : ?>
+<?php echo $sField.': '.$sError.'<br />' ?>
+<?php endforeach; ?>
 <div id="main">
-	<h3>Profile: Details</h3>	<p>
+	<h3>Profile: <?php echo $user->getUsername() ?></h3>	<p>
+	<form action="<?php echo url_for('user_viewprofile', $user)?>" method="post" >
+	
+	<?php echo $form['_csrf_token']?>
+	<?php echo $form['sfGuardUser']['username'] ?>
+	<?php echo $form['sfGuardUser']['updated_at'] ?>
+	<?php echo $form['sfGuardUser']['created_at'] ?>
+	
 	<fieldset>
 		  <legend>Profile for: <?php echo $user->getUsername() ?></legend>
 		  <table class="formtable"> 
@@ -52,4 +61,7 @@
 		<?php echo $form['description']->renderLabel()   ?>		<br>
 		<?php echo $form['description']  ?>
 	</p>
+	
+	<input type="submit" value="Save your changes" />
+ 	</form>
 </div>

@@ -23,7 +23,7 @@ class feedActions extends sfActions
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request)
-  {
+  { 
     $this->feedsForUser = $this->networkuser->getFeeds();
   
     $this->connectionsWithFeeds = $this->networkuser->getFeedsForFriends()->fetchArray();

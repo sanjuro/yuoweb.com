@@ -6,15 +6,25 @@ class FrontendUserForm extends BaseUserProfileForm
     parent::configure();
     
     $this->embedRelation('sfGuardUser');
+   
+    unset(
+      $this['birthday']
+    );
     
     $this->widgetSchema['description'] = new sfWidgetFormTextarea();
     
 	$this->widgetSchema['profile_pic'] = new sfWidgetFormInputFile(array(
 	  'label' => 'Profile Pic',
 	));
+	
+	$this->widgetSchema['sfGuardUser']['username'] = new sfWidgetFormInputHidden();
+	
+	$this->widgetSchema['sfGuardUser']['created_at'] = new sfWidgetFormInputHidden();
+	
+	$this->widgetSchema['sfGuardUser']['updated_at'] = new sfWidgetFormInputHidden();
 
 	$this->validatorSchema['profile_pic'] = new sfValidatorFile(array(
-	  'required'   => true,
+	  'required'   => false,
 	  'path'       => sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'profilepics', 
 	  'max_size'   => '1024000',  
 	  'mime_types' => array('image/jpeg',

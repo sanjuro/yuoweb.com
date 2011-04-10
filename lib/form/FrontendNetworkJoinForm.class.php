@@ -95,10 +95,12 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     {
       $con = $this->getConnection();
     }
-     echo '<pre>';print_r($this->sfGuardUser->getId());
+    
     if ($this->sfGuardUser->getId())  
     {	   
-	    $NetworkUser = new NetworkUser();
+	    $this->object = $this->sfGuardUser;
+    	
+    	$NetworkUser = new NetworkUser();
 	    $NetworkUser->setUserId($this->sfGuardUser->getId());
 	    $NetworkUser->setNetworkId($this->network->getId());
 	    $NetworkUser->save();
