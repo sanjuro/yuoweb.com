@@ -68,8 +68,9 @@ class NetworkUser extends BaseNetworkUser
 	  $q = Doctrine_Query::create()
          ->from('Connection c')
          ->where('c.owner_id = ?', $this->getId())
+         ->orWhere('c.reciever_id = ?', $this->getId())
          ->andWhere('c.state_id = ?', 1);
- 
+ 	
       return Doctrine_Core::getTable('Connection')->getFriends($q);
   }  
   

@@ -72,6 +72,7 @@ a img {
 }
 
 
+/* List Styles */
 
 ul#topmenunavigation li, .navigationright a {
 	display: inline;
@@ -106,6 +107,13 @@ ul#footernavigation {
 ul#footernavigation li {
 	display: inline;
 	font-size: 1em;
+}
+
+ul#photolist {
+	padding-left: 0px;
+}
+ul#photolist li{
+	display: inline;
 }
 
 .datatable tr{

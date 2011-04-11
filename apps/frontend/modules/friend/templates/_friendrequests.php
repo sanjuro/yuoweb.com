@@ -1,5 +1,3 @@
 <?php if (!empty($friendrequests) > 0) :?> 
-	<?php foreach ($friendrequests as $friend) : ?>
-		<span>Friend request from <?php echo ucwords($friend['first_name']).' '.ucwords($friend['last_name']) ?></span>
-	<?php endforeach;?>
+		<span><?php echo count($friendrequests)?> new Friend requests </span>
 <?php endif;?>

@@ -127,7 +127,12 @@ ul.feedslist  li{
 .feedlist_body {
 	font-weight: bold;
 }
-
+ul#photolist {
+	padding-left: 0px;
+}
+ul#photolist li{
+	display: inline;
+}
 
 .datatable tr{
 }

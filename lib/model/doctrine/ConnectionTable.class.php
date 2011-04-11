@@ -36,16 +36,16 @@ class ConnectionTable extends Doctrine_Table
          ->from('Connection c');
 	  }	   
 
-      $q->leftJoin('c.Reciever r')
+       $q->leftJoin('c.Reciever r')
 	  	->andWhere('c.type_id = ?', 1);
-	   //echo '<pre>';print_r($q->fetchArray());exit;
+	   
 	   $Recievers = '';
-	   	   
+	   
 	   foreach ($q->fetchArray() as $value) { 
 	   	$Recievers[$value['Reciever']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Reciever']['user_id']);
 	   	$Recievers[$value['Reciever']['user_id']]['networkuser_id'] = $value['reciever_id'];
 	   }
-		
+		echo '<pre>';print_r($Recievers);exit;
 	   return $Recievers;
     }
     

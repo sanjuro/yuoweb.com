@@ -85,7 +85,12 @@ ul#footernavigation li {
 	display: inline;
 	font-size: 1em;
 }
-
+ul#photolist {
+	padding-left: 0px;
+}
+ul#photolist li{
+	display: inline;
+}
 
 /* Form Styles */
 
