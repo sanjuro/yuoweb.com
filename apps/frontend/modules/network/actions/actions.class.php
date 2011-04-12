@@ -37,6 +37,8 @@ class networkActions extends sfActions
   	$this->newMessages = $this->networkuser->getNewMessages();
   	
 	$this->recentPhotos = $this->network->getRecentPhotos();
+	
+	$this->friendcount = $this->networkuser->getAllFriendsForNetworkCount();
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
   	
@@ -62,6 +64,8 @@ class networkActions extends sfActions
   	$this->newMessages = $this->networkuser->getNewMessages();
   	
 	$this->recentPhotos = $this->network->getRecentPhotos();
+	
+	$this->friendcount = $this->networkuser->getAllFriendsForNetworkCount();
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
   	
