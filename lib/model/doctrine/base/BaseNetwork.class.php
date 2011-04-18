@@ -23,6 +23,7 @@
  * @property NetworkCategory $NetworkCategory
  * @property Doctrine_Collection $SpeakoutCategory
  * @property Doctrine_Collection $WebuyDeal
+ * @property Doctrine_Collection $ShoutClient
  * @property Doctrine_Collection $AdvertNetwork
  * @property Doctrine_Collection $NetworkFeature
  * @property Doctrine_Collection $NetworkUser
@@ -48,6 +49,7 @@
  * @method NetworkCategory     getNetworkCategory()    Returns the current record's "NetworkCategory" value
  * @method Doctrine_Collection getSpeakoutCategory()   Returns the current record's "SpeakoutCategory" collection
  * @method Doctrine_Collection getWebuyDeal()          Returns the current record's "WebuyDeal" collection
+ * @method Doctrine_Collection getShoutClient()        Returns the current record's "ShoutClient" collection
  * @method Doctrine_Collection getAdvertNetwork()      Returns the current record's "AdvertNetwork" collection
  * @method Doctrine_Collection getNetworkFeature()     Returns the current record's "NetworkFeature" collection
  * @method Doctrine_Collection getNetworkUser()        Returns the current record's "NetworkUser" collection
@@ -72,6 +74,7 @@
  * @method Network             setNetworkCategory()    Sets the current record's "NetworkCategory" value
  * @method Network             setSpeakoutCategory()   Sets the current record's "SpeakoutCategory" collection
  * @method Network             setWebuyDeal()          Sets the current record's "WebuyDeal" collection
+ * @method Network             setShoutClient()        Sets the current record's "ShoutClient" collection
  * @method Network             setAdvertNetwork()      Sets the current record's "AdvertNetwork" collection
  * @method Network             setNetworkFeature()     Sets the current record's "NetworkFeature" collection
  * @method Network             setNetworkUser()        Sets the current record's "NetworkUser" collection
@@ -187,6 +190,10 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'network_id'));
 
         $this->hasMany('WebuyDeal', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('ShoutClient', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 

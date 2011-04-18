@@ -62,6 +62,16 @@ h5 {
 	color: #FFF;
 	font-size: 0.9em;
 }
+ul#topmenunavigation li a, ul#messagenavigation li a, ul#featurenavigation li a {
+  background-attachment:initial;
+  background-clip:initial;
+  background-color:initial;
+  background-image:url("/themes/ptalk/images/listicon.gif");
+  background-origin:initial;
+  background-position:0 50%;
+  background-repeat:no-repeat no-repeat;
+  padding-left:17px;
+}
 ul#topmenunavigation{
 	padding-left: 0px;
 	margin: 10px 0px;
@@ -75,11 +85,11 @@ ul#topmenunavigation li {
 	float: right;
 }
 ul#featurenavigation {
-	padding-left: 25px;
 	margin: 8px 0px;
+	padding-left: 0px;
 }
 ul#featurenavigation li{
-	list-style-image: url("/themes/ptalk/images/listicon.gif");
+	list-style-type: none;
 }
 ul#footernavigation {
 	padding-left: 0px;

@@ -94,7 +94,7 @@ class userActions extends sfActions
 		    $request->getParameter($this->form->getName()),
 		    $request->getFiles($this->form->getName())
 		  );
-
+				  
 	      if ($this->form->isValid())
 	      {	
 	      	$user = $this->form->save();

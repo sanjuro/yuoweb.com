@@ -20,6 +20,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('vjCommentPlugin');
     $this->enablePlugins('sfSpeakoutPlugin');
     $this->enablePlugins('sfWeBuyPlugin');
+    $this->enablePlugins('sfShoutPlugin');
   }
  
   public function filterRequestParameters(sfEvent $event, $parameters)

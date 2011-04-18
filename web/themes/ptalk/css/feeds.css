@@ -4,7 +4,7 @@ ul.feed_list  {
 }
 ul.feed_list  li{
 	background-color: #ccc;
-	list-style-image: url("/themes/redsea/images/listicon.png");
+	list-style-image: url("/themes/ptalk/images/listicon.png");
 	padding: 5px;
 	margin-bottom: 5px;
 }

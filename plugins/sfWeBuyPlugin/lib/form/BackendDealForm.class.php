@@ -11,8 +11,8 @@ class BackendWebuyDealForm extends BaseWebuyDealForm
 	}
 	
     unset(      
-      $this['id'], $this['product_id'],
-      $this['created_at'],
+      $this['id'], $this['networkuser_id'],
+      $this['shoutclient_id'],
       $this['updated_at'], $this['slug']
     );
     

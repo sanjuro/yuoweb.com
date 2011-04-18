@@ -96,7 +96,7 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
       $con = $this->getConnection();
     }
     
-    if ($this->sfGuardUser->getId())  
+    if ($this->sfGuardUser && $this->sfGuardUser->getId())  
     {	   
 	    $this->object = $this->sfGuardUser;
     	

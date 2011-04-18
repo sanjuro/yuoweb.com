@@ -22,5 +22,16 @@ class Yuoweb
  
     return $text;
   }
+  
+	/**
+	 *
+	 *
+	 * @param variant $check
+	 */
+	public static function TKO($check) {
+		echo '<pre>';
+		print_r($check);
+		exit;
+	}
 }
 ?>

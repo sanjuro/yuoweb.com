@@ -14,6 +14,7 @@
  * @property string $token
  * @property boolean $is_activated
  * @property sfGuardUser $sfGuardUser
+ * @property Doctrine_Collection $ShoutClient
  * @property Doctrine_Collection $Networks
  * 
  * @method integer             getUserId()       Returns the current record's "user_id" value
@@ -25,6 +26,7 @@
  * @method string              getToken()        Returns the current record's "token" value
  * @method boolean             getIsActivated()  Returns the current record's "is_activated" value
  * @method sfGuardUser         getSfGuardUser()  Returns the current record's "sfGuardUser" value
+ * @method Doctrine_Collection getShoutClient()  Returns the current record's "ShoutClient" collection
  * @method Doctrine_Collection getNetworks()     Returns the current record's "Networks" collection
  * @method Client              setUserId()       Sets the current record's "user_id" value
  * @method Client              setFullname()     Sets the current record's "fullname" value
@@ -35,6 +37,7 @@
  * @method Client              setToken()        Sets the current record's "token" value
  * @method Client              setIsActivated()  Sets the current record's "is_activated" value
  * @method Client              setSfGuardUser()  Sets the current record's "sfGuardUser" value
+ * @method Client              setShoutClient()  Sets the current record's "ShoutClient" collection
  * @method Client              setNetworks()     Sets the current record's "Networks" collection
  * 
  * @package    Spark
@@ -90,6 +93,10 @@ abstract class BaseClient extends sfDoctrineRecord
         $this->hasOne('sfGuardUser', array(
              'local' => 'user_id',
              'foreign' => 'id'));
+
+        $this->hasMany('ShoutClient', array(
+             'local' => 'id',
+             'foreign' => 'client_id'));
 
         $this->hasMany('Network as Networks', array(
              'local' => 'id',

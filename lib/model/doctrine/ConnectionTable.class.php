@@ -41,11 +41,12 @@ class ConnectionTable extends Doctrine_Table
 	   
 	   $Recievers = '';
 	   
-	   foreach ($q->fetchArray() as $value) { 
+	   foreach ($q->fetchArray() as $key => $value ) { 
 	   	$Recievers[$value['Reciever']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Reciever']['user_id']);
 	   	$Recievers[$value['Reciever']['user_id']]['networkuser_id'] = $value['reciever_id'];
+	   	$Recievers[$value['Reciever']['user_id']]['owner_id'] = $value['owner_id'];
 	   }
-		echo '<pre>';print_r($Recievers);exit;
+		
 	   return $Recievers;
     }
     
