@@ -40,14 +40,46 @@ class sfShoutMessageActions extends sfActions
 		    $request->getFiles($this->form->getName())
 		  );
 		  
+		  
 	      if ($this->form->isValid())
 	      {	
-	      	$message = $this->form->save();
+	      	$sfShoutMessage = $this->form->save();
 	      	
-				      	     
+	      	$sfShoutMessage->setNetworkuserId() = $this->networkuser->getId();
+	      	$sfShoutMessage->setClientId() = $this->networkuser->getId();
+	      	$sfShoutMessage->save();
+	      	
+		    $sfShoutClient = Doctrine_Core::getTable('ShoutClient')->
+		  					findOneByNetworkId($this->network->getId());
+	      	
+			// Construct the message object
+			$sfShoutSms = new sfShoutSms($sfShoutClient->getApiId(), 
+								  $sfShoutClient->getUsername(), 
+								  $sfShoutClient->getPassword());
+			
+			// Query the account balance
+			$balance = $sfShoutSms->accountBalance();
+			
+			// Simply send a message
+			$messageID = $sfShoutSms->sendMessage($sfShoutClient->getDailingCode().$sfShoutMessage->getMobileNumber(), 
+												  $sfShoutMessage->getMessage());
+			
+			// Send a message with extended options
+			/** $messageID = $sfShoutSms->sendMessage(
+			*            "+CCNNUUMMBBEERR", 
+			*           "message",
+			*            array(
+			*                'callback' => 3,
+			*                'deliv_ack' => 1,
+			*                'from' => '+CCNNUUMMBBEERR'
+			*                ));
+			*/             
+			// Retrieve a status update using a messageID
+			$this->status = $sfShoutSms->queryMessage($messageID);	      	     
+	      	
 	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent.'));
 	      	
-	      	$this->redirect($this->generateUrl('shout_index', $this->network));
+	      	$this->redirect($this->generateUrl('shout_add', $this->network));
 	      
 	      }else {
 	      	      	

@@ -77,6 +77,7 @@
 <?php echo $form['expires_at']->renderError() ?>
 <br>
 
+<h2>Product for this Deal</h2>
 <?php echo $form['backendwebuyproductform'] ?>
 <br>
 

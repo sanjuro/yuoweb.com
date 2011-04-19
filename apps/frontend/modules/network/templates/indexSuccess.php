@@ -63,6 +63,15 @@
 				<?php include_partial('sfWeBuyDeal/deal_count', array( 'dealcount' => $dealCount)) ?>
 				</p>	
 			</div>
+			<?php elseif ($feature['Feature']['id'] == 7) : ?>
+			<div class="feature">
+				<h3>
+					<?php echo link_to(ucwords($feature['Feature']['title']), url_for(strtolower($feature['Feature']['url']), $network )) ?>
+				</h3>
+			    <ul id="featurenavigation">
+			        <li><?php echo link_to('Send Free SMS', url_for(strtolower($feature['Feature']['url']), $network ), array( "accesskey" => 7)) ?></li>
+			    </ul>
+			</div>
 			<?php else : ?>
 			<div class="feature">
 				<h3>

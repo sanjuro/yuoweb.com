@@ -1,7 +1,7 @@
 ShoutClient:
   actAs: 
     Searchable:
-       fields: [title, description]
+       fields: [client_id, network_id, api_id]
     SoftDelete: ~
   columns:
     id:                   { type: integer, primary: true, autoincrement: true }
@@ -14,7 +14,7 @@ ShoutClient:
     message_count:        { type: integer, default: 0 } 
     credit_left:          { type: decimal(10), scale: 2 }
     local_only:           { type: integer }
-    dailing_code:         { type: string(20) }
+    dialing_code:         { type: string(20) }
   relations:
     Client:         { class: Client, local: client_id, foreign: id }
     Network:        { class: Network, local: network_id, foreign: id }
@@ -29,13 +29,14 @@ ShoutMessage:
       relations:
         ShoutClient:
           columnName: message_count
-          foreignAlias: ShoutMessages
+          foreignAlias: ShoutMessage
   columns:
     id:                   { type: integer, primary: true, autoincrement: true }
     networkuser_id:       { type: integer }
     shoutclient_id:       { type: integer }
     mobile_number:        { type: string(200) }
     message:              { type: string(200) }
+    status:               { type: integer }
   relations:
     NetworkUser:  { class: NetworkUser, local: networkuser_id, foreign: id }
     ShoutClient:  { class: ShoutClient, local: shoutclient_id, foreign: id }

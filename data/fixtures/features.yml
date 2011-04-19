@@ -28,3 +28,8 @@ Feature:
     title:        Webuy
     description:  This allows the user to add Group Buying to their networks
     url:          webuy_index
+
+  shout_feature:
+    title:        Shout
+    description:  This allows the user to add free messaging features to a network
+    url:          shout_index

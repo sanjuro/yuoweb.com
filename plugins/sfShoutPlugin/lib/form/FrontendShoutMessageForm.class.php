@@ -1,5 +1,5 @@
 <?php
-public class FrontendShoutMessageForm extends BaseShoutMessageForm
+class FrontendShoutMessageForm extends BaseShoutMessageForm
 {
   public function configure()
   {
@@ -10,7 +10,7 @@ public class FrontendShoutMessageForm extends BaseShoutMessageForm
       $this['created_at'], $this['updated_at']
     );
     
-	$this->widgetSchema['mobile_number'] = new sfWidgetFormTextarea();
+	$this->widgetSchema['mobile_number'] = new sfWidgetFormInputText(array( 'label' => 'To'));
 
 	$this->widgetSchema['message'] = new sfWidgetFormTextarea();
 	

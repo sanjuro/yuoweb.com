@@ -16,6 +16,10 @@
 <?php echo $form['message']->renderError() ?>
 <br>
 
+<h4>
+	Messages can only be 160 characters long.
+</h4>
+
 <input type="submit" value="Send Message" />
 
 </form>

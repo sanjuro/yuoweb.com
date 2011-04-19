@@ -1,4 +1,12 @@
 #shout
+shout_index:
+  url:   /Shout/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: sfShoutMessage, action: add }
+  requirements:
+     sf_method: [get, post]
+
 shout_addmessage:
   url:   /Shout/:slug
   class:   acNetworkObjectRoute
