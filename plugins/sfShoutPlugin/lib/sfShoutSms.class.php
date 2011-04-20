@@ -29,11 +29,12 @@ class sfShoutSms {
      */
     protected $context = null;
 
-    public function  __construct($apiID = null, $username=null, $password=null) {
-        $this->options['user'] = (!null===$username?$username:sfConfig::get('app_simplesms_config_username', null));
-        $this->options['password'] = (!null===$password?$password:sfConfig::get('app_simplesms_config_password', null));
-        $this->options['api_id'] = (!null===$apiID?$password:sfConfig::get('app_simplesms_config_apiId', null));
-
+    public function  __construct($apiID=null, $username=null, $password=null) {
+    	;
+        $this->options['user'] = (!$username==null?$username:sfConfig::get('app_simplesms_config_username', null));
+        $this->options['password'] = (!$password==null?$password:sfConfig::get('app_simplesms_config_password', null));
+        $this->options['api_id'] = (!$apiID==null?$apiID:sfConfig::get('app_simplesms_config_apiId', null));
+	
         if (null === $this->options['user'] || null === $this->options['password'] || null=== $this->options['api_id']) {
             throw new sfException('Required Options not set.  User, Password and api_id must all be defined');
         }
