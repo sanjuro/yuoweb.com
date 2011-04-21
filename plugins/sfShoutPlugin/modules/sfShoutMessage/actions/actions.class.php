@@ -56,14 +56,25 @@ class sfShoutMessageActions extends sfActions
 			$sfShoutSms = new sfShoutSms($sfShoutClient->getApiId(), 
 								  $sfShoutClient->getUsername(), 
 								  $sfShoutClient->getPassword());
-
+				
 			// Query the account balance
 			$balance = $sfShoutSms->accountBalance();
-			
+		
+			if ($balance <= 0) {
+				$this->getUser()->setFlash('error', sprintf('Your netowrk does not have enough sms credits.'));
+				return sfView::SUCCESS;
+			}
 			
 			// Simply send a message
-			$messageID = $sfShoutSms->sendMessage($sfShoutClient->getDailingCode().$sfShoutMessage->getMobileNumber(), 
+			$messageID = $sfShoutSms->sendMessage($sfShoutClient->getDialingCode().$sfShoutMessage->getMobileNumber(), 
 												  $sfShoutMessage->getMessage());
+												  
+			$messageReturn = explode(",", $messageID);			
+								  
+	      	if ($messageReturn['0'] == 301) {
+				$this->getUser()->setFlash('error', sprintf('Your netowrk does not have enough sms credits.'));
+				return sfView::SUCCESS;
+			}
 			
 			// Send a message with extended options
 			/** $messageID = $sfShoutSms->sendMessage(
@@ -76,7 +87,7 @@ class sfShoutMessageActions extends sfActions
 			*                ));
 			*/             
 			// Retrieve a status update using a messageID
-			$this->status = $sfShoutSms->queryMessage($messageID);	   	     
+			// $this->status = $sfShoutSms->queryMessage($messageID);	   	     
 	      	   	
 	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent.'));
 	      	

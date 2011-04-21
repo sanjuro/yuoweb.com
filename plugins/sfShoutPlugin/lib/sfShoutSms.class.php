@@ -115,7 +115,7 @@ class sfShoutSms {
         $browser->get($request);
         $rawResponse = $browser->getResponseText();
         $this->updateLastRequest();
-
+		
         $this->log(sprintf("Response: %s",$rawResponse));
 
         $response = $this->parseResponse($rawResponse);
@@ -128,7 +128,12 @@ class sfShoutSms {
     }
 
     public function accountBalance() {
-        return $this->doCall("http://api.clickatell.com/http/getbalance");
+		try
+		 {
+    		return $this->doCall("http://api.clickatell.com/http/getbalance");
+		 } catch (sfException $e)  {
+			return $e->getMessage();
+		}
     }
 
     public function sendMessage($to, $content, $options = null) {
@@ -140,11 +145,17 @@ class sfShoutSms {
             }
         }
 
-        return
-            $this->doCall(
-                "http://api.clickatell.com/http/sendmsg",
-                $messageOptions
-                );
+    	try
+		 {
+    	    return
+                $this->doCall(
+                   "http://api.clickatell.com/http/sendmsg",
+                   $messageOptions
+                   );
+		 } catch (sfException $e)  { 
+			return $e->getMessage();
+		 }
+        
     }
 
     public function queryMessage($messageID) {

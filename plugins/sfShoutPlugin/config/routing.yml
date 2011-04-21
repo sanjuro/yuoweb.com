@@ -14,3 +14,11 @@ shout_addmessage:
   param: { module: sfShoutMessage, action: add }
   requirements:
      sf_method: [get, post]
+
+shout_add:
+  url:   /Shout/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: sfShoutMessage, action: add }
+  requirements:
+     sf_method: [get, post]

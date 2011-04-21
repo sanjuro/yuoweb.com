@@ -21,7 +21,6 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfSpeakoutPlugin');
     $this->enablePlugins('sfWeBuyPlugin');
     $this->enablePlugins('sfShoutPlugin');
-    $this->enablePlugins('sfWebBrowserPlugin');
   }
  
   public function filterRequestParameters(sfEvent $event, $parameters)
