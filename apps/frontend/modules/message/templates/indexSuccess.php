@@ -12,5 +12,5 @@
 			<?php else: ?>
 			<div class="messageline_subject">
 			<?php endif; ?>				<?php echo link_to($message->getSubject(), url_for('message_showmessage', $value) )?> 				<span>					<?php echo link_to('View', url_for('message_showmessage', $value) )?> 				</span>						<span>					<?php echo link_to('Reply', url_for('message_replymessage', $value) )?> 				</span>			</div>			<div class="messageline_details">					<?php $sfGuardUser = $message->getNetworkUser()->getsfGuardUser(); ?>				From <b><?php echo $sfGuardUser[0]['username'] ?> </b>				at <?php echo $message->getCreatedAt() ?> 			</div>			</div>
-		<?php endforeach; ?>	<?php else : ?>
-		<?php echo 'You have 0 messages' ?>	<?php endif;?>
+		<?php endforeach; ?>	<?php else : ?>	<p>
+		<span><?php echo 'You have 0 messages' ?></span>	</p>	<?php endif;?>

@@ -32,6 +32,14 @@ class photoActions extends sfActions
   {
   	$this->photo = Doctrine_Core::getTable('Photo')
 	           		->findOneById($this->request->getParameter('photo')); 
+
+	$view_count = $this->photo->getViewCount();
+	
+	$view_count++;
+	
+	$this->photo->setViewCount($view_count++);
+
+	$this->photo->save();
   }
   
   public function executeAddphoto(sfWebRequest $request)

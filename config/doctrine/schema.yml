@@ -223,6 +223,7 @@ Photo:
     id:                     { type: integer, primary: true, autoincrement: true }
     url:                    { type: string(100) }
     networkuser_id:         { type: integer }
+    view_count:             { type: integer }
   relations:
     NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
     
