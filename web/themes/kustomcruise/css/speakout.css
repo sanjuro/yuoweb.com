@@ -8,14 +8,19 @@ ul#speakoutnavigation li, .speakoutnavigation {
 	font-size: 14px;
 	padding-left: 17px;
 }
-li.topiclist {
-	list-style: none;
-}
 .categorydescription {
 	font-size: 0.8em;
 }
-li.topiclist{
+ul.topiclist {
+	padding-left: 0px;
+	margin: 5px 0px;
+	}
+li.topiclist {
+	background: url("/themes/kustomcruise/images/category_bg.png") repeat-x;
+	border-top: 1px #CCCCCC solid;
 	font-size: 0.75em;
+	list-style: none;
+	padding: 3px 0px;
 }
 .replylistitem {
 	background-color: #F0F0F0;

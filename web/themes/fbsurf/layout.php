@@ -10,7 +10,7 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-   <link href="/themes/fbsurf/css_compressed.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/fbsurf/css_compressed.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>

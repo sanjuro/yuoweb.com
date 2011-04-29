@@ -10,16 +10,7 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/blueocean/css/comment/comment.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/comment/pagination.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/comment/replyTo.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/comment/form.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/comment/formComment.min.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/comment/reportComment.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/feeds.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/message.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/speakout.css" media="screen" type="text/css" rel="stylesheet">
-    <link href="/themes/blueocean/css/webuy.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/blueocean/css_compressed.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>
