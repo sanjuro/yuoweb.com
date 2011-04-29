@@ -33,14 +33,42 @@ class sfSpeakoutFrontendActions extends sfActions
   
   public function executeShowtopic(sfWebRequest $request)
   {
-    $topicid = $request->getParameter('topic');
+ 	$this->topic = $this->getRoute()->getObject();   
+  	
+    $this->form = new SpeakoutReplyForm( null, array( 'currentUser' => $this->getUser(), 
+													  'topic' => $this->topic) 
+									    );
 
-	$this->topic = Doctrine_Core::getTable('SpeakoutTopic')->findOneById($topicid);
-
+	if ($this->request->isMethod('post'))
+	{			
+		  $this->form->bind(
+		    $request->getParameter($this->form->getName()),
+		    $request->getFiles($this->form->getName())
+		  );
+		  
+	      if ($this->form->isValid())
+	      {	
+	      			
+	      	$reply = $this->form->save();	      	
+	      	     
+	     	$this->getUser()->setFlash('notice', sprintf('Your reply has been added.'));
+	      	
+	        $this->redirect($this->generateUrl( 'speakout_showtopic', array( 'topic' => $this->topic->getId() ) ) );
+	      
+	      }else {
+	      	
+	      	$this->getUser()->setFlash('error', sprintf('There was an error in your submission'));
+	      	
+	      	$this->redirect($this->generateUrl( 'speakout_showtopic', array( 'topic' => $this->topic->getId() ) ) );
+	      	      	
+	      }
+	}
+	
     $this->pager = new sfDoctrinePager(
 	    'SpeakoutReply',
 	    10
 	);
+	
 	$this->pager->setQuery(Doctrine_Query::create()->from('SpeakoutReply sr')->leftJoin('sr.NetworkUser nu')->where('sr.topic_id = ?', $this->topic->getId()));	 
 	$this->pager->setPage($request->getParameter('page', 1));	 
 	$this->pager->init();
@@ -75,5 +103,15 @@ class sfSpeakoutFrontendActions extends sfActions
 	      	      	
 	      }
 	}
+	
+    $this->pager = new sfDoctrinePager(
+	    'SpeakoutReply',
+	    10
+	);
+	
+	$this->pager->setQuery(Doctrine_Query::create()->from('SpeakoutReply sr')->leftJoin('sr.NetworkUser nu')->where('sr.topic_id = ?', $this->topic->getId()));	 
+	$this->pager->setPage($request->getParameter('page', 1));	 
+	$this->pager->init();	
+	
   }
 }

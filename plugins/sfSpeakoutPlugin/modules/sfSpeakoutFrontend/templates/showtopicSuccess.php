@@ -73,4 +73,20 @@
   <?php endif; ?>
 </div>	
 	
-<span class="speakoutnavigation"><?php echo link_to( 'Post a Reply', 'speakout_addreply', $topic ) ?></span>
+<h3>Add Reply</h3>
+	
+<p>
+  
+<form action="<?php echo url_for('@speakout_showtopic?topic='.$topic->getId())?>" method="post" >
+		<?php echo $form->renderGlobalErrors() ?>
+		<br>
+        <?php echo $form['_csrf_token'] ?>
+		<?php echo $form['body'] ?>
+		<br>
+		<?php echo $form['body']->renderError() ?>
+		<br>
+		
+		<input type="submit" value="Add your Reply" />
+		
+</form>
+</p>

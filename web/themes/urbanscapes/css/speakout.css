@@ -6,8 +6,15 @@ ul#speakoutnavigation li, .speakoutnavigation {
 	display: inline;
 	font-size: 14px;
 }
+ul.topiclist {
+	border-top: 1px #bc2727 solid;
+	padding-left: 0px;
+	margin: 5px 0px;
+	}
 li.topiclist {
+	border-bottom: 1px #bc2727 solid;
 	list-style: none;
+	padding: 3px 0px;
 }
 .categorydescription {
 	font-size: 0.8em;

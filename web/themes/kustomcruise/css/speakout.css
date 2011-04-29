@@ -3,8 +3,10 @@ ul#speakoutnavigation {
 	margin: 10px 10px;
 }
 ul#speakoutnavigation li, .speakoutnavigation {
+	background: url("/themes/kustomcruise/images/listicon.png")left no-repeat;
 	display: inline;
 	font-size: 14px;
+	padding-left: 17px;
 }
 li.topiclist {
 	list-style: none;

@@ -41,11 +41,20 @@ ul#speakoutnavigation {
 	margin: 10px 10px;
 }
 ul#speakoutnavigation li, .speakoutnavigation {
+	background: url("/themes/kustomcruise/images/listicon.png")left no-repeat;
 	display: inline;
 	font-size: 14px;
+	padding-left: 17px;
 }
+ul.topiclist {
+	border-top: 1px #2e6ac4 solid;
+	padding-left: 0px;
+	margin: 5px 0px;
+	}
 li.topiclist {
+	border-bottom: 1px #2e6ac4 solid;
 	list-style: none;
+	padding: 3px 0px;
 }
 .categorydescription {
 	font-size: 0.8em;

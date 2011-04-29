@@ -1,0 +1,1 @@
+<span>There are <?php echo $replycount ?> new posts</span>
