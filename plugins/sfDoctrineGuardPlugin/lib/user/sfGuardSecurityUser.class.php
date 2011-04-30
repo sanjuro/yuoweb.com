@@ -229,7 +229,7 @@ class sfGuardSecurityUser extends sfBasicSecurityUser
    * @return string
    */
   public function getUsername()
-  {
+  { 
     return $this->getGuardUser()->getUsername();
   }
 

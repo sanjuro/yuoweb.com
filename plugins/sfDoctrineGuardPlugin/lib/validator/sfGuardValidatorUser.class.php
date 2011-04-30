@@ -44,6 +44,7 @@ class sfGuardValidatorUser extends sfValidatorBase
            $user = $this->getTable()->retrieveByUsername($username);
        }
         // user exists?
+        
        if($user)
        {
           // password is ok?

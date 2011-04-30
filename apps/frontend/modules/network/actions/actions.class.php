@@ -24,14 +24,14 @@ class networkActions extends sfActions
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request)
-  {  	
+  { 	
   	if ( !$this->networkuser )
  	{
  		$this->getUser()->signOut();
  		
  		$this->redirect('sf_guard_signin');
  	}
-  
+   
   	$this->features = $this->network->getFeatures();
 	
   	$this->newMessages = $this->networkuser->getNewMessages();
@@ -41,6 +41,10 @@ class networkActions extends sfActions
 	$this->friendcount = $this->networkuser->getAllFriendsForNetworkCount();
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
+  	
+  	$sfGuardUser = $this->networkuser->getsfGuardUser();
+  	
+  	$this->newReplys = $this->network->getSpeakoutNewReplys($sfGuardUser[0]['last_login']);
   	
   	$this->dealCount = $this->network->getCountActiveDeals();
    
@@ -68,6 +72,10 @@ class networkActions extends sfActions
 	$this->friendcount = $this->networkuser->getAllFriendsForNetworkCount();
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
+  	
+  	$sfGuardUser = $this->networkuser->getsfGuardUser();  	
+  	
+  	$this->newReplys = $this->network->getSpeakoutNewReplys($sfGuardUser[0]['last_login']);
   	
   	$this->dealCount = $this->network->getCountActiveDeals();
   	

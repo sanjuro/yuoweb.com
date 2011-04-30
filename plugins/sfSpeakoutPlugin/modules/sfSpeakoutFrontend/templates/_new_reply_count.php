@@ -1,1 +1,1 @@
-<span>There are <?php echo $replycount ?> new posts</span>
+<span>There are <?php echo count($newReplys) ?> new posts  <a href="<?php echo url_for('speakout_shownewreplys', $network) ?>">Show</a></span>

@@ -50,7 +50,10 @@
 				<h3><?php echo $feature['Feature']['title'] ?></h3>
 			      <ul id="featurenavigation">
 			        <li><?php echo link_to('Show Categories', url_for('speakout_index', $network), array( "accesskey" => 1)) ?></li>
-			      </ul>			
+			      </ul>		
+				<p>
+				<?php include_partial('sfSpeakoutFrontend/new_reply_count', array( 'newReplys' => $newReplys, 'network' => $network)) ?>
+				</p>		
 			<?php elseif ($feature['Feature']['id'] == 6) : ?>
 			<div class="feature">
 				<h3>

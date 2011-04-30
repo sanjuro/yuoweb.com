@@ -29,6 +29,14 @@ speakout_addreply:
   requirements:
      sf_method: [get, post]
 
+speakout_shownewreplys:
+  url:   /New-Replies/:slug
+  class:   sfDoctrineRoute
+  options: { model: Network, type: object }
+  param:   { module: sfSpeakoutFrontend, action: shownewreplys }
+  requirements:
+     sf_method: [get, post]
+
 #speakoutadmin
 speakout_index_admin:
   url:   /Speakout/

@@ -8,7 +8,7 @@
 
 	<div data-role="content">		    
 			
-		<?php include_partial('speakout/replylist', array('replys' => $pager->getResults())) ?>
+		<?php include_partial('sfSpeakoutFrontend/replylist', array('replys' => $pager->getResults())) ?>
 		
 	</div>
 	<!-- /content -->

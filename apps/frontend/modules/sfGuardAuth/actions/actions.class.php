@@ -62,8 +62,8 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
         // or to the referer
         // or to the homepage
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
-	
-        return $this->redirect('' != $signinUrl ? $signinUrl : '@network_dashboard');
+		
+        return $this->redirect($this->generateUrl(empty($signinUrl)? $signinUrl : 'network_dashboard'));
       }
     }
     else

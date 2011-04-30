@@ -281,6 +281,25 @@ class Network extends BaseNetwork
   }
   
 /**
+ * Function to count all new replies since last login of user
+ * 
+ * This function find new replies  associated for the Speakout Feature on a network
+ * since the last login
+ * 
+ * @param  datetime $checkTime Last Login time of user to find new replies
+ * 
+ * @return integer New reply count
+ */
+  public function getSpeakoutNewReplys($checkTime)
+  {     
+     $q = Doctrine_Core::getTable('SpeakoutReply')->fetchReplys()
+       ->where('nu.network_id = ?', $this->getId())
+       ->andWhere('sr.created_at > ?', $checkTime);
+	
+     return $q->execute();
+  }
+  
+/**
  * Function to find all the user over stats
  * 
  * This function will get all the active users on a network,

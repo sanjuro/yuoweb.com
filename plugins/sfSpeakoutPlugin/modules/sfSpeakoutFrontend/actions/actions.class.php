@@ -21,6 +21,7 @@ class sfSpeakoutFrontendActions extends sfActions
 	 		
  	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
   }
+  
  /**
   * Executes index action
   *
@@ -69,7 +70,7 @@ class sfSpeakoutFrontendActions extends sfActions
 	    10
 	);
 	
-	$this->pager->setQuery(Doctrine_Query::create()->from('SpeakoutReply sr')->leftJoin('sr.NetworkUser nu')->where('sr.topic_id = ?', $this->topic->getId()));	 
+	$this->pager->setQuery(Doctrine_Core::getTable('SpeakoutReply')->fetchReplys()->where('sr.topic_id = ?', $this->topic->getId()));	 
 	$this->pager->setPage($request->getParameter('page', 1));	 
 	$this->pager->init();
     
@@ -109,9 +110,21 @@ class sfSpeakoutFrontendActions extends sfActions
 	    10
 	);
 	
-	$this->pager->setQuery(Doctrine_Query::create()->from('SpeakoutReply sr')->leftJoin('sr.NetworkUser nu')->where('sr.topic_id = ?', $this->topic->getId()));	 
+	$this->pager->setQuery(Doctrine_Core::getTable('SpeakoutReply')->fetchReplys()->where('sr.topic_id = ?', $this->topic->getId()));	 
 	$this->pager->setPage($request->getParameter('page', 1));	 
 	$this->pager->init();	
 	
+  }
+  
+ /**
+  * Executes index action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeShownewreplys(sfWebRequest $request)
+  {
+  	$sfGuardUser = $this->networkuser->getsfGuardUser();
+  	
+  	$this->newReplys = $this->network->getSpeakoutNewReplys($sfGuardUser[0]['last_login']);
   }
 }

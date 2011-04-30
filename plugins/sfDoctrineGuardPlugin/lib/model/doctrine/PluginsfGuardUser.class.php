@@ -103,7 +103,7 @@ abstract class PluginsfGuardUser extends BasesfGuardUser
     {
       throw new sfException(sprintf('The algorithm callable "%s" is not callable.', $algorithm));
     }
-
+	
     return $this->getPassword() == call_user_func_array($algorithm, array($this->getSalt().$password));
   }
 

@@ -16,4 +16,24 @@ class SpeakoutReplyTable extends PluginSpeakoutReplyTable
     {
         return Doctrine_Core::getTable('SpeakoutReply');
     }
+    
+	/**
+	 * Function to render the base query for fetching replies
+	 *  
+	 * @param Doctrine_Query $q Doctrine_Query
+	 * 
+	 * @return Doctrine_Query base query for fetching replies
+	 */ 
+    public static function fetchReplys(Doctrine_Query $q = null)
+    {
+	  if (is_null($q))
+	  {
+	    $q = Doctrine_Query::create()
+         ->from('SpeakoutReply sr');
+	  }	
+	  
+	   $q->leftJoin('sr.NetworkUser nu');
+			 
+	   return $q;
+    }
 }

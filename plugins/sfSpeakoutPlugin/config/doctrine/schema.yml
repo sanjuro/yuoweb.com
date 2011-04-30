@@ -26,7 +26,7 @@ SpeakoutReply:
     networkuser_id:         { type: integer }
   relations:
     SpeakoutTopic:  { class: SpeakoutTopic, onDelete: CASCADE, local: topic_id, foreign: id }
-    NetworkUser:   { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
+    NetworkUser:    { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
     
 SpeakoutTopic:
   actAs: 
