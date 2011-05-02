@@ -20,8 +20,7 @@
 			      </ul>	
 			      <p>
 			         You have <?php echo $friendcount ?> friends.
-			      </p>
-				  <p>
+			      <br>
 					<?php include_partial('friend/friendrequests', array( 'friendrequests' => $friendRequests )) ?>
 				  </p>
 			</div>

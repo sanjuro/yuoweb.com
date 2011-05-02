@@ -25,7 +25,6 @@ class photoActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->photos = $this->networkuser->getPhotos();
-    //echo '<pre>';print_r( $this->photos );exit;
   }
   
   public function executeShowphoto(sfWebRequest $request)
@@ -74,6 +73,12 @@ class photoActions extends sfActions
 			$img270x270->saveAs(sfConfig::get('sf_upload_dir').'/pictures/270x270/'.$photoname );
 			
 			//unlink($filename);
+			
+			$notification = new Notification();
+			$notification->setNetworkId($this->network->getId());
+			$notification->setNetworkuserId($this->networkuser->getId());
+			$notification->setNotificationtypeId(4);
+			$notification->save();
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your photo has been uploaded.'));
 	      	

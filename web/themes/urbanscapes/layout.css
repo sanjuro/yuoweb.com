@@ -67,7 +67,8 @@ a img {
 
 #footer {
     background: url("/themes/urbanscapes/images/footer_bg.jpg") repeat-x;
-	padding: 5px 5px 500px 5px;
+	height: 100px;
+	padding: 5px 5px 20px 5px;
 }
 #footer a {
 	color: #FFF;

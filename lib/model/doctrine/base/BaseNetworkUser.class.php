@@ -16,6 +16,7 @@
  * @property Doctrine_Collection $WebuyNetworkUser
  * @property Doctrine_Collection $ShoutMessage
  * @property Doctrine_Collection $Connection
+ * @property Doctrine_Collection $Notification
  * @property Doctrine_Collection $Feed
  * @property Doctrine_Collection $Message
  * @property Doctrine_Collection $MessageReciever
@@ -35,6 +36,7 @@
  * @method Doctrine_Collection getWebuyNetworkUser() Returns the current record's "WebuyNetworkUser" collection
  * @method Doctrine_Collection getShoutMessage()     Returns the current record's "ShoutMessage" collection
  * @method Doctrine_Collection getConnection()       Returns the current record's "Connection" collection
+ * @method Doctrine_Collection getNotification()     Returns the current record's "Notification" collection
  * @method Doctrine_Collection getFeed()             Returns the current record's "Feed" collection
  * @method Doctrine_Collection getMessage()          Returns the current record's "Message" collection
  * @method Doctrine_Collection getMessageReciever()  Returns the current record's "MessageReciever" collection
@@ -53,6 +55,7 @@
  * @method NetworkUser         setWebuyNetworkUser() Sets the current record's "WebuyNetworkUser" collection
  * @method NetworkUser         setShoutMessage()     Sets the current record's "ShoutMessage" collection
  * @method NetworkUser         setConnection()       Sets the current record's "Connection" collection
+ * @method NetworkUser         setNotification()     Sets the current record's "Notification" collection
  * @method NetworkUser         setFeed()             Sets the current record's "Feed" collection
  * @method NetworkUser         setMessage()          Sets the current record's "Message" collection
  * @method NetworkUser         setMessageReciever()  Sets the current record's "MessageReciever" collection
@@ -121,6 +124,10 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
         $this->hasMany('Connection', array(
              'local' => 'id',
              'foreign' => 'owner_id'));
+
+        $this->hasMany('Notification', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
 
         $this->hasMany('Feed', array(
              'local' => 'id',

@@ -25,7 +25,7 @@ class userActions extends sfActions
     $this->user = $this->getRoute()->getObject(); 
      
     $this->userprofile = $this->user->getSfGuardUserWithUserProfile();
-  
+
 	$this->form = new FrontendUserForm( $this->userprofile, array ( 'sfGuardUser' => $this->user ) );
 
 	if ($this->request->isMethod('post'))

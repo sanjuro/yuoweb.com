@@ -51,6 +51,12 @@ class feedActions extends sfActions
 	      {	
 	      	$feed = $this->form->save();
 	      	
+	      	$notification = new Notification();
+			$notification->setNetworkId($this->network->getId());
+			$notification->setNetworkuserId($this->networkuser->getId());
+			$notification->setNotificationtypeId(2);
+			$notification->save();
+	      	
 	      	$this->getUser()->setFlash('notice', sprintf('Your feed has been added.'));
 	      	
 	      	$this->redirect($this->generateUrl('feed_index', $this->network));

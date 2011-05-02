@@ -40,6 +40,13 @@ class BaseCommentComponents extends sfComponents
         if ($this->form->isValid())
         {
           $this->form->save();
+          
+          $notification = new Notification();
+		  $notification->setNetworkId($this->network->getId());
+		  $notification->setNetworkuserId($this->networkuser->getId());
+		  $notification->setNotificationtypeId(5);
+		  $notification->save();
+          
           $this->initPager($request);
           $url = $this->generateNewUrl($request->getUri());
           $this->getContext()->getController()->redirect($url, 0, 302);

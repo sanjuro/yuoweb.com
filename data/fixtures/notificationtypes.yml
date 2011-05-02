@@ -1,0 +1,24 @@
+NotificationType:
+  notificationtype_friendrequest:
+   title:    friendrequest
+
+  notificationtype_ newfeed:
+   title:    newfeed
+
+  notificationtype_newmessage:
+   title:    newmessage
+
+  notificationtype_newphoto:
+   title:    newphoto
+
+  notificationtype_ newcomment:
+   title:    newcomment
+
+  notificationtype_ newspeakouttopic:
+   title:    newspeakouttopic
+
+  notificationtype_newspeakoutreply:
+   title:    newspeakoutreply
+
+  notificationtype_ newwebuydeal:
+   title:    newwebuydeal

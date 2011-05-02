@@ -56,7 +56,8 @@ a img {
 
 #footer {
 	background: #CCC;
-	padding: 5px 5px 500px 5px;
+	height: 100px;
+	padding: 5px 5px 20px 5px;
 }
 
 #footer a {

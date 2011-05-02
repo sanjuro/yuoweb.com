@@ -27,6 +27,7 @@
  * @property Doctrine_Collection $AdvertNetwork
  * @property Doctrine_Collection $NetworkFeature
  * @property Doctrine_Collection $NetworkUser
+ * @property Doctrine_Collection $Notification
  * @property Doctrine_Collection $Message
  * @property Doctrine_Collection $PhotoView
  * @property Doctrine_Collection $Event
@@ -53,6 +54,7 @@
  * @method Doctrine_Collection getAdvertNetwork()      Returns the current record's "AdvertNetwork" collection
  * @method Doctrine_Collection getNetworkFeature()     Returns the current record's "NetworkFeature" collection
  * @method Doctrine_Collection getNetworkUser()        Returns the current record's "NetworkUser" collection
+ * @method Doctrine_Collection getNotification()       Returns the current record's "Notification" collection
  * @method Doctrine_Collection getMessage()            Returns the current record's "Message" collection
  * @method Doctrine_Collection getPhotoView()          Returns the current record's "PhotoView" collection
  * @method Doctrine_Collection getEvent()              Returns the current record's "Event" collection
@@ -78,6 +80,7 @@
  * @method Network             setAdvertNetwork()      Sets the current record's "AdvertNetwork" collection
  * @method Network             setNetworkFeature()     Sets the current record's "NetworkFeature" collection
  * @method Network             setNetworkUser()        Sets the current record's "NetworkUser" collection
+ * @method Network             setNotification()       Sets the current record's "Notification" collection
  * @method Network             setMessage()            Sets the current record's "Message" collection
  * @method Network             setPhotoView()          Sets the current record's "PhotoView" collection
  * @method Network             setEvent()              Sets the current record's "Event" collection
@@ -206,6 +209,10 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'network_id'));
 
         $this->hasMany('NetworkUser', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('Notification', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 

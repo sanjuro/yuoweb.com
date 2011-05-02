@@ -140,6 +140,25 @@ NetworkUser:
     Network:     { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
     sfGuardUser: { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id }
     
+Notification:
+  actAs: 
+    Timestampable: ~
+    Searchable:
+       fields: [network_id, notificationtype_id] 
+  columns:
+    id:                  { type: integer, primary: true, autoincrement: true }
+    network_id:          { type: integer }
+    networkuser_id:      { type: integer }
+    notificationtype_id: { type: integer }
+  relations:
+    Network:          { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
+    NetworkUser:      { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
+    NotificationType: { class: NotificationType, onDelete: CASCADE, local: notificationtype_id, foreign: id }
+    
+NotificationType:
+  columns:
+    title:       { type: string(255), notnull: true }
+    
 UserProfile:
   actAs:
     Searchable:

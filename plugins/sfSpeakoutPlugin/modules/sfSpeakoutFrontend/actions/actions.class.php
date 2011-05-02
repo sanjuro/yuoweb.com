@@ -94,7 +94,13 @@ class sfSpeakoutFrontendActions extends sfActions
 		  
 	      if ($this->form->isValid())
 	      {	
-	      	$reply = $this->form->save();	      	
+	      	$reply = $this->form->save();	
+
+	      	$notification = new Notification();
+			$notification->setNetworkId($this->network->getId());
+			$notification->setNetworkuserId($this->networkuser->getId());
+			$notification->setNotificationtypeId(7);
+			$notification->save();
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your reply has been added.'));
 	      	
