@@ -404,6 +404,76 @@ class Network extends BaseNetwork
   } 
   
 /**
+ * Function to retrieve all notifications since last login 
+ * for a network.
+ *  
+ * @param  datetime $checkTime Last Login time of user to find new replies
+ * 
+ * @return Doctrine_Collection All active deals found
+ */   
+  public function getNewNotifications($checkTime)
+  {
+	$notifications = array();
+	$notifications['1'] = array();
+	$notifications['2'] = array();
+	$notifications['3'] = array();
+	$notifications['4'] = array();
+	$notifications['5'] = array();
+	$notifications['6'] = array();
+	$notifications['7'] = array();
+	$notifications['8'] = array();
+  	
+  	$q = Doctrine_Query::create()
+       ->from('Notification n')
+       ->where('n.network_id = ?', $this->getId())
+       ->andWhere('n.created_at > ?', $checkTime);
+       
+   $results = $q->fetchArray();
+       
+   foreach ($results as $value){
+   	
+    if($value['notificationtype_id'] == 1){
+   		$notifications['1'][] = $value;
+   	}
+   	
+    if($value['notificationtype_id'] == 2){
+   		$notifications['2'][] = $value;
+   	}
+   	
+    if($value['notificationtype_id'] == 3){
+   		$notifications['3'][] = $value;
+   	}
+   	
+   	if($value['notificationtype_id'] == 4){
+   		$notifications['4'][] = $value;
+   	}
+
+    if($value['notificationtype_id'] == 5){
+   		$notifications['5'][] = $value;
+   	}
+   	
+    if($value['notificationtype_id'] == 6){
+   		$notifications['6'][] = $value;
+   	}
+   	
+    if($value['notificationtype_id'] == 7){
+   		$notifications['7'][] = $value;
+   	}
+   	
+    if($value['notificationtype_id'] == 8){
+   		$notifications['8'][] = $value;
+   	}
+   	
+    if($value['notificationtype_id'] == 9){
+   		$notifications['9'][] = $value;
+   	}
+   	
+   }
+       
+   return $notifications;
+  } 
+  
+/**
  * Function to generate the initial fetch users query for a network
  * 
  * This function is the refactored query that gets all users on a network

@@ -11,10 +11,10 @@ NotificationType:
   notificationtype_newphoto:
    title:    newphoto
 
-  notificationtype_ newcomment:
-   title:    newcomment
+  notificationtype_newphotocomment:
+   title:    newphotocomment
 
-  notificationtype_ newspeakouttopic:
+  notificationtype_newspeakouttopic:
    title:    newspeakouttopic
 
   notificationtype_newspeakoutreply:

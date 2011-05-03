@@ -39,7 +39,7 @@ class BaseCommentComponents extends sfComponents
         $this->form->bind( $formValues );
         if ($this->form->isValid())
         {
-          $this->form->save();
+          $this->form->save();          
           $this->initPager($request);
           $url = $this->generateNewUrl($request->getUri());
           $this->getContext()->getController()->redirect($url, 0, 302);

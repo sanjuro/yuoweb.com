@@ -41,6 +41,9 @@
 			      <ul id="featurenavigation">
 			        <li><?php echo link_to('Show Photos', url_for(strtolower($feature['Feature']['url']), $network ), array( "accesskey" => 4)) ?></li>
 			      </ul>	
+			      <p>
+			      	<span>There are <?php echo $photoCommentCount ?> new comments</span>
+			      </p>
 				  <p>
 					<?php include_partial('photo/photos', array( 'photos' => $recentPhotos, 'network' => $network)) ?>
 				  </p>

@@ -31,6 +31,10 @@ class networkActions extends sfActions
  		
  		$this->redirect('sf_guard_signin');
  	}
+ 	
+  	$sfGuardUser = $this->networkuser->getsfGuardUser();
+  	
+  	$this->notifications =  $this->network->getNewNotifications($sfGuardUser[0]['last_login']);
    
   	$this->features = $this->network->getFeatures();
 	
@@ -42,11 +46,11 @@ class networkActions extends sfActions
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
   	
-  	$sfGuardUser = $this->networkuser->getsfGuardUser();
+  	$this->photoCommentCount = count($this->notifications[5]);
+
+  	$this->newReplys = count($this->notifications[7]);
   	
-  	$this->newReplys = $this->network->getSpeakoutNewReplys($sfGuardUser[0]['last_login']);
-  	
-  	$this->dealCount = $this->network->getCountActiveDeals();
+  	$this->dealCount = count($this->notifications[8]);
    
   	$this->getUser()->setAttribute('network_slug', $this->network->getSlug(), 'sfGuardSecurityUser');
   	
@@ -63,6 +67,10 @@ class networkActions extends sfActions
  		 $this->redirect('sf_guard_signin');
  	}
   
+  	$sfGuardUser = $this->networkuser->getsfGuardUser();
+  	
+  	$this->notifications =  $this->network->getNewNotifications($sfGuardUser[0]['last_login']);
+   
   	$this->features = $this->network->getFeatures();
 	
   	$this->newMessages = $this->networkuser->getNewMessages();
@@ -73,12 +81,12 @@ class networkActions extends sfActions
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
   	
-  	$sfGuardUser = $this->networkuser->getsfGuardUser();  	
+  	$this->photoCommentCount = count($this->notifications[5]);
+
+  	$this->newReplys = count($this->notifications[7]);
   	
-  	$this->newReplys = $this->network->getSpeakoutNewReplys($sfGuardUser[0]['last_login']);
-  	
-  	$this->dealCount = $this->network->getCountActiveDeals();
-  	
+  	$this->dealCount = count($this->notifications[8]);
+   
   	$this->getUser()->setAttribute('network_slug', $this->network->getSlug(), 'sfGuardSecurityUser');
   	
   	$this->getUser()->setAttribute('network_user', $this->networkuser->getId(), 'sfGuardSecurityUser');
