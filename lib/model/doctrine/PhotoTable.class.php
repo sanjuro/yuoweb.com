@@ -61,7 +61,7 @@ class PhotoTable extends Doctrine_Table
 	    $q->from('Photo p')	  
           ->innerJoin('p.NetworkUser nu')
           ->orderBy('p.created_at DESC')
-          ->limit(5);
+          ->limit(4);
 		
 	  return $q;	
 	}

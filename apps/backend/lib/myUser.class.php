@@ -8,11 +8,14 @@ class myUser extends sfGuardSecurityUser
     // signin
 	
 	if($this->hasGroup('admin')){
-		$this->setAttribute('client_id', $user->getId(), 'sfGuardSecurityUser');
+		
+		$this->setAttribute('client_id', 2, 'sfGuardSecurityUser');
 		
 		$networks = Doctrine_Core::getTable('Network')->getActiveNetworks()->execute(); 
+		
 	}else{
-    	$client = Doctrine_Core::getTable('Client')->findOneByUserId($user->getId());
+    	
+		$client = Doctrine_Core::getTable('Client')->findOneByUserId($user->getId());
    
 		$this->setAttribute('client_id', $client->getId(), 'sfGuardSecurityUser');
 		

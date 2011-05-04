@@ -1,31 +1,20 @@
+/* Main Styles */
+
 body {
+    background: #000;
+    color: #FFF;
 	font-family: HelveticaNeue,Helvetica,Arial,serif;
 	margin: 0;
 }
-p {
-    font-size: 0.9em;
-    margin: 0;
-    padding: 5px;
-}
-a {
-	color: #9F382C;
-	text-decoration: none;
-	}
-a:hover{
-	text-decoration: underline;
-}
-img  {
-	border: #FFF 2px solid;
-	}
 h1 {
-    border-bottom: 1px solid #9F382C;
-    color: #9F382C;
+    border-bottom: 1px solid #164ace;
+    color: #164ace;
 	font-size: 0.9em;
     margin: 0;
     padding: 5px;
 }
 h3 {
-    background-color: #AC0102;
+    background-color: #363943;
     color: white;
 	font-size: 0.9em;
     margin: 0;
@@ -37,59 +26,79 @@ h5 {
     margin: 0px;
     padding: 3px 0px;
 }
+fieldset {
+	border: none;
+	}
+p {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 5px;
+}
+a {
+  color: #FF00FF;
+  text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+#header {
+
+}
 #logo {
-    background: #000 url("/themes/ptalk/images/logo.gif") no-repeat;
-    height: 50px;
+    background: #363943 url("/themes/skank/images/logo.png") no-repeat;
+    height: 90px;
 }
 #main {
-	padding: 5px;
 }
+
 #main h3 a {
 	color: #FFF;
-	text-decoration: none;
 }
 #navigation {
   padding: 0px 3px;
 }
+
 #footer {
-	background-color: #000;
-	color: #000;
-	font-size: 0.8em;
+    background-color: #363943;
 	height: 100px;
 	padding: 5px 5px 20px 5px;
 }
-
-#footer a{
+#footer a {
 	color: #FFF;
 	font-size: 0.9em;
-}
-ul#topmenunavigation li a, ul#messagenavigation li a, ul#featurenavigation li a {
-  background-attachment:initial;
-  background-clip:initial;
-  background-color:initial;
-  background-image:url("/themes/ptalk/images/listicon.gif");
-  background-origin:initial;
-  background-position:0 50%;
-  background-repeat:no-repeat no-repeat;
-  padding-left:17px;
-}
-ul#topmenunavigation{
-	padding-left: 0px;
-	margin: 10px 0px;
-}
-ul#topmenunavigation li {
-	display: inline;
-	font-size: 0.8em;
+	padding: 5px 0px;
 }
 
+
+/* List Styles */
+
+ul#topmenunavigation li, .navigationright a {
+	display: inline;
+	font-size: 0.9em;
+}
 .navigationright {
 	float: right;
 }
-ul#featurenavigation {
-	margin: 8px 0px;
+ul#topmenunavigation {
 	padding-left: 0px;
+	margin: 10px 0px;
 }
-ul#featurenavigation li{
+ul#featurenavigation {
+	padding-left: 5px;
+	margin: 8px 0px;
+}
+
+ul#topmenunavigation li a, .navigationright a {
+   color: #FF00FF;
+}
+ul#topmenunavigation li a, ul#messagenavigation li a, ul#featurenavigation li a {
+	background: url("/themes/skank/images/listicon.png")left no-repeat;
+	padding-left: 17px;
+}
+ul#featurenavigation li {
 	list-style-type: none;
 }
 ul#footernavigation {
@@ -99,6 +108,16 @@ ul#footernavigation {
 ul#footernavigation li {
 	display: inline;
 	font-size: 1em;
+}
+
+ul#photolist {
+	padding-left: 0px;
+}
+ul#photolist li{
+	display: inline;
+}
+
+.datatable tr{
 }
 
 

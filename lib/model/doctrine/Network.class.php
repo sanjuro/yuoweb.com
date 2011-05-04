@@ -33,14 +33,15 @@ class Network extends BaseNetwork
        	return false;
       }    
       
-	  if ($this->isNew() && !$this->getExpiresAt())
+	  if (!$this->getExpiresAt())
 	  {
 	    $now = $this->getCreatedAt() ? $this->getDateTimeObject('created_at')->format('U') : time();
 	    $this->setExpiresAt(date('Y-m-d H:i:s', $now + 86400 * sfConfig::get('app_active_days')));
 	  }	 
 	  
-	  $parentsave = parent::save($conn);
-	  
+	 $parentsave = parent::save($conn);
+	
+	 /**
 	  if ($this->isNew() && $this->getId()){
 	  	
 	  	foreach (Network::getDefaultFeatures() as $feature) 
@@ -51,11 +52,12 @@ class Network extends BaseNetwork
 		  	$NetworkFeature->setActive(1); 
 		  	$NetworkFeature->setPosition(10 * $feature); 
 		  	$NetworkFeature->save(); 
+
 	  	}
 	  	
 	  }
-
-	  return $parentsave;
+    **/
+	return $parentsave;
   }
     
 /**

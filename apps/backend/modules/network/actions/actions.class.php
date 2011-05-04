@@ -29,7 +29,7 @@ class networkActions extends sfActions
   
   public function executeAdd(sfWebRequest $request)
   {
-  	$this->client =  $this->getRoute()->getObject();
+  	$this->client = $this->getRoute()->getObject();
   	
   	$network = new Network();
  	$network->setClientId($this->client->getId());
@@ -47,6 +47,26 @@ class networkActions extends sfActions
 	      if ($this->form->isValid())
 	      {	
 	      	$network = $this->form->save();
+	      	    
+      	    $message = $this->getMailer()->compose(
+      				array('headhancho@yuoweb.com' => 'yUo Web'),
+     				sfConfig::get('app_email_admin'),
+    				'yUo Web Network Activation',
+			      <<<EOF
+			There is a network that needs to be activated.
+			
+			{$network->getSubdomain()}.yuoweb.com/index.php
+			 			 
+			1. Add Host to sfMultisiteThemeProfileHost
+			2. Add subdomain in Cpanel
+			3. Change theme for record of sfMultisiteThemeProfile
+			4. Make sure network table subdomain matches
+			
+			The yUo Web Team.
+EOF
+    );
+
+    		$this->getMailer()->send($message);
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your Network has been added but it needs to be approved by the headhancho'));
 	      	

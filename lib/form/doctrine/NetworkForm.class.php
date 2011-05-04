@@ -55,10 +55,21 @@ class NetworkForm extends BaseNetworkForm
       
     $this->updateObject();
 	
-    $this->object->save($con);    
+    $this->object->save($con);  
+
     
   	if($this->isNew())
 	{ 
+		foreach (Network::getDefaultFeatures() as $feature) 
+	  	{
+		  	$NetworkFeature = new NetworkFeature();	 
+		  	$NetworkFeature->setNetworkId($this->object->getId()); 		
+		  	$NetworkFeature->setFeatureId($feature); 	
+		  	$NetworkFeature->setActive(1); 
+		  	$NetworkFeature->setPosition(10 * $feature); 
+		  	$NetworkFeature->save(); 
+	  	}
+		
 		$ThemeProfile = new sfMultisiteThemeProfile();
 		$ThemeProfile->setSiteName($this->object->getSlug());
 		$ThemeProfile->setsfMultisiteThemeThemeInfoId(1);
