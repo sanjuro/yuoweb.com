@@ -12,3 +12,11 @@ headspace_addpost:
   param:   { module: sfHeadspace, action: addpost }
   requirements:
      sf_method: [get, post]
+
+headspace_showpost:
+  url:   /Show-Post/:slug
+  class:   sfDoctrineRoute
+  options: { model: HeadspacePost, type: object }
+  param:   { module: sfHeadspace, action: showpost }
+  requirements:
+     sf_method: [get, post]

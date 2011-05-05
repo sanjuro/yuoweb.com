@@ -1,0 +1,9 @@
+ul#headspacenavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#headspacenavigation li {
+	display: inline;
+	font-size: 14px;
+	padding-left: 17px;
+}

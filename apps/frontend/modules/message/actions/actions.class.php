@@ -25,7 +25,6 @@ class messageActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->messages = $this->networkuser->getMessages();
-    //echo '<pre>';print_r($this->messages);exit;
   }
   
   public function executeShowinbox(sfWebRequest $request)

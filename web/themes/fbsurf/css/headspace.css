@@ -1,0 +1,10 @@
+ul#headspacenavigation {
+	padding-left: 0px;
+	margin: 10px 10px;
+}
+ul#headspacenavigation li {
+	background: url("/themes/fbsurf/images/listicon.gif")left no-repeat;
+	display: inline;
+	font-size: 14px;
+	padding-left: 17px;
+}

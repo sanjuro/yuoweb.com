@@ -71,4 +71,14 @@ class sfHeadSpaceActions extends sfActions
 	}
   }
   
+ /**
+  * Executes show post action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeShowpost(sfWebRequest $request)
+  {
+    $this->post = $this->getRoute()->getObject();  
+  }
+  
 }

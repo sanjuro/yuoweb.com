@@ -1,5 +1,4 @@
-<?php use_stylesheet('message.css') ?>
-<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Photos</h1>' )?>
+<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Photos</h1>' )?>
 
 	<h3>Photo: Show Photo</h3>
     <ul id="messagenavigation">

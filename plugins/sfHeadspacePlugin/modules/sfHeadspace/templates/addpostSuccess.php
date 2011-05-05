@@ -1,4 +1,4 @@
-<?php use_stylesheet('headspace') ?>
+<?php use_stylesheet('headspace.css') ?>
 
 <?php slot( 'pagetitle', '<h1>Headspace: Add Post</h1>' )?>
 	

@@ -9,7 +9,7 @@
 	<p id="recentposts">
 	<h5>Newest Posts</h5>
 		<?php foreach ( $recentPosts as $recentPost ) : ?>
-			<span class="recentpostsubject"><?php echo $recentPost['subject']?></span>
+			<span class="recentpostsubject"><a href="<?php echo url_for('headspace_showpost', $recentPost)?>"><?php echo $recentPost['subject']?></a></span>
 			<span class="recentpostcreatedat"><?php echo $recentPost['created_at']?></span>
 		<?php endforeach; ?>
 	</p>

@@ -1,24 +1,7 @@
-HeadspaceComment:
-  actAs:
-    Timestampable: ~ 
-    Searchable:
-       fields: [post_id]
-  columns:
-    id:                     { type: integer, primary: true, autoincrement: true }
-    post_id:                { type: integer }
-    network_id:             { type: integer }
-    networkuser_id:         { type: integer }
-    body:                   { type: string(255) } 
-    html_body:              { type: string(255) }
-    status:                 { type: integer, default: 1 }
-  relations:
-    HeadspacePost:  { class: HeadspacePost, local: post_id, foreign: id }
-    Network:        { class: Network, local: network_id, foreign: id }
-    NetworkUser:    { class: NetworkUser, local: networkuser_id, foreign: id }
-    
 HeadspacePost:   
   actAs: 
     Timestampable: ~ 
+    Commentable: ~
     Sluggable:
       unique: true
       fields: [subject]
