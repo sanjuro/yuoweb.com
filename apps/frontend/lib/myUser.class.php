@@ -45,10 +45,20 @@ class myUser extends sfGuardSecurityUser
 	  return $this->getAttribute('client_id', '', 'sfGuardSecurityUser');
   }
   
+  public function setNetworkUserId($networkUserId)
+  {
+	  return $this->setAttribute('network_user', $networkUserId, 'sfGuardSecurityUser');
+  }  
+  
   public function getNetworkUserId()
   {
 	  return $this->getAttribute('network_user', '', 'sfGuardSecurityUser');
   }
+  
+  public function setNetworkId($networkId)
+  {
+	  return $this->setAttribute('network_slug', $networkId, 'sfGuardSecurityUser');
+  } 
   
   public function getNetworkId()
   {

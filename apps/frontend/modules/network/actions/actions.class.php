@@ -96,4 +96,14 @@ class networkActions extends sfActions
   	$this->getUser()->setAttribute('network_user', $this->networkuser->getId(), 'sfGuardSecurityUser');
 	
   }  
+  
+ /**
+  * Executes signup action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeCopyprofile(sfWebRequest $request)
+  {
+  
+  }
 }
