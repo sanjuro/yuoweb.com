@@ -41,6 +41,14 @@ network_signin:
   param:   { module: sfGuardAuth, action: signin }
   requirements:
      sf_method: [get, post]
+
+network_copyprofile: 
+  url:   /Copy-Profile/
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param:   { module: Network, action: copyprofile }
+  requirements:
+     sf_method: [get, post]
      
 network_logout: 
   url:   /Logout/

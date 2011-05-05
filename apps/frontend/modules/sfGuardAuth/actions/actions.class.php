@@ -56,7 +56,22 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
       if ($this->form->isValid())
       { 
         $values = $this->form->getValues(); 
+        
         $this->getUser()->signin($values['user'], array_key_exists('remember', $values) ? $values['remember'] : false);
+        
+        $networkuser = $this->network->getUser($this->getUser()->getUserid()); 
+        
+        if(empty($networkuser)){
+        	$networkuser = new NetworkUser();
+        	$networkuser->setNetworkId($this->network->getId());
+        	$networkuser->setUserId($this->getUser()->getUserId());
+        	$networkuser->save();
+        	
+        	$this->getUser()->setNetworkUserId($networkuser->getId());
+        	$this->getUser()->setNetworkId($this->network->getSlug());
+        	
+        	return $this->redirect($this->generateUrl('network_copyprofile', $this->network));
+        }
 
         // always redirect to a URL set in app.yml
         // or to the referer
