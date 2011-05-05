@@ -22,3 +22,9 @@ NotificationType:
 
   notificationtype_ newwebuydeal:
    title:    newwebuydeal
+   
+  notificationtype_newheadspacepost:
+   title:    newheadspacepost 
+   
+  notificationtype_newheadspacecomment:
+   title:    newheadspacecomment 

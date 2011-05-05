@@ -58,9 +58,9 @@
  * @method WebuyDeal           setWebuyDealAttribute() Sets the current record's "WebuyDealAttribute" collection
  * @method WebuyDeal           setWebuyNetworkUser()   Sets the current record's "WebuyNetworkUser" collection
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseWebuyDeal extends sfDoctrineRecord

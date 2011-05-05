@@ -28,9 +28,9 @@
  * @method MessageReciever setMessage()          Sets the current record's "Message" value
  * @method MessageReciever setMessageStatus()    Sets the current record's "MessageStatus" value
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseMessageReciever extends sfDoctrineRecord

@@ -22,6 +22,9 @@
  * @property NetworkType $NetworkType
  * @property NetworkCategory $NetworkCategory
  * @property Doctrine_Collection $SpeakoutCategory
+ * @property Doctrine_Collection $HeadspaceComment
+ * @property Doctrine_Collection $HeadspacePost
+ * @property Doctrine_Collection $HeadspaceTag
  * @property Doctrine_Collection $WebuyDeal
  * @property Doctrine_Collection $ShoutClient
  * @property Doctrine_Collection $AdvertNetwork
@@ -49,6 +52,9 @@
  * @method NetworkType         getNetworkType()        Returns the current record's "NetworkType" value
  * @method NetworkCategory     getNetworkCategory()    Returns the current record's "NetworkCategory" value
  * @method Doctrine_Collection getSpeakoutCategory()   Returns the current record's "SpeakoutCategory" collection
+ * @method Doctrine_Collection getHeadspaceComment()   Returns the current record's "HeadspaceComment" collection
+ * @method Doctrine_Collection getHeadspacePost()      Returns the current record's "HeadspacePost" collection
+ * @method Doctrine_Collection getHeadspaceTag()       Returns the current record's "HeadspaceTag" collection
  * @method Doctrine_Collection getWebuyDeal()          Returns the current record's "WebuyDeal" collection
  * @method Doctrine_Collection getShoutClient()        Returns the current record's "ShoutClient" collection
  * @method Doctrine_Collection getAdvertNetwork()      Returns the current record's "AdvertNetwork" collection
@@ -75,6 +81,9 @@
  * @method Network             setNetworkType()        Sets the current record's "NetworkType" value
  * @method Network             setNetworkCategory()    Sets the current record's "NetworkCategory" value
  * @method Network             setSpeakoutCategory()   Sets the current record's "SpeakoutCategory" collection
+ * @method Network             setHeadspaceComment()   Sets the current record's "HeadspaceComment" collection
+ * @method Network             setHeadspacePost()      Sets the current record's "HeadspacePost" collection
+ * @method Network             setHeadspaceTag()       Sets the current record's "HeadspaceTag" collection
  * @method Network             setWebuyDeal()          Sets the current record's "WebuyDeal" collection
  * @method Network             setShoutClient()        Sets the current record's "ShoutClient" collection
  * @method Network             setAdvertNetwork()      Sets the current record's "AdvertNetwork" collection
@@ -85,9 +94,9 @@
  * @method Network             setPhotoView()          Sets the current record's "PhotoView" collection
  * @method Network             setEvent()              Sets the current record's "Event" collection
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseNetwork extends sfDoctrineRecord
@@ -189,6 +198,18 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('SpeakoutCategory', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('HeadspaceComment', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('HeadspacePost', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('HeadspaceTag', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 

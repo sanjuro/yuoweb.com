@@ -40,9 +40,9 @@
  * @method Comment             setComment()        Sets the current record's "Comment" value
  * @method Comment             setCommentReport()  Sets the current record's "CommentReport" collection
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseComment extends sfDoctrineRecord

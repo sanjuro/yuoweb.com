@@ -13,4 +13,5 @@ NetworkCategory:
     title: Group Buying
   networkcategory_social:
     title: Social   
-    
+  networkcategory_adult:
+    title: Adult  

@@ -25,9 +25,9 @@
  * @method PhotoGallery        setNetworkUser()    Sets the current record's "NetworkUser" value
  * @method PhotoGallery        setPhotoLink()      Sets the current record's "PhotoLink" collection
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePhotoGallery extends sfDoctrineRecord

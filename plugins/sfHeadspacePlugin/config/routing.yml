@@ -1,0 +1,14 @@
+#headspacepost
+headspace_index:
+  url:   /Headspace/:slug
+  class:   acNetworkObjectRoute
+  options: { model: Network, type: object }
+  param: { module: sfHeadspace, action: index }
+  requirements:
+     sf_method: [get, post]
+
+headspace_addpost:
+  url:   /Add-Post/
+  param:   { module: sfHeadspace, action: addpost }
+  requirements:
+     sf_method: [get, post]

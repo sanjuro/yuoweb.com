@@ -406,6 +406,22 @@ class Network extends BaseNetwork
   } 
   
 /**
+ * Function to retrieve all newest HeadSpace posts
+ *  
+ * @param  datetime $checkTime Last Login time of user to find new replies
+ * 
+ * @return Doctrine_Collection All active deals found
+ */ 
+  public function getNewestHeadspacePosts($checkTime)
+  {
+	 $q = Doctrine_Query::create()
+	   ->from('HeadspacePost hp')
+	   ->where('hp.created_at >= ?', $checkTime);
+	      
+	return $q->execute();  
+  }
+  
+/**
  * Function to retrieve all notifications since last login 
  * for a network.
  *  
@@ -424,6 +440,8 @@ class Network extends BaseNetwork
 	$notifications['6'] = array();
 	$notifications['7'] = array();
 	$notifications['8'] = array();
+	$notifications['9'] = array();
+	$notifications['10'] = array();
   	
   	$q = Doctrine_Query::create()
        ->from('Notification n')
@@ -468,6 +486,10 @@ class Network extends BaseNetwork
    	
     if($value['notificationtype_id'] == 9){
    		$notifications['9'][] = $value;
+   	}
+   	
+       if($value['notificationtype_id'] == 10){
+   		$notifications['10'][] = $value;
    	}
    	
    }

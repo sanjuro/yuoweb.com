@@ -19,9 +19,9 @@
  * @method sfGuardGroupPermission setGroup()         Sets the current record's "Group" value
  * @method sfGuardGroupPermission setPermission()    Sets the current record's "Permission" value
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfGuardGroupPermission extends sfDoctrineRecord

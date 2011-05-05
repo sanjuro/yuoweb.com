@@ -33,3 +33,8 @@ Feature:
     title:        Shout
     description:  This allows the user to add free messaging features to a network
     url:          shout_index
+    
+  headspace_feature:
+    title:        Headspace
+    description:  This allows the user to add micro bloggin to a network
+    url:          headspace_index

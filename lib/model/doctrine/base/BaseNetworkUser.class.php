@@ -13,6 +13,9 @@
  * @property sfGuardUser $sfGuardUser
  * @property Doctrine_Collection $SpeakoutReply
  * @property Doctrine_Collection $SpeakoutTopic
+ * @property Doctrine_Collection $HeadspaceComment
+ * @property Doctrine_Collection $HeadspacePost
+ * @property Doctrine_Collection $HeadspaceTag
  * @property Doctrine_Collection $WebuyNetworkUser
  * @property Doctrine_Collection $ShoutMessage
  * @property Doctrine_Collection $Connection
@@ -33,6 +36,9 @@
  * @method sfGuardUser         getSfGuardUser()      Returns the current record's "sfGuardUser" value
  * @method Doctrine_Collection getSpeakoutReply()    Returns the current record's "SpeakoutReply" collection
  * @method Doctrine_Collection getSpeakoutTopic()    Returns the current record's "SpeakoutTopic" collection
+ * @method Doctrine_Collection getHeadspaceComment() Returns the current record's "HeadspaceComment" collection
+ * @method Doctrine_Collection getHeadspacePost()    Returns the current record's "HeadspacePost" collection
+ * @method Doctrine_Collection getHeadspaceTag()     Returns the current record's "HeadspaceTag" collection
  * @method Doctrine_Collection getWebuyNetworkUser() Returns the current record's "WebuyNetworkUser" collection
  * @method Doctrine_Collection getShoutMessage()     Returns the current record's "ShoutMessage" collection
  * @method Doctrine_Collection getConnection()       Returns the current record's "Connection" collection
@@ -52,6 +58,9 @@
  * @method NetworkUser         setSfGuardUser()      Sets the current record's "sfGuardUser" value
  * @method NetworkUser         setSpeakoutReply()    Sets the current record's "SpeakoutReply" collection
  * @method NetworkUser         setSpeakoutTopic()    Sets the current record's "SpeakoutTopic" collection
+ * @method NetworkUser         setHeadspaceComment() Sets the current record's "HeadspaceComment" collection
+ * @method NetworkUser         setHeadspacePost()    Sets the current record's "HeadspacePost" collection
+ * @method NetworkUser         setHeadspaceTag()     Sets the current record's "HeadspaceTag" collection
  * @method NetworkUser         setWebuyNetworkUser() Sets the current record's "WebuyNetworkUser" collection
  * @method NetworkUser         setShoutMessage()     Sets the current record's "ShoutMessage" collection
  * @method NetworkUser         setConnection()       Sets the current record's "Connection" collection
@@ -64,9 +73,9 @@
  * @method NetworkUser         setEvent()            Sets the current record's "Event" collection
  * @method NetworkUser         setEventInvite()      Sets the current record's "EventInvite" collection
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseNetworkUser extends sfDoctrineRecord
@@ -110,6 +119,18 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'foreign' => 'networkuser_id'));
 
         $this->hasMany('SpeakoutTopic', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
+
+        $this->hasMany('HeadspaceComment', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
+
+        $this->hasMany('HeadspacePost', array(
+             'local' => 'id',
+             'foreign' => 'networkuser_id'));
+
+        $this->hasMany('HeadspaceTag', array(
              'local' => 'id',
              'foreign' => 'networkuser_id'));
 

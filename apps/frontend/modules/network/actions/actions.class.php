@@ -46,6 +46,10 @@ class networkActions extends sfActions
   	
   	$this->friendRequests = $this->networkuser->getNewFriendRequests();
   	
+  	$this->newHeadspaceCommentCount = count($this->notifications[9]);
+  	
+  	$this->newHeadspacePostCount = count($this->notifications[10]);
+  	
   	$this->photoCommentCount = count($this->notifications[5]);
 
   	$this->newReplys = count($this->notifications[7]);

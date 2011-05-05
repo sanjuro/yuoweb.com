@@ -48,71 +48,78 @@ NetworkFeature:
     active:       1
     position:     70
     
-  friends_fbsurf:
+  headspace_kcruise:
     id:           8
+    Feature:      headspace_feature
+    Network:      kustomcruisers_network
+    active:       1
+    position:     80
+    
+  friends_fbsurf:
+    id:           9
     Feature:      friends_feature
     Network:      fbsurf_network
     active:       1
     position:     10
         
   photos_fbsurf:
-    id:           9
+    id:           10
     Feature:      photos_feature
     Network:      fbsurf_network
     active:       1
     position:     20
     
   messages_fbsurf:
-    id:           9
+    id:           11
     Feature:      messages_feature
     Network:      fbsurf_network
     active:       1
     position:     30
     
   photos_fbsurf:
-    id:           11
+    id:           12
     Feature:      photos_feature
     Network:      fbsurf_network
     active:       2
     position:     40
     
   speakout_fbsurf:
-    id:           12
+    id:           13
     Feature:      speakout_feature
     Network:      fbsurf_network
     active:       2
     position:     50
     
   friends_groupbuying:
-    id:           13
+    id:           14
     Feature:      friends_feature
     Network:      groupbuying_network
     active:       1
     position:     10
         
   photos_groupbuying:
-    id:           14
+    id:           15
     Feature:      photos_feature
     Network:      groupbuying_network
     active:       1
     position:     20
     
   messages_groupbuying:
-    id:           15
+    id:           16
     Feature:      messages_feature
     Network:      groupbuying_network
     active:       1
     position:     30
     
   photos_groupbuying:
-    id:           16
+    id:           17
     Feature:      photos_feature
     Network:      groupbuying_network
     active:       2
     position:     40
     
   webuy_groupbuying:
-    id:           17
+    id:           18
     Feature:      webuy_feature
     Network:      groupbuying_network
     active:       2

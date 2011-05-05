@@ -1,0 +1,55 @@
+HeadspaceComment:
+  actAs:
+    Timestampable: ~ 
+    Searchable:
+       fields: [post_id]
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    post_id:                { type: integer }
+    network_id:             { type: integer }
+    networkuser_id:         { type: integer }
+    body:                   { type: string(255) } 
+    html_body:              { type: string(255) }
+    status:                 { type: integer, default: 1 }
+  relations:
+    HeadspacePost:  { class: HeadspacePost, local: post_id, foreign: id }
+    Network:        { class: Network, local: network_id, foreign: id }
+    NetworkUser:    { class: NetworkUser, local: networkuser_id, foreign: id }
+    
+HeadspacePost:   
+  actAs: 
+    Timestampable: ~ 
+    Sluggable:
+      unique: true
+      fields: [subject]
+      canUpdate: true
+    Searchable:
+       fields: [id,subject]
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    network_id:             { type: integer }
+    networkuser_id:         { type: integer }
+    subject:                { type: string(255) } 
+    body:                   { type: string(255) }
+    html_body:              { type: string(255) }
+    allow_comments:         { type: integer } 
+    status:                 { type: integer, default: 1 }
+  relations:
+    Network:        { class: Network, local: network_id, foreign: id }
+    NetworkUser:    { class: NetworkUser, local: networkuser_id, foreign: id }
+
+HeadspaceTag:   
+  actAs: 
+    Timestampable: ~ 
+    Searchable:
+       fields: [id, tag]
+  columns:
+    id:                     { type: integer, primary: true, autoincrement: true }
+    post_id:                { type: integer }
+    network_id:             { type: integer }
+    networkuser_id:         { type: integer }
+    tag:                    { type: string(20) } 
+  relations:
+    HeadspacePost:  { class: HeadspacePost, local: post_id, foreign: id }
+    Network:        { class: Network, local: network_id, foreign: id }
+    NetworkUser:    { class: NetworkUser, local: networkuser_id, foreign: id }

@@ -34,9 +34,9 @@
  * @method Connection      setOwner()           Sets the current record's "Owner" value
  * @method Connection      setReciever()        Sets the current record's "Reciever" value
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseConnection extends sfDoctrineRecord

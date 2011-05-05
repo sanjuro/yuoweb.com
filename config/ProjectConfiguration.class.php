@@ -19,6 +19,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     
     $this->enablePlugins('vjCommentPlugin');
     $this->enablePlugins('sfSpeakoutPlugin');
+    $this->enablePlugins('sfHeadspacePlugin');
     $this->enablePlugins('sfWeBuyPlugin');
     $this->enablePlugins('sfShoutPlugin');
   }

@@ -22,9 +22,9 @@
  * @method CommentReport setIdComment()  Sets the current record's "id_comment" value
  * @method CommentReport setComment()    Sets the current record's "Comment" value
  * 
- * @package    Spark
+ * @package    Yuoweb
  * @subpackage model
- * @author     Your name here
+ * @author     Shadley Wentzel
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseCommentReport extends sfDoctrineRecord
