@@ -20,3 +20,9 @@ headspace_showpost:
   param:   { module: sfHeadspace, action: showpost }
   requirements:
      sf_method: [get, post]
+     
+headspace_showposts_by_month:
+  url:   /Show-Posts-For/
+  param:   { module: sfHeadspace, action: showpostsbymonth }
+  requirements:
+     sf_method: [get, post]

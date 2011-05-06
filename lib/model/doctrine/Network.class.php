@@ -422,6 +422,25 @@ class Network extends BaseNetwork
   }
   
 /**
+ * Function to retrieve all HeadSpace posts for a given month
+ *  
+ * @param  datetime $checkTime Last Login time of user to find new replies
+ * 
+ * @return Doctrine_Collection All active deals found
+ */ 
+  public function getHeadspacePostsByMonth($checkTime)
+  {
+	$time =  mktime( 0, 0, 0,  $checkTime[0], 1, $checkTime[1] );
+
+  	$q = Doctrine_Query::create()
+	   ->from('HeadspacePost hp')
+	   ->where('hp.created_at > ?',  date('Y-m-d', $time))
+	   ->andWhere('hp.created_at < LAST_DAY(?)', date('Y-m-d', $time));
+	       	
+	return $q->execute();  
+  }
+  
+/**
  * Function to retrieve all notifications since last login 
  * for a network.
  *  

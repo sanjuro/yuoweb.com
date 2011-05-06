@@ -1,6 +1,6 @@
 <?php use_stylesheet('headspace.css') ?>
 
-<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Photos</h1>' )?>
+<?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Posts</h1>' )?>
 
 	<h3>HeadSpace: Show Post</h3>
     <ul id="headspacenavigation">

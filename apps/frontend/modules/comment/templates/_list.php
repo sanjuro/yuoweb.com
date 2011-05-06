@@ -20,6 +20,6 @@
 <?php endif ?>
 <?php else: ?>
   <div>
-    <h1><?php echo __('Be the first to post', array(), 'vjComment') ?></h1>
+    <h1><?php echo 'Be the first to post' ?></h1>
   </div>
 <?php endif ?>

@@ -16,20 +16,13 @@
 	</p>
 	<p id="recentpostsbydate">
 	<h5>Posts By Month/Year</h5>
-		<?php foreach ( $recentPosts as $recentPost ) : ?>
-			<span class="recentpostsubject"><?php echo $recentPost['subject']?></span>
-			<span class="recentpostcreatedat"><?php echo $recentPost['created_at']?></span>
+		<?php foreach ( $monthArray as $key => $month ) : ?>
+			<a href="<?php echo url_for('@headspace_showposts_by_month?month='.$key) ?>"><?php echo $month?></a>
+			<br>
 		<?php endforeach; ?>
 	</p>
 	<p id="recentpostsbytag">
 	<h5>Posts By Tag</h5>
-		<?php foreach ( $recentPosts as $recentPost ) : ?>
-			<span class="recentpostsubject"><?php echo $recentPost['subject']?></span>
-			<span class="recentpostcreatedat"><?php echo $recentPost['created_at']?></span>
-		<?php endforeach; ?>
-	</p>
-	<p id="recentcomments">
-	<h5>Latest Comments</h5>
 		<?php foreach ( $recentPosts as $recentPost ) : ?>
 			<span class="recentpostsubject"><?php echo $recentPost['subject']?></span>
 			<span class="recentpostcreatedat"><?php echo $recentPost['created_at']?></span>

@@ -37,6 +37,15 @@ class sfHeadSpaceActions extends sfActions
   	$sfGuardUser = $this->networkuser->getsfGuardUser();
   	
   	$this->recentPosts = $this->network->getNewestHeadspacePosts($sfGuardUser[0]['last_login']); 
+	
+  	$this->monthArray = array();
+  	
+  	for( $i = 0;$i < 6; $i++ ){
+  		$index = date('m') - $i.'/'.date('Y');
+  		$this->monthArray[$index] = date('M Y', mktime(0, 0, 0, date('m') - $i, 1, date('Y')));
+  	}
+  	
+  	// $this->tags = $this->network->HeadspaceTags();
   
   }
 
@@ -79,6 +88,20 @@ class sfHeadSpaceActions extends sfActions
   public function executeShowpost(sfWebRequest $request)
   {
     $this->post = $this->getRoute()->getObject();  
+  }
+  
+ /**
+  * Executes show post action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeShowpostsbymonth(sfWebRequest $request)
+  {
+    $this->month = $request->getParameter('month');  
+    
+    $monthYear = explode ( '/', $this->month);
+       
+    $this->posts = $this->network->getHeadspacePostsByMonth($monthYear);    
   }
   
 }
