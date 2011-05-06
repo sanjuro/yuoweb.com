@@ -1,0 +1,14 @@
+HeadspaceTag:
+  headspacetag_kcruise_mobile:
+    id:           1
+    Network:      kustomcruisers_network
+    NetworkUser:  networkuser_craigd
+    count:        1
+    tag:          mobile
+
+  headspacetag_kcruise_soccer:
+    id:           2
+    Network:      kustomcruisers_network
+    NetworkUser:  networkuser_craigd
+    count:        1
+    tag:          soccer
