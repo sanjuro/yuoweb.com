@@ -19,9 +19,7 @@
 		<b>Posted on:</b> <?php echo $post->getCreatedAt() ?>
 	</p>
 	
-
-	<h3>Headspace: Comments</h3>
 	<p>
-		<?php include_component('comment', 'formComment', array('object' => $post)) ?>
 		<?php include_component('comment', 'list', array('object' => $post, 'i' => 0)) ?>
+		<?php include_component('comment', 'formComment', array('object' => $post)) ?>
 	</p>

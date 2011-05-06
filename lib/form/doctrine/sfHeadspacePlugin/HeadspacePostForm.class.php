@@ -3,7 +3,7 @@
 /**
  * HeadspacePost form.
  *
- * @package    Spark
+ * @package    yUoweb
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrinePluginFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -35,7 +35,7 @@ class HeadspacePostForm extends PluginHeadspacePostForm
       $this['network_id'], $this['networkuser_id'],
       $this['html_body'], $this['status'],
       $this['created_at'], $this['updated_at'],
-      $this['slug']
+      $this['allow_comments'], $this['slug']
     );
   	
   	$this->widgetSchema['body'] = new sfWidgetFormTextarea();
@@ -46,7 +46,16 @@ class HeadspacePostForm extends PluginHeadspacePostForm
 											   'required' => false,
 											   'choices' => array('on', 'off')));
   	
-  }
+  	// HeadspacePostTag creation form
+    $postTagForm = new FrontendHeadspacePostTagForm();
+    $postTagForm->setDefault('post_id', $this->object->id);
+    $this->embedForm('HeadspacePostTags', $postTagForm);
+  		
+    $this->embedRelation('HeadspacePostTag');
+    
+    $this->widgetSchema['HeadspacePostTags']->setLabel('Tags');
+  	
+  } 
   
   public function updateObject($values = null)
   { 
@@ -55,11 +64,7 @@ class HeadspacePostForm extends PluginHeadspacePostForm
       $values = $this->values;
     }
 	
-	if (isset($values['allow_comments']) && $values['allow_comments'] == 'on'){
-		$values['allow_comments'] = 1;
-	}else{
-		$values['allow_comments'] = 0;
-	}
+	$values['allow_comments'] = 1;
 
 	$values['network_id'] = $this->network->getId();
 	

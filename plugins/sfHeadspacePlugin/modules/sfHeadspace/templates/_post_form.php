@@ -18,11 +18,7 @@
 		<?php echo $form['body']->renderError() ?>
 		<br>
 		
-		<?php echo $form['allow_comments']->renderLabel() ?>
-		<br>
-		<?php echo $form['allow_comments'] ?>
-		<br>
-		<?php echo $form['allow_comments']->renderError() ?>
+		<?php echo $form['HeadspacePostTags'] ?>
 		<br>
 		
 		<input type="submit" value="Add your post" />

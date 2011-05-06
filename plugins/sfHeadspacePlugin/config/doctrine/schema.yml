@@ -28,11 +28,25 @@ HeadspaceTag:
        fields: [id, tag]
   columns:
     id:                     { type: integer, primary: true, autoincrement: true }
-    post_id:                { type: integer }
     network_id:             { type: integer }
     networkuser_id:         { type: integer }
+    count:                  { type: integer }
     tag:                    { type: string(20) } 
   relations:
-    HeadspacePost:  { class: HeadspacePost, local: post_id, foreign: id }
     Network:        { class: Network, local: network_id, foreign: id }
     NetworkUser:    { class: NetworkUser, local: networkuser_id, foreign: id }
+
+HeadspacePostTag:  
+  actAs: 
+    CountCache:
+      relations:
+        HeadspaceTag:
+          columnName: count
+          foreignAlias: HeadspacePostTag
+  columns:
+    id:          { type: integer, primary: true, autoincrement: true }
+    post_id:     { type: integer }
+    tag_id:      { type: integer }
+  relations:
+    HeadspacePost:  { class: HeadspacePost, onDelete: CASCADE, local: post_id, foreign: id }
+    HeadspaceTag:   { class: HeadspaceTag, onDelete: CASCADE, local: tag_id, foreign: id }

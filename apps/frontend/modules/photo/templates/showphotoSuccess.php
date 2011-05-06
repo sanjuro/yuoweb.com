@@ -10,7 +10,7 @@
 	
 	<p>
 		Views: <?php echo $photo->getViewCount() ?>
-	</p>	
-	<h3>Photo: Comments</h3>
+	</p>	
 	<p>
-		<?php include_component('comment', 'formComment', array('object' => $photo)) ?>		<?php include_component('comment', 'list', array('object' => $photo, 'i' => 0)) ?>	</p>
+		<?php include_component('comment', 'list', array('object' => $post, 'i' => 0)) ?>
+		<?php include_component('comment', 'formComment', array('object' => $post)) ?>	</p>

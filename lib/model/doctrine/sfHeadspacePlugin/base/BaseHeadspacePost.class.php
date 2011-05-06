@@ -15,30 +15,30 @@
  * @property integer $status
  * @property Network $Network
  * @property NetworkUser $NetworkUser
- * @property Doctrine_Collection $HeadspaceTag
+ * @property Doctrine_Collection $HeadspacePostTag
  * 
- * @method integer             getId()             Returns the current record's "id" value
- * @method integer             getNetworkId()      Returns the current record's "network_id" value
- * @method integer             getNetworkuserId()  Returns the current record's "networkuser_id" value
- * @method string              getSubject()        Returns the current record's "subject" value
- * @method string              getBody()           Returns the current record's "body" value
- * @method string              getHtmlBody()       Returns the current record's "html_body" value
- * @method integer             getAllowComments()  Returns the current record's "allow_comments" value
- * @method integer             getStatus()         Returns the current record's "status" value
- * @method Network             getNetwork()        Returns the current record's "Network" value
- * @method NetworkUser         getNetworkUser()    Returns the current record's "NetworkUser" value
- * @method Doctrine_Collection getHeadspaceTag()   Returns the current record's "HeadspaceTag" collection
- * @method HeadspacePost       setId()             Sets the current record's "id" value
- * @method HeadspacePost       setNetworkId()      Sets the current record's "network_id" value
- * @method HeadspacePost       setNetworkuserId()  Sets the current record's "networkuser_id" value
- * @method HeadspacePost       setSubject()        Sets the current record's "subject" value
- * @method HeadspacePost       setBody()           Sets the current record's "body" value
- * @method HeadspacePost       setHtmlBody()       Sets the current record's "html_body" value
- * @method HeadspacePost       setAllowComments()  Sets the current record's "allow_comments" value
- * @method HeadspacePost       setStatus()         Sets the current record's "status" value
- * @method HeadspacePost       setNetwork()        Sets the current record's "Network" value
- * @method HeadspacePost       setNetworkUser()    Sets the current record's "NetworkUser" value
- * @method HeadspacePost       setHeadspaceTag()   Sets the current record's "HeadspaceTag" collection
+ * @method integer             getId()               Returns the current record's "id" value
+ * @method integer             getNetworkId()        Returns the current record's "network_id" value
+ * @method integer             getNetworkuserId()    Returns the current record's "networkuser_id" value
+ * @method string              getSubject()          Returns the current record's "subject" value
+ * @method string              getBody()             Returns the current record's "body" value
+ * @method string              getHtmlBody()         Returns the current record's "html_body" value
+ * @method integer             getAllowComments()    Returns the current record's "allow_comments" value
+ * @method integer             getStatus()           Returns the current record's "status" value
+ * @method Network             getNetwork()          Returns the current record's "Network" value
+ * @method NetworkUser         getNetworkUser()      Returns the current record's "NetworkUser" value
+ * @method Doctrine_Collection getHeadspacePostTag() Returns the current record's "HeadspacePostTag" collection
+ * @method HeadspacePost       setId()               Sets the current record's "id" value
+ * @method HeadspacePost       setNetworkId()        Sets the current record's "network_id" value
+ * @method HeadspacePost       setNetworkuserId()    Sets the current record's "networkuser_id" value
+ * @method HeadspacePost       setSubject()          Sets the current record's "subject" value
+ * @method HeadspacePost       setBody()             Sets the current record's "body" value
+ * @method HeadspacePost       setHtmlBody()         Sets the current record's "html_body" value
+ * @method HeadspacePost       setAllowComments()    Sets the current record's "allow_comments" value
+ * @method HeadspacePost       setStatus()           Sets the current record's "status" value
+ * @method HeadspacePost       setNetwork()          Sets the current record's "Network" value
+ * @method HeadspacePost       setNetworkUser()      Sets the current record's "NetworkUser" value
+ * @method HeadspacePost       setHeadspacePostTag() Sets the current record's "HeadspacePostTag" collection
  * 
  * @package    Yuoweb
  * @subpackage model
@@ -93,7 +93,7 @@ abstract class BaseHeadspacePost extends sfDoctrineRecord
              'local' => 'networkuser_id',
              'foreign' => 'id'));
 
-        $this->hasMany('HeadspaceTag', array(
+        $this->hasMany('HeadspacePostTag', array(
              'local' => 'id',
              'foreign' => 'post_id'));
 

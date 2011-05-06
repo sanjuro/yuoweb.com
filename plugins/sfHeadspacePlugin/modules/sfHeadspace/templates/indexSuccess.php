@@ -11,6 +11,7 @@
 		<?php foreach ( $recentPosts as $recentPost ) : ?>
 			<span class="recentpostsubject"><a href="<?php echo url_for('headspace_showpost', $recentPost)?>"><?php echo $recentPost['subject']?></a></span>
 			<span class="recentpostcreatedat"><?php echo $recentPost['created_at']?></span>
+			<br>
 		<?php endforeach; ?>
 	</p>
 	<p id="recentpostsbydate">
