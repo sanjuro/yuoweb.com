@@ -24,7 +24,7 @@ class networkActions extends sfActions
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request)
-  { 	
+  { 	  
   	if ( !$this->networkuser )
  	{
  		$this->getUser()->signOut();

@@ -84,7 +84,6 @@
 				</h3>
 			    <ul id="featurenavigation">
 			        <li><?php echo link_to('Show newest posts', url_for(strtolower($feature['Feature']['url']), $network ), array( "accesskey" => 8)) ?></li>
-			        <li><?php echo link_to('Show newest comments', url_for(strtolower($feature['Feature']['url']), $network ), array( "accesskey" => 9)) ?></li>
 			    </ul>
 			</div>
 			<?php else : ?>

@@ -22,9 +22,14 @@ class myUser extends sfGuardSecurityUser
   {     
     parent::signIn($user, $remember = false, $con = null);
     
-    $this->setAttribute('network_slug', '', 'sfGuardSecurityUser');
+    $networkUser = $user->getNetworkUser();
     
-    $this->setAttribute('network_user', '', 'sfGuardSecurityUser');         
+    $network = Doctrine_Core::getTable('Network')
+	           		->findOneById($networkUser[0]->getNetworkId());
+     
+    $this->setAttribute('network_slug', $network->getSlug(), 'sfGuardSecurityUser');
+    
+    $this->setAttribute('network_user', $networkUser[0]->getId(), 'sfGuardSecurityUser');         
   }
   
   public function signOut()

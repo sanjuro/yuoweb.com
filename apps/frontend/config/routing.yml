@@ -60,7 +60,7 @@ network_logout:
      
      
 network_home:
-  url:        /:slug
+  url:        /Dashboard/
   class:      acNetworkObjectRoute
   options:
     model:    Network
