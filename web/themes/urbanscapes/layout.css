@@ -1,19 +1,20 @@
 /* Main Styles */
 
 body {
-    background: url("/themes/urbanscapes/images/body_bg.jpg") repeat-y;
-	font-family: "DINSchrift",sans-serif;
+    background: #000;
+    color: #FFF;
+	font-family: HelveticaNeue,Helvetica,Arial,serif;
 	margin: 0;
 }
 h1 {
     border-bottom: 1px solid #164ace;
-    color: #bc2727;
+    color: #164ace;
 	font-size: 0.9em;
     margin: 0;
     padding: 5px;
 }
 h3 {
-    background: url("/themes/urbanscapes/images/h3_bg.png") repeat-x;
+    background-color: #FE6B00;
     color: white;
 	font-size: 0.9em;
     margin: 0;
@@ -33,11 +34,8 @@ p {
     margin: 0;
     padding: 5px;
 }
-.flash_notice {
-	color: green;
-}
 a {
-  color: #bc2727;
+  color: #FE6B00;
   text-decoration: none;
 }
 a:hover{
@@ -47,15 +45,13 @@ a img {
 	border: none;
 }
 #header {
-
+    background-color: #000;
 }
 #logo {
-    background: url("/themes/urbanscapes/images/logo_bg.png") repeat-x;
-    height: 46px;
+    background: #000 url("/themes/urbanscapes/images/logo.jpg") no-repeat;
+    height: 90px;
 }
-
 #main {
-
 }
 
 #main h3 a {
@@ -66,17 +62,19 @@ a img {
 }
 
 #footer {
-    background: url("/themes/urbanscapes/images/footer_bg.jpg") repeat-x;
+    background-color: #363943;
 	height: 100px;
 	padding: 5px 5px 20px 5px;
 }
 #footer a {
 	color: #FFF;
 	font-size: 0.9em;
+	font-weight: bold;
 	padding: 5px 0px;
 }
 
 
+/* List Styles */
 
 ul#topmenunavigation li, .navigationright a {
 	display: inline;
@@ -89,22 +87,21 @@ ul#topmenunavigation {
 	padding-left: 0px;
 	margin: 10px 0px;
 }
-
+ul#featurenavigation {
+	padding-left: 5px;
+	margin: 8px 0px;
+}
 
 ul#topmenunavigation li a, .navigationright a {
-   color: #bc2727;
+   color: #FE6B00;
    font-weight: bold;
-   text-transform: uppercase;
 }
-ul#topmenunavigation li a, ul#messagenavigation li a {
-	padding-left: 5px;
+ul#topmenunavigation li a, ul#messagenavigation li a, ul#featurenavigation li a {
+	background: url("/themes/urbanscapes/images/listicon.png")left no-repeat;
+	padding-left: 17px;
 }
-ul#featurenavigation {
-	margin: 5px 0px;
-	padding-left: 25px;
-}
-ul#featurenavigation li{ 
-	list-style-image: url("/themes/urbanscapes/images/link.png");
+ul#featurenavigation li {
+	list-style-type: none;
 }
 ul#footernavigation {
 	padding-left: 0px;
@@ -115,19 +112,6 @@ ul#footernavigation li {
 	font-size: 1em;
 }
 
-ul.feedslist  {
-	font-size: 0.8em;
-}
-
-ul.feedslist  li{
-	background-color: #ccc;
-	list-style-image: url("/themes/urbanscapes/images/listicon.png");
-	padding: 5px;
-	margin-bottom: 5px;
-}
-.feedlist_body {
-	font-weight: bold;
-}
 ul#photolist {
 	padding-left: 0px;
 }
@@ -176,9 +160,8 @@ ul.error_list {
     margin-bottom: 15px;
 }
 
-label {
-	font-weight: bold;
-}
+/* Flash Notices Styles */
+
 .flash_notice, .flash_error{
 	font-size: 0.8em;
 	padding: 3px 0px

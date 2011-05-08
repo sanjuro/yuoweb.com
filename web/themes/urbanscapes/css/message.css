@@ -1,5 +1,7 @@
-p {
+.messageline {
 	font-size: 0.8em;
+	margin-left: 5px;
+	padding-bottom:5px;
 }
 ul#messagenavigation {
 	padding-left: 0px;
@@ -9,9 +11,24 @@ ul#messagenavigation li {
 	display: inline;
 	font-size: 14px;
 }
-.messageline {
+.messageline_subject {
+	font-size: 0.9em;
 	padding: 3px 5px;
 }
 .newmessage {
 	background-color: #CCC;
+}
+.messageline_details {
+	font-size: 0.8em;
+	padding: 3px 5px;
+}
+.messageline_links {
+	font-size: 0.8em;
+	float: right;
+	padding: 3px 5px;
+}
+.message {
+	font-size: 0.8em;
+	margin-left: 5px;
+	padding-bottom:5px;		
 }

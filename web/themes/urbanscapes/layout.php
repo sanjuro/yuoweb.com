@@ -10,19 +10,17 @@
 	</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link href="/themes/urbanscapes/css_compressed.css" media="screen" type="text/css" rel="stylesheet">
+    <link href="/themes/skank/css_compressed.css" media="screen" type="text/css" rel="stylesheet">
     <?php include_javascripts() ?>
   </head>
   <body>
     <div id="header">
     	<div id="logo">
-    	  <img src="/themes/urbanscapes/images/logo.gif">
     	</div>
     	<div id="navigation">
 			  <?php include_component_slot('navigation') ?>
     	</div>
     </div>
-    <div id="holder">
     <div id="main">
     
 	<?php include_component_slot('advert1') ?>
@@ -41,7 +39,6 @@
     
     	<?php echo $sf_content ?>
     </div>
- 	</div>
     <div id="footer">
 		<?php include_component_slot('advert2') ?>
 
