@@ -140,7 +140,7 @@ class ConnectionTable extends Doctrine_Table
 
       $q->leftJoin('c.Owner o')
 	  	->andWhere('c.type_id = ?', 1);
-
+		
 	   $Owners = '';
 	 
 	   foreach ($q->fetchArray() as $value) { 

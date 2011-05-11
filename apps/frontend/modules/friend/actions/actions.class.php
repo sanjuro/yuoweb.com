@@ -41,7 +41,7 @@ class friendActions extends sfActions
   {  
  	$this->friend = Doctrine_Core::getTable('NetworkUser')
  		->getNetworkUserWithUser($this->network->getId(), $request->getParameter('user'));  	
-     
+
  	$this->user = $this->friend->getsfGuardUserObject();
 
  	$this->userprofile = $this->user->getSfGuardUserWithUserProfile();

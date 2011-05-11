@@ -150,8 +150,9 @@ class NetworkUser extends BaseNetworkUser
          ->from('Connection c')
          ->where('reciever_id = ?', $this->getId())
          ->andWhere('type_id = ?', 1)
+         ->andWhere('reciever_response = ?', 2)
          ->andWhere('state_id = ?', 2);
-
+		
       return Doctrine_Core::getTable('Connection')->getOwners($q);
   }
 
