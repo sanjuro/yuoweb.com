@@ -27,7 +27,7 @@ class FrontendFeedForm extends BaseFeedForm
 	    $this->currentUser = $this->getOption("currentUser");
 	}
     
-    $this->widgetSchema['body'] = new sfWidgetFormInputText(array("label" => "Whats on your mind"));
+    $this->widgetSchema['body'] = new sfWidgetFormTextarea(array("label" => "Whats on your mind"));
         
   }
   

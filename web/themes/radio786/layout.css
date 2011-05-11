@@ -159,8 +159,10 @@ ul.error_list {
 	padding: 3px 0px
 	}
 .flash_notice {
-	color: green;
+	background-color: green;
+	color: white;
 }
 .flash_error {
-	color: red;
+	background-color: red;
+	color: white;
 }

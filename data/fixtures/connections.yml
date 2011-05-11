@@ -1,11 +1,8 @@
 Connection:
  connection_raymond_craigd:
-    Owner:     networkuser_raymond
-    Reciever:  networkuser_craigd
-    ConnectionType: conectiontype_friend
-    ConnectionState: conectionstate_accepted
- connection_craigd_raymond:
-    Owner:     networkuser_craigd
-    Reciever:  networkuser_raymond
-    ConnectionType: conectiontype_friend
-    ConnectionState: conectionstate_accepted
+    Owner:            networkuser_raymond
+    Reciever:         networkuser_craigd
+    OwnerResponse:    conectionreponse_accepted
+    RecieverResponse: conectionreponse_pending
+    ConnectionType:   conectiontype_friend
+    ConnectionState:  conectionstate_pending

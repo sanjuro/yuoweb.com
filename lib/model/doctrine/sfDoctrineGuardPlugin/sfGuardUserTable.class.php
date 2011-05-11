@@ -24,7 +24,7 @@ class sfGuardUserTable extends PluginsfGuardUserTable
 	    $q = Doctrine_Query::create()
 	      ->from('sfGuardUser sgu');   	  
 	  }
-	  
+	    
 	  $q->leftJoin('sgu.UserProfile up');	  
 	
 	  return $q;  	  	     
@@ -50,7 +50,7 @@ class sfGuardUserTable extends PluginsfGuardUserTable
 	      ->from('UserProfile up')
 	      ->where('sfuser_id = ?', $UserID); 
 	  
-	   
+	
 	   foreach ($q->execute() as $value) {
 	   	$UserProfile = $value;
 	   }

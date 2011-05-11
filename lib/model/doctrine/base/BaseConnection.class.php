@@ -8,31 +8,43 @@
  * @property integer $id
  * @property integer $owner_id
  * @property integer $reciever_id
+ * @property integer $owner_response
+ * @property integer $reciever_response
  * @property integer $type_id
  * @property integer $state_id
  * @property ConnectionType $ConnectionType
  * @property ConnectionState $ConnectionState
  * @property NetworkUser $Owner
  * @property NetworkUser $Reciever
+ * @property ConnectionResponse $OwnerResponse
+ * @property ConnectionResponse $RecieverResponse
  * 
- * @method integer         getId()              Returns the current record's "id" value
- * @method integer         getOwnerId()         Returns the current record's "owner_id" value
- * @method integer         getRecieverId()      Returns the current record's "reciever_id" value
- * @method integer         getTypeId()          Returns the current record's "type_id" value
- * @method integer         getStateId()         Returns the current record's "state_id" value
- * @method ConnectionType  getConnectionType()  Returns the current record's "ConnectionType" value
- * @method ConnectionState getConnectionState() Returns the current record's "ConnectionState" value
- * @method NetworkUser     getOwner()           Returns the current record's "Owner" value
- * @method NetworkUser     getReciever()        Returns the current record's "Reciever" value
- * @method Connection      setId()              Sets the current record's "id" value
- * @method Connection      setOwnerId()         Sets the current record's "owner_id" value
- * @method Connection      setRecieverId()      Sets the current record's "reciever_id" value
- * @method Connection      setTypeId()          Sets the current record's "type_id" value
- * @method Connection      setStateId()         Sets the current record's "state_id" value
- * @method Connection      setConnectionType()  Sets the current record's "ConnectionType" value
- * @method Connection      setConnectionState() Sets the current record's "ConnectionState" value
- * @method Connection      setOwner()           Sets the current record's "Owner" value
- * @method Connection      setReciever()        Sets the current record's "Reciever" value
+ * @method integer            getId()                Returns the current record's "id" value
+ * @method integer            getOwnerId()           Returns the current record's "owner_id" value
+ * @method integer            getRecieverId()        Returns the current record's "reciever_id" value
+ * @method integer            getOwnerResponse()     Returns the current record's "owner_response" value
+ * @method integer            getRecieverResponse()  Returns the current record's "reciever_response" value
+ * @method integer            getTypeId()            Returns the current record's "type_id" value
+ * @method integer            getStateId()           Returns the current record's "state_id" value
+ * @method ConnectionType     getConnectionType()    Returns the current record's "ConnectionType" value
+ * @method ConnectionState    getConnectionState()   Returns the current record's "ConnectionState" value
+ * @method NetworkUser        getOwner()             Returns the current record's "Owner" value
+ * @method NetworkUser        getReciever()          Returns the current record's "Reciever" value
+ * @method ConnectionResponse getOwnerResponse()     Returns the current record's "OwnerResponse" value
+ * @method ConnectionResponse getRecieverResponse()  Returns the current record's "RecieverResponse" value
+ * @method Connection         setId()                Sets the current record's "id" value
+ * @method Connection         setOwnerId()           Sets the current record's "owner_id" value
+ * @method Connection         setRecieverId()        Sets the current record's "reciever_id" value
+ * @method Connection         setOwnerResponse()     Sets the current record's "owner_response" value
+ * @method Connection         setRecieverResponse()  Sets the current record's "reciever_response" value
+ * @method Connection         setTypeId()            Sets the current record's "type_id" value
+ * @method Connection         setStateId()           Sets the current record's "state_id" value
+ * @method Connection         setConnectionType()    Sets the current record's "ConnectionType" value
+ * @method Connection         setConnectionState()   Sets the current record's "ConnectionState" value
+ * @method Connection         setOwner()             Sets the current record's "Owner" value
+ * @method Connection         setReciever()          Sets the current record's "Reciever" value
+ * @method Connection         setOwnerResponse()     Sets the current record's "OwnerResponse" value
+ * @method Connection         setRecieverResponse()  Sets the current record's "RecieverResponse" value
  * 
  * @package    Yuoweb
  * @subpackage model
@@ -54,6 +66,14 @@ abstract class BaseConnection extends sfDoctrineRecord
              ));
         $this->hasColumn('reciever_id', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('owner_response', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 1,
+             ));
+        $this->hasColumn('reciever_response', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 2,
              ));
         $this->hasColumn('type_id', 'integer', null, array(
              'type' => 'integer',
@@ -83,5 +103,13 @@ abstract class BaseConnection extends sfDoctrineRecord
              'local' => 'reciever_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $this->hasOne('ConnectionResponse as OwnerResponse', array(
+             'local' => 'owner_response',
+             'foreign' => 'id'));
+
+        $this->hasOne('ConnectionResponse as RecieverResponse', array(
+             'local' => 'reciever_response',
+             'foreign' => 'id'));
     }
 }

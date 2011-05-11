@@ -4,8 +4,9 @@
 		<?php echo $form['body']->renderLabel() ?>
 		<br>
 		<?php echo $form['body'] ?>
-		<input type="submit" value="Post" />
 		<br>
 		<?php echo $form['body']->renderError() ?>
+		<br>
+		<input type="submit" value="Post" />
 		
 </form>

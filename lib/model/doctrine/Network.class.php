@@ -169,6 +169,24 @@ class Network extends BaseNetwork
 	 
 	 return (!empty($users)?$users:false);
   }
+  
+/**
+ * Function to find 5 recent network sign ups that have public profiles
+ *  
+ * @param Doctrine_Query $q 
+ *  
+ * @return array All users on a network
+ */ 
+  public function getRecentPublicUsers(Doctrine_Query $q = null)
+  {
+	 $users = $this->fetchUsersQuery()
+	 			    ->andWhere('is_private = ?', 0)
+	 			    ->orderBy('created_at')
+	 			    ->limit(5)
+	 			    ->fetchArray();
+	
+	 return (!empty($users)?$users:false);
+  }
      
 /**
  * Function to find all publicuusers signed up to a network
@@ -534,7 +552,7 @@ class Network extends BaseNetwork
        ->from('NetworkUser nu')
        ->where('nu.network_id = ?', $this->getId());
 	  }
- 
+ 		 
      return Doctrine_Core::getTable('NetworkUser')->getWithUsers($q);
   } 
   

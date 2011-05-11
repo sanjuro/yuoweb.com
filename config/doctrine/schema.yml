@@ -40,16 +40,20 @@ Client:
     
 Connection:
   columns:
-    id:               { type: integer, primary: true, autoincrement: true }
-    owner_id:         { type: integer }
-    reciever_id:      { type: integer }
-    type_id:          { type: integer }
-    state_id:         { type: integer }
+    id:                  { type: integer, primary: true, autoincrement: true }
+    owner_id:            { type: integer }
+    reciever_id:         { type: integer }
+    owner_response:      { type: integer, default: 1 }
+    reciever_response:   { type: integer, default: 2 }
+    type_id:             { type: integer }
+    state_id:            { type: integer }
   relations:
     ConnectionType:    { class: ConnectionType, local: type_id, foreign: id }
     ConnectionState:   { class: ConnectionState, local: state_id, foreign: id }
     Owner:             { class: NetworkUser, onDelete: CASCADE, local: owner_id, foreign: id }
     Reciever:          { class: NetworkUser, onDelete: CASCADE, local: reciever_id, foreign: id }
+    OwnerResponse:     { class: ConnectionResponse, local: owner_response, foreign: id }
+    RecieverResponse:  { class: ConnectionResponse, local: reciever_response, foreign: id }
     
 ConnectionType: 
   columns:
@@ -58,6 +62,10 @@ ConnectionType:
 ConnectionState: 
   columns:
     title:       { type: string(255), notnull: true }  
+    
+ConnectionResponse: 
+  columns:
+    title:       { type: string(255), notnull: true } 
     
 Feature:
   actAs: 
@@ -126,6 +134,7 @@ NetworkFeature:
     
 NetworkUser:
   actAs: 
+    Timestampable: ~ 
     CountCache:
       relations:
         Network:

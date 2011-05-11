@@ -13,17 +13,21 @@ abstract class BaseConnectionFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'owner_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Owner'), 'add_empty' => true)),
-      'reciever_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Reciever'), 'add_empty' => true)),
-      'type_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ConnectionType'), 'add_empty' => true)),
-      'state_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ConnectionState'), 'add_empty' => true)),
+      'owner_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Owner'), 'add_empty' => true)),
+      'reciever_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Reciever'), 'add_empty' => true)),
+      'owner_response'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('OwnerResponse'), 'add_empty' => true)),
+      'reciever_response' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('RecieverResponse'), 'add_empty' => true)),
+      'type_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ConnectionType'), 'add_empty' => true)),
+      'state_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ConnectionState'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'owner_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Owner'), 'column' => 'id')),
-      'reciever_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Reciever'), 'column' => 'id')),
-      'type_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ConnectionType'), 'column' => 'id')),
-      'state_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ConnectionState'), 'column' => 'id')),
+      'owner_id'          => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Owner'), 'column' => 'id')),
+      'reciever_id'       => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Reciever'), 'column' => 'id')),
+      'owner_response'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('OwnerResponse'), 'column' => 'id')),
+      'reciever_response' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('RecieverResponse'), 'column' => 'id')),
+      'type_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ConnectionType'), 'column' => 'id')),
+      'state_id'          => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ConnectionState'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('connection_filters[%s]');
@@ -43,11 +47,13 @@ abstract class BaseConnectionFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'          => 'Number',
-      'owner_id'    => 'ForeignKey',
-      'reciever_id' => 'ForeignKey',
-      'type_id'     => 'ForeignKey',
-      'state_id'    => 'ForeignKey',
+      'id'                => 'Number',
+      'owner_id'          => 'ForeignKey',
+      'reciever_id'       => 'ForeignKey',
+      'owner_response'    => 'ForeignKey',
+      'reciever_response' => 'ForeignKey',
+      'type_id'           => 'ForeignKey',
+      'state_id'          => 'ForeignKey',
     );
   }
 }

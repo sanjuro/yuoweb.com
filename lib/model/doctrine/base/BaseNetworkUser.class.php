@@ -171,6 +171,7 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'networkuser_id'));
 
+        $timestampable0 = new Doctrine_Template_Timestampable();
         $countcache0 = new CountCache(array(
              'relations' => 
              array(
@@ -181,6 +182,7 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
               ),
              ),
              ));
+        $this->actAs($timestampable0);
         $this->actAs($countcache0);
     }
 }

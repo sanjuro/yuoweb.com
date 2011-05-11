@@ -24,7 +24,7 @@ class NetworkUserTable extends Doctrine_Table
 	    $q = Doctrine_Query::create()
 	      ->from('NetworkUser nu');      	  
 	  }
-
+		 
 	  $q->leftJoin('nu.sfGuardUser sgu');
       	
 	  return Doctrine_Core::getTable('sfGuardUser')->getWithUserProfile($q); 	     

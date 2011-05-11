@@ -5,7 +5,8 @@ CREATE TABLE application_error (id BIGINT AUTO_INCREMENT, message TEXT, type VAR
 CREATE TABLE client (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, fullname VARCHAR(255), logo VARCHAR(255), url VARCHAR(255), email VARCHAR(255), description VARCHAR(255), token VARCHAR(255) NOT NULL UNIQUE, is_activated TINYINT(1) DEFAULT '1' NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, network_count BIGINT DEFAULT 0, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE comment (id BIGINT AUTO_INCREMENT, record_model VARCHAR(255) NOT NULL, record_id BIGINT NOT NULL, author_name VARCHAR(255) NOT NULL, author_email VARCHAR(255), author_website VARCHAR(255), body LONGTEXT NOT NULL, is_delete TINYINT(1) DEFAULT '0', edition_reason LONGTEXT, reply BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX record_model_record_id_idx (record_model, record_id), INDEX reply_idx (reply), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = INNODB;
 CREATE TABLE comment_report (id BIGINT AUTO_INCREMENT, reason LONGTEXT NOT NULL, referer VARCHAR(255), state VARCHAR(255) DEFAULT 'untreated', id_comment BIGINT NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX id_comment_idx (id_comment), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = INNODB;
-CREATE TABLE connection (id BIGINT AUTO_INCREMENT, owner_id BIGINT, reciever_id BIGINT, type_id BIGINT, state_id BIGINT, INDEX type_id_idx (type_id), INDEX state_id_idx (state_id), INDEX owner_id_idx (owner_id), INDEX reciever_id_idx (reciever_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE connection (id BIGINT AUTO_INCREMENT, owner_id BIGINT, reciever_id BIGINT, owner_response BIGINT DEFAULT 1, reciever_response BIGINT DEFAULT 2, type_id BIGINT, state_id BIGINT, INDEX type_id_idx (type_id), INDEX state_id_idx (state_id), INDEX owner_id_idx (owner_id), INDEX reciever_id_idx (reciever_id), INDEX owner_response_idx (owner_response), INDEX reciever_response_idx (reciever_response), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE connection_response (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE connection_state (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE connection_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE event_index (keyword VARCHAR(200), field VARCHAR(50), position BIGINT, id BIGINT, PRIMARY KEY(keyword, field, position, id)) ENGINE = INNODB;
@@ -30,7 +31,7 @@ CREATE TABLE network (id BIGINT AUTO_INCREMENT, client_id BIGINT NOT NULL, netwo
 CREATE TABLE network_category (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE network_feature (id BIGINT AUTO_INCREMENT, network_id BIGINT, feature_id BIGINT, active BIGINT DEFAULT 2 NOT NULL, position BIGINT NOT NULL, INDEX network_id_idx (network_id), INDEX feature_id_idx (feature_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE network_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE network_user (id BIGINT AUTO_INCREMENT, network_id BIGINT, user_id BIGINT, is_private TINYINT(1) DEFAULT '0' NOT NULL, INDEX network_id_idx (network_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE network_user (id BIGINT AUTO_INCREMENT, network_id BIGINT, user_id BIGINT, is_private TINYINT(1) DEFAULT '0' NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX network_id_idx (network_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE notification_index (keyword VARCHAR(200), field VARCHAR(50), position BIGINT, id BIGINT, PRIMARY KEY(keyword, field, position, id)) ENGINE = INNODB;
 CREATE TABLE notification (id BIGINT AUTO_INCREMENT, network_id BIGINT, networkuser_id BIGINT, notificationtype_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX network_id_idx (network_id), INDEX networkuser_id_idx (networkuser_id), INDEX notificationtype_id_idx (notificationtype_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE notification_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
@@ -77,7 +78,9 @@ ALTER TABLE comment ADD CONSTRAINT comment_reply_comment_id FOREIGN KEY (reply) 
 ALTER TABLE comment_report ADD CONSTRAINT comment_report_id_comment_comment_id FOREIGN KEY (id_comment) REFERENCES comment(id) ON DELETE CASCADE;
 ALTER TABLE connection ADD CONSTRAINT connection_type_id_connection_type_id FOREIGN KEY (type_id) REFERENCES connection_type(id);
 ALTER TABLE connection ADD CONSTRAINT connection_state_id_connection_state_id FOREIGN KEY (state_id) REFERENCES connection_state(id);
+ALTER TABLE connection ADD CONSTRAINT connection_reciever_response_connection_response_id FOREIGN KEY (reciever_response) REFERENCES connection_response(id);
 ALTER TABLE connection ADD CONSTRAINT connection_reciever_id_network_user_id FOREIGN KEY (reciever_id) REFERENCES network_user(id) ON DELETE CASCADE;
+ALTER TABLE connection ADD CONSTRAINT connection_owner_response_connection_response_id FOREIGN KEY (owner_response) REFERENCES connection_response(id);
 ALTER TABLE connection ADD CONSTRAINT connection_owner_id_network_user_id FOREIGN KEY (owner_id) REFERENCES network_user(id) ON DELETE CASCADE;
 ALTER TABLE event_index ADD CONSTRAINT event_index_id_event_id FOREIGN KEY (id) REFERENCES event(id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE event ADD CONSTRAINT event_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);

@@ -27,6 +27,8 @@ class friendActions extends sfActions
   {
    $this->friends = $this->networkuser->getAllFriendsForNetwork();
    
+   $this->friendsList = $this->network->getRecentPublicUsers();
+   
    $this->friendRequests = $this->networkuser->getNewFriendRequests();
   }
     

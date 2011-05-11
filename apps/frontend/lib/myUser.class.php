@@ -26,6 +26,8 @@ class myUser extends sfGuardSecurityUser
     
     $network = Doctrine_Core::getTable('Network')
 	           		->findOneById($networkUser[0]->getNetworkId());
+	           		
+	$this->setAttribute('user_id', $user->getId(), 'sfGuardSecurityUser');
      
     $this->setAttribute('network_slug', $network->getSlug(), 'sfGuardSecurityUser');
     
