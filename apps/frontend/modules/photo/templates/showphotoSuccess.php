@@ -12,5 +12,5 @@
 		Views: <?php echo $photo->getViewCount() ?>
 	</p>	
 	<p>
-		<?php include_component('comment', 'list', array('object' => $post, 'i' => 0)) ?>
-		<?php include_component('comment', 'formComment', array('object' => $post)) ?>	</p>
+		<?php include_component('comment', 'list', array('object' => $photo, 'i' => 0)) ?>
+		<?php include_component('comment', 'formComment', array('object' => $photo)) ?>	</p>
