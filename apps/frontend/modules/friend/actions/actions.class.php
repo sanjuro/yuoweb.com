@@ -11,11 +11,10 @@
 class friendActions extends sfActions
 {
   public function preExecute()
-  { //echo '<pre>';print_r($this->getUser()->getNetworkId());
+  { 
  	$this->network = $this->getUser()->getNetworkFromSession($this->getUser()->getNetworkId()); 
-	//echo '<pre>';print_r($this->network->getId());	 		
- 	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
-	//echo '<pre>';print_r($this->networkuser);exit;         				          
+	 		
+ 	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());      				          
   }
  
  /**
@@ -26,7 +25,7 @@ class friendActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
    $this->friends = $this->networkuser->getAllFriendsForNetwork();
-   
+  
    $this->friendsList = $this->network->getRecentPublicUsers();
    
    $this->friendRequests = $this->networkuser->getNewFriendRequests();
@@ -52,7 +51,7 @@ class friendActions extends sfActions
   public function executeAddfriendrequest(sfWebRequest $request)
   {
 	$user = Doctrine_Core::getTable('NetworkUser')->findOneById($request->getParameter('user'));
-	
+		
   	$connection = new Connection();
 	$connection->setOwnerId($this->networkuser->getId());
 	$connection->setRecieverId($user->getId());
@@ -67,8 +66,11 @@ class friendActions extends sfActions
   
   public function executeAcceptfriendrequest(sfWebRequest $request)
   {
+  	$connection_respose = Doctrine::getTable('ConnectionResponse')->findOneById(1);
+  	
   	$connection = Doctrine_Core::getTable('Connection')->findOneById($request->getParameter('connection'));
-	$connection->setStateId(1);
+	$connection->setStateId(1);	
+	$connection->setRecieverResponse($connection_respose);
 	$connection->save();
 	
 	$this->getUser()->setFlash('notice', sprintf('Friend Request accepted.'));
@@ -81,6 +83,8 @@ class friendActions extends sfActions
 	$user = Doctrine_Core::getTable('NetworkUser')->findOneById($request->getParameter('user'));
 	
   	$connection = Doctrine_Core::getTable('Connection')->findOneById($request->getParameter('user'));
+  	
+  	$connection_respose = Doctrine::getTable('ConnectionResponse')->findOneById(3);
 	
 	$q = Doctrine_Query::create()
        ->from('Connection c')
@@ -89,6 +93,7 @@ class friendActions extends sfActions
 
     $connection = $q->fetchOne();
 	$connection->setStateId(3);
+	$connection->setRecieverResponse($connection_respose);
 	$connection->save();
 	
 	$this->getUser()->setFlash('notice', sprintf('Friend blocked.'));

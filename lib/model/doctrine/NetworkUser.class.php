@@ -67,7 +67,17 @@ class NetworkUser extends BaseNetworkUser
   {
 	  $q = $this->fetchAllFriendsForNetwork();
  
-      return Doctrine_Core::getTable('Connection')->getFriends($q);
+      $friends = Doctrine_Core::getTable('Connection')->getFriends($q);
+      
+      $result = array();
+     
+      foreach ($friends as $key => $value ) { 
+      	if($key != $this['sfGuardUser'][0]['id']){
+      	$result[$key]	= $friends[$key];
+      	}
+      }  
+      return $result;
+    
   }  
   
 /**
@@ -97,7 +107,8 @@ class NetworkUser extends BaseNetworkUser
 	  $q = Doctrine_Query::create()
          ->from('Connection c')
          ->where('c.owner_id = ?', $this->getId())
-         ->orWhere('c.reciever_id = ?', $this->getId())
+         ->orWhere('c.owner_response = ?',1)
+         ->andWhere('c.reciever_response = ?', 1)
          ->andWhere('c.state_id = ?', 1);
 
       return $q;

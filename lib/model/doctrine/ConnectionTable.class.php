@@ -19,10 +19,8 @@ class ConnectionTable extends Doctrine_Table
     
 	/**
 	 * Function to return all connection revievers of friend conenctions
-	 * 
-	 * This function uses the connection to find all 
-	 * receivesr, if the connection is of type 1 then it
-	 * is a friend connection.
+	 * This function uses the connection to find all  receivesr, if the 
+	 * connection is of type 1 then it is a friend connection.
 	 *  
 	 * @param Doctrine_Query $q Doctrine_Query
 	 * 
@@ -37,17 +35,21 @@ class ConnectionTable extends Doctrine_Table
 	  }	   
 
        $q->leftJoin('c.Reciever r')
+        ->leftJoin('c.Owner o')
 	  	->andWhere('c.type_id = ?', 1);
-	   
-	   $Recievers = '';
+	    
+	   $Friends = '';
 	   
 	   foreach ($q->fetchArray() as $key => $value ) { 
-	   	$Recievers[$value['Reciever']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Reciever']['user_id']);
-	   	$Recievers[$value['Reciever']['user_id']]['networkuser_id'] = $value['reciever_id'];
-	   	$Recievers[$value['Reciever']['user_id']]['owner_id'] = $value['owner_id'];
+	   	$Friends[$value['Owner']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Owner']['user_id']);
+	   	$Friends[$value['Owner']['user_id']]['networkuser_id'] = $value['reciever_id'];
+	   	$Friends[$value['Owner']['user_id']]['owner_id'] = $value['owner_id'];
+	   	$Friends[$value['Reciever']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Reciever']['user_id']);
+	   	$Friends[$value['Reciever']['user_id']]['networkuser_id'] = $value['reciever_id'];
+	   	$Friends[$value['Reciever']['user_id']]['owner_id'] = $value['owner_id'];
 	   }
 		
-	   return $Recievers;
+	   return $Friends;
     }
     
 	/**
