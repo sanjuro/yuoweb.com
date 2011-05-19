@@ -16,4 +16,14 @@ class sfGuardUserGroupTable extends PluginsfGuardUserGroupTable
     {
         return Doctrine_Core::getTable('sfGuardUserGroup');
     }
+    
+	public function getUserWithProfile($UserID)
+	{ 
+	  $q = Doctrine_Query::create()
+	  	  ->from('sfGuardUser su')
+		  ->leftJoin('su.UserProfile up')
+	      >where('su.user_id = ?', $UserID);	  
+	  
+	  return $q->fetchOne();     
+	}
 }

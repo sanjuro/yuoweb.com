@@ -32,9 +32,9 @@ class networkActions extends sfActions
  		$this->redirect('sf_guard_signin');
  	}
  	
-  	$sfGuardUser = $this->networkuser->getsfGuardUser();
+  	$sfGuardUser =$this->getUser()->getGuardUser();
   	
-  	$this->notifications =  $this->network->getNewNotifications($sfGuardUser[0]['last_login']);
+  	$this->notifications =  $this->network->getNewNotifications($sfGuardUser['last_login']);
    
   	$this->features = $this->network->getFeatures();
 	
@@ -42,9 +42,9 @@ class networkActions extends sfActions
   	
 	$this->recentPhotos = $this->network->getRecentPhotos();
 	
-	$this->friendcount = $this->networkuser->getAllFriendsForNetworkCount();
+	$this->friendcount = $sfGuardUser->getAllFriendsForNetworkCount();
   	
-  	$this->friendRequests = $this->networkuser->getNewFriendRequests();
+  	$this->friendRequests = $sfGuardUser->getNewFriendRequests();
   	
   	$this->newHeadspaceCommentCount = count($this->notifications[9]);
   	

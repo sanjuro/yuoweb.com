@@ -1,7 +1,7 @@
 Connection:
  connection_raymond_craigd:
-    Owner:            networkuser_raymond
-    Reciever:         networkuser_craigd
+    Owner:            user_raymond
+    Reciever:         user_craigd
     OwnerResponse:    conectionreponse_accepted
     RecieverResponse: conectionreponse_pending
     ConnectionType:   conectiontype_friend

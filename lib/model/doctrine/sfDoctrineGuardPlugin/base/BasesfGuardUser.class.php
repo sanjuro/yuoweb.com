@@ -22,6 +22,7 @@
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
  * @property Doctrine_Collection $Client
+ * @property Doctrine_Collection $Connection
  * @property Doctrine_Collection $NetworkUser
  * @property Doctrine_Collection $UserProfile
  * 
@@ -42,6 +43,7 @@
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
  * @method Doctrine_Collection   getClient()                Returns the current record's "Client" collection
+ * @method Doctrine_Collection   getConnection()            Returns the current record's "Connection" collection
  * @method Doctrine_Collection   getNetworkUser()           Returns the current record's "NetworkUser" collection
  * @method Doctrine_Collection   getUserProfile()           Returns the current record's "UserProfile" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
@@ -61,6 +63,7 @@
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setClient()                Sets the current record's "Client" collection
+ * @method sfGuardUser           setConnection()            Sets the current record's "Connection" collection
  * @method sfGuardUser           setNetworkUser()           Sets the current record's "NetworkUser" collection
  * @method sfGuardUser           setUserProfile()           Sets the current record's "UserProfile" collection
  * 
@@ -161,6 +164,10 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasMany('Client', array(
              'local' => 'id',
              'foreign' => 'user_id'));
+
+        $this->hasMany('Connection', array(
+             'local' => 'id',
+             'foreign' => 'owner_id'));
 
         $this->hasMany('NetworkUser', array(
              'local' => 'id',

@@ -222,8 +222,8 @@ class Network extends BaseNetwork
  */
    public function getUser($Userid)
   {
-	  $user = Doctrine_Core::getTable('NetworkUser')->getNetworkUser($this->getId(), $Userid);
-	  
+	  $user = Doctrine_Core::getTable('NetworkUser')->fetchNetworkUserWithUser(null, $this->getId(), $Userid);
+	
 	  return (!empty($user)?$user:false);
   }
   

@@ -1,0 +1,7 @@
+ConnectionResponse:
+  conectionreponse_accepted:
+   title:    accepted
+  conectionreponse_pending:
+   title:    pending
+  conectionreponse_denied:
+   title:    denied

@@ -34,21 +34,25 @@ class ConnectionTable extends Doctrine_Table
          ->from('Connection c');
 	  }	   
 
-       $q->leftJoin('c.Reciever r')
-        ->leftJoin('c.Owner o')
+       $q->leftJoin('c.Owner o')
+        ->leftJoin('c.Reciever r')
 	  	->andWhere('c.type_id = ?', 1);
-	    
+	   
 	   $Friends = '';
 	   
 	   foreach ($q->fetchArray() as $key => $value ) { 
-	   	$Friends[$value['Owner']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Owner']['user_id']);
-	   	$Friends[$value['Owner']['user_id']]['networkuser_id'] = $value['reciever_id'];
-	   	$Friends[$value['Owner']['user_id']]['owner_id'] = $value['owner_id'];
-	   	$Friends[$value['Reciever']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Reciever']['user_id']);
-	   	$Friends[$value['Reciever']['user_id']]['networkuser_id'] = $value['reciever_id'];
-	   	$Friends[$value['Reciever']['user_id']]['owner_id'] = $value['owner_id'];
+
+
+	   	$Friends['Owners'][$value['Owner']['id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Owner']['id']);
+	   	$Friends['Owners'][$value['Owner']['id']]['networkuser_id'] = $value['id'];
+	   	$Friends['Owners'][$value['Owner']['id']]['owner_id'] = $value['id'];
+
+	   	$Friends['Recievers'][$value['Reciever']['id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Reciever']['id']);
+	   	$Friends['Recievers'][$value['Reciever']['id']]['networkuser_id'] = $value['id'];
+	   	$Friends['Recievers'][$value['Reciever']['id']]['owner_id'] = $value['id'];
+	  
 	   }
-		
+	
 	   return $Friends;
     }
     

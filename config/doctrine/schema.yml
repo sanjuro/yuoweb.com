@@ -50,8 +50,8 @@ Connection:
   relations:
     ConnectionType:    { class: ConnectionType, local: type_id, foreign: id }
     ConnectionState:   { class: ConnectionState, local: state_id, foreign: id }
-    Owner:             { class: NetworkUser, onDelete: CASCADE, local: owner_id, foreign: id }
-    Reciever:          { class: NetworkUser, onDelete: CASCADE, local: reciever_id, foreign: id }
+    Owner:             { class: sfGuardUser, onDelete: CASCADE, local: owner_id, foreign: id }
+    Reciever:          { class: sfGuardUser, onDelete: CASCADE, local: reciever_id, foreign: id }
     OwnerResponse:     { class: ConnectionResponse, local: owner_response, foreign: id }
     RecieverResponse:  { class: ConnectionResponse, local: reciever_response, foreign: id }
     

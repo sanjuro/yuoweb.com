@@ -14,7 +14,9 @@ class friendActions extends sfActions
   { 
  	$this->network = $this->getUser()->getNetworkFromSession($this->getUser()->getNetworkId()); 
 	 		
- 	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());      				          
+ 	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());    
+
+ 	$this->sfGuardUser = $this->getUser()->getGuardUser();
   }
  
  /**
@@ -23,12 +25,12 @@ class friendActions extends sfActions
   * @param sfRequest $request A request object
   */
   public function executeIndex(sfWebRequest $request)
-  {
-   $this->friends = $this->networkuser->getAllFriendsForNetwork();
-  
+  {   
+   $this->friends = $this->sfGuardUser->getAllFriendsForNetwork();
+    	
    $this->friendsList = $this->network->getRecentPublicUsers();
    
-   $this->friendRequests = $this->networkuser->getNewFriendRequests();
+   $this->friendRequests = $this->sfGuardUser->getNewFriendRequests();
   }
     
   public function executeShowallfriends(sfWebRequest $request)
@@ -39,9 +41,9 @@ class friendActions extends sfActions
   public function executeShowfriend(sfWebRequest $request)
   {  
  	$this->friend = Doctrine_Core::getTable('NetworkUser')
- 		->getNetworkUserWithUser($this->network->getId(), $request->getParameter('user'));  	
-
- 	$this->user = $this->friend->getsfGuardUserObject();
+ 	 ->getNetworkUserWithUser($this->network->getId(), $request->getParameter('user'));  	
+    	
+ 	$this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($request->getParameter('user'));
 
  	$this->userprofile = $this->user->getSfGuardUserWithUserProfile();
  		

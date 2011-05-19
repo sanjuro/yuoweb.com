@@ -14,8 +14,8 @@
  * @property integer $state_id
  * @property ConnectionType $ConnectionType
  * @property ConnectionState $ConnectionState
- * @property NetworkUser $Owner
- * @property NetworkUser $Reciever
+ * @property sfGuardUser $Owner
+ * @property sfGuardUser $Reciever
  * @property ConnectionResponse $OwnerResponse
  * @property ConnectionResponse $RecieverResponse
  * 
@@ -28,8 +28,8 @@
  * @method integer            getStateId()           Returns the current record's "state_id" value
  * @method ConnectionType     getConnectionType()    Returns the current record's "ConnectionType" value
  * @method ConnectionState    getConnectionState()   Returns the current record's "ConnectionState" value
- * @method NetworkUser        getOwner()             Returns the current record's "Owner" value
- * @method NetworkUser        getReciever()          Returns the current record's "Reciever" value
+ * @method sfGuardUser        getOwner()             Returns the current record's "Owner" value
+ * @method sfGuardUser        getReciever()          Returns the current record's "Reciever" value
  * @method ConnectionResponse getOwnerResponse()     Returns the current record's "OwnerResponse" value
  * @method ConnectionResponse getRecieverResponse()  Returns the current record's "RecieverResponse" value
  * @method Connection         setId()                Sets the current record's "id" value
@@ -94,12 +94,12 @@ abstract class BaseConnection extends sfDoctrineRecord
              'local' => 'state_id',
              'foreign' => 'id'));
 
-        $this->hasOne('NetworkUser as Owner', array(
+        $this->hasOne('sfGuardUser as Owner', array(
              'local' => 'owner_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('NetworkUser as Reciever', array(
+        $this->hasOne('sfGuardUser as Reciever', array(
              'local' => 'reciever_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

@@ -79,9 +79,9 @@ ALTER TABLE comment_report ADD CONSTRAINT comment_report_id_comment_comment_id F
 ALTER TABLE connection ADD CONSTRAINT connection_type_id_connection_type_id FOREIGN KEY (type_id) REFERENCES connection_type(id);
 ALTER TABLE connection ADD CONSTRAINT connection_state_id_connection_state_id FOREIGN KEY (state_id) REFERENCES connection_state(id);
 ALTER TABLE connection ADD CONSTRAINT connection_reciever_response_connection_response_id FOREIGN KEY (reciever_response) REFERENCES connection_response(id);
-ALTER TABLE connection ADD CONSTRAINT connection_reciever_id_network_user_id FOREIGN KEY (reciever_id) REFERENCES network_user(id) ON DELETE CASCADE;
+ALTER TABLE connection ADD CONSTRAINT connection_reciever_id_sf_guard_user_id FOREIGN KEY (reciever_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE connection ADD CONSTRAINT connection_owner_response_connection_response_id FOREIGN KEY (owner_response) REFERENCES connection_response(id);
-ALTER TABLE connection ADD CONSTRAINT connection_owner_id_network_user_id FOREIGN KEY (owner_id) REFERENCES network_user(id) ON DELETE CASCADE;
+ALTER TABLE connection ADD CONSTRAINT connection_owner_id_sf_guard_user_id FOREIGN KEY (owner_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE event_index ADD CONSTRAINT event_index_id_event_id FOREIGN KEY (id) REFERENCES event(id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE event ADD CONSTRAINT event_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);
 ALTER TABLE event ADD CONSTRAINT event_network_id_network_id FOREIGN KEY (network_id) REFERENCES network(id);

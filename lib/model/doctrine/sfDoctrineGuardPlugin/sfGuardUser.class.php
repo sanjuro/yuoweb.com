@@ -42,4 +42,90 @@ class sfGuardUser extends PluginsfGuardUser
 	  
 	return $q->fetchOne(); 	
  }
+ 
+  
+/**
+ * Function to return all the Friends for a network user
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All Friends
+ */ 
+  public function getAllFriendsForNetwork(Doctrine_Query $q = null)
+  {
+	  $q = $this->fetchAllFriendsForNetwork();
+ 	  
+      $friends = Doctrine_Core::getTable('Connection')->getFriends($q);
+     
+      $result = array();
+     
+      foreach ($friends['Owners'] as $key => $value ) {  
+	      if($key != $this->getId()){
+	      	$result[$key] = $value;
+	      }
+      }  
+      
+      foreach ($friends['Recievers'] as $key => $value ) {  
+	      if($key != $this->getId()){
+	      	$result[$key] = $value;
+	      }
+      } 
+    
+      return $result;
+    
+  }  
+  
+/**
+ * Function to return all new friend requests
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All new friend requests
+ */ 
+  public function getNewFriendRequests()
+  {
+	  $q = Doctrine_Query::create()
+         ->from('Connection c')
+         ->where('reciever_id = ?', $this->getId())
+         ->andWhere('type_id = ?', 1)
+         ->andWhere('reciever_response = ?', 2)
+         ->andWhere('state_id = ?', 2);
+		
+      return Doctrine_Core::getTable('Connection')->getOwners($q);
+  }
+  
+/**
+ * Function to return a count of all the Friends for a network user
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All Friends
+ */ 
+  public function getAllFriendsForNetworkCount(Doctrine_Query $q = null)
+  {
+	  $q = $this->fetchAllFriendsForNetwork();
+
+      return $q->count();
+  }  
+ 
+/**
+ * Function to return the base query for fetching all friends for a network user on
+ * a given network
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return Doctrine_Query
+ */ 
+  public function fetchAllFriendsForNetwork(Doctrine_Query $q = null)
+  {
+	  $q = Doctrine_Query::create()
+         ->from('Connection c')
+         ->where('c.owner_id = ?', $this->getId())
+         ->orWhere('c.reciever_id = ?', $this->getId())
+         ->orWhere('c.owner_response = ?', 1)
+         ->andWhere('c.reciever_response = ?', 1)
+         ->andWhere('c.state_id = ?', 1);
+
+      return $q;
+  } 
 }

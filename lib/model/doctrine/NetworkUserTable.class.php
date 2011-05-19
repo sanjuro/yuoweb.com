@@ -98,7 +98,7 @@ class NetworkUserTable extends Doctrine_Table
 	   ///$NetworkUser = $value;
 	   //}
 
-	   return $q->fetchOne();	 
+	   return $q->fetchOne();	
 	}
 	
 	public function getBackendNetworkUsersForClient(Doctrine_Query $q = null)
