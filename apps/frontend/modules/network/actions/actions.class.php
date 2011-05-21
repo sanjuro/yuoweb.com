@@ -98,12 +98,12 @@ class networkActions extends sfActions
   }  
   
  /**
-  * Executes signup action
+  * Executes the copy profile action
   *
   * @param sfRequest $request A request object
   */
   public function executeCopyprofile(sfWebRequest $request)
   {
-  
+
   }
 }

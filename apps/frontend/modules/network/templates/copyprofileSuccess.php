@@ -4,7 +4,8 @@
 
 <h3>Welcome</h3>
 <p>
- You just joined a new network <br>
+ You just joined the <br>
+ <b><?php echo $network->getTitle() ?></b> network <br>
  Your current profile was copied to this new 
  network
 </p>

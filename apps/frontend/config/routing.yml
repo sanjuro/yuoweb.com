@@ -46,7 +46,7 @@ network_copyprofile:
   url:   /Copy-Profile/
   class:   acNetworkObjectRoute
   options: { model: Network, type: object }
-  param:   { module: Network, action: copyprofile }
+  param:   { module: network, action: copyprofile }
   requirements:
      sf_method: [get, post]
      
