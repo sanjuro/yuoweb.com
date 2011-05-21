@@ -1,7 +1,7 @@
 secure:
   is_secure: false
 
-signin:
+signinSuccess:
   is_secure: false
 
 copyprofile:

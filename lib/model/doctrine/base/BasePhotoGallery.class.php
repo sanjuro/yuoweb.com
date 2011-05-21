@@ -9,6 +9,7 @@
  * @property string $title
  * @property integer $networkuser_id
  * @property integer $photo_count
+ * @property integer $is_private
  * @property NetworkUser $NetworkUser
  * @property Doctrine_Collection $PhotoLink
  * 
@@ -16,12 +17,14 @@
  * @method string              getTitle()          Returns the current record's "title" value
  * @method integer             getNetworkuserId()  Returns the current record's "networkuser_id" value
  * @method integer             getPhotoCount()     Returns the current record's "photo_count" value
+ * @method integer             getIsPrivate()      Returns the current record's "is_private" value
  * @method NetworkUser         getNetworkUser()    Returns the current record's "NetworkUser" value
  * @method Doctrine_Collection getPhotoLink()      Returns the current record's "PhotoLink" collection
  * @method PhotoGallery        setId()             Sets the current record's "id" value
  * @method PhotoGallery        setTitle()          Sets the current record's "title" value
  * @method PhotoGallery        setNetworkuserId()  Sets the current record's "networkuser_id" value
  * @method PhotoGallery        setPhotoCount()     Sets the current record's "photo_count" value
+ * @method PhotoGallery        setIsPrivate()      Sets the current record's "is_private" value
  * @method PhotoGallery        setNetworkUser()    Sets the current record's "NetworkUser" value
  * @method PhotoGallery        setPhotoLink()      Sets the current record's "PhotoLink" collection
  * 
@@ -50,6 +53,9 @@ abstract class BasePhotoGallery extends sfDoctrineRecord
         $this->hasColumn('photo_count', 'integer', null, array(
              'type' => 'integer',
              'default' => 0,
+             ));
+        $this->hasColumn('is_private', 'integer', null, array(
+             'type' => 'integer',
              ));
     }
 

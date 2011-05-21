@@ -9,9 +9,9 @@
  * @property string $subject
  * @property string $body
  * @property string $htmlbody
- * @property integer $networkuser_id
+ * @property integer $user_id
  * @property integer $network_id
- * @property NetworkUser $NetworkUser
+ * @property sfGuardUser $sfGuardUser
  * @property Network $Network
  * @property Doctrine_Collection $MessageReciever
  * 
@@ -19,18 +19,18 @@
  * @method string              getSubject()         Returns the current record's "subject" value
  * @method string              getBody()            Returns the current record's "body" value
  * @method string              getHtmlbody()        Returns the current record's "htmlbody" value
- * @method integer             getNetworkuserId()   Returns the current record's "networkuser_id" value
+ * @method integer             getUserId()          Returns the current record's "user_id" value
  * @method integer             getNetworkId()       Returns the current record's "network_id" value
- * @method NetworkUser         getNetworkUser()     Returns the current record's "NetworkUser" value
+ * @method sfGuardUser         getSfGuardUser()     Returns the current record's "sfGuardUser" value
  * @method Network             getNetwork()         Returns the current record's "Network" value
  * @method Doctrine_Collection getMessageReciever() Returns the current record's "MessageReciever" collection
  * @method Message             setId()              Sets the current record's "id" value
  * @method Message             setSubject()         Sets the current record's "subject" value
  * @method Message             setBody()            Sets the current record's "body" value
  * @method Message             setHtmlbody()        Sets the current record's "htmlbody" value
- * @method Message             setNetworkuserId()   Sets the current record's "networkuser_id" value
+ * @method Message             setUserId()          Sets the current record's "user_id" value
  * @method Message             setNetworkId()       Sets the current record's "network_id" value
- * @method Message             setNetworkUser()     Sets the current record's "NetworkUser" value
+ * @method Message             setSfGuardUser()     Sets the current record's "sfGuardUser" value
  * @method Message             setNetwork()         Sets the current record's "Network" value
  * @method Message             setMessageReciever() Sets the current record's "MessageReciever" collection
  * 
@@ -61,7 +61,7 @@ abstract class BaseMessage extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('networkuser_id', 'integer', null, array(
+        $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
              ));
         $this->hasColumn('network_id', 'integer', null, array(
@@ -72,8 +72,8 @@ abstract class BaseMessage extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('NetworkUser', array(
-             'local' => 'networkuser_id',
+        $this->hasOne('sfGuardUser', array(
+             'local' => 'user_id',
              'foreign' => 'id'));
 
         $this->hasOne('Network', array(

@@ -17,7 +17,7 @@ class FrontendFeedForm extends BaseFeedForm
   	parent::configure();
   	
     unset(
-      $this['networkuser_id'], $this['feedtype_id'],
+      $this['user_id'], $this['feedtype_id'],
       $this['htmlbody'], $this['id'],
       $this['created_at'], $this['updated_at']
     );
@@ -38,9 +38,7 @@ class FrontendFeedForm extends BaseFeedForm
       $values = $this->values;
     }
     
-	$NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($this->currentUser->getNetworkUserId());
-	
-	$values['networkuser_id'] = $NetworkUser->getId();
+	$values['user_id'] = $this->currentUser->getUserId();
     
     $values['feedtype_id'] = 1;
     

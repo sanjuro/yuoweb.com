@@ -196,12 +196,12 @@ Feed:
    Timestampable: ~ 
   columns:
     id:                     { type: integer, primary: true, autoincrement: true }
-    networkuser_id:         { type: integer }
+    user_id:                { type: integer }
     feedtype_id:            { type: integer }
     body:                   { type: string(160) }
     htmlbody:               { type: string(255) }  
   relations:
-    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
+    sfGuardUser:            { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id }
     FeedType:               { class: FeedType, local: feedtype_id, foreign: id }
     
 FeedType:
@@ -218,25 +218,23 @@ Message:
     subject:                { type: string(100) }
     body:                   { type: string(255) }
     htmlbody:               { type: string(255) }  
-    networkuser_id:         { type: integer }
+    user_id:                { type: integer }
     network_id:             { type: integer }
   relations:
-    NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }
+    sfGuardUser:      { local: user_id, foreign: id }
     Network:             { class: Network, local: network_id, foreign: id }
     
 MessageReciever:
   actAs: { Timestampable: ~ }
   columns:
-    id:           { type: integer, primary: true, autoincrement: true }
-    message_id:   { type: integer }
-    networkuser_id:      { type: integer } 
+    id:                  { type: integer, primary: true, autoincrement: true }
+    message_id:          { type: integer }
+    user_id:             { type: integer } 
     messagestatus_id:    { type: integer }
   relations:
-    NetworkUser:      { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
+    sfGuardUser:      { local: user_id, foreign: id }
     Message:          { class: Message, onDelete: CASCADE, local: message_id, foreign: id }
     MessageStatus:    { class: MessageStatus, local: messagestatus_id, foreign: id } 
-  options:
-    type: MyISAM
     
 MessageStatus:
   columns:
@@ -252,6 +250,7 @@ Photo:
     url:                    { type: string(100) }
     networkuser_id:         { type: integer }
     view_count:             { type: integer }
+    is_private:             { type: integer }
   relations:
     NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
     
@@ -283,6 +282,7 @@ PhotoGallery:
     title:                  { type: string(200) }
     networkuser_id:         { type: integer }
     photo_count:            { type: integer, default: 0 } 
+    is_private:             { type: integer }
   relations:
     NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }
     
@@ -322,6 +322,7 @@ Event:
     contact_no:             { type: string(200) }
     start_at:               { type: timestamp }
     end_at:                 { type: timestamp }
+    is_private:             { type: integer }
   relations:
     Network:             { class: Network, local: network_id, foreign: id  }
     NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }

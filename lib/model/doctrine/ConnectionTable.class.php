@@ -117,10 +117,12 @@ class ConnectionTable extends Doctrine_Table
 	  }	   
 	  
 	  $q->leftJoin('c.Reciever r')
-	    ->leftJoin('r.Feed f')
-	    ->leftJoin('r.sfGuardUser sgu')
-	  	->andWhere('c.type_id = ?', 1)  	
-	    ->orderBy('f.created_at DESC');
+	    ->leftJoin('c.Owner o')
+	    ->leftJoin('r.Feed fr')
+	    ->leftJoin('o.Feed fo')
+	  	->andWhere('c.type_id = ?', 1) 
+	  	->orderBy('fo.created_at DESC') 	
+	    ->orderBy('fr.created_at DESC');
  	    //echo '<pre>';print_r($q->fetchArray());exit;
  	   // echo '<pre>';print_r($q->getSqlQuery());exit;
      return $q; 
@@ -149,10 +151,10 @@ class ConnectionTable extends Doctrine_Table
 		
 	   $Owners = '';
 	 
-	   foreach ($q->fetchArray() as $value) { 
-	   	$Owners[$value['Owner']['user_id']] = Doctrine_Core::getTable('sfGuardUser')->getUser($value['Owner']['user_id']);
-	   	$Owners[$value['Owner']['user_id']]['networkuser_id'] = $value['reciever_id'];
-	   	$Owners[$value['Owner']['user_id']]['connection_id'] = $value['id'];
+	   foreach ($q->fetchArray() as $value) {
+	   	$Owners[$value['Owner']['id']] = $value['Owner'];
+	   	$Owners[$value['Owner']['id']]['networkuser_id'] = $value['reciever_id'];
+	   	$Owners[$value['Owner']['id']]['connection_id'] = $value['id'];
 	   }
 		
 	   return $Owners;

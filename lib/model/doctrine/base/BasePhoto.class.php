@@ -9,6 +9,7 @@
  * @property string $url
  * @property integer $networkuser_id
  * @property integer $view_count
+ * @property integer $is_private
  * @property NetworkUser $NetworkUser
  * @property Doctrine_Collection $PhotoLink
  * 
@@ -16,12 +17,14 @@
  * @method string              getUrl()            Returns the current record's "url" value
  * @method integer             getNetworkuserId()  Returns the current record's "networkuser_id" value
  * @method integer             getViewCount()      Returns the current record's "view_count" value
+ * @method integer             getIsPrivate()      Returns the current record's "is_private" value
  * @method NetworkUser         getNetworkUser()    Returns the current record's "NetworkUser" value
  * @method Doctrine_Collection getPhotoLink()      Returns the current record's "PhotoLink" collection
  * @method Photo               setId()             Sets the current record's "id" value
  * @method Photo               setUrl()            Sets the current record's "url" value
  * @method Photo               setNetworkuserId()  Sets the current record's "networkuser_id" value
  * @method Photo               setViewCount()      Sets the current record's "view_count" value
+ * @method Photo               setIsPrivate()      Sets the current record's "is_private" value
  * @method Photo               setNetworkUser()    Sets the current record's "NetworkUser" value
  * @method Photo               setPhotoLink()      Sets the current record's "PhotoLink" collection
  * 
@@ -48,6 +51,9 @@ abstract class BasePhoto extends sfDoctrineRecord
              'type' => 'integer',
              ));
         $this->hasColumn('view_count', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('is_private', 'integer', null, array(
              'type' => 'integer',
              ));
     }

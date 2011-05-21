@@ -32,13 +32,13 @@ class networkActions extends sfActions
  		$this->redirect('sf_guard_signin');
  	}
  	
-  	$sfGuardUser =$this->getUser()->getGuardUser();
+  	$sfGuardUser = $this->getUser()->getGuardUser();
   	
   	$this->notifications =  $this->network->getNewNotifications($sfGuardUser['last_login']);
    
   	$this->features = $this->network->getFeatures();
 	
-  	$this->newMessages = $this->networkuser->getNewMessages();
+  	$this->newMessages = $sfGuardUser->getNewMessages();
   	
 	$this->recentPhotos = $this->network->getRecentPhotos();
 	

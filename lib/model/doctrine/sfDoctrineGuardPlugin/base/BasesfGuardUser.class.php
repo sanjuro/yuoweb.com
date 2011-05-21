@@ -25,6 +25,9 @@
  * @property Doctrine_Collection $Connection
  * @property Doctrine_Collection $NetworkUser
  * @property Doctrine_Collection $UserProfile
+ * @property Doctrine_Collection $Feed
+ * @property Doctrine_Collection $Message
+ * @property Doctrine_Collection $MessageReciever
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -46,6 +49,9 @@
  * @method Doctrine_Collection   getConnection()            Returns the current record's "Connection" collection
  * @method Doctrine_Collection   getNetworkUser()           Returns the current record's "NetworkUser" collection
  * @method Doctrine_Collection   getUserProfile()           Returns the current record's "UserProfile" collection
+ * @method Doctrine_Collection   getFeed()                  Returns the current record's "Feed" collection
+ * @method Doctrine_Collection   getMessage()               Returns the current record's "Message" collection
+ * @method Doctrine_Collection   getMessageReciever()       Returns the current record's "MessageReciever" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -66,6 +72,9 @@
  * @method sfGuardUser           setConnection()            Sets the current record's "Connection" collection
  * @method sfGuardUser           setNetworkUser()           Sets the current record's "NetworkUser" collection
  * @method sfGuardUser           setUserProfile()           Sets the current record's "UserProfile" collection
+ * @method sfGuardUser           setFeed()                  Sets the current record's "Feed" collection
+ * @method sfGuardUser           setMessage()               Sets the current record's "Message" collection
+ * @method sfGuardUser           setMessageReciever()       Sets the current record's "MessageReciever" collection
  * 
  * @package    Yuoweb
  * @subpackage model
@@ -176,6 +185,18 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasMany('UserProfile', array(
              'local' => 'id',
              'foreign' => 'sfuser_id'));
+
+        $this->hasMany('Feed', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Message', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('MessageReciever', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

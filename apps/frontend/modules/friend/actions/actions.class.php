@@ -35,27 +35,24 @@ class friendActions extends sfActions
     
   public function executeShowallfriends(sfWebRequest $request)
   {
-   	$this->friends = $this->networkuser->getAllFriendsForNetwork();
+   	$this->friends = $this->sfGuardUser->getAllFriendsForNetwork();
   }
   
   public function executeShowfriend(sfWebRequest $request)
-  {  
- 	$this->friend = Doctrine_Core::getTable('NetworkUser')
- 	 ->getNetworkUserWithUser($this->network->getId(), $request->getParameter('user'));  	
-    	
- 	$this->user = Doctrine_Core::getTable('sfGuardUser')->findOneById($request->getParameter('user'));
+  {      	
+ 	$this->user = $this->getRoute()->getObject(); 
 
  	$this->userprofile = $this->user->getSfGuardUserWithUserProfile();
  		
- 	$this->photos = $this->friend->getPhotos();   
+ 	$this->photos = $this->networkuser->getPhotos();   
   }
   
   public function executeAddfriendrequest(sfWebRequest $request)
   {
-	$user = Doctrine_Core::getTable('NetworkUser')->findOneById($request->getParameter('user'));
+	$user = $this->getRoute()->getObject(); 
 		
   	$connection = new Connection();
-	$connection->setOwnerId($this->networkuser->getId());
+	$connection->setOwnerId($this->getUser()->getUserId());
 	$connection->setRecieverId($user->getId());
 	$connection->setTypeId(1);
 	$connection->setStateId(2);
@@ -77,7 +74,7 @@ class friendActions extends sfActions
 	
 	$this->getUser()->setFlash('notice', sprintf('Friend Request accepted.'));
 	
-	$this->redirect($this->generateUrl('friend_searchfriend', $this->network));
+	$this->redirect($this->generateUrl('networkuser_index', $this->network));
   }
   
   public function executeBlockfriend(sfWebRequest $request)
@@ -122,7 +119,7 @@ class friendActions extends sfActions
 	      	
 	      	$this->users = $this->network->getPublicUsers($values['search']);
 	      	
-	      	$this->friends = $this->networkuser->getAllFriendsForNetwork();  
+	      	$this->friends = $this->sfGuardUser->getAllFriendsForNetwork();  
 	      	//echo '<pre>';print_r($this->friends);exit;
 	     	$this->getUser()->setFlash('notice', sprintf('Search has completed.'));
 	      	

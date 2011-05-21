@@ -19,6 +19,7 @@ abstract class BasePhotoGalleryForm extends BaseFormDoctrine
       'title'          => new sfWidgetFormInputText(),
       'networkuser_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'add_empty' => true)),
       'photo_count'    => new sfWidgetFormInputText(),
+      'is_private'     => new sfWidgetFormInputText(),
       'created_at'     => new sfWidgetFormDateTime(),
       'updated_at'     => new sfWidgetFormDateTime(),
     ));
@@ -28,6 +29,7 @@ abstract class BasePhotoGalleryForm extends BaseFormDoctrine
       'title'          => new sfValidatorString(array('max_length' => 200, 'required' => false)),
       'networkuser_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'required' => false)),
       'photo_count'    => new sfValidatorInteger(array('required' => false)),
+      'is_private'     => new sfValidatorInteger(array('required' => false)),
       'created_at'     => new sfValidatorDateTime(),
       'updated_at'     => new sfValidatorDateTime(),
     ));

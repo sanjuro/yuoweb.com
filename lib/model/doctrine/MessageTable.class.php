@@ -51,8 +51,7 @@ class MessageTable extends Doctrine_Table
 	{
 	    $rootAlias = $q->getRootAlias();
 	 
-	    $q->leftJoin($rootAlias . '.NetworkUser nu')
-	    ->leftJoin('nu.sfGuardUser sgu');
+	    $q->leftJoin($rootAlias . '.nu.sfGuardUser sgu');
 	 
 	    return $q;
 	}

@@ -112,16 +112,26 @@ friend_showallfriends:
      sf_method: [get, post]
      
 friend_showfriend:
-  url:   /Show-Friend/
+  url:   /Show-Friend/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
   param:   { module: friend, action: showfriend }
+  requirements:
+     sf_method: [get]
      
 friend_addfriendrequest:
-  url:   /Friend-Request/
+  url:     /Friend-Request/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
   param:   { module: friend, action: addfriendrequest }
+  requirements:
+     sf_method: [get]
 
 friend_acceptfriendrequest:
-  url:   /Accept-Friend-Request/
+  url:     /Accept-Friend-Request/
   param:   { module: friend, action: acceptfriendrequest }
+  requirements:
+     sf_method: [get]
   
 friend_blockfriend:
   url:   /Friend-Block/

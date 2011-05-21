@@ -26,18 +26,37 @@
 
 	<?php if (count($connectionsWithFeeds) > 0) :?>
 		<?php foreach ( $connectionsWithFeeds as $friend ) : ?>
-		  <h3><?php echo 'Feeds for '.$friend['Reciever']['sfGuardUser']['username'] ?></h3>
-		  <p>		  
-		  <ul class="feed_list">
-		  <?php foreach ( $friend['Reciever']['Feed'] as $feed ) : ?>
-			<li>
-				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
-				<br>
-				<?php echo 'Posted at '.$feed['created_at'] ?>	
-			</li>		
-	      <?php endforeach; ?>
-	      </ul>
-	      </p>
+			<?php if ($friend['Reciever']['id'] != $sf_user->getUserId()) :?>
+			  <h3><?php echo 'Feeds for '.$friend['Reciever']['username'] ?></h3>
+			  <p>		  
+			  <ul class="feed_list">
+			  <?php foreach ( $friend['Reciever']['Feed'] as $feed ) : ?>
+				<li>
+					<span class="feedlist_body"><?php echo $feed['body'] ?></span>
+					<br>
+					<?php echo 'Posted at '.$feed['created_at'] ?>	
+				</li>		
+		      <?php endforeach; ?>
+		      </ul>
+		      </p>
+	    	<?php endif;?>  
+		<?php endforeach; ?>
+		
+		<?php foreach ( $connectionsWithFeeds as $friend ) : ?>
+			<?php if ($friend['Owner']['id'] != $sf_user->getUserId()) :?>
+			  <h3><?php echo 'Feeds for '.$friend['Owner']['username'] ?></h3>
+			  <p>		  
+			  <ul class="feed_list">
+			  <?php foreach ( $friend['Owner']['Feed'] as $feed ) : ?>
+				<li>
+					<span class="feedlist_body"><?php echo $feed['body'] ?></span>
+					<br>
+					<?php echo 'Posted at '.$feed['created_at'] ?>	
+				</li>		
+		      <?php endforeach; ?>
+		      </ul>
+		      </p>
+	       <?php endif;?>
 		<?php endforeach; ?>
 	</p>
 	<?php else : ?>

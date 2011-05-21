@@ -7,24 +7,24 @@
  * 
  * @property integer $id
  * @property integer $message_id
- * @property integer $networkuser_id
+ * @property integer $user_id
  * @property integer $messagestatus_id
- * @property NetworkUser $NetworkUser
+ * @property sfGuardUser $sfGuardUser
  * @property Message $Message
  * @property MessageStatus $MessageStatus
  * 
  * @method integer         getId()               Returns the current record's "id" value
  * @method integer         getMessageId()        Returns the current record's "message_id" value
- * @method integer         getNetworkuserId()    Returns the current record's "networkuser_id" value
+ * @method integer         getUserId()           Returns the current record's "user_id" value
  * @method integer         getMessagestatusId()  Returns the current record's "messagestatus_id" value
- * @method NetworkUser     getNetworkUser()      Returns the current record's "NetworkUser" value
+ * @method sfGuardUser     getSfGuardUser()      Returns the current record's "sfGuardUser" value
  * @method Message         getMessage()          Returns the current record's "Message" value
  * @method MessageStatus   getMessageStatus()    Returns the current record's "MessageStatus" value
  * @method MessageReciever setId()               Sets the current record's "id" value
  * @method MessageReciever setMessageId()        Sets the current record's "message_id" value
- * @method MessageReciever setNetworkuserId()    Sets the current record's "networkuser_id" value
+ * @method MessageReciever setUserId()           Sets the current record's "user_id" value
  * @method MessageReciever setMessagestatusId()  Sets the current record's "messagestatus_id" value
- * @method MessageReciever setNetworkUser()      Sets the current record's "NetworkUser" value
+ * @method MessageReciever setSfGuardUser()      Sets the current record's "sfGuardUser" value
  * @method MessageReciever setMessage()          Sets the current record's "Message" value
  * @method MessageReciever setMessageStatus()    Sets the current record's "MessageStatus" value
  * 
@@ -46,23 +46,20 @@ abstract class BaseMessageReciever extends sfDoctrineRecord
         $this->hasColumn('message_id', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('networkuser_id', 'integer', null, array(
+        $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
              ));
         $this->hasColumn('messagestatus_id', 'integer', null, array(
              'type' => 'integer',
              ));
-
-        $this->option('type', 'MyISAM');
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('NetworkUser', array(
-             'local' => 'networkuser_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
+        $this->hasOne('sfGuardUser', array(
+             'local' => 'user_id',
+             'foreign' => 'id'));
 
         $this->hasOne('Message', array(
              'local' => 'message_id',

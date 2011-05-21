@@ -15,6 +15,8 @@ class messageActions extends sfActions
  	$this->network = $this->getUser()->getNetworkFromSession($this->getUser()->getNetworkId()); 
 	 		
  	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
+ 	
+ 	$this->sfGuardUser = $this->getUser()->getGuardUser();
   }
   
  /**
@@ -24,12 +26,12 @@ class messageActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->messages = $this->networkuser->getMessages();
+    $this->messages = $this->sfGuardUser->getMessages();
   }
   
   public function executeShowinbox(sfWebRequest $request)
   {
-	$this->messages = $this->networkuser->getMessages();
+	$this->messages = $this->sfGuardUser->getMessages();
   }
   
   public function executeShowmessage(sfWebRequest $request)

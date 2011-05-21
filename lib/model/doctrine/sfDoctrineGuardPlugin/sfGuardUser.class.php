@@ -42,8 +42,39 @@ class sfGuardUser extends PluginsfGuardUser
 	  
 	return $q->fetchOne(); 	
  }
+   
+/**
+ * Function to return all the new messages for a user
+ *  
+ * @param q Doctrine_Query
+ * 
+ * @return array All new Messages
+ */ 
+  public function getNewMessages(Doctrine_Query $q = null)
+  {
+	  $q = Doctrine_Query::create()
+       ->from('MessageReciever mr')
+       ->where('mr.user_id = ?', $this->getId());
  
+      return Doctrine_Core::getTable('MessageReciever')->getNewMessages($q);
+  }
   
+/**
+ * Function to return all the messages for a network user
+ *  
+ * @param q Doctrine_Query
+ * 
+ * @return array All Messages
+ */ 
+  public function getMessages(Doctrine_Query $q = null)
+  {
+	  $q = Doctrine_Query::create()
+       ->from('MessageReciever mr')
+       ->where('mr.user_id = ?', $this->getId());
+ 
+      return Doctrine_Core::getTable('MessageReciever')->getMessages($q);
+  }
+ 
 /**
  * Function to return all the Friends for a network user
  *  
@@ -59,6 +90,8 @@ class sfGuardUser extends PluginsfGuardUser
      
       $result = array();
      
+      if(!empty($friends))
+      {
       foreach ($friends['Owners'] as $key => $value ) {  
 	      if($key != $this->getId()){
 	      	$result[$key] = $value;
@@ -70,6 +103,7 @@ class sfGuardUser extends PluginsfGuardUser
 	      	$result[$key] = $value;
 	      }
       } 
+      }
     
       return $result;
     
@@ -106,8 +140,44 @@ class sfGuardUser extends PluginsfGuardUser
 	  $q = $this->fetchAllFriendsForNetwork();
 
       return $q->count();
+  } 
+
+/**
+ * Function to return all the feeds for a user order by 
+ * created_at DESC - most recent first
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All feeds for network user
+ */ 
+  public function getFeeds()
+  {
+       $q = Doctrine_Query::create()
+	      ->from('Feed f')
+	      ->where('f.user_id = ?',  $this->getId())
+	      ->orderBy('f.created_at DESC');
+
+	   return $q->fetchArray();	
   }  
+  
  
+/**
+ * Function to return all the feeds for all friends of a user
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All feeds
+ */ 
+  public function getFeedsForFriends()
+  {
+	  $q = Doctrine_Query::create()
+         ->from('Connection c')
+         ->orWhere('c.owner_id = ?', $this->getId())
+         ->orWhere('c.reciever_id = ?', $this->getId());
+		
+      return Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
+  }
+  
 /**
  * Function to return the base query for fetching all friends for a network user on
  * a given network
@@ -122,7 +192,7 @@ class sfGuardUser extends PluginsfGuardUser
          ->from('Connection c')
          ->where('c.owner_id = ?', $this->getId())
          ->orWhere('c.reciever_id = ?', $this->getId())
-         ->orWhere('c.owner_response = ?', 1)
+         ->andWhere('c.owner_response = ?', 1)
          ->andWhere('c.reciever_response = ?', 1)
          ->andWhere('c.state_id = ?', 1);
 

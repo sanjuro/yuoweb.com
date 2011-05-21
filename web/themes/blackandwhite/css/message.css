@@ -1,5 +1,7 @@
-p {
-	font-size: 0.8em;
+.messageline {
+	font-size: 0.9em;
+	margin-left: 5px;
+	padding-bottom:5px;
 }
 ul#messagenavigation {
 	padding-left: 0px;
@@ -9,10 +11,24 @@ ul#messagenavigation li {
 	display: inline;
 	font-size: 14px;
 }
-.messageline {
+.messageline_subject {
+	font-size: 1.1em;
 	padding: 3px 5px;
 }
-.newmessage, .newmessage  a {
-	background-color: #FFF;
-	color: #000;
+.newmessage {
+	font-weight: bold;
+}
+.messageline_details {
+	font-size: 0.8em;
+	padding: 3px 5px;
+}
+.messageline_links {
+	font-size: 0.8em;
+	float: right;
+	padding: 3px 5px;
+}
+.message {
+	font-size: 0.9em;
+	margin-left: 5px;
+	padding-bottom:5px;		
 }

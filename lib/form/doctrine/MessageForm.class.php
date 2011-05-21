@@ -31,7 +31,7 @@ class MessageForm extends BaseMessageForm
       											    ));
       											    
     $this->validatorSchema['friend'] = new sfValidatorChoice(array(
-      'choices' => array_keys($this->getAllFriendsForNetworkUser($this->currentUser->getNetworkUserId())),
+      'choices' => array_keys($this->getAllFriendsForNetworkUser()),
     ));
 
   }
@@ -80,7 +80,7 @@ class MessageForm extends BaseMessageForm
 	{ 
 		$MessageReceiver = new MessageReciever();
 		$MessageReceiver->setMessageId($this->object->getId());
-		$MessageReceiver->setNetworkuserId($this->values['friend']);
+		$MessageReceiver->setUserId($this->values['friend']);
 		$MessageReceiver->setMessagestatusId(1);
 		$MessageReceiver->save();
 	}
@@ -89,15 +89,15 @@ class MessageForm extends BaseMessageForm
     parent::saveEmbeddedForms($con); 
   }
     
-  private function getAllFriendsForNetworkUser($NetworkUserID)
+  private function getAllFriendsForNetworkUser()
   {
-	  $NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($NetworkUserID);
+	  $User = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->currentUser->getUserId());
 	  
-	  $Friends = $NetworkUser->getAllFriendsForNetwork();
+	  $Friends = $User->getAllFriendsForNetwork();
  	 
 	  $FriendChoice = array();
  	  foreach ( $Friends as $Friend ) {
- 	  	$FriendChoice[$Friend['networkuser_id']] = ucwords($Friend['first_name'].' '.$Friend['last_name']);
+ 	  	$FriendChoice[$Friend['id']] = ucwords($Friend['first_name'].' '.$Friend['last_name']);
  	  }
  	  
       return $FriendChoice;

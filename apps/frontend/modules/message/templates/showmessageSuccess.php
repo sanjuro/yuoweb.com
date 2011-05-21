@@ -12,8 +12,8 @@
 <p class="message">
 		<b>From</b>
 		<br>
-		<?php $sfGuardUser = $message->getNetworkUser()->getsfGuardUser(); ?>
-		<?php echo $sfGuardUser[0]['username'] ?>
+		<?php $sfGuardUser = $message->getsfGuardUser(); ?>
+		<?php echo $sfGuardUser['username'] ?>
 		<span class="messageline">
 		<?php echo link_to('Reply Message', url_for('message_replymessage', $messagereciever) )?> 
 		</span>

@@ -15,6 +15,8 @@ class feedActions extends sfActions
  	$this->network = $this->getUser()->getNetworkFromSession($this->getUser()->getNetworkId()); 
 	 		
  	$this->networkuser = $this->network->getUser($this->getUser()->getUserid());
+ 	
+ 	$this->sfGuardUser = $this->getUser()->getGuardUser();
   }
   
  /**
@@ -24,9 +26,9 @@ class feedActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   { 
-    $this->feedsForUser = $this->networkuser->getFeeds();
+    $this->feedsForUser = $this->sfGuardUser->getFeeds();
   
-    $this->connectionsWithFeeds = $this->networkuser->getFeedsForFriends()->fetchArray();
+    $this->connectionsWithFeeds = $this->sfGuardUser->getFeedsForFriends()->fetchArray();
     
     $this->form = new FrontendFeedForm(  null, array( 'currentUser' => $this->getUser())  );
   }

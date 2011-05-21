@@ -23,73 +23,7 @@ class NetworkUser extends BaseNetworkUser
 
     return (string) $sfGuardUser[0]['username'];
   }	
- 
-/**
- * Function to return all the new messages for a network user
- *  
- * @param q Doctrine_Query
- * 
- * @return array All new Messages
- */ 
-  public function getNewMessages(Doctrine_Query $q = null)
-  {
-	  $q = Doctrine_Query::create()
-       ->from('MessageReciever mr')
-       ->where('mr.networkuser_id = ?', $this->getId());
- 
-      return Doctrine_Core::getTable('MessageReciever')->getNewMessages($q);
-  }
-  
-/**
- * Function to return all the messages for a network user
- *  
- * @param q Doctrine_Query
- * 
- * @return array All Messages
- */ 
-  public function getMessages(Doctrine_Query $q = null)
-  {
-	  $q = Doctrine_Query::create()
-       ->from('MessageReciever mr')
-       ->where('mr.networkuser_id = ?', $this->getId());
- 
-      return Doctrine_Core::getTable('MessageReciever')->getMessages($q);
-  }
-    
-/**
- * Function to return all the feeds for all friends of a network user
- *  
- * @param Doctrine_Query $q Doctrine_Query
- * 
- * @return array All feeds
- */ 
-  public function getFeedsForFriends()
-  {
-	  $q = Doctrine_Query::create()
-         ->from('Connection c')
-         ->where('c.owner_id = ?', $this->getId());
-		
-      return Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
-  }
-  
-/**
- * Function to return all the feeds for a network user order by 
- * created_at DESC - most recent first
- *  
- * @param Doctrine_Query $q Doctrine_Query
- * 
- * @return array All feeds for network user
- */ 
-  public function getFeeds()
-  {
-       $q = Doctrine_Query::create()
-	      ->from('Feed f')
-	      ->where('f.networkuser_id = ?',  $this->getId())
-	      ->orderBy('f.created_at DESC');
-
-	   return $q->fetchArray();	
-  }  
-    
+     
 
 /**
  * Function to return all photos for a network user
