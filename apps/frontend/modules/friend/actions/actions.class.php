@@ -60,7 +60,7 @@ class friendActions extends sfActions
 	
 	$this->getUser()->setFlash('notice', sprintf('Friend Request sent.'));
 	
-	$this->redirect($this->generateUrl('friend_searchfriend', $this->network));
+	$this->redirect($this->generateUrl('networkuser_index', $this->network));
   }
   
   public function executeAcceptfriendrequest(sfWebRequest $request)
