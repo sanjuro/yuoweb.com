@@ -177,7 +177,7 @@ UserProfile:
     sfuser_id:        { type: integer }
     mobile_no:        { type: string(255) }
     description:      { type: string(255) }
-    profile_pic:      { type: string(255) }
+    profile_pic:      { type: string(255), default: default_profile_pic.gif }
     gender_id:        { type: integer }
     city:             { type: string(255) }
     country:          { type: string(255) }

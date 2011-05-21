@@ -68,6 +68,7 @@ abstract class BaseUserProfile extends sfDoctrineRecord
              ));
         $this->hasColumn('profile_pic', 'string', 255, array(
              'type' => 'string',
+             'default' => 'default_profile_pic.gif',
              'length' => 255,
              ));
         $this->hasColumn('gender_id', 'integer', null, array(

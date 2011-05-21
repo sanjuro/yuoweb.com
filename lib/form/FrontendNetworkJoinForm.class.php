@@ -36,16 +36,14 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
 	/////////////////////////////////////////////////////////////////////
 	/// Embed UserProfile Form
 	///////////////////////////////////////////////////////////////////// 
+	
 	if(!$this->isNew()) 	
 	{
 		$userProfileObjs = $this->getObject()->getUserProfile()->execute(); 
 	}else{
 		$userProfileObjs = array();
-	}
-	
-	if (count($userProfileObjs) < 1){
-	      $userProfileObj = new UserProfile();  
-	      $userProfileObjs[] = $userProfileObj;
+	    $userProfileObj = new UserProfile();  
+	    $userProfileObjs[] = $userProfileObj;
 	}
 	
 	$userProfilesForm = new sfForm();
@@ -76,8 +74,7 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
   
     foreach($taintedValues['userProfiles'] as $key => $new_occurrence)
     {
-      $userProfileObj = new UserProfile();
-      $userProfileObj->setsfGuardUser($this->getObject());  
+      $userProfileObj = new UserProfile();      
       $userProfileObj_form = new FrontendUserProfileForm($userProfileObj);
 	
       $userProfilesForm->embedForm( $key, $userProfileObj_form );
@@ -89,6 +86,40 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     parent::bind($taintedValues, $taintedFiles);
   }
   
+  /**
+   * Saves embedded form objects.
+   *
+   * @param mixed $con   An optional connection object
+   * @param array $forms An array of forms
+   */
+  public function saveEmbeddedForms($con = null, $forms = null)
+  {
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+ 
+    if (null === $forms)
+    {
+      $forms = $this->embeddedForms;
+    }
+    
+    foreach ($forms as $form)
+    {
+      if ($form instanceof sfFormObject)
+      {
+        $form->saveEmbeddedForms($con);
+        $form->getObject()->setSfGuardUser($this->object);
+        $form->getObject()->save($con);
+      }
+      else
+      {
+        $this->saveEmbeddedForms($con, $form->getEmbeddedForms());
+      }
+    }
+  }
+
+    
   protected function doSave($con = null)
   { 
     if (is_null($con))
@@ -96,6 +127,8 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
       $con = $this->getConnection();
     }
     
+    $this->values['first_name'] = $this->values['username'];
+     
     if ($this->sfGuardUser && $this->sfGuardUser->getId())  
     {	   
 	    $this->object = $this->sfGuardUser;
@@ -107,19 +140,19 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
 
     }else {
    	 	$this->updateObject();
-	
-    	$this->object->save($con);      
-
+	  
+    	$this->object->save($con); 
+    	    	
 	    $NetworkUser = new NetworkUser();
 	    $NetworkUser->setUserId($this->object->getId());
 	    $NetworkUser->setNetworkId($this->network->getId());
 	    $NetworkUser->save();
 	    
-    	// embedded forms
-   	 	parent::saveEmbeddedForms($con); 
     }
 
-
+    // embedded forms
+   	$this->saveEmbeddedForms($con); 
+   	
   }
   
   public function sfGuardUser_callback($validator, $values)
