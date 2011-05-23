@@ -172,6 +172,7 @@ class sfGuardUser extends PluginsfGuardUser
   {
 	  $q = Doctrine_Query::create()
          ->from('Connection c')
+         ->where('c.state_id = ?', 1)
          ->orWhere('c.owner_id = ?', $this->getId())
          ->orWhere('c.reciever_id = ?', $this->getId());
 		
