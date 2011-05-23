@@ -172,9 +172,8 @@ class sfGuardUser extends PluginsfGuardUser
   {
 	  $q = Doctrine_Query::create()
          ->from('Connection c')
-         ->where('c.state_id = ?', 1)
-         ->orWhere('c.owner_id = ?', $this->getId())
-         ->orWhere('c.reciever_id = ?', $this->getId());
+         ->where('c.owner_id = ? OR c.reciever_id = ?', array($this->getId(),$this->getId()))
+         ->andWhere('c.state_id = ?', 1);
 		
       return Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
   }
