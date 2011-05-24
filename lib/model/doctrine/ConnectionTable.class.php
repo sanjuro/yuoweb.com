@@ -79,8 +79,6 @@ class ConnectionTable extends Doctrine_Table
    }    
    
 	/**
-	 * Function to return all the connections with their activity feed
-	 * 
 	 * This function uses the connection to find all 
 	 * receivers, it then uses this to find all the feeds per reciever
 	 * if they are a friend

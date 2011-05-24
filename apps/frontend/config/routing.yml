@@ -146,6 +146,22 @@ friend_searchfriend:
   param:   { module: friend, action: searchfriend }
   requirements:
      sf_method: [get, post]
+
+friend_followfriend:
+  url:   /Follow-Friend/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: friend, action: follow }
+  requirements:
+     sf_method: [get, post]
+
+friend_unfollowfriend:
+  url:   /UnFollow-Friend/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: friend, action: unfollow }
+  requirements:
+     sf_method: [get, post]
      
 #messages
 message_index:

@@ -16,6 +16,8 @@ CREATE TABLE event_type (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, 
 CREATE TABLE feature (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, description TEXT NOT NULL, url VARCHAR(100) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE feed (id BIGINT AUTO_INCREMENT, user_id BIGINT, feedtype_id BIGINT, body VARCHAR(160), htmlbody VARCHAR(255), created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), INDEX feedtype_id_idx (feedtype_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE feed_type (id BIGINT AUTO_INCREMENT, title VARCHAR(160), created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE follow_index (keyword VARCHAR(200), field VARCHAR(50), position BIGINT, id BIGINT, PRIMARY KEY(keyword, field, position, id)) ENGINE = INNODB;
+CREATE TABLE follow (id BIGINT AUTO_INCREMENT, follower_id BIGINT, following_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX follower_id_idx (follower_id), INDEX following_id_idx (following_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE gender (id BIGINT AUTO_INCREMENT, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE headspace_comment_index (keyword VARCHAR(200), field VARCHAR(50), position BIGINT, id BIGINT, PRIMARY KEY(keyword, field, position, id)) ENGINE = INNODB;
 CREATE TABLE headspace_comment (id BIGINT AUTO_INCREMENT, post_id BIGINT, network_id BIGINT, networkuser_id BIGINT, body VARCHAR(255), html_body VARCHAR(255), status BIGINT DEFAULT 1, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX post_id_idx (post_id), INDEX network_id_idx (network_id), INDEX networkuser_id_idx (networkuser_id), PRIMARY KEY(id)) ENGINE = INNODB;
@@ -89,6 +91,9 @@ ALTER TABLE event_invite ADD CONSTRAINT event_invite_networkuser_id_network_user
 ALTER TABLE event_invite ADD CONSTRAINT event_invite_event_id_event_id FOREIGN KEY (event_id) REFERENCES event(id);
 ALTER TABLE feed ADD CONSTRAINT feed_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE feed ADD CONSTRAINT feed_feedtype_id_feed_type_id FOREIGN KEY (feedtype_id) REFERENCES feed_type(id);
+ALTER TABLE follow_index ADD CONSTRAINT follow_index_id_follow_id FOREIGN KEY (id) REFERENCES follow(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE follow ADD CONSTRAINT follow_following_id_sf_guard_user_id FOREIGN KEY (following_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
+ALTER TABLE follow ADD CONSTRAINT follow_follower_id_sf_guard_user_id FOREIGN KEY (follower_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE headspace_comment_index ADD CONSTRAINT headspace_comment_index_id_headspace_comment_id FOREIGN KEY (id) REFERENCES headspace_comment(id) ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE headspace_comment ADD CONSTRAINT headspace_comment_post_id_headspace_post_id FOREIGN KEY (post_id) REFERENCES headspace_post(id);
 ALTER TABLE headspace_comment ADD CONSTRAINT headspace_comment_networkuser_id_network_user_id FOREIGN KEY (networkuser_id) REFERENCES network_user(id);

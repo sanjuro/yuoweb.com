@@ -1,3 +1,5 @@
 ConnectionType:
   conectiontype_friend:
    title:    friend
+  conectiontype_follow:
+   title:    follow

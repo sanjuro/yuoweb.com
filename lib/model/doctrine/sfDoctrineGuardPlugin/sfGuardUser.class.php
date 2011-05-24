@@ -171,11 +171,10 @@ class sfGuardUser extends PluginsfGuardUser
   public function getFeedsForFriends()
   {
 	  $q = Doctrine_Query::create()
-         ->from('Connection c')
-         ->where('c.owner_id = ? OR c.reciever_id = ?', array($this->getId(),$this->getId()))
-         ->andWhere('c.state_id = ?', 1);
+         ->from('Follow f')
+         ->where('f.follower_id = ?', $this->getId());
 		
-      return Doctrine_Core::getTable('Connection')->getFriendsWithFeeds($q);     
+      return Doctrine_Core::getTable('Follow')->getFriendsWithFeedsWithLimit($q, 8);     
   }
   
 /**

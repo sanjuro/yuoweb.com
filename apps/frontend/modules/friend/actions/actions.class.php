@@ -77,6 +77,47 @@ class friendActions extends sfActions
 	$this->redirect($this->generateUrl('networkuser_index', $this->network));
   }
   
+ /**
+  * Executes follow action that follows a friend
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeFollow(sfWebRequest $request)
+  {
+  	$user = $this->getRoute()->getObject(); 
+  	
+  	$follow = new Follow();
+  	$follow->setFollowerId($this->getUser()->getUserid());
+  	$follow->setFollowingId($user->getId());
+	$follow->save();
+	
+	$this->getUser()->setFlash('notice', sprintf('Following '.$user->getUsername()));
+	
+	$this->redirect($this->generateUrl('networkuser_index', $this->network));
+  }
+  
+ /**
+  * Executes follow action that follows a friend
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeUnfollow(sfWebRequest $request)
+  {
+  	$user = $this->getRoute()->getObject(); 
+  	
+	$q = Doctrine_Query::create()
+		->where('f.follower_id = ?', $this->getUser()->getUserid())
+		->andWhere('f.following_id = ?', $user->geId())
+        ->from('Follow f');
+        
+    $follow = $q->fetchOne();
+    $follow->delete();
+	
+	$this->getUser()->setFlash('notice', sprintf('Not Following '.$user->getUsername()));
+	
+	$this->redirect($this->generateUrl('networkuser_index', $this->network));
+  }
+  
   public function executeBlockfriend(sfWebRequest $request)
   {
 	$user = Doctrine_Core::getTable('NetworkUser')->findOneById($request->getParameter('user'));

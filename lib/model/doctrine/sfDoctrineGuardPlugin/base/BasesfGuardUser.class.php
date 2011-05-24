@@ -23,6 +23,7 @@
  * @property sfGuardForgotPassword $ForgotPassword
  * @property Doctrine_Collection $Client
  * @property Doctrine_Collection $Connection
+ * @property Doctrine_Collection $Follow
  * @property Doctrine_Collection $NetworkUser
  * @property Doctrine_Collection $UserProfile
  * @property Doctrine_Collection $Feed
@@ -47,6 +48,7 @@
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
  * @method Doctrine_Collection   getClient()                Returns the current record's "Client" collection
  * @method Doctrine_Collection   getConnection()            Returns the current record's "Connection" collection
+ * @method Doctrine_Collection   getFollow()                Returns the current record's "Follow" collection
  * @method Doctrine_Collection   getNetworkUser()           Returns the current record's "NetworkUser" collection
  * @method Doctrine_Collection   getUserProfile()           Returns the current record's "UserProfile" collection
  * @method Doctrine_Collection   getFeed()                  Returns the current record's "Feed" collection
@@ -70,6 +72,7 @@
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setClient()                Sets the current record's "Client" collection
  * @method sfGuardUser           setConnection()            Sets the current record's "Connection" collection
+ * @method sfGuardUser           setFollow()                Sets the current record's "Follow" collection
  * @method sfGuardUser           setNetworkUser()           Sets the current record's "NetworkUser" collection
  * @method sfGuardUser           setUserProfile()           Sets the current record's "UserProfile" collection
  * @method sfGuardUser           setFeed()                  Sets the current record's "Feed" collection
@@ -177,6 +180,10 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasMany('Connection', array(
              'local' => 'id',
              'foreign' => 'owner_id'));
+
+        $this->hasMany('Follow', array(
+             'local' => 'id',
+             'foreign' => 'follower_id'));
 
         $this->hasMany('NetworkUser', array(
              'local' => 'id',

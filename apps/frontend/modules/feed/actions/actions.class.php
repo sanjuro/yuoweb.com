@@ -28,7 +28,7 @@ class feedActions extends sfActions
   { 
     $this->feedsForUser = $this->sfGuardUser->getFeeds();
   
-    $this->connectionsWithFeeds = $this->sfGuardUser->getFeedsForFriends()->fetchArray();
+    $this->followingsWithFeeds = $this->sfGuardUser->getFeedsForFriends()->fetchArray();
     
     $this->form = new FrontendFeedForm(  null, array( 'currentUser' => $this->getUser())  );
   }

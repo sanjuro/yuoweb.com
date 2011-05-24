@@ -75,6 +75,19 @@ Feature:
     description:   { type: string(400), notnull: true }
     url:           { type: string(100), notnull: true }
     
+Follow:
+  actAs: 
+    Timestampable: ~
+    Searchable:
+       fields: [follower_id, following_id] 
+  columns:
+    id:                  { type: integer, primary: true, autoincrement: true }
+    follower_id:         { type: integer }
+    following_id:        { type: integer }
+  relations:
+    Follower:           { class: sfGuardUser, onDelete: CASCADE, local: follower_id, foreign: id }
+    Following:          { class: sfGuardUser, onDelete: CASCADE, local: following_id, foreign: id }
+    
 Network:
   actAs: 
     Timestampable: ~
