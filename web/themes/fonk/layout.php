@@ -17,9 +17,13 @@
     <div id="header">
     	<div id="logo">
     	</div>
-    	<div id="navigation">
-			  <?php include_component_slot('navigation') ?>
+    	
+    	<div id="network_description">
+    		<?php include_component_slot('description') ?>
     	</div>
+    	
+		<?php include_component_slot('navigation') ?>
+		
     </div>
     <div id="main">
     

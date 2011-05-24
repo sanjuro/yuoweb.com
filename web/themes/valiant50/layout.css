@@ -50,6 +50,10 @@ a img {
     background: url("/themes/valiant50/images/logo.jpg") no-repeat;
     height: 50px;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #main {
 }
 

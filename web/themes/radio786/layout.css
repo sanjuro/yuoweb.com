@@ -46,6 +46,10 @@ a img {
 #header {
 
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #logo {
     background: url("/themes/radio786/images/logo.jpg") no-repeat;
     height: 50px;

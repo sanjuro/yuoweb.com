@@ -51,6 +51,10 @@ a img {
     background: #000 url("/themes/urbanscapes/images/logo.jpg") no-repeat;
     height: 90px;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #main {
 }
 

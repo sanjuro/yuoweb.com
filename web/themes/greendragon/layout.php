@@ -19,9 +19,12 @@
 		  <?php if (!include_slot('pagetitle')): ?>
 	    	yUoweb - you are the network
 		  <?php endif; ?>
-    	<div id="navigation">
-			  <?php include_component_slot('navigation') ?>
+    	
+    	<div id="network_description">
+    		<?php include_component_slot('description') ?>
     	</div>
+    	
+		<?php include_component_slot('navigation') ?>
     </div>
     <div id="main">
     

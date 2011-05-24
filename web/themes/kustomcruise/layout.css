@@ -43,13 +43,17 @@ a:hover{
 a img {
 	border: none;
 }
-#header {
+header {
 
 }
 #logo {
     background: url("/themes/kustomcruise/images/logo.png") no-repeat;
     height: 50px;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #main {
 }
 

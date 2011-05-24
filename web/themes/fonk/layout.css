@@ -48,6 +48,10 @@ a img {
     background: url("/themes/fonk/images/logo.png") no-repeat;
     height: 50px;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #main {
 	padding: 5px;
 }

@@ -20,6 +20,7 @@ default:
   layout:         layout
   
   components:
+    description: [description, default]
     navigation:  [navigation, default]
     advert1:     [advert, default]
     advert2:     [advert, default]

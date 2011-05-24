@@ -48,6 +48,10 @@ a:hover{
     background: url("/themes/fbsurf/images/logo.gif") no-repeat;
     height: 50px;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 a img {
 	border: none;
 }

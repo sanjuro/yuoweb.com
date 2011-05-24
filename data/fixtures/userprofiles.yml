@@ -2,7 +2,7 @@ UserProfile:
  userprofile_raymond:
      mobile_no:   0833098314
      description: Loves small bunnies
-     profile_pic: salie.png
+     profile_pic: default_profile_pic.gif
      gender_id:   1
      city:        Cape Town
      country:     South Africa
@@ -10,7 +10,7 @@ UserProfile:
  userprofile_craigd:
      mobile_no:   0833098314
      description: Loves Pontiacs and any Large American V8
-     profile_pic: salie.png
+     profile_pic: default_profile_pic.gif
      gender_id:   1
      city:        Cape Town
      country:     South Africa 
@@ -18,8 +18,24 @@ UserProfile:
  userprofile_sanjuro:
      mobile_no:   0833098314
      description: Loves Pontiacs and any Large American V8
-     profile_pic: salie.png
+     profile_pic: default_profile_pic.gif
      gender_id:   1
      city:        Cape Town
      country:     South Africa 
      sfGuardUser: user_sanjuro
+ userprofile_durrie:
+     mobile_no:   0833098314
+     description: Loves Pontiacs and any Large American V8
+     profile_pic: default_profile_pic.gif
+     gender_id:   1
+     city:        Cape Town
+     country:     South Africa 
+     sfGuardUser: user_durrie
+ userprofile_faizelph:
+     mobile_no:   0833098314
+     description: Loves Pontiacs and any Large American V8
+     profile_pic: default_profile_pic.gif
+     gender_id:   1
+     city:        Cape Town
+     country:     South Africa 
+     sfGuardUser: user_faizel

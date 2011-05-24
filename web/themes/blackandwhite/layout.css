@@ -54,7 +54,10 @@ a img {
 #navigation {
   padding: 0px 3px;
 }
-
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #footer {
 	height: 100px;
 	padding: 5px 5px 20px 5px;

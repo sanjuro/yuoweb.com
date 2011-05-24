@@ -47,6 +47,10 @@ a img {
 #header {
 
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #logo {
     background: #363943 url("/themes/skank/images/logo.png") no-repeat;
     height: 90px;

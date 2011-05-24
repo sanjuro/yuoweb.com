@@ -16,6 +16,8 @@ homepage:
 frontpage_homepage:
   url:     /Homepage/
   param:   { module: frontpage, action: homepage }
+  requirements:
+     sf_method: [get, post]
   
 frontpage_signup:
   url:     /Sign-Up/

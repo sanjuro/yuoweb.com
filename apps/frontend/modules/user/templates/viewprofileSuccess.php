@@ -1,7 +1,6 @@
 <?php slot( 'title', $network->getTitle() )?>
 <?php slot( 'pagetitle', '<h1>Viewing Profile for:'.$user->getUsername() .'</h1>' )?>
 
-<div id="main">
 	<h3>Profile: <?php echo $user->getUsername() ?></h3>
 		<p>
 	<form action="<?php echo url_for('user_viewprofile', $user)?>" method="post" >
@@ -86,4 +85,3 @@
 	
 	<input type="submit" value="Save your changes" />
  	</form>
-</div>

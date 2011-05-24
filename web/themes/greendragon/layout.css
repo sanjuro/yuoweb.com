@@ -50,6 +50,10 @@ a img {
 #main h3 a {
 	color: #FFF;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #navigation {
   padding: 0px 3px;
 }

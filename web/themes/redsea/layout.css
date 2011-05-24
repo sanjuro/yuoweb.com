@@ -44,6 +44,10 @@ h5 {
 	color: #FFF;
 	text-decoration: none;
 }
+#network_description {
+	font-size: 0.9em;
+	padding-top:3px;
+	}
 #navigation {
   padding: 0px 3px;
 }

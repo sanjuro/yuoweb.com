@@ -21,9 +21,12 @@
 		    yUoweb - you are the network
 		  <?php endif; ?>
     	</div>
-    	<div id="navigation">
-			  <?php include_component_slot('navigation') ?>
+    	
+    	<div id="network_description">
+    		<?php include_component_slot('description') ?>
     	</div>
+    	
+		<?php include_component_slot('navigation') ?>
     </div>
     <div id="main">
     

@@ -10,23 +10,7 @@
  */
 class BaseCommentActions extends sfActions
 {
-  public function executeReporting(sfWebRequest $request)
-  {
-    $this->form = new CommentReportForm(null, array(
-                                'id_comment'  => $request->getParameter('id'),
-                                'referer'     => $request->getReferer()."#".$request->getParameter('num')
-    ));
-    
-    if($request->isMethod('post'))
-    {
-      $this->form->bind($request->getParameter($this->form->getName()));
-      if ($this->form->isValid())
-      {
-        $this->form->save();
-        $this->redirect("@comment_reported");
-      }
-    }
-  }
+
 
   public function executeReported(sfWebRequest $request)
   {
