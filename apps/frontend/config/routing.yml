@@ -113,6 +113,14 @@ friend_showallfriends:
   requirements:
      sf_method: [get, post]
      
+friend_showall:
+  url:   /Show-Friends/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: friend, action: showall }
+  requirements:
+     sf_method: [get, post]
+     
 friend_showfriend:
   url:   /Show-Friend/:username
   class:   sfDoctrineRoute

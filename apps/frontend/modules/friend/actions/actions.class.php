@@ -43,6 +43,8 @@ class friendActions extends sfActions
  	$this->user = $this->getRoute()->getObject(); 
 
  	$this->userprofile = $this->user->getSfGuardUserWithUserProfile();
+ 	
+ 	$this->friendcount = $this->user->getAllFriendsForNetworkCount();
  		
  	$this->photos = $this->networkuser->getPhotos();   
   }
@@ -139,6 +141,19 @@ class friendActions extends sfActions
 	$this->getUser()->setFlash('notice', sprintf('Friend blocked.'));
 	
 	$this->redirect($this->generateUrl('friend_searchfriend', $this->network));
+  }
+  
+ /**
+  * Executes show all friends action
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeShowall(sfWebRequest $request)
+  {
+  	$this->user = $this->getRoute()->getObject(); 
+  	
+  	$this->friends = $this->user->getAllFriendsForNetwork();
+
   }
 	
   public function executeSearchfriend(sfWebRequest $request)

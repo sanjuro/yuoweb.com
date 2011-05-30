@@ -1,8 +1,6 @@
 <?php slot( 'title', $network->getTitle() )?>
 <?php slot( 'pagetitle', '<h1>Viewing Profile for:'.$user->getUsername() .'</h1>' )?>
-
-	<h3>Profile: <?php echo $user->getUsername() ?></h3>
-		<p>
+	<p>
 	<form action="<?php echo url_for('user_viewprofile', $user)?>" method="post" >
 	
 	<?php echo $form['_csrf_token']?>
@@ -10,8 +8,11 @@
 	<?php echo $form['sfGuardUser']['updated_at'] ?>
 	<?php echo $form['sfGuardUser']['created_at'] ?>
 	
+
+	
+	<h3>Profile: <?php echo $user->getUsername() ?></h3>
+	
 	<fieldset>
-		  <legend>Profile for: <?php echo $user->getUsername() ?></legend>
 		  <table class="formtable"> 
 		 	 <tr>
 			      <th><?php echo $form['sfGuardUser']['first_name']->renderLabel() ?></th>
@@ -48,13 +49,6 @@
 	</fieldset>
 	</p>
 	
-	<h3>Profile: Your Pic</h3>
-	<p>
-		<?php echo $form['profile_pic']->renderLabel()   ?>
-		<?php echo $form['profile_pic']  ?>
-	</p>
-	<p>
-		<img src="http://<?php echo $_SERVER['SERVER_NAME'] ?><?php echo $sf_request->getRelativeUrlRoot() ?>/uploads/profilepics/270x270/<?php echo $userprofile->getProfilePic() ?>">	</p>	
 	<h3>Profile: Your Description</h3>
 	<p>
 		<?php echo $form['gender_id']->renderLabel()   ?>
