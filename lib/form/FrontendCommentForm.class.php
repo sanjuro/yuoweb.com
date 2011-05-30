@@ -30,8 +30,8 @@ class FrontendCommentForm extends PluginCommentCommonForm
     }
     $this->useFields($fields);
     
-    $this->widgetSchema['reply_author'] = new sfWidgetFormInputText(array(), array('readonly' => "readonly"));
-    $this->widgetSchema->setLabel('reply_author', __('Reply to', array(), 'vjComment'));
+    // $this->widgetSchema['reply_author'] = new sfWidgetFormInputText(array(), array('readonly' => "readonly"));
+    // $this->widgetSchema->setLabel('reply_author', __('Reply to', array(), 'vjComment'));
     $this->widgetSchema->setHelp('author_email', __('Your email will never be published', array(), 'vjComment'));
     $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
 

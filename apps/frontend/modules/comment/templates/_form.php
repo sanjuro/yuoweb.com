@@ -17,11 +17,7 @@
         <span class="help"><?php echo $f->renderHelp() ?></span>
       </td>
     </tr>
-    <?php if($id == "reply_author"): ?>
-    <tr id="tr_reply_author_delete">
-      <td colspan="2"><?php echo link_to_function(__("Delete the reply", array(), 'vjComment'), "deleteReply()", array('class' => 'delete_reply'))."\n" ?></td>
-    </tr>
-    <?php endif ?>
+ 
   <?php endif ?>
 <?php endforeach ?>
     <tr>

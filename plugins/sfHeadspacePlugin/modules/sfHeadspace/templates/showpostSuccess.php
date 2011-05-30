@@ -13,10 +13,11 @@
 		<?php echo $post->getBody()?>
 	</p>
 	
-	<p><?php $sfGuardUser = $post->getNetworkUser()->getsfGuardUser()->getRawValue();?>
-		<b>Author:</b> <?php echo $sfGuardUser[0]['username'] ?>
+	<p>
+		<?php $sfGuardUser = $post->getNetworkUser()->getsfGuardUser()->getRawValue();?>
+		<span class="headspace_author"><b></span>Author:</b> <?php echo $sfGuardUser[0]['username'] ?></span>
 		<br>
-		<b>Posted on:</b> <?php echo $post->getCreatedAt() ?>
+		<span class="headspace_createdat"><?php echo date('D', strtotime($post->getCreatedAt() ))?> at <?php echo date('H:m:s', strtotime($post->getCreatedAt())) ?></span>
 	</p>
 	
 	<p>
