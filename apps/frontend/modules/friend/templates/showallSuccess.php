@@ -2,7 +2,7 @@
 
 <?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Friends</h1>' )?>
 
-	<h3>Friends for <?php echo $user->getUsername() ?></h3>
+	<h3>Friends of <?php echo $user->getUsername() ?></h3>
 	<?php if($friends):?>
 		<p>
 		<?php foreach ($friends as $friend) : ?>

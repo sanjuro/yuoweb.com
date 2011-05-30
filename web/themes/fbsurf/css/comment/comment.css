@@ -1,54 +1,56 @@
-table.list-comments{
+.list-comments, .comment_list{
+ background-color:#ECEFF5;
  font-size: 0.8em;
  width: 100%;
 }
 
-table.list-comments td.author, table.list-comments td.report, table.list-comments td.infos{
+.list-comments td.author, .list-comments td.report, .list-comments td.infos{
   padding-top: 5px;
 }
 
-table.list-comments tr.first_line td{
+.list-comments tr.first_line td{
   border-top: none;
 }
 
-table.list-comments td.author span.author{
+.list-comments td.author span.author{
   font-weight: bold;
 }
 
-table.list-comments td.author span.author a{
+.list-comments td.author span.author a{
   color:#000000;
 }
 
-table.list-comments td.author span.date{
+.list-comments span.date{
+  color:#808080;
   font-size: smaller;
 }
 
-table.list-comments td.infos img{
+.list-comments td.infos img{
   border:0;
 }
 span.infos {
 float:right;
 	}
-table.list-comments td.infos{
+.list-comments td.infos{
   width:70px;
   text-align: right;
   vertical-align: top;
   margin-top:0;
 }
 
-table.list-comments td.infos a.ancre, table.list-comments tbody.deleted, table.list-comments tbody.deleted td.author span.author a{
+.list-comments td.infos a.ancre, .list-comments tbody.deleted, .list-comments tbody.deleted td.author span.author a{
   color:#aaaaaa;
 }
 
-table.list-comments td.body, table.list-comments td.infos{
+.list-comments td.body, .list-comments td.infos{
   padding-bottom: 10px;
 }
 
-table.list-comments td.body span.msg-deleted, table.list-comments td.author span.date, table.list-comments td.author span.author, table.list-comments td.body blockquote{
+.list-comments td.body span.msg-deleted, .list-comments td.author span.date, .list-comments td.author span.author, .list-comments td.body blockquote{
   font-style: italic;
 }
 
-table.list-comments td.body blockquote{
+.list-comments td.body blockquote{
   display:block;
   margin:5px 0 0 20px;
   border-left:3px solid #aaaaaa;
@@ -105,6 +107,13 @@ div.form-comment input.submit:hover{
   background-color:#aaaaaa;
   border-color: #000000;
 }
-tbody.comment {
-  border-top: #000 1px solid;	
+div.form-comment textarea {
+	height: 60px;
+}
+.comment_heading {
+	
+}
+.comment {
+  border-top: #FFF 1px solid;	
+  padding: 5px 0px;
 }

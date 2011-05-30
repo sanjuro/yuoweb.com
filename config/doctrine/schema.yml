@@ -166,15 +166,17 @@ Notification:
   actAs: 
     Timestampable: ~
     Searchable:
-       fields: [network_id, notificationtype_id] 
+       fields: [user_id, notificationtype_id] 
   columns:
     id:                  { type: integer, primary: true, autoincrement: true }
     network_id:          { type: integer }
-    networkuser_id:      { type: integer }
+    user_id:             { type: integer }
+    description:         { type: string(255) }
     notificationtype_id: { type: integer }
+    lasttime_read:       { type: timestamp, notnull: true }
   relations:
     Network:          { class: Network, onDelete: CASCADE, local: network_id, foreign: id }
-    NetworkUser:      { class: NetworkUser, onDelete: CASCADE, local: networkuser_id, foreign: id }
+    sfGuardUser:      { class: sfGuardUser, onDelete: CASCADE, local: user_id, foreign: id }
     NotificationType: { class: NotificationType, onDelete: CASCADE, local: notificationtype_id, foreign: id }
     
 NotificationType:

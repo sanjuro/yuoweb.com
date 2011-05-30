@@ -1,10 +1,10 @@
 .list-comments, .comment_list{
- background-color:#CCC;
+ background-color:#ECEFF5;
  font-size: 0.8em;
  width: 100%;
 }
 
-.list-comments td.author, table.list-comments td.report, table.list-comments td.infos{
+.list-comments td.author, .list-comments td.report, .list-comments td.infos{
   padding-top: 5px;
 }
 
@@ -20,8 +20,8 @@
   color:#000000;
 }
 
-.list-comments  span.date{
-  color: #808080;
+.list-comments span.date{
+  color:#808080;
   font-size: smaller;
 }
 
@@ -38,19 +38,19 @@ float:right;
   margin-top:0;
 }
 
-.list-comments td.infos a.ancre, table.list-comments tbody.deleted, table.list-comments tbody.deleted td.author span.author a{
+.list-comments td.infos a.ancre, .list-comments tbody.deleted, .list-comments tbody.deleted td.author span.author a{
   color:#aaaaaa;
 }
 
-.list-comments td.body, table.list-comments td.infos{
+.list-comments td.body, .list-comments td.infos{
   padding-bottom: 10px;
 }
 
-table.list-comments td.body span.msg-deleted, table.list-comments td.author span.date, table.list-comments td.author span.author, table.list-comments td.body blockquote{
+.list-comments td.body span.msg-deleted, .list-comments td.author span.date, .list-comments td.author span.author, .list-comments td.body blockquote{
   font-style: italic;
 }
 
-table.list-comments td.body blockquote{
+.list-comments td.body blockquote{
   display:block;
   margin:5px 0 0 20px;
   border-left:3px solid #aaaaaa;

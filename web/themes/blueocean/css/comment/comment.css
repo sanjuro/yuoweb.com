@@ -1,5 +1,5 @@
 .list-comments, .comment_list{
- background-color:#CCC;
+ background-color:#ECEFF5;
  font-size: 0.8em;
  width: 100%;
 }
@@ -20,8 +20,8 @@
   color:#000000;
 }
 
-.list-comments  span.date{
-  color:#AAA;
+.list-comments span.date{
+  color:#808080;
   font-size: smaller;
 }
 
@@ -46,11 +46,11 @@ float:right;
   padding-bottom: 10px;
 }
 
-table.list-comments td.body span.msg-deleted, table.list-comments td.author span.date, table.list-comments td.author span.author, table.list-comments td.body blockquote{
+.list-comments td.body span.msg-deleted, table.list-comments td.author span.date, table.list-comments td.author span.author, table.list-comments td.body blockquote{
   font-style: italic;
 }
 
-table.list-comments td.body blockquote{
+.list-comments td.body blockquote{
   display:block;
   margin:5px 0 0 20px;
   border-left:3px solid #aaaaaa;
