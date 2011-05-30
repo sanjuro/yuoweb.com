@@ -78,8 +78,7 @@ class userActions extends sfActions
   {
    $this->network = $this->getRoute()->getObject();
    
-   $this->users = $this->network->getUsers(); 
-   
+   $this->users = $this->network->getUsers();    
   }
   
   public function executeJoin(sfWebRequest $request)

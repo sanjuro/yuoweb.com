@@ -239,7 +239,12 @@ class Network extends BaseNetwork
  */
   public function getPhotos()
   {
-	  return Doctrine_Core::getTable('Photo')->getPhotosForNetworkUsers($this->getId());
+       $q = Doctrine_Query::create()
+	      ->from('Photo p')
+	      ->where('p.network_id = ?',  $this->getId())
+	      ->andWhere('p.is_private != ?', 1); 
+
+	   return $q->fetchArray();		  	     
   }
   
 /**
@@ -255,10 +260,10 @@ class Network extends BaseNetwork
   public function getRecentPhotos()
   {
 	  $q = Doctrine_Query::create()
-       ->from('NetworkUser nu')
-       ->where('nu.network_id = ?', $this->getId());
+       ->from('Photo p')
+       ->where('p.network_id = ?', $this->getId());
 	  
-	  $photos =  Doctrine_Core::getTable('Photo')->getPhotosForNetworkUsersWithLimit($q)->fetchArray();
+	  $photos =  Doctrine_Core::getTable('Photo')->getPhotosForNetworkWithLimit($q)->fetchArray();
 	  
 	  return (!empty($photos)?$photos:false);
   }

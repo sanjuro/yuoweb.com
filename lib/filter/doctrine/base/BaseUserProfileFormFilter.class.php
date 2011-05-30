@@ -21,6 +21,9 @@ abstract class BaseUserProfileFormFilter extends BaseFormFilterDoctrine
       'city'        => new sfWidgetFormFilterInput(),
       'country'     => new sfWidgetFormFilterInput(),
       'birthday'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'is_private'  => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'updated_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
@@ -32,6 +35,9 @@ abstract class BaseUserProfileFormFilter extends BaseFormFilterDoctrine
       'city'        => new sfValidatorPass(array('required' => false)),
       'country'     => new sfValidatorPass(array('required' => false)),
       'birthday'    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'is_private'  => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'created_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'updated_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
     $this->widgetSchema->setNameFormat('user_profile_filters[%s]');
@@ -60,6 +66,9 @@ abstract class BaseUserProfileFormFilter extends BaseFormFilterDoctrine
       'city'        => 'Text',
       'country'     => 'Text',
       'birthday'    => 'Date',
+      'is_private'  => 'Boolean',
+      'created_at'  => 'Date',
+      'updated_at'  => 'Date',
     );
   }
 }

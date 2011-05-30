@@ -76,14 +76,12 @@ class FrontendCommentForm extends PluginCommentCommonForm
 	   	 
 	$this->updateObjectEmbeddedForms($values);
 	
-	if($this->isNew()){
-	
+	if($this->isNew()){	
           $notification = new Notification();
 		  $notification->setNetworkId($NetworkUser->getNetworkId());
-		  $notification->setNetworkuserId($NetworkUser->getId());
+		  $notification->setUserId($NetworkUser->getUserId());
 		  $notification->setNotificationtypeId(5);
-		  $notification->save();
-		  
+		  $notification->save();		  
 	}
 		   	 
 	parent::updateObject($values);	

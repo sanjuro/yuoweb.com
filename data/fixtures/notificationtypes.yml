@@ -28,3 +28,6 @@ NotificationType:
    
   notificationtype_newheadspacecomment:
    title:    newheadspacecomment 
+   
+  notificationtype_networkjoin:
+   title:    newnetworkjoin

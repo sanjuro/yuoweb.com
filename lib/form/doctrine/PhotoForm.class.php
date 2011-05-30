@@ -15,8 +15,8 @@ class PhotoForm extends BasePhotoForm
   public function configure()
   {
     unset(
-      $this['networkuser_id'], $this['created_at'],
-      $this['updated_at']
+        $this['user_id'], $this['network_id'],
+    	$this['created_at'], $this['updated_at']
     );
     
 	if ($this->getOption("currentUser") instanceof sfUser)
@@ -51,10 +51,13 @@ class PhotoForm extends BasePhotoForm
     {
       $values = $this->values;
     }	    
+    
+    $network = Doctrine_Core::getTable('Network')
+	           ->findOneBySlug($this->currentUser->getNetworkId());
 	
-	$NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($this->currentUser->getNetworkUserId());
+	$values['user_id'] = $this->currentUser->getGuardUser()->getId();
 	
-	$values['networkuser_id'] = $NetworkUser->getId();
+	$values['network_id'] = $network->getId();
 	  	 
 	$values = $this->processValues($values);
 		 

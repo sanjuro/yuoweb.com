@@ -10,6 +10,7 @@
  */
 class MessageForm extends BaseMessageForm
 {
+  public $network;
   public $currentUser;
   
   public function configure()
@@ -19,6 +20,11 @@ class MessageForm extends BaseMessageForm
       $this['updated_at'], $this['htmlbody']
     );
     
+  	if ($this->getOption("network") instanceof Network)
+	{
+	    $this->network = $this->getOption("network");
+	}
+    
 	if ($this->getOption("currentUser") instanceof sfUser)
 	{
 	    $this->currentUser = $this->getOption("currentUser");
@@ -26,13 +32,9 @@ class MessageForm extends BaseMessageForm
 	    
 	$this->widgetSchema['body'] = new sfWidgetFormTextarea();
 
-	$this->widgetSchema['friend'] = new sfWidgetFormChoice (array( 'choices' => $this->getAllFriendsForNetworkUser($this->currentUser->getNetworkUserId()),
+	$this->widgetSchema['friend'] = new sfWidgetFormChoice (array( 'choices' => $this->getAllPublicUser($this->currentUser->getNetworkUserId()),
       													  'label' => 'Send to',
       											    ));
-      											    
-    $this->validatorSchema['friend'] = new sfValidatorChoice(array(
-      'choices' => array_keys($this->getAllFriendsForNetworkUser()),
-    ));
 
   }
   
@@ -89,15 +91,14 @@ class MessageForm extends BaseMessageForm
     parent::saveEmbeddedForms($con); 
   }
     
-  private function getAllFriendsForNetworkUser()
-  {
-	  $User = Doctrine_Core::getTable('sfGuardUser')->findOneById($this->currentUser->getUserId());
-	  
-	  $Friends = $User->getAllFriendsForNetwork();
- 	 
+  private function getAllPublicUser()
+  {	
+	  $Users = $this->network->getPublicUsers('');
+	   	 
 	  $FriendChoice = array();
- 	  foreach ( $Friends as $Friend ) {
- 	  	$FriendChoice[$Friend['id']] = ucwords($Friend['first_name'].' '.$Friend['last_name']);
+	 
+ 	  foreach ( $Users as $Friend ) {
+ 	  	$FriendChoice[$Friend['sfGuardUser']['id']] = ucwords($Friend['sfGuardUser']['first_name'].' '.$Friend['sfGuardUser']['last_name']);
  	  }
  	  
       return $FriendChoice;

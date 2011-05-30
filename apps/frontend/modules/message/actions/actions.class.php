@@ -68,7 +68,7 @@ class messageActions extends sfActions
     
     $message->setSubject('Reply: '.$this->message->getSubject());
 	
-    $this->form = new MessageForm( $message, array( 'currentUser' => $this->getUser() ) );
+    $this->form = new MessageForm( $message, array( 'network' => $this->network, 'currentUser' => $this->getUser() ) );
 	
 	$this->form->setDefault('subject', 'Reply: '.$this->message->getSubject()); 
 	
@@ -96,7 +96,7 @@ class messageActions extends sfActions
   
   public function executeAddmessage(sfWebRequest $request)
   {
-    $this->form = new MessageForm( null, array( 'currentUser' => $this->getUser()) );
+    $this->form = new MessageForm( null, array( 'network' => $this->network, 'currentUser' => $this->getUser()) );
 
 	if ($this->request->isMethod('post'))
 	{
@@ -110,6 +110,35 @@ class messageActions extends sfActions
 	      	$message = $this->form->save();
 	      	     
 	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent.'));
+	      	
+	      	$this->redirect($this->generateUrl('message_showinbox', $this->network));
+	      
+	      }else {
+	      	      	
+	      }
+	}
+  }
+  
+  public function executeSend(sfWebRequest $request)
+  {
+    $this->user = $this->getRoute()->getObject(); 
+  	
+  	$this->form = new MessageForm( null, array( 'network' => $this->network, 'currentUser' => $this->getUser()) );
+  	
+  	$this->form->setDefault('friend', $this->user->getId() );
+
+	if ($this->request->isMethod('post'))
+	{
+		  $this->form->bind(
+		    $request->getParameter($this->form->getName()),
+		    $request->getFiles($this->form->getName())
+		  );
+	      	 
+	      if ($this->form->isValid())
+	      {	 	
+	      	$message = $this->form->save();
+	      	     
+	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent to '.$this->user->getUsername().'.'));
 	      	
 	      	$this->redirect($this->generateUrl('message_showinbox', $this->network));
 	      

@@ -24,7 +24,7 @@ class photoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->photos = $this->networkuser->getPhotos();
+    $this->photos = $this->network->getPhotos();
   }
   
   public function executeShowphoto(sfWebRequest $request)
@@ -76,7 +76,7 @@ class photoActions extends sfActions
 			
 			$notification = new Notification();
 			$notification->setNetworkId($this->network->getId());
-			$notification->setNetworkuserId($this->networkuser->getId());
+			$notification->setUserId($this->getUser()->getGuardUser()->getId());
 			$notification->setNotificationtypeId(4);
 			$notification->save();
 	      	     

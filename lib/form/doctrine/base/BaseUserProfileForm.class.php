@@ -24,6 +24,9 @@ abstract class BaseUserProfileForm extends BaseFormDoctrine
       'city'        => new sfWidgetFormInputText(),
       'country'     => new sfWidgetFormInputText(),
       'birthday'    => new sfWidgetFormDateTime(),
+      'is_private'  => new sfWidgetFormInputCheckbox(),
+      'created_at'  => new sfWidgetFormDateTime(),
+      'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -36,6 +39,9 @@ abstract class BaseUserProfileForm extends BaseFormDoctrine
       'city'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'country'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'birthday'    => new sfValidatorDateTime(),
+      'is_private'  => new sfValidatorBoolean(array('required' => false)),
+      'created_at'  => new sfValidatorDateTime(),
+      'updated_at'  => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('user_profile[%s]');

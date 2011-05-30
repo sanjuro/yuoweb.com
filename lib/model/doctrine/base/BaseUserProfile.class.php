@@ -14,6 +14,7 @@
  * @property string $city
  * @property string $country
  * @property timestamp $birthday
+ * @property boolean $is_private
  * @property sfGuardUser $sfGuardUser
  * @property Gender $Gender
  * 
@@ -26,6 +27,7 @@
  * @method string      getCity()        Returns the current record's "city" value
  * @method string      getCountry()     Returns the current record's "country" value
  * @method timestamp   getBirthday()    Returns the current record's "birthday" value
+ * @method boolean     getIsPrivate()   Returns the current record's "is_private" value
  * @method sfGuardUser getSfGuardUser() Returns the current record's "sfGuardUser" value
  * @method Gender      getGender()      Returns the current record's "Gender" value
  * @method UserProfile setId()          Sets the current record's "id" value
@@ -37,6 +39,7 @@
  * @method UserProfile setCity()        Sets the current record's "city" value
  * @method UserProfile setCountry()     Sets the current record's "country" value
  * @method UserProfile setBirthday()    Sets the current record's "birthday" value
+ * @method UserProfile setIsPrivate()   Sets the current record's "is_private" value
  * @method UserProfile setSfGuardUser() Sets the current record's "sfGuardUser" value
  * @method UserProfile setGender()      Sets the current record's "Gender" value
  * 
@@ -86,6 +89,10 @@ abstract class BaseUserProfile extends sfDoctrineRecord
              'type' => 'timestamp',
              'notnull' => true,
              ));
+        $this->hasColumn('is_private', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => 0,
+             ));
     }
 
     public function setUp()
@@ -100,6 +107,7 @@ abstract class BaseUserProfile extends sfDoctrineRecord
              'local' => 'gender_id',
              'foreign' => 'id'));
 
+        $timestampable0 = new Doctrine_Template_Timestampable();
         $searchable0 = new Doctrine_Template_Searchable(array(
              'fields' => 
              array(
@@ -107,6 +115,7 @@ abstract class BaseUserProfile extends sfDoctrineRecord
               1 => 'mobile_no',
              ),
              ));
+        $this->actAs($timestampable0);
         $this->actAs($searchable0);
     }
 }

@@ -31,6 +31,8 @@
  * @property Doctrine_Collection $NetworkUser
  * @property Doctrine_Collection $Notification
  * @property Doctrine_Collection $Message
+ * @property Doctrine_Collection $Photo
+ * @property Doctrine_Collection $PhotoGallery
  * @property Doctrine_Collection $PhotoView
  * @property Doctrine_Collection $Event
  * 
@@ -60,6 +62,8 @@
  * @method Doctrine_Collection getNetworkUser()        Returns the current record's "NetworkUser" collection
  * @method Doctrine_Collection getNotification()       Returns the current record's "Notification" collection
  * @method Doctrine_Collection getMessage()            Returns the current record's "Message" collection
+ * @method Doctrine_Collection getPhoto()              Returns the current record's "Photo" collection
+ * @method Doctrine_Collection getPhotoGallery()       Returns the current record's "PhotoGallery" collection
  * @method Doctrine_Collection getPhotoView()          Returns the current record's "PhotoView" collection
  * @method Doctrine_Collection getEvent()              Returns the current record's "Event" collection
  * @method Network             setClientId()           Sets the current record's "client_id" value
@@ -88,6 +92,8 @@
  * @method Network             setNetworkUser()        Sets the current record's "NetworkUser" collection
  * @method Network             setNotification()       Sets the current record's "Notification" collection
  * @method Network             setMessage()            Sets the current record's "Message" collection
+ * @method Network             setPhoto()              Sets the current record's "Photo" collection
+ * @method Network             setPhotoGallery()       Sets the current record's "PhotoGallery" collection
  * @method Network             setPhotoView()          Sets the current record's "PhotoView" collection
  * @method Network             setEvent()              Sets the current record's "Event" collection
  * 
@@ -231,6 +237,14 @@ abstract class BaseNetwork extends sfDoctrineRecord
              'foreign' => 'network_id'));
 
         $this->hasMany('Message', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('Photo', array(
+             'local' => 'id',
+             'foreign' => 'network_id'));
+
+        $this->hasMany('PhotoGallery', array(
              'local' => 'id',
              'foreign' => 'network_id'));
 

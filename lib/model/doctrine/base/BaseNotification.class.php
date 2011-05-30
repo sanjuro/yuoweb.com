@@ -7,25 +7,31 @@
  * 
  * @property integer $id
  * @property integer $network_id
- * @property integer $networkuser_id
+ * @property integer $user_id
+ * @property string $description
  * @property integer $notificationtype_id
+ * @property timestamp $lasttime_read
  * @property Network $Network
- * @property NetworkUser $NetworkUser
+ * @property sfGuardUser $sfGuardUser
  * @property NotificationType $NotificationType
  * 
  * @method integer          getId()                  Returns the current record's "id" value
  * @method integer          getNetworkId()           Returns the current record's "network_id" value
- * @method integer          getNetworkuserId()       Returns the current record's "networkuser_id" value
+ * @method integer          getUserId()              Returns the current record's "user_id" value
+ * @method string           getDescription()         Returns the current record's "description" value
  * @method integer          getNotificationtypeId()  Returns the current record's "notificationtype_id" value
+ * @method timestamp        getLasttimeRead()        Returns the current record's "lasttime_read" value
  * @method Network          getNetwork()             Returns the current record's "Network" value
- * @method NetworkUser      getNetworkUser()         Returns the current record's "NetworkUser" value
+ * @method sfGuardUser      getSfGuardUser()         Returns the current record's "sfGuardUser" value
  * @method NotificationType getNotificationType()    Returns the current record's "NotificationType" value
  * @method Notification     setId()                  Sets the current record's "id" value
  * @method Notification     setNetworkId()           Sets the current record's "network_id" value
- * @method Notification     setNetworkuserId()       Sets the current record's "networkuser_id" value
+ * @method Notification     setUserId()              Sets the current record's "user_id" value
+ * @method Notification     setDescription()         Sets the current record's "description" value
  * @method Notification     setNotificationtypeId()  Sets the current record's "notificationtype_id" value
+ * @method Notification     setLasttimeRead()        Sets the current record's "lasttime_read" value
  * @method Notification     setNetwork()             Sets the current record's "Network" value
- * @method Notification     setNetworkUser()         Sets the current record's "NetworkUser" value
+ * @method Notification     setSfGuardUser()         Sets the current record's "sfGuardUser" value
  * @method Notification     setNotificationType()    Sets the current record's "NotificationType" value
  * 
  * @package    Yuoweb
@@ -46,11 +52,19 @@ abstract class BaseNotification extends sfDoctrineRecord
         $this->hasColumn('network_id', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('networkuser_id', 'integer', null, array(
+        $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('description', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
              ));
         $this->hasColumn('notificationtype_id', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('lasttime_read', 'timestamp', null, array(
+             'type' => 'timestamp',
+             'notnull' => true,
              ));
     }
 
@@ -62,8 +76,8 @@ abstract class BaseNotification extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('NetworkUser', array(
-             'local' => 'networkuser_id',
+        $this->hasOne('sfGuardUser', array(
+             'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
@@ -76,7 +90,7 @@ abstract class BaseNotification extends sfDoctrineRecord
         $searchable0 = new Doctrine_Template_Searchable(array(
              'fields' => 
              array(
-              0 => 'network_id',
+              0 => 'user_id',
               1 => 'notificationtype_id',
              ),
              ));

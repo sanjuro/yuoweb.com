@@ -212,6 +212,14 @@ message_replymessage:
   requirements:
      sf_method: [get, post]
      
+message_send:
+  url:   /Message-To/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: message, action: send }
+  requirements:
+     sf_method: [get, post]
+     
 #photo
 photo_index:
   url:   /Photos/:slug

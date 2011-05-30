@@ -25,10 +25,13 @@
  * @property Doctrine_Collection $Connection
  * @property Doctrine_Collection $Follow
  * @property Doctrine_Collection $NetworkUser
+ * @property Doctrine_Collection $Notification
  * @property Doctrine_Collection $UserProfile
  * @property Doctrine_Collection $Feed
  * @property Doctrine_Collection $Message
  * @property Doctrine_Collection $MessageReciever
+ * @property Doctrine_Collection $Photo
+ * @property Doctrine_Collection $PhotoGallery
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -50,10 +53,13 @@
  * @method Doctrine_Collection   getConnection()            Returns the current record's "Connection" collection
  * @method Doctrine_Collection   getFollow()                Returns the current record's "Follow" collection
  * @method Doctrine_Collection   getNetworkUser()           Returns the current record's "NetworkUser" collection
+ * @method Doctrine_Collection   getNotification()          Returns the current record's "Notification" collection
  * @method Doctrine_Collection   getUserProfile()           Returns the current record's "UserProfile" collection
  * @method Doctrine_Collection   getFeed()                  Returns the current record's "Feed" collection
  * @method Doctrine_Collection   getMessage()               Returns the current record's "Message" collection
  * @method Doctrine_Collection   getMessageReciever()       Returns the current record's "MessageReciever" collection
+ * @method Doctrine_Collection   getPhoto()                 Returns the current record's "Photo" collection
+ * @method Doctrine_Collection   getPhotoGallery()          Returns the current record's "PhotoGallery" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -74,10 +80,13 @@
  * @method sfGuardUser           setConnection()            Sets the current record's "Connection" collection
  * @method sfGuardUser           setFollow()                Sets the current record's "Follow" collection
  * @method sfGuardUser           setNetworkUser()           Sets the current record's "NetworkUser" collection
+ * @method sfGuardUser           setNotification()          Sets the current record's "Notification" collection
  * @method sfGuardUser           setUserProfile()           Sets the current record's "UserProfile" collection
  * @method sfGuardUser           setFeed()                  Sets the current record's "Feed" collection
  * @method sfGuardUser           setMessage()               Sets the current record's "Message" collection
  * @method sfGuardUser           setMessageReciever()       Sets the current record's "MessageReciever" collection
+ * @method sfGuardUser           setPhoto()                 Sets the current record's "Photo" collection
+ * @method sfGuardUser           setPhotoGallery()          Sets the current record's "PhotoGallery" collection
  * 
  * @package    Yuoweb
  * @subpackage model
@@ -189,6 +198,10 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'user_id'));
 
+        $this->hasMany('Notification', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
         $this->hasMany('UserProfile', array(
              'local' => 'id',
              'foreign' => 'sfuser_id'));
@@ -202,6 +215,14 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasMany('MessageReciever', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Photo', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('PhotoGallery', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

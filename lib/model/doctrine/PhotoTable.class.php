@@ -17,27 +17,6 @@ class PhotoTable extends Doctrine_Table
         return Doctrine_Core::getTable('Photo');
     }
     
-/**
- * Function to find photos on a network
- * 
- * This function will find aall the photots on a given
- * network using the networkusers on the network
- * 
- * @param integer $NetworkId Id of network to find photos for
- * 
- * @return query Base Query to find photos on a network
- */
-	public function getPhotosForNetworkUsers($NetworkId)
-	{
-	  $q = Doctrine_Query::create()
-	      ->from('Photo p')	  
-          ->innerJoin('p.NetworkUser nu')
-          ->where('nu.network_id = ?', $NetworkId)
-          ->orderBy('p.created_at DESC');
-		
-	  return $q;	
-	}
-
 
 /**
  * Function to find photos on a network with a limit
@@ -50,7 +29,7 @@ class PhotoTable extends Doctrine_Table
  * 
  * @return query Base Query to find photos on a network
  */
-	public function getPhotosForNetworkUsersWithLimit(Doctrine_Query $q)
+	public function getPhotosForNetworkWithLimit(Doctrine_Query $q)
 	{
 	  if (is_null($q))
 	  {
@@ -59,7 +38,7 @@ class PhotoTable extends Doctrine_Table
 	  } 
 	  
 	    $q->from('Photo p')	  
-          ->innerJoin('p.NetworkUser nu')
+          ->where('p.is_private = 1')
           ->orderBy('p.created_at DESC')
           ->limit(4);
 		

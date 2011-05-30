@@ -33,10 +33,9 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     		('callback' => array($this, 'sfGuardUser_callback'))));
      
 	
-	/////////////////////////////////////////////////////////////////////
-	/// Embed UserProfile Form
-	///////////////////////////////////////////////////////////////////// 
-	
+	/**
+	 * Embed UserProfile Form
+	 */	
 	if(!$this->isNew()) 	
 	{
 		$userProfileObjs = $this->getObject()->getUserProfile()->execute(); 
@@ -70,17 +69,17 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
 
 	if ($this->sfGuardUser)
 	{
-    $userProfilesForm = new sfForm();
-  
-    foreach($taintedValues['userProfiles'] as $key => $new_occurrence)
-    {
-      $userProfileObj = new UserProfile();      
-      $userProfileObj_form = new FrontendUserProfileForm($userProfileObj);
-	
-      $userProfilesForm->embedForm( $key, $userProfileObj_form );
-    }
-	
-    $this->embedForm('userProfiles', $userProfilesForm);
+	    $userProfilesForm = new sfForm();
+	  
+	    foreach($taintedValues['userProfiles'] as $key => $new_occurrence)
+	    {
+	      $userProfileObj = new UserProfile();      
+	      $userProfileObj_form = new FrontendUserProfileForm($userProfileObj);
+		
+	      $userProfilesForm->embedForm( $key, $userProfileObj_form );
+	    }
+		
+	    $this->embedForm('userProfiles', $userProfilesForm);
 	}
 	
     parent::bind($taintedValues, $taintedFiles);
@@ -126,9 +125,9 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
     {
       $con = $this->getConnection();
     }
-    
+   
     $this->values['first_name'] = $this->values['username'];
-     
+    
     if ($this->sfGuardUser && $this->sfGuardUser->getId())  
     {	   
 	    $this->object = $this->sfGuardUser;
@@ -149,7 +148,15 @@ class FrontendNetworkJoinForm extends BasesfGuardUserForm
 	    $NetworkUser->save();
 	    
     }
-
+   
+  	if($this->isNew()){	
+          $notification = new Notification();
+		  $notification->setNetworkId($this->network->getId());
+		  $notification->setUserId($this->sfGuardUser->getId());
+		  $notification->setNotificationtypeId(11);
+		  $notification->save();		  
+	}
+	 
     // embedded forms
    	$this->saveEmbeddedForms($con); 
    	

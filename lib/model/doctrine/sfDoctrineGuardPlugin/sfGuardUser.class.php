@@ -60,7 +60,7 @@ class sfGuardUser extends PluginsfGuardUser
   }
   
 /**
- * Function to return all the messages for a network user
+ * Function to return all the messages for a user
  *  
  * @param q Doctrine_Query
  * 
@@ -73,6 +73,23 @@ class sfGuardUser extends PluginsfGuardUser
        ->where('mr.user_id = ?', $this->getId());
  
       return Doctrine_Core::getTable('MessageReciever')->getMessages($q);
+  }
+  
+/**
+ * Function to return all photos for a user
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All photos
+ */ 
+  public function getPhotosForUser()
+  {
+       $q = Doctrine_Query::create()
+	      ->from('Photo p')
+	      ->where('p.user_id = ?',  $this->getId())
+	      ->andWhere('p.is_private != ?', 1); 
+
+	   return $q->fetchArray();		  	     
   }
  
 /**

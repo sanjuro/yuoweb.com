@@ -19,7 +19,7 @@
  * @property string $contact_no
  * @property timestamp $start_at
  * @property timestamp $end_at
- * @property integer $is_private
+ * @property boolean $is_private
  * @property Network $Network
  * @property NetworkUser $NetworkUser
  * @property Doctrine_Collection $EventInvite
@@ -38,7 +38,7 @@
  * @method string              getContactNo()      Returns the current record's "contact_no" value
  * @method timestamp           getStartAt()        Returns the current record's "start_at" value
  * @method timestamp           getEndAt()          Returns the current record's "end_at" value
- * @method integer             getIsPrivate()      Returns the current record's "is_private" value
+ * @method boolean             getIsPrivate()      Returns the current record's "is_private" value
  * @method Network             getNetwork()        Returns the current record's "Network" value
  * @method NetworkUser         getNetworkUser()    Returns the current record's "NetworkUser" value
  * @method Doctrine_Collection getEventInvite()    Returns the current record's "EventInvite" collection
@@ -119,8 +119,9 @@ abstract class BaseEvent extends sfDoctrineRecord
         $this->hasColumn('end_at', 'timestamp', null, array(
              'type' => 'timestamp',
              ));
-        $this->hasColumn('is_private', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('is_private', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => 0,
              ));
     }
 

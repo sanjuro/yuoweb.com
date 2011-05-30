@@ -185,6 +185,7 @@ NotificationType:
     
 UserProfile:
   actAs:
+    Timestampable: ~
     Searchable:
        fields: [sfuser_id, mobile_no]
   columns:
@@ -197,6 +198,7 @@ UserProfile:
     city:             { type: string(255) }
     country:          { type: string(255) }
     birthday:         { type: timestamp, notnull: true }
+    is_private:       { type: boolean, default: 0 }
   relations:
     sfGuardUser:      { class: sfGuardUser, onDelete: CASCADE, local: sfuser_id, foreign: id }
     Gender:           { class: Gender, local: gender_id, foreign: id }
@@ -236,7 +238,7 @@ Message:
     user_id:                { type: integer }
     network_id:             { type: integer }
   relations:
-    sfGuardUser:      { local: user_id, foreign: id }
+    sfGuardUser:         { local: user_id, foreign: id }
     Network:             { class: Network, local: network_id, foreign: id }
     
 MessageReciever:
@@ -263,24 +265,14 @@ Photo:
   columns:
     id:                     { type: integer, primary: true, autoincrement: true }
     url:                    { type: string(100) }
-    networkuser_id:         { type: integer }
-    view_count:             { type: integer }
-    is_private:             { type: integer }
+    network_id:             { type: integer }
+    user_id:                { type: integer }
+    view_count:             { type: integer, default: 0 }
+    is_private:             { type: boolean, default: 0 }
   relations:
-    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
-    
-#PhotoComment:
-# actAs: { Timestampable: ~ }
-# columns:
-#    id:                     { type: integer, primary: true, autoincrement: true }
-#    body:                   { type: string(255) }
-#    htmlbody:               { type: string(255) }  
-#    networkuser_id:         { type: integer }
-#    photolink_id:           { type: integer }
-# relations:
-#    NetworkUser:            { class: NetworkUser, local: networkuser_id, foreign: id  }
-#    PhotoLink:              { class: PhotoLink, local: photolink_id, foreign: id  }
-    
+    sfGuardUser:            { local: user_id, foreign: id }
+    Network:                { class: Network, local: network_id, foreign: id }
+
 PhotoLink:
  columns:
     id:                  { type: integer, primary: true, autoincrement: true }
@@ -295,11 +287,13 @@ PhotoGallery:
   columns:
     id:                     { type: integer, primary: true, autoincrement: true }
     title:                  { type: string(200) }
-    networkuser_id:         { type: integer }
+    network_id:             { type: integer }
+    user_id:                { type: integer }
     photo_count:            { type: integer, default: 0 } 
-    is_private:             { type: integer }
+    is_private:             { type: boolean, default: 0 }
   relations:
-    NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }
+    sfGuardUser:            { local: user_id, foreign: id }
+    Network:                { class: Network, local: network_id, foreign: id }
     
 PhotoView:
   columns:
@@ -337,7 +331,7 @@ Event:
     contact_no:             { type: string(200) }
     start_at:               { type: timestamp }
     end_at:                 { type: timestamp }
-    is_private:             { type: integer }
+    is_private:             { type: boolean, default: 0 }
   relations:
     Network:             { class: Network, local: network_id, foreign: id  }
     NetworkUser:         { class: NetworkUser, local: networkuser_id, foreign: id  }

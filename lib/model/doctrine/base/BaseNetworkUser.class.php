@@ -17,9 +17,6 @@
  * @property Doctrine_Collection $HeadspaceTag
  * @property Doctrine_Collection $WebuyNetworkUser
  * @property Doctrine_Collection $ShoutMessage
- * @property Doctrine_Collection $Notification
- * @property Doctrine_Collection $Photo
- * @property Doctrine_Collection $PhotoGallery
  * @property Doctrine_Collection $Event
  * @property Doctrine_Collection $EventInvite
  * 
@@ -35,9 +32,6 @@
  * @method Doctrine_Collection getHeadspaceTag()     Returns the current record's "HeadspaceTag" collection
  * @method Doctrine_Collection getWebuyNetworkUser() Returns the current record's "WebuyNetworkUser" collection
  * @method Doctrine_Collection getShoutMessage()     Returns the current record's "ShoutMessage" collection
- * @method Doctrine_Collection getNotification()     Returns the current record's "Notification" collection
- * @method Doctrine_Collection getPhoto()            Returns the current record's "Photo" collection
- * @method Doctrine_Collection getPhotoGallery()     Returns the current record's "PhotoGallery" collection
  * @method Doctrine_Collection getEvent()            Returns the current record's "Event" collection
  * @method Doctrine_Collection getEventInvite()      Returns the current record's "EventInvite" collection
  * @method NetworkUser         setId()               Sets the current record's "id" value
@@ -52,9 +46,6 @@
  * @method NetworkUser         setHeadspaceTag()     Sets the current record's "HeadspaceTag" collection
  * @method NetworkUser         setWebuyNetworkUser() Sets the current record's "WebuyNetworkUser" collection
  * @method NetworkUser         setShoutMessage()     Sets the current record's "ShoutMessage" collection
- * @method NetworkUser         setNotification()     Sets the current record's "Notification" collection
- * @method NetworkUser         setPhoto()            Sets the current record's "Photo" collection
- * @method NetworkUser         setPhotoGallery()     Sets the current record's "PhotoGallery" collection
  * @method NetworkUser         setEvent()            Sets the current record's "Event" collection
  * @method NetworkUser         setEventInvite()      Sets the current record's "EventInvite" collection
  * 
@@ -120,18 +111,6 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'foreign' => 'networkuser_id'));
 
         $this->hasMany('ShoutMessage', array(
-             'local' => 'id',
-             'foreign' => 'networkuser_id'));
-
-        $this->hasMany('Notification', array(
-             'local' => 'id',
-             'foreign' => 'networkuser_id'));
-
-        $this->hasMany('Photo', array(
-             'local' => 'id',
-             'foreign' => 'networkuser_id'));
-
-        $this->hasMany('PhotoGallery', array(
              'local' => 'id',
              'foreign' => 'networkuser_id'));
 

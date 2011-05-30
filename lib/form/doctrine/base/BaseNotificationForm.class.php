@@ -17,8 +17,10 @@ abstract class BaseNotificationForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'                  => new sfWidgetFormInputHidden(),
       'network_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Network'), 'add_empty' => true)),
-      'networkuser_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'add_empty' => true)),
+      'user_id'             => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'add_empty' => true)),
+      'description'         => new sfWidgetFormInputText(),
       'notificationtype_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('NotificationType'), 'add_empty' => true)),
+      'lasttime_read'       => new sfWidgetFormDateTime(),
       'created_at'          => new sfWidgetFormDateTime(),
       'updated_at'          => new sfWidgetFormDateTime(),
     ));
@@ -26,8 +28,10 @@ abstract class BaseNotificationForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'network_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Network'), 'required' => false)),
-      'networkuser_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('NetworkUser'), 'required' => false)),
+      'user_id'             => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'required' => false)),
+      'description'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'notificationtype_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('NotificationType'), 'required' => false)),
+      'lasttime_read'       => new sfValidatorDateTime(),
       'created_at'          => new sfValidatorDateTime(),
       'updated_at'          => new sfValidatorDateTime(),
     ));
