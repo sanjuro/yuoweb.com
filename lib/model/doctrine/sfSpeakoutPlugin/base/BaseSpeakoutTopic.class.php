@@ -9,26 +9,32 @@
  * @property string $title
  * @property string $description
  * @property integer $category_id
- * @property integer $networkuser_id
+ * @property integer $network_id
+ * @property integer $user_id
  * @property SpeakoutCategory $SpeakoutCategory
- * @property NetworkUser $NetworkUser
+ * @property Network $Network
+ * @property sfGuardUser $sfGuardUser
  * @property Doctrine_Collection $SpeakoutReply
  * 
  * @method integer             getId()               Returns the current record's "id" value
  * @method string              getTitle()            Returns the current record's "title" value
  * @method string              getDescription()      Returns the current record's "description" value
  * @method integer             getCategoryId()       Returns the current record's "category_id" value
- * @method integer             getNetworkuserId()    Returns the current record's "networkuser_id" value
+ * @method integer             getNetworkId()        Returns the current record's "network_id" value
+ * @method integer             getUserId()           Returns the current record's "user_id" value
  * @method SpeakoutCategory    getSpeakoutCategory() Returns the current record's "SpeakoutCategory" value
- * @method NetworkUser         getNetworkUser()      Returns the current record's "NetworkUser" value
+ * @method Network             getNetwork()          Returns the current record's "Network" value
+ * @method sfGuardUser         getSfGuardUser()      Returns the current record's "sfGuardUser" value
  * @method Doctrine_Collection getSpeakoutReply()    Returns the current record's "SpeakoutReply" collection
  * @method SpeakoutTopic       setId()               Sets the current record's "id" value
  * @method SpeakoutTopic       setTitle()            Sets the current record's "title" value
  * @method SpeakoutTopic       setDescription()      Sets the current record's "description" value
  * @method SpeakoutTopic       setCategoryId()       Sets the current record's "category_id" value
- * @method SpeakoutTopic       setNetworkuserId()    Sets the current record's "networkuser_id" value
+ * @method SpeakoutTopic       setNetworkId()        Sets the current record's "network_id" value
+ * @method SpeakoutTopic       setUserId()           Sets the current record's "user_id" value
  * @method SpeakoutTopic       setSpeakoutCategory() Sets the current record's "SpeakoutCategory" value
- * @method SpeakoutTopic       setNetworkUser()      Sets the current record's "NetworkUser" value
+ * @method SpeakoutTopic       setNetwork()          Sets the current record's "Network" value
+ * @method SpeakoutTopic       setSfGuardUser()      Sets the current record's "sfGuardUser" value
  * @method SpeakoutTopic       setSpeakoutReply()    Sets the current record's "SpeakoutReply" collection
  * 
  * @package    Yuoweb
@@ -57,7 +63,10 @@ abstract class BaseSpeakoutTopic extends sfDoctrineRecord
         $this->hasColumn('category_id', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('networkuser_id', 'integer', null, array(
+        $this->hasColumn('network_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
              ));
     }
@@ -70,8 +79,12 @@ abstract class BaseSpeakoutTopic extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('NetworkUser', array(
-             'local' => 'networkuser_id',
+        $this->hasOne('Network', array(
+             'local' => 'network_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('sfGuardUser', array(
+             'local' => 'user_id',
              'foreign' => 'id'));
 
         $this->hasMany('SpeakoutReply', array(
@@ -84,6 +97,7 @@ abstract class BaseSpeakoutTopic extends sfDoctrineRecord
              array(
               0 => 'title',
               1 => 'description',
+              2 => 'network_id',
              ),
              ));
         $softdelete0 = new Doctrine_Template_SoftDelete();

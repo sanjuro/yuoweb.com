@@ -8,15 +8,20 @@
 
 	<?php if (count($feedsForUser) > 0) :?>
 	<p>
-		<ul class="feed_list">
-		<?php foreach ( $feedsForUser as $feed ) : ?>
-			<li>
+
+		<?php foreach ( $feedsForUser as $group_date => $group_of_feeds ) : ?>
+			<h4 class="feed_list"><?php echo $group_of_feeds['date_for_group']  ?></h4>
+			<ul class="feed_list">
+			<?php foreach ( $group_of_feeds['feeds'] as  $feed ) : ?>
+			<li> 
 				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
 				<br>
-				<?php echo 'Posted at '.$feed['created_at'] ?>	
+				<?php echo 'By '.$sf_user->getUsername().' '.$feed['posted_at'] ?>	
 			</li>	
+			<?php endforeach; ?>
+			</ul>	
 		<?php endforeach; ?>
-		</ul>	
+
 	</p>
 	<?php else : ?>
 	<p>
@@ -25,19 +30,23 @@
 	<?php endif;?>
 
 	<?php if (count($followingsWithFeeds) > 0) :?>
+	
 		<?php foreach ( $followingsWithFeeds as $friend ) : ?>
 			<?php if ($friend['Following']['id'] != $sf_user->getUserId()) :?>
 			  <h3><?php echo 'Feeds for '.$friend['Following']['username'] ?></h3>
 			  <p>		  
-			  <ul class="feed_list">
-			  <?php foreach ( $friend['Following']['Feed'] as $feed ) : ?>
-				<li>
-					<span class="feedlist_body"><?php echo $feed['body'] ?></span>
-					<br>
-					<?php echo 'Posted at '.$feed['created_at'] ?>	
-				</li>		
-		      <?php endforeach; ?>
-		      </ul>
+				<?php foreach ( $friend['Following']['Feed'] as $group_date => $group_of_feeds ) : ?>
+					<h4 class="feed_list"><?php echo $group_of_feeds['date_for_group']  ?></h4>
+					<ul class="feed_list">
+					<?php foreach ( $group_of_feeds['feeds'] as  $feed ) : ?>
+					<li> 
+						<span class="feedlist_body"><?php echo $feed['body'] ?></span>
+						<br>
+						<?php echo 'By '.$friend['Following']['username'].' '.$feed['posted_at'] ?>	
+					</li>	
+					<?php endforeach; ?>
+					</ul>	
+				<?php endforeach; ?>
 		      </p>
 	    	<?php endif;?>  
 		<?php endforeach; ?>

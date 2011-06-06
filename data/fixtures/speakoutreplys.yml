@@ -3,19 +3,23 @@ SpeakoutReply:
   body:              This is a test reply
   htmlbody:          This is a test reply
   SpeakoutTopic:     topic_monthlyworkshop
-  NetworkUser:       networkuser_raymond
+  Network:           kustomcruisers_network
+  sfGuardUser:       user_raymond
  reply_testreply2: 
   body:              This is a test reply2
   htmlbody:          This is a test reply2
   SpeakoutTopic:     topic_agm
-  NetworkUser:       networkuser_craigd
+  Network:           kustomcruisers_network
+  sfGuardUser:       user_craigd
  reply_testreply3: 
   body:              This is a test reply3
   htmlbody:          This is a test reply3
   SpeakoutTopic:     topic_trainaccident
-  NetworkUser:       networkuser_raymond
+  Network:           kustomcruisers_network
+  sfGuardUser:       user_raymond
  reply_testreply4: 
   body:              This is a test reply4
   htmlbody:          This is a test reply4
   SpeakoutTopic:     topic_trainaccident
-  NetworkUser:       networkuser_craigd
+  Network:           kustomcruisers_network
+  sfGuardUser:       user_craigd

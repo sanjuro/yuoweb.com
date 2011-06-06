@@ -11,8 +11,6 @@
  * @property boolean $is_private
  * @property Network $Network
  * @property sfGuardUser $sfGuardUser
- * @property Doctrine_Collection $SpeakoutReply
- * @property Doctrine_Collection $SpeakoutTopic
  * @property Doctrine_Collection $HeadspacePost
  * @property Doctrine_Collection $HeadspaceTag
  * @property Doctrine_Collection $WebuyNetworkUser
@@ -26,8 +24,6 @@
  * @method boolean             getIsPrivate()        Returns the current record's "is_private" value
  * @method Network             getNetwork()          Returns the current record's "Network" value
  * @method sfGuardUser         getSfGuardUser()      Returns the current record's "sfGuardUser" value
- * @method Doctrine_Collection getSpeakoutReply()    Returns the current record's "SpeakoutReply" collection
- * @method Doctrine_Collection getSpeakoutTopic()    Returns the current record's "SpeakoutTopic" collection
  * @method Doctrine_Collection getHeadspacePost()    Returns the current record's "HeadspacePost" collection
  * @method Doctrine_Collection getHeadspaceTag()     Returns the current record's "HeadspaceTag" collection
  * @method Doctrine_Collection getWebuyNetworkUser() Returns the current record's "WebuyNetworkUser" collection
@@ -40,8 +36,6 @@
  * @method NetworkUser         setIsPrivate()        Sets the current record's "is_private" value
  * @method NetworkUser         setNetwork()          Sets the current record's "Network" value
  * @method NetworkUser         setSfGuardUser()      Sets the current record's "sfGuardUser" value
- * @method NetworkUser         setSpeakoutReply()    Sets the current record's "SpeakoutReply" collection
- * @method NetworkUser         setSpeakoutTopic()    Sets the current record's "SpeakoutTopic" collection
  * @method NetworkUser         setHeadspacePost()    Sets the current record's "HeadspacePost" collection
  * @method NetworkUser         setHeadspaceTag()     Sets the current record's "HeadspaceTag" collection
  * @method NetworkUser         setWebuyNetworkUser() Sets the current record's "WebuyNetworkUser" collection
@@ -89,14 +83,6 @@ abstract class BaseNetworkUser extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
-
-        $this->hasMany('SpeakoutReply', array(
-             'local' => 'id',
-             'foreign' => 'networkuser_id'));
-
-        $this->hasMany('SpeakoutTopic', array(
-             'local' => 'id',
-             'foreign' => 'networkuser_id'));
 
         $this->hasMany('HeadspacePost', array(
              'local' => 'id',

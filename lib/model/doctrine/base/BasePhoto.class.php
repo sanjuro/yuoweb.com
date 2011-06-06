@@ -61,6 +61,7 @@ abstract class BasePhoto extends sfDoctrineRecord
              ));
         $this->hasColumn('view_count', 'integer', null, array(
              'type' => 'integer',
+             'default' => 0,
              ));
         $this->hasColumn('is_private', 'boolean', null, array(
              'type' => 'boolean',

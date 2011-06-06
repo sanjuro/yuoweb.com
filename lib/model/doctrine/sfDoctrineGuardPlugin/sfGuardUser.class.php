@@ -173,8 +173,24 @@ class sfGuardUser extends PluginsfGuardUser
 	      ->from('Feed f')
 	      ->where('f.user_id = ?',  $this->getId())
 	      ->orderBy('f.created_at DESC');
+		
+	   $feeds = $q->fetchArray();	
 
-	   return $q->fetchArray();	
+	   // Cleanup the feeds order by day
+	   $result = array();   
+ 
+	   foreach ($feeds as $feed){
+		$oDate = strtotime($feed['created_at']);
+		$index = date("m_d_y",$oDate);
+		
+		$result[$index]['date_for_group'] = date('l',$oDate).', '.date('d',$oDate).' '.date('F',$oDate).' '.date('Y',$oDate);
+   	
+	   	$result[$index]['feeds'][$feed['id']] = $feed;
+	   	$result[$index]['feeds'][$feed['id']]['posted_at'] = Yuoweb::time_offset(strtotime($feed['created_at']));
+	   	
+	   }
+	   
+	   return $result;
   }  
   
  
@@ -191,7 +207,24 @@ class sfGuardUser extends PluginsfGuardUser
          ->from('Follow f')
          ->where('f.follower_id = ?', $this->getId());
 		
-      return Doctrine_Core::getTable('Follow')->getFriendsWithFeedsWithLimit($q, 8);     
+      $friends_with_feeds =  Doctrine_Core::getTable('Follow')->getFriendsWithFeedsWithLimit($q, 8)->fetchArray();  
+
+      foreach ( $friends_with_feeds as $key => $friend ) {
+        	   foreach ($friend['Following']['Feed'] as $feed){
+				$oDate = strtotime($feed['created_at']);
+				$index = date("m_d_y",$oDate);
+				
+				$result[$index]['date_for_group'] = date('l',$oDate).', '.date('d',$oDate).' '.date('F',$oDate).' '.date('Y',$oDate);
+		   	
+			   	$result[$index]['feeds'][$feed['id']] = $feed;
+			   	$result[$index]['feeds'][$feed['id']]['posted_at'] = Yuoweb::time_offset(strtotime($feed['created_at']));
+			   	
+			   }
+			   
+			   $friends_with_feeds[$key]['Following']['Feed'] = $result;
+      }
+	
+      return $friends_with_feeds;      
   }
   
 /**
@@ -213,4 +246,6 @@ class sfGuardUser extends PluginsfGuardUser
 
       return $q;
   } 
+  
+
 }

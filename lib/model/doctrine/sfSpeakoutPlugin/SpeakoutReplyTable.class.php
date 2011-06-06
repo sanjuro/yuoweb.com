@@ -32,7 +32,7 @@ class SpeakoutReplyTable extends PluginSpeakoutReplyTable
          ->from('SpeakoutReply sr');
 	  }	
 	  
-	   $q->leftJoin('sr.NetworkUser nu');
+	   $q->leftJoin('sr.sfGuardUser sgu');
 			 
 	   return $q;
     }

@@ -21,6 +21,8 @@
  * @property Doctrine_Collection $sfGuardUserGroup
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
+ * @property Doctrine_Collection $SpeakoutReply
+ * @property Doctrine_Collection $SpeakoutTopic
  * @property Doctrine_Collection $Client
  * @property Doctrine_Collection $Connection
  * @property Doctrine_Collection $Follow
@@ -49,6 +51,8 @@
  * @method Doctrine_Collection   getSfGuardUserGroup()      Returns the current record's "sfGuardUserGroup" collection
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
+ * @method Doctrine_Collection   getSpeakoutReply()         Returns the current record's "SpeakoutReply" collection
+ * @method Doctrine_Collection   getSpeakoutTopic()         Returns the current record's "SpeakoutTopic" collection
  * @method Doctrine_Collection   getClient()                Returns the current record's "Client" collection
  * @method Doctrine_Collection   getConnection()            Returns the current record's "Connection" collection
  * @method Doctrine_Collection   getFollow()                Returns the current record's "Follow" collection
@@ -76,6 +80,8 @@
  * @method sfGuardUser           setSfGuardUserGroup()      Sets the current record's "sfGuardUserGroup" collection
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
+ * @method sfGuardUser           setSpeakoutReply()         Sets the current record's "SpeakoutReply" collection
+ * @method sfGuardUser           setSpeakoutTopic()         Sets the current record's "SpeakoutTopic" collection
  * @method sfGuardUser           setClient()                Sets the current record's "Client" collection
  * @method sfGuardUser           setConnection()            Sets the current record's "Connection" collection
  * @method sfGuardUser           setFollow()                Sets the current record's "Follow" collection
@@ -179,6 +185,14 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasOne('sfGuardForgotPassword as ForgotPassword', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('SpeakoutReply', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('SpeakoutTopic', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

@@ -9,24 +9,30 @@
  * @property string $body
  * @property string $htmlbody
  * @property integer $topic_id
- * @property integer $networkuser_id
+ * @property integer $network_id
+ * @property integer $user_id
  * @property SpeakoutTopic $SpeakoutTopic
- * @property NetworkUser $NetworkUser
+ * @property Network $Network
+ * @property sfGuardUser $sfGuardUser
  * 
- * @method integer       getId()             Returns the current record's "id" value
- * @method string        getBody()           Returns the current record's "body" value
- * @method string        getHtmlbody()       Returns the current record's "htmlbody" value
- * @method integer       getTopicId()        Returns the current record's "topic_id" value
- * @method integer       getNetworkuserId()  Returns the current record's "networkuser_id" value
- * @method SpeakoutTopic getSpeakoutTopic()  Returns the current record's "SpeakoutTopic" value
- * @method NetworkUser   getNetworkUser()    Returns the current record's "NetworkUser" value
- * @method SpeakoutReply setId()             Sets the current record's "id" value
- * @method SpeakoutReply setBody()           Sets the current record's "body" value
- * @method SpeakoutReply setHtmlbody()       Sets the current record's "htmlbody" value
- * @method SpeakoutReply setTopicId()        Sets the current record's "topic_id" value
- * @method SpeakoutReply setNetworkuserId()  Sets the current record's "networkuser_id" value
- * @method SpeakoutReply setSpeakoutTopic()  Sets the current record's "SpeakoutTopic" value
- * @method SpeakoutReply setNetworkUser()    Sets the current record's "NetworkUser" value
+ * @method integer       getId()            Returns the current record's "id" value
+ * @method string        getBody()          Returns the current record's "body" value
+ * @method string        getHtmlbody()      Returns the current record's "htmlbody" value
+ * @method integer       getTopicId()       Returns the current record's "topic_id" value
+ * @method integer       getNetworkId()     Returns the current record's "network_id" value
+ * @method integer       getUserId()        Returns the current record's "user_id" value
+ * @method SpeakoutTopic getSpeakoutTopic() Returns the current record's "SpeakoutTopic" value
+ * @method Network       getNetwork()       Returns the current record's "Network" value
+ * @method sfGuardUser   getSfGuardUser()   Returns the current record's "sfGuardUser" value
+ * @method SpeakoutReply setId()            Sets the current record's "id" value
+ * @method SpeakoutReply setBody()          Sets the current record's "body" value
+ * @method SpeakoutReply setHtmlbody()      Sets the current record's "htmlbody" value
+ * @method SpeakoutReply setTopicId()       Sets the current record's "topic_id" value
+ * @method SpeakoutReply setNetworkId()     Sets the current record's "network_id" value
+ * @method SpeakoutReply setUserId()        Sets the current record's "user_id" value
+ * @method SpeakoutReply setSpeakoutTopic() Sets the current record's "SpeakoutTopic" value
+ * @method SpeakoutReply setNetwork()       Sets the current record's "Network" value
+ * @method SpeakoutReply setSfGuardUser()   Sets the current record's "sfGuardUser" value
  * 
  * @package    Yuoweb
  * @subpackage model
@@ -54,7 +60,10 @@ abstract class BaseSpeakoutReply extends sfDoctrineRecord
         $this->hasColumn('topic_id', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('networkuser_id', 'integer', null, array(
+        $this->hasColumn('network_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
              ));
     }
@@ -67,14 +76,24 @@ abstract class BaseSpeakoutReply extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('NetworkUser', array(
-             'local' => 'networkuser_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
+        $this->hasOne('Network', array(
+             'local' => 'network_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('sfGuardUser', array(
+             'local' => 'user_id',
+             'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $softdelete0 = new Doctrine_Template_SoftDelete();
+        $searchable0 = new Doctrine_Template_Searchable(array(
+             'fields' => 
+             array(
+              0 => 'network_id',
+             ),
+             ));
         $this->actAs($timestampable0);
         $this->actAs($softdelete0);
+        $this->actAs($searchable0);
     }
 }

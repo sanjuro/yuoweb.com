@@ -26,7 +26,7 @@ class sfSpeakoutAdminActions extends sfActions
   public function executeAddcategory(sfWebRequest $request)
   {
   	$this->form = new SpeakoutCategoryForm( null, array( "networkId" => $this->getUser()->getNetworkId() ) );
-
+	
 	if ($this->request->isMethod('post'))
 	{			
 		  $this->form->bind(
@@ -43,6 +43,8 @@ class sfSpeakoutAdminActions extends sfActions
 	      	$this->redirect($this->generateUrl('speakout_index_admin'));
 	      
 	      }else {
+	      	
+	      	$this->getUser()->setFlash('error', sprintf('Cateogry was not added.'));
 	      	      	
 	      }
 	}

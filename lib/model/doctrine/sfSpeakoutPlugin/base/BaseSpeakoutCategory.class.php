@@ -77,6 +77,7 @@ abstract class BaseSpeakoutCategory extends sfDoctrineRecord
              array(
               0 => 'title',
               1 => 'description',
+              2 => 'network_id',
              ),
              ));
         $softdelete0 = new Doctrine_Template_SoftDelete();

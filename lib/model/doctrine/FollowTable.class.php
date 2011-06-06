@@ -52,14 +52,10 @@ class FollowTable extends Doctrine_Table
          ->from('Follow f');
 	  }	   
 	  
-	  $q->leftJoin('f.Follower flr')
-	    ->leftJoin('f.Following fg')
-	    ->leftJoin('flr.Feed fr')
+	  $q->leftJoin('f.Following fg')
 	    ->leftJoin('fg.Feed fo')
-	  	->orderBy('fo.created_at DESC') 	
-	    ->orderBy('fr.created_at DESC');
- 	    //echo '<pre>';print_r($q->fetchArray());exit;
- 	   // echo '<pre>';print_r($q->getSqlQuery());exit;
+	  	->orderBy('fo.created_at DESC');
+ 	  
      return $q; 
 	}
 }

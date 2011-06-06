@@ -3,19 +3,23 @@ SpeakoutTopic:
    title:              Monthly Workshop
    description:        This is the topic for the Monthly Workshop
    SpeakoutCategory:   speakoutcategory_events
-   NetworkUser:        networkuser_craigd
+   Network:            kustomcruisers_network
+   sfGuardUser:        user_craigd
  topic_agm:
    title:              Annual AGM
    description:        This is the topic for the annual AGM
    SpeakoutCategory:   speakoutcategory_events
-   NetworkUser:        networkuser_raymond
+   Network:            kustomcruisers_network
+   sfGuardUser:        user_raymond
  topic_trainaccident:
    title:              Accident at Trainline
    description:        This is the topic for the Accident at Trainline
    SpeakoutCategory:   speakoutcategory_incidents
-   NetworkUser:        networkuser_craigd
+   Network:            kustomcruisers_network
+   sfGuardUser:        user_craigd
  topic_caraccident:
    title:              N2 Accident
    description:        This is the topic for the N2 Accident
    SpeakoutCategory:   speakoutcategory_incidents
-   NetworkUser:        networkuser_raymond
+   Network:            kustomcruisers_network
+   sfGuardUser:        user_raymond
