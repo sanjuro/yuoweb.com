@@ -55,7 +55,7 @@ class feedActions extends sfActions
 	      	
 	      	$notification = new Notification();
 			$notification->setNetworkId($this->network->getId());
-			$notification->setNetworkuserId($this->networkuser->getId());
+			$notification->setUserId($this->getUser()->getUserId());
 			$notification->setNotificationtypeId(2);
 			$notification->save();
 	      	
