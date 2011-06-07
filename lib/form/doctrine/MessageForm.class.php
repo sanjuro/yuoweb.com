@@ -98,7 +98,7 @@ class MessageForm extends BaseMessageForm
 	  $FriendChoice = array();
 	 
  	  foreach ( $Users as $Friend ) {
- 	  	$FriendChoice[$Friend['sfGuardUser']['id']] = ucwords($Friend['sfGuardUser']['first_name'].' '.$Friend['sfGuardUser']['last_name']);
+ 	  	$FriendChoice[$Friend['id']] = ucwords($Friend['username']);
  	  }
  	  
       return $FriendChoice;
