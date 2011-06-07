@@ -24,22 +24,6 @@ class NetworkUser extends BaseNetworkUser
     return (string) $sfGuardUser[0]['username'];
   }	
      
-
-/**
- * Function to return all photos for a network user
- *  
- * @param Doctrine_Query $q Doctrine_Query
- * 
- * @return array All photos
- */ 
-  public function getPhotos()
-  {
-       $q = Doctrine_Query::create()
-	      ->from('Photo p')
-	      ->where('p.networkuser_id = ?',  $this->getId()); 
-
-	   return $q->fetchArray();		  	     
-  }
   
 /**
  * Function to return the associated sfGuardUser array for network user

@@ -24,7 +24,7 @@ class photoActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->photos = $this->network->getPhotos();
+    $this->photos = $this->network->getPhotos();  
   }
   
   public function executeShowphoto(sfWebRequest $request)

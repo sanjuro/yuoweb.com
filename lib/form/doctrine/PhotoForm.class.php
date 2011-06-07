@@ -42,6 +42,8 @@ class PhotoForm extends BasePhotoForm
 	    'max_size'   => 'File size limit is 1MB, please make your file smaller',
 	    'mime_types' => 'The file must be a supported type.'
 	));
+	
+	$this->setDefault('is_private', false);
     
   }
   

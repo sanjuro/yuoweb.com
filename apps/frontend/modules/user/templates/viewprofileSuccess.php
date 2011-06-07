@@ -79,3 +79,8 @@
 	
 	<input type="submit" value="Save your changes" />
  	</form>
+ 	
+	<h3>Profile: Photos</h3>
+  	<p>
+		<?php include_partial('photo/photos', array( 'photos' => $photos, 'network' => $network ))?>
+	</p>

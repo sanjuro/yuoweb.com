@@ -46,7 +46,7 @@ class friendActions extends sfActions
  	
  	$this->friendcount = $this->user->getAllFriendsForNetworkCount();
  		
- 	$this->photos = $this->networkuser->getPhotos();   
+ 	$this->photos = $this->user->getPhotosForUser();   
   }
   
   public function executeAddfriendrequest(sfWebRequest $request)
@@ -172,7 +172,7 @@ class friendActions extends sfActions
 	      if ($this->form->isValid())
 	      {	 	
 	      	$values = $this->form->getValues();
-	      	
+	     
 	      	$this->users = $this->network->getPublicUsers($values['search']);
 	      	
 	      	$this->friends = $this->sfGuardUser->getAllFriendsForNetwork();  

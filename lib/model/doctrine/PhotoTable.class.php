@@ -37,8 +37,7 @@ class PhotoTable extends Doctrine_Table
 	      ->from('Photo p');
 	  } 
 	  
-	    $q->from('Photo p')	  
-          ->where('p.is_private = 1')
+	    $q->where('p.is_private != 1')
           ->orderBy('p.created_at DESC')
           ->limit(4);
 		

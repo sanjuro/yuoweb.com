@@ -200,9 +200,9 @@ class Network extends BaseNetwork
   public function getPublicUsers($SearchTerm)
   {
 	 $q = Doctrine_Query::create()
-       ->from('NetworkUser nu')
-       ->where('is_private = ?', 0)
-       ->leftJoin('nu.sfGuardUser sgu')
+       ->from('sfGuardUser sgu')
+       ->where('up.is_private = ?', 0)
+       ->leftJoin('sgu.UserProfile up')
        ->andWhere('sgu.username LIKE ?', '%'.$SearchTerm.'%');
  
      $users = $q->fetchArray();
@@ -261,10 +261,13 @@ class Network extends BaseNetwork
   {
 	  $q = Doctrine_Query::create()
        ->from('Photo p')
-       ->where('p.network_id = ?', $this->getId());
-	  
-	  $photos =  Doctrine_Core::getTable('Photo')->getPhotosForNetworkWithLimit($q)->fetchArray();
-	  
+       ->where('p.network_id = ?', $this->getId())
+	   ->andWhere('p.is_private != 1')
+       ->orderBy('p.created_at DESC')
+       ->limit(4);
+
+	  $photos = $q->fetchArray();
+	   
 	  return (!empty($photos)?$photos:false);
   }
   

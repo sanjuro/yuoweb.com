@@ -13,18 +13,18 @@
 	</p>
 
 	<h3>Search Results</h3>
-	<p>	
+	<p>
 	   <?php if (is_object($users) && $users->count() > 0) :?>
 		<?php foreach ( $users as $user ):?>
-	 	<span><?php echo $user['sfGuardUser']['username'] ?></span>
-		 	<?php if(!empty($friends[$user['sfGuardUser']['id']])) :?>
+	 	<span><?php echo $user['username'] ?></span>
+		 	<?php if(!empty($friends[$user['id']])) :?>
 		 		<span>
 		 		is your Friend
 		 		<span><?php echo link_to('Block', url_for('@friend_blockfriend?user='.$user['id']))?></span>
 		 		</span>
 		 	<?php else :?>
-		 		<span><?php echo link_to('Add', url_for('@friend_addfriendrequest?user='.$user['id']))?></span>
-		 		<span><?php echo link_to('View', url_for('@friend_showfriend?user='.$user['sfGuardUser']['id'].'&network_id='.$network->getId()))?></span>
+		 		<span><?php echo link_to('Add', url_for('@friend_addfriendrequest?username='.$user['username']))?></span>
+		 		<span><?php echo link_to('View', url_for('@friend_showfriend?username='.$user['username']))?></span>
 	 	<?php endif; ?>
 	 <?php endforeach; ?>
 	<?php else :?>

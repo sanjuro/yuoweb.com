@@ -25,6 +25,8 @@ class userActions extends sfActions
     $this->user = $this->getRoute()->getObject(); 
      
     $this->userprofile = $this->user->getSfGuardUserWithUserProfile();
+    
+    $this->photos = $this->user->getPhotosForUser();   
 
 	$this->form = new FrontendUserForm( $this->userprofile, array ( 'sfGuardUser' => $this->user ) );
 

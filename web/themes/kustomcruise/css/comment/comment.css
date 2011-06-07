@@ -1,6 +1,7 @@
 .list-comments, .comment_list{
  background-color:#ECEFF5;
- font-size: 0.8em;
+ font-size: 0.9em;
+ padding-left: 3px;
  width: 100%;
 }
 

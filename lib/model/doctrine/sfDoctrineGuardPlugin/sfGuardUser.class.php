@@ -76,6 +76,22 @@ class sfGuardUser extends PluginsfGuardUser
   }
   
 /**
+ * Function to return all photos for a network user
+ *  
+ * @param Doctrine_Query $q Doctrine_Query
+ * 
+ * @return array All photos
+ */ 
+  public function getPhotos()
+  {
+       $q = Doctrine_Query::create()
+	      ->from('Photo p')
+	      ->where('p.user_id = ?',  $this->getId()); 
+
+	   return $q->fetchArray();		  	     
+  }
+  
+/**
  * Function to return all photos for a user
  *  
  * @param Doctrine_Query $q Doctrine_Query
