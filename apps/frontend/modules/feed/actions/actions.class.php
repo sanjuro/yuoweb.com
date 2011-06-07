@@ -26,7 +26,7 @@ class feedActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   { 
-    $this->feedsForUser = $this->sfGuardUser->getFeeds();
+    $this->feedsForUser = $this->sfGuardUser->getFeeds(5);
   
     $this->followingsWithFeeds = $this->sfGuardUser->getFeedsForFriends();
     
@@ -68,4 +68,85 @@ class feedActions extends sfActions
   	
   }
  }
+ 
+ /**
+  * Executes more action to show more feeds using a
+  * Doctrine pager not the Symfony provided one.
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeMore(sfWebRequest $request)
+  { 
+    $this->user = $this->getRoute()->getObject();
+    
+  	$this->feedsForUser = $this->user->getFeeds(10);
+  	
+  	$page = 1;
+  	
+    // pager
+    if ($request->getParameter('page'))
+    {
+     $page =  $request->getParameter('page');
+    }
+	
+    $pager = $this->getPager($this->user->getId(), $page, 10);
+    
+    $this->pager = $pager;
+    
+    $feeds = $this->pager->execute();
+
+    $this->feeds = $this->cleanFeeds($feeds);
+  }
+  
+ /**
+  * Function to build the pager
+  *
+  * @param integer $userid The user id of the User whos feeds we need to retrieve
+  * @param integer $currentPage The page needed for the pager
+  * 
+  * @return 
+  */
+  protected function getPager($userid, $currentPage, $resultsPerPage)
+  {      
+	$pager = new Doctrine_Pager(
+      Doctrine_Query::create()
+	      ->from('Feed f')
+	      ->where('f.user_id = ?',  $userid)
+	      ->orderBy('f.created_at DESC'),
+      $currentPage, // Current page of request
+      $resultsPerPage // (Optional) Number of results per page. Default is 25
+      );
+     
+    // $event = $this->dispatcher->filter(new sfEvent($this, 'frontend.build_query'), $pager);
+    // $pager = $event->getReturnValue();
+    
+    return $pager;
+  }
+  
+ /**
+  * Function clean feeds and add the nice date stamps
+  *
+  * @param $feeds Array of Feeds
+  * 
+  * @return 
+  */
+  protected function cleanFeeds($feeds){
+  	 // Cleanup the feeds order by day
+	 $result = array();   
+ 
+	 foreach ($feeds as $feed){ 
+	 	$feed = $feed->toArray();
+		$oDate = strtotime($feed['created_at']);
+		$index = date("m_d_y",$oDate);
+		
+		$result[$index]['date_for_group'] = date('l',$oDate).', '.date('d',$oDate).' '.date('F',$oDate).' '.date('Y',$oDate);
+   	 
+	   	$result[$index]['feeds'][$feed['id']] = $feed;
+	   	$result[$index]['feeds'][$feed['id']]['posted_at'] = Yuoweb::time_offset(strtotime($feed['created_at']));
+	 
+	   }
+	
+	 return $result;
+  }
+
 }

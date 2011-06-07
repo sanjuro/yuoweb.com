@@ -259,3 +259,11 @@ feed_addfeed:
   param: { module: feed, action: addfeed }
   requirements:
      sf_method: [get, post]   
+     
+feed_more:   
+  url:   /More-Feeds/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: feed, action: more }
+  requirements:
+     sf_method: [get, post]  

@@ -19,7 +19,7 @@
 			        <li><?php echo link_to('Show Friends', url_for(strtolower($feature['Feature']['url']), $network ), array( "accesskey" => 2)) ?></li>
 			      </ul>	
 			      <p>
-			         You have <?php echo $friendcount ?> friends.
+			         You have <?php echo $friendcount ?> friend(s).
 			      <br>
 					<?php include_partial('friend/friendrequests', array( 'friendrequests' => $friendRequests )) ?>
 				  </p>

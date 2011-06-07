@@ -163,16 +163,24 @@ class sfGuardUser extends PluginsfGuardUser
  * Function to return all the feeds for a user order by 
  * created_at DESC - most recent first
  *  
- * @param Doctrine_Query $q Doctrine_Query
+ * @param integer $limit The amount of feeds to return
  * 
  * @return array All feeds for network user
  */ 
-  public function getFeeds()
+  public function getFeeds($limit = 0)
   {
-       $q = Doctrine_Query::create()
+	if($limit == 0){
+  	   $q = Doctrine_Query::create()
 	      ->from('Feed f')
 	      ->where('f.user_id = ?',  $this->getId())
 	      ->orderBy('f.created_at DESC');
+	}else {
+       $q = Doctrine_Query::create()
+	      ->from('Feed f')
+	      ->where('f.user_id = ?',  $this->getId())
+	      ->orderBy('f.created_at DESC')
+	      ->limit($limit);
+	}
 		
 	   $feeds = $q->fetchArray();	
 
@@ -197,15 +205,22 @@ class sfGuardUser extends PluginsfGuardUser
 /**
  * Function to return all the feeds for all friends of a user
  *  
- * @param Doctrine_Query $q Doctrine_Query
+ * @param integer $limit The amount of feeds to return
  * 
  * @return array All feeds
  */ 
-  public function getFeedsForFriends()
-  {
+  public function getFeedsForFriends($limit = 0)
+  {         
+  	if($limit == 0){
 	  $q = Doctrine_Query::create()
          ->from('Follow f')
          ->where('f.follower_id = ?', $this->getId());
+	}else {
+	  $q = Doctrine_Query::create()
+         ->from('Follow f')
+         ->where('f.follower_id = ?', $this->getId())
+	     ->limit($limit);
+	}
 		
       $friends_with_feeds =  Doctrine_Core::getTable('Follow')->getFriendsWithFeedsWithLimit($q, 8)->fetchArray();  
 

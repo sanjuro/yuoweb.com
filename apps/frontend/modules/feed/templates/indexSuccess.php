@@ -21,6 +21,8 @@
 			<?php endforeach; ?>
 			</ul>	
 		<?php endforeach; ?>
+		
+		<?php echo link_to('More', url_for('feed_more', $sf_user->getGuardUser())) ?>
 
 	</p>
 	<?php else : ?>
