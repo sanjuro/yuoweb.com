@@ -33,7 +33,7 @@ class FollowTable extends Doctrine_Table
 	    $q = Doctrine_Query::create()
          ->from('Follow f');
 	  }	  
-
+	
      return $this->fetchFriendsWithFeeds($q)->limit($feed_limit); 
    }  
 

@@ -220,6 +220,7 @@ class sfGuardUser extends PluginsfGuardUser
  
 /**
  * Function to return all the feeds for all friends of a user
+ * with a limit of how many friends
  *  
  * @param integer $limit The amount of feeds to return
  * 
@@ -238,8 +239,8 @@ class sfGuardUser extends PluginsfGuardUser
 	     ->limit($limit);
 	}
 		
-      $friends_with_feeds =  Doctrine_Core::getTable('Follow')->getFriendsWithFeedsWithLimit($q, 8)->fetchArray();  
-
+      $friends_with_feeds =  Doctrine_Core::getTable('Follow')->getFriendsWithFeedsWithLimit($q, 5)->fetchArray();  
+	
       foreach ( $friends_with_feeds as $key => $friend ) {
         	   foreach ($friend['Following']['Feed'] as $feed){
 				$oDate = strtotime($feed['created_at']);
