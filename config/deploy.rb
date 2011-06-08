@@ -1,5 +1,5 @@
 set :application, "yUoweb"
-set :domain,      "ec2-72-44-62-26.compute-1.amazonaws.com"
+set :domain,      "ec2-50-16-244-209.compute-1.amazonaws.com"
 set :deploy_to,   "/usr/share/#{domain}"
 ssh_options[:forward_agent] = true
 default_run_options[:pty]   = true  # Must be set for the password prompt from git to work
@@ -20,4 +20,4 @@ role :db,         domain, :primary => true             # This is where db migrat
 
 set :branch, "master"
 set :use_sudo, false
-set :keep_releases,  6
+set :keep_releases,  3

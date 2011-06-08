@@ -14,14 +14,14 @@
 			<li> 
 				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
 				<br>
-				<?php echo 'By '.$sf_user->getUsername().' '.$feed['posted_at'] ?>	
+				<?php echo 'By '.$user->getUsername().' '.$feed['posted_at'] ?>	
 			</li>	
 			<?php endforeach; ?>
 			</ul>	
 		<?php endforeach; ?>
 		
 		<?php if ($pager->haveToPaginate()): ?>		
-		    <a href="<?php echo url_for('feed_more', $sf_user->getGuardUser()) ?>?page=<?php echo $pager->getNextPage() ?>">
+		    <a href="<?php echo url_for('feed_more', $user) ?>?page=<?php echo $pager->getNextPage() ?>">
 		      More
 		    </a>
 	    <?php endif;?>
