@@ -16,6 +16,7 @@ class MessageForm extends BaseMessageForm
   public function configure()
   {
     unset(
+      $this['user_id'], $this['network_id'],
       $this['messagestatus_id'], $this['created_at'],
       $this['updated_at'], $this['htmlbody']
     );
@@ -35,7 +36,8 @@ class MessageForm extends BaseMessageForm
 	$this->widgetSchema['friend'] = new sfWidgetFormChoice (array( 'choices' => $this->getAllPublicUser($this->currentUser->getNetworkUserId()),
       													  'label' => 'Send to',
       											    ));
-
+      											    
+	$this->validatorSchema['friend'] = new sfValidatorString(array('min_length' => 1));
   }
   
   public function updateObject($values = null)
@@ -45,11 +47,9 @@ class MessageForm extends BaseMessageForm
       $values = $this->values;
     }	    
 	
-	$NetworkUser = Doctrine_Core::getTable('NetworkUser')->findOneById($this->currentUser->getNetworkUserId());
+	$values['user_id'] = $this->currentUser->getUserId();
 	
-	$values['networkuser_id'] = $NetworkUser->getId();
-	
-	$values['network_id'] = $NetworkUser->getNetworkId();
+	$values['network_id'] = $this->network->getId();
 	
 	$values['htmlbody'] = $values['body'];
 	
