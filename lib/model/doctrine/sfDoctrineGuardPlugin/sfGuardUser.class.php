@@ -174,6 +174,23 @@ class sfGuardUser extends PluginsfGuardUser
 
       return $q->count();
   } 
+  
+/**
+ * Function to return all the friends the user is following
+ *  
+ * @param 
+ * 
+ * @return array All Friends
+ */ 
+  public function getFollowing()
+  {
+	  $q = Doctrine_Query::create()
+         ->from('Follow f')
+         ->leftjoin('f.Following flg')
+         ->where('f.follower_id = ?', $this->getId());
+
+      return $q->fetchArray();
+  } 
 
 /**
  * Function to return all the feeds for a user order by 

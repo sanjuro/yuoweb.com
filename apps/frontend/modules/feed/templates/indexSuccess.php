@@ -31,31 +31,22 @@
 	</p>
 	<?php endif;?>
 
-	<?php if (count($followingsWithFeeds) > 0) :?>
+	<?php if (count($following) > 0) :?>
 	
-		<?php foreach ( $followingsWithFeeds as $friend ) : ?>
-			<?php if ($friend['Following']['id'] != $sf_user->getUserId()) :?>
-			  <h3><?php echo 'Feeds for '.$friend['Following']['username'] ?></h3>
-			  <p>		  
-				<?php foreach ( $friend['Following']['Feed'] as $group_date => $group_of_feeds ) : ?>
-					<h4 class="feed_list"><?php echo $group_of_feeds['date_for_group']  ?></h4>
-					<ul class="feed_list">
-					<?php foreach ( $group_of_feeds['feeds'] as  $feed ) : ?>
-					<li> 
-						<span class="feedlist_body"><?php echo $feed['body'] ?></span>
-						<br>
-						<?php echo 'By '.$friend['Following']['username'].' '.$feed['posted_at'] ?>	
-					</li>	
-					<?php endforeach; ?>
-					</ul>	
-				<?php endforeach; ?>
-		      </p>
-	    	<?php endif;?>  
+	 <h3>You are following </h3>
+		<ul class="feed_list">
+		<?php foreach ( $following as $friend ) : ?>
+			<li> 
+				<span class="feedlist_body">
+				<?php echo $friend['Following']['username'] ?>
+				<?php echo link_to('Show Feed', url_for('@feed_more?username='.$friend['Following']['username'])) ?>
+				</span>
+			</li>	
 		<?php endforeach; ?>
-
+		</ul>	
 	</p>
 	<?php else : ?>
 	<p>
-		<?php echo 'You have 0 Friend feeds' ?>
+		<?php echo 'You are not following anyone' ?>
 	</p>
 	<?php endif;?>
