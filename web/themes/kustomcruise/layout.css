@@ -37,6 +37,11 @@ a {
   color: #2e6ac4;
   text-decoration: none;
 }
+a.more {
+	font-size: 0.9em;
+	font-weight: bold;
+	padding-left: 3px;
+}
 a:hover{
 	text-decoration: underline;
 }

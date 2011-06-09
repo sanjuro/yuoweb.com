@@ -2,18 +2,27 @@ h4.feed_list {
 	font-size: 14px;
 	margin: 2px 0px;	
 }
-
-ul.feed_list  {
-	font-size: 0.8em;
+ul.follow_list {
+	margin: 0;	
+}
+ul.feed_list {
+	font-size: 0.8em;	
+}
+ul.follow_list {
+	font-size: 0.9em;	
+}
+ul.feed_list, ul.follow_list {
 	list-style: none;
     padding-left: 0px;
 }
-ul.feed_list li{
+ul.feed_list li, ul.follow_list li {
 	background-color: #F2F2F2;
 	padding: 5px;
 	margin-bottom: 5px;
 }
-
+ul.follow_list li {
+	border-bottom: 1px solid #2E6AC4;	
+}
 .feedlist_body {
 	font-weight: bold;
 	padding: 5px 0px; 

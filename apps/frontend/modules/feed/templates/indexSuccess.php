@@ -22,7 +22,7 @@
 			</ul>	
 		<?php endforeach; ?>
 		
-		<?php echo link_to('More', url_for('feed_more', $sf_user->getGuardUser())) ?>
+		<?php echo link_to('More', url_for('feed_more', $sf_user->getGuardUser()), array( 'class' => 'more')) ?>
 
 	</p>
 	<?php else : ?>
@@ -34,7 +34,7 @@
 	<?php if (count($following) > 0) :?>
 	
 	 <h3>You are following </h3>
-		<ul class="feed_list">
+		<ul class="follow_list">
 		<?php foreach ( $following as $friend ) : ?>
 			<li> 
 				<span class="feedlist_body">
