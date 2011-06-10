@@ -204,6 +204,14 @@ message_showmessage:
   requirements:
      sf_method: [get, post]
      
+message_more:
+  url:   /More-Messages/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: message, action: more }
+  requirements:
+     sf_method: [get, post]  
+     
 message_addmessage:
   url:   /New-Message/:slug
   class:   acNetworkObjectRoute
@@ -273,5 +281,13 @@ feed_more:
   class:   sfDoctrineRoute
   options: { model: sfGuardUser, type: object }
   param: { module: feed, action: more }
+  requirements:
+     sf_method: [get, post]  
+     
+feed_show:   
+  url:   /Show-Feed/:id
+  class:   sfDoctrineRoute
+  options: { model: Feed, type: object }
+  param: { module: feed, action: show }
   requirements:
      sf_method: [get, post]  

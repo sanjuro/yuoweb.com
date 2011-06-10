@@ -62,15 +62,16 @@ class sfGuardUser extends PluginsfGuardUser
 /**
  * Function to return all the messages for a user
  *  
- * @param q Doctrine_Query
+ * @param integer $limit Number of Messages to fetch
  * 
  * @return array All Messages
  */ 
-  public function getMessages(Doctrine_Query $q = null)
+  public function getMessages($limit)
   {
 	  $q = Doctrine_Query::create()
        ->from('MessageReciever mr')
-       ->where('mr.user_id = ?', $this->getId());
+       ->where('mr.user_id = ?', $this->getId())
+       ->limit($limit);
  
       return Doctrine_Core::getTable('MessageReciever')->getMessages($q);
   }

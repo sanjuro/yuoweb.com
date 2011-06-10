@@ -34,6 +34,17 @@ class feedActions extends sfActions
   }
   
  /**
+  * Executes comment action, this will allow users to comment on
+  * feeds
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeShow(sfWebRequest $request)
+  { 
+    $this->feed = $this->getRoute()->getObject(); 
+  }
+  
+ /**
   * Executes index action
   *
   * @param sfRequest $request A request object

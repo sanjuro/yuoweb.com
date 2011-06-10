@@ -3,6 +3,9 @@
 <?php slot( 'pagetitle', '<h1>'.$network->getTitle().' - Feeds</h1>' )?>
 
 	<h3> <?php echo 'Your Feed' ?></h3>
+    <ul id="messagenavigation">
+	      <li><?php echo link_to('Show Feeds', 'feed_index', $network) ?></li>
+	</ul>
 
 	<?php include_partial( 'feed/feedform', array ( 'form' => $form, 'network' => $network ) )?>
 
@@ -17,6 +20,8 @@
 				<span class="feedlist_body"><?php echo $feed['body'] ?></span>
 				<br>
 				<?php echo 'By '.$sf_user->getUsername().' '.$feed['posted_at'] ?>	
+				<br>
+				<?php echo link_to('Show', url_for('@feed_show?id='.$feed['id'] )) ?>
 			</li>	
 			<?php endforeach; ?>
 			</ul>	

@@ -26,12 +26,64 @@ class messageActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->messages = $this->sfGuardUser->getMessages();
+	$page = 1;
+  	
+    // pager
+    if ($request->getParameter('page'))
+    {
+     $page =  $request->getParameter('page');
+    }
+	
+    $pager = $this->getPager($this->sfGuardUser->getId(), $page, 10);
+    
+    $this->pager = $pager;
+    
+    $this->messages = $this->pager->execute();
   }
   
   public function executeShowinbox(sfWebRequest $request)
   {
-	$this->messages = $this->sfGuardUser->getMessages();
+	$page = 1;
+  	
+    // pager
+    if ($request->getParameter('page'))
+    {
+     $page =  $request->getParameter('page');
+    }
+	
+    $pager = $this->getPager($this->sfGuardUser->getId(), $page, 10);
+    
+    $this->pager = $pager;
+    
+    $this->messages = $this->pager->execute();
+  }
+  
+ /**
+  * Executes more action to show more feeds using a
+  * Doctrine pager not the Symfony provided one.
+  *
+  * @param sfRequest $request A request object
+  */
+  public function executeMore(sfWebRequest $request)
+  { 
+    $this->user = $this->getRoute()->getObject();
+    
+  	$this->messagesForUser = $this->user->getMessages(10);
+  	
+  	$page = 1;
+  	
+    // pager
+    if ($request->getParameter('page'))
+    {
+     $page =  $request->getParameter('page');
+    }
+	
+    $pager = $this->getPager($this->user->getId(), $page, 2);
+    
+    $this->pager = $pager;
+    
+    $this->messages = $this->pager->execute();
+
   }
   
   public function executeShowmessage(sfWebRequest $request)
@@ -83,7 +135,7 @@ class messageActions extends sfActions
 	      {	 
 	      	$signup = $this->form->save();
 	      	     
-	     	$this->getUser()->setFlash('notice', sprintf('Your message has been sent.'));
+	     	$this->getUser()->setFlash('notice', sprintf('Your reply has been sent.'));
 	      	
 	      	$this->redirect($this->generateUrl('message_index', $this->network));
 	      
@@ -146,6 +198,32 @@ class messageActions extends sfActions
 	      	      	
 	      }
 	}
+  }
+  
+ /**
+  * Function to build the pager for fetching messages
+  *
+  * @param integer $userid The user id of the User whos feeds we need to retrieve
+  * @param integer $currentPage The page needed for the pager
+  * 
+  * @return 
+  */
+  protected function getPager($userid, $currentPage, $resultsPerPage)
+  {      
+	$pager = new Doctrine_Pager(
+      Doctrine_Query::create()
+       ->from('MessageReciever mr')
+       ->where('mr.user_id = ?', $userid)
+       ->leftJoin('mr.Message m')
+       ->orderBy('m.created_at DESC')  ,
+      $currentPage, // Current page of request
+      $resultsPerPage // (Optional) Number of results per page. Default is 25
+      );
+     
+    // $event = $this->dispatcher->filter(new sfEvent($this, 'frontend.build_query'), $pager);
+    // $pager = $event->getReturnValue();
+    
+    return $pager;
   }
 
 }

@@ -72,6 +72,8 @@ abstract class BaseFeed extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
+        $commentable0 = new Doctrine_Template_Commentable();
         $this->actAs($timestampable0);
+        $this->actAs($commentable0);
     }
 }

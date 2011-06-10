@@ -211,6 +211,7 @@ Gender:
 Feed:
   actAs: 
    Timestampable: ~ 
+   Commentable: ~
   columns:
     id:                     { type: integer, primary: true, autoincrement: true }
     user_id:                { type: integer }

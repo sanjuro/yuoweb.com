@@ -21,7 +21,7 @@
 			      <p>
 			         You have <?php echo $friendcount ?> friend(s).
 			      <br>
-					<?php include_partial('friend/friendrequests', array( 'friendrequests' => $friendRequests )) ?>
+					<?php include_partial('friend/friendrequests', array( 'friendrequests' => $friendRequests, 'network' => $network )) ?>
 				  </p>
 			</div>
 			<?php elseif ($feature['Feature']['id'] == 3) : ?>
