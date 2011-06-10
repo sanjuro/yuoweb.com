@@ -14,9 +14,7 @@
 		<br>
 		<?php $sfGuardUser = $message->getsfGuardUser(); ?>
 		<?php echo $sfGuardUser['username'] ?>
-		<span class="messageline">
-		<?php echo link_to('Reply Message', url_for('message_replymessage', $messagereciever) )?> 
-		</span>
+		<?php echo link_to('Reply', url_for('message_replymessage', $messagereciever) )?> 
 		<br><br>
 		<b>Message:</b>
 		<br>
@@ -28,7 +26,5 @@
 		<br>
 		<?php echo $message->getCreatedAt() ?>
 		<br>
-		<span class="messageline">
-		<?php echo link_to('Reply Message', url_for('message_replymessage', $messagereciever) )?> 
-		</span>
+		<?php echo link_to('Reply', url_for('message_replymessage', $messagereciever) )?> 
 </p>
