@@ -170,7 +170,7 @@ ul.error_list {
 
 .flash_notice, .flash_error{
 	font-size: 0.8em;
-	padding: 3px 0px
+	padding: 3px 3px;
 	}
 .flash_notice {
 	background-color: green;

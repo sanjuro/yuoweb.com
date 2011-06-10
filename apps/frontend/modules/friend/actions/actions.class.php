@@ -176,7 +176,7 @@ class friendActions extends sfActions
 	      	$this->users = $this->network->getPublicUsers($values['search']);
 	      	
 	      	$this->friends = $this->sfGuardUser->getAllFriendsForNetwork();  
-	      	//echo '<pre>';print_r($this->friends);exit;
+	      	
 	     	$this->getUser()->setFlash('notice', sprintf('Search has completed.'));
 	      	
 	      }else {

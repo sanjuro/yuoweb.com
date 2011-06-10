@@ -10,15 +10,6 @@
  */
 class userActions extends sfActions
 {
-  public function preExecute()
-  {
- 	$this->network = Doctrine_Core::getTable('Network')
-	           		->findOneById($this->request->getParameter('network_id')); 
- 	
- 	if($this->getUser()->isAuthenticated()){
- 		$this->networkuser = $this->network->getUser($this->getUser()->getUserid()); 
- 	}
-  }
   
   public function executeViewprofile(sfWebRequest $request)
   {
@@ -74,6 +65,58 @@ class userActions extends sfActions
   
   public function executeViewprofileredirect(sfWebRequest $request){
   	
+  }
+  
+  public function executeInvite(sfWebRequest $request)
+  {
+	$this->user = $this->getRoute()->getObject();
+	
+  	$this->form = new FrontendInviteForm( '', array ( 'sfGuardUser' => $this->user ) );
+
+	if ($this->request->isMethod('post'))
+	{
+		  $this->form->bind(
+		    $request->getParameter($this->form->getName()),
+		    $request->getFiles($this->form->getName())
+		  );
+		  
+		  if ($this->form->isValid())
+	      {
+	      	$values = $this->form->getValues();
+	      	
+ 			$network = Doctrine_Core::getTable('Network')
+	           		->findOneBySlug($this->getUser()->getNetworkId());
+	      	
+	      	$inviter = $this->user->getFirstName().' '.$this->user->getLastName(); 
+	      	
+      $message = $this->getMailer()->compose(
+      array('headhancho@yuoweb.com' => 'yUo Web'),
+      $values['email_address'],
+      'yUo Web Invite',
+      <<<EOF
+You have been invited to {$network->getTitle()} by {$inviter}
+ 
+You can find the network at {$network->getSubdomain()}.yuoweb.com/Sign-In/ browse
+there via your mobile phone and click the Join link
+ 
+The yUo Web Team.
+EOF
+    );
+
+    $this->getMailer()->send($message);
+    
+    	  $this->getUser()->setFlash('notice', sprintf('Your invite has been sent.'));
+    
+    	  return $this->redirect('@network_dashboard');
+    
+	      }else {
+	      	
+	      	$this->getUser()->setFlash('error', sprintf('Your invite was not sent.'));
+	      	
+	      }
+	}else {
+		
+	}
   }
   
   public function executeShowallusers(sfWebRequest $request)

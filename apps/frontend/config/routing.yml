@@ -96,6 +96,14 @@ user_join:
   requirements:
      sf_method: [get, post]
      
+user_invite:
+  url:   /Invite-User/:username
+  class:   sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param:   { module: user, action: invite }
+  requirements:
+     sf_method: [get, post]
+
 #friends
 networkuser_index:
   url:   /Friends/:slug
